@@ -1,0 +1,14 @@
+{
+    "plugins": [
+        "disqus",
+        "richquotes"
+    ],
+    "pluginsConfig": {
+        "disqus": {
+            "shortName": "railsguideline"
+        },
+        "richquotes": {
+            "todos": true
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "RailsGuideline",
+    "version": "0.0.1",
+    "description": "초보자를 위한 레일스 가이드북",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RORLabGitBook/guideline.git"
+    },
+    "author": "ROR Lab. <admin@rorlab.org>",
+    "license": "Apache 2",
+    "dependencies": {
+      "gitbook-plugin-autocover": "0.0.5",
+      "gitbook-plugin-disqus": "0.0.1",
+      "gitbook-plugin-richquotes": "0.0.3"
+    }
+}
