@@ -5,9 +5,7 @@
 
 ### 1. Bryan Bibat의 RailsFTW
 
-http://railsftw.bryanbibat.net
-
-: [윈도우 개발머신에 설치하기](windows_install.html)
+http://railsftw.bryanbibat.net : [윈도우 개발머신에 설치하기](windows_install.html)
 
 ![](http://railsftw.bryanbibat.net/railsftw.png)
 
