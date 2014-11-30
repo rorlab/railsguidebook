@@ -1,9 +1,12 @@
 # rbenv 설치
 
-[레일스 공식웹사이트](http://rubyonrails.org/download)에서는 `rbenv`을 이용하여 루비를 설치할 것을 권고하고 있다. 그러나 이와 비슷한 것으로 [`rvm`](rvm.html)이란 것도 있다.  어떤 것을 사용할 것인가 망설일 필요가 없다. `rbenv`을 권하는 더 자세한 이유를 알고 싶다면 [Why choose rbenv over RVM?](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F)을 참고하기 바란다.
+[레일스 공식웹사이트](http://rubyonrails.org/download)에서는 **`rbenv`을 이용하여 루비를 설치할 것**을 권고하고 있다(레일스를 만든 `DHH`는 `rbenv`을 사용하고 있다). 
+
+이전에는 주로 [`rvm`](rvm.html)을 사용하였지만, `Bundler`을 이용하여 `Gemfile` 파일로 젬을 관리하게 됨에 따라, 사용법이 간단한 `rbenv`을 더 많이 사용하고 있다. 어떤 것을 사용할 것인가 망설일 필요가 없다. `rbenv`을 권하는 더 자세한 이유를 알고 싶다면 [Why choose rbenv over RVM?](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F)을 참고하기 바란다. 
+
+또 한편으로는 각자의 선호도에 따라 어떤 것을 선택하더라도 제대로만 사용하면 큰 문제가 없다는 의견도 만만치 않다([RVM and rbenv](http://jonathan-jackson.net/rvm-and-rbenv)).
 
 [`rbenv`](https://github.com/sstephenson/rbenv)을 이용하면 애플리케이션 별로 각기 다른 루비 버전을 쉽게 사용할 수 있고 새 버전이 릴리스될 때도 쉽게 업데이트할 수 있다. 아래에 운영시스템별로 설치법을 정리하였다.
-
 
 ### 맥 OS X
 
