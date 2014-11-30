@@ -105,3 +105,5 @@ $ rbenv rehash
 _**References:**_
 
 1. [Mischa Taylor's Coding Blog](http://misheska.com/blog/2013/06/15/using-rbenv-to-manage-multiple-versions-of-ruby/)
+2. [Why choose rbenv over RVM?](https://github.com/sstephenson/rbenv/wiki/Why-rbenv%3F)
+3. [RVM and rbenv](http://jonathan-jackson.net/rvm-and-rbenv)
