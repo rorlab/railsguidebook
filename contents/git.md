@@ -26,5 +26,7 @@
 
 ### Git GUI 툴
 
+가끔은 커맨드라인에서 `Git` 작업하는 것이 번거롭고 전체적인 상황을 그래픽으로 편하게 보고 싶은 경우 있다. 이럴 때는 아래의 두가지 툴을 사용하면 매우 편리하다. `SourceTree`는 무료, `Tower`는 유료.
+
 * [SourceTree](http://www.sourcetreeapp.com/) : 윈도우 및 맥용 무료 Git GUI. `git-flow` 기본내장. 강추...^^
 * [Tower](http://www.git-tower.com/) : 맥용 유료($59.00. paypal 가능) Git GUI. 최근에 Tower2로 업그레이드되었으며 `git-flow` 기능이 추가되었음.
