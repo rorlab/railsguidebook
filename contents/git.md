@@ -8,6 +8,12 @@
 
 ### 유익한 Git 공부 자료
 
+온오프라인에는 많은 자료가 있지만, 이런 격언이 생각나다. 
+
+```
+"부뚜막의 소금도 집어넣어야 짜다"
+```
+
 * [Pro Git](http://git-scm.com/book/ko)
 * [Pro Git 전자문서](http://dogfeet.github.io/articles/2012/progit.html)
 * [Git Cheat Sheet](https://www.atlassian.com/dms/wac/images/landing/git/atlassian_git_cheatsheet.pdf)
