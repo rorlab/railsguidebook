@@ -1,4 +1,4 @@
-# 초보자를 위한 레일스 가이드북
+# 초보자를 위한 레일스 가이드북 v1.0.5
 
 [![Build Status](https://www.gitbook.io/button/status/book/rorlab/railsguidebook)](https://www.gitbook.io/book/rorlab/railsguidebook/activity)
 
