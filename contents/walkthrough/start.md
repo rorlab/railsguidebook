@@ -138,20 +138,19 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 ```bash
 $ cd rcafe
-$ bin/rails server
+$ bin/rails s
 => Booting WEBrick
-=> Rails 4.1.1 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.0.rc2 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
-=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
 => Ctrl-C to shutdown server
-[2014-05-17 12:26:38] INFO  WEBrick 1.3.1
-[2014-05-17 12:26:38] INFO  ruby 2.1.2 (2014-05-08) [x86_64-darwin13.0]
-[2014-05-17 12:26:38] INFO  WEBrick::HTTPServer#start: pid=65766 port=3000
+r[2014-12-06 10:23:04] INFO  WEBrick 1.3.1
+[2014-12-06 10:23:04] INFO  ruby 2.1.5 (2014-11-13) [x86_64-darwin14.0]
+[2014-12-06 10:23:04] INFO  WEBrick::HTTPServer#start: pid=23153 port=3000
 ```
 
-`Booting WEBrick` : 레일스 프로젝트의 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다.
+`Booting WEBrick` : 레일스 프로젝트의 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다. `WEBrick`은 루비 라이브러리로 간단한 HTTP 웹서버 서비스를 제공한다.  
 
-`starting in development on http://0.0.0.0:3000` : 레일스 프로젝트는 3가지 모드에서 실행할 수 있다. 개발모드(development), 운영모드(production), 테스트모드(test). 따라서 현재 개발모드에서 실행되는 프로젝트를 HTTP 프로토콜을 이용하여 3000포트에서 시작한다는 것을 의미한다.
+`starting in development on http://localhost:3000` : 레일스 프로젝트는 3가지 모드에서 실행할 수 있다. 개발모드(development), 운영모드(production), 테스트모드(test). 따라서 현재 개발모드에서 실행되는 프로젝트를 HTTP 프로토콜을 이용하여 `localhost`의 3000포트에서 시작한다는 것을 의미한다.
 
 `rails server -h` 와 같은 `-h` 옵션을 사용하여 서버를 구동하면 여러가지 시작 옵션을 볼 수 있다.
 
