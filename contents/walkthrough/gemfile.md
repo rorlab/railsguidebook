@@ -1,14 +1,14 @@
 # Gemfile의 작성
 
-레일스 프로젝트를 생성하면 `Gemfile` 파일이 자동으로 생성된다. `Gemfile`은 다양한 `젬(gem)`들을 등록하는 파일로 텍스트 파일이다. 여기서 `젬`이란 다른 언어에서 흔히 접하게 되는 일종의 루비 라이브러리라고 간단하게 생각하면 된다. 이미 많은 `젬`들이 공개([http://rubygems.org](http://rubygems.org))되어 있기 때문에, 우리는 그저 필요한 `젬`을 `Gemfile`에 등록해서 사용하면 된다.
+레일스 프로젝트를 생성하면 프로젝트 루트 디렉토리에 `Gemfile` 파일이 자동으로 생성된다. `Gemfile`은 다양한 `젬(gem)`들을 등록하는 파일로 텍스트 파일이다. 여기서 `젬`이란 다른 언어에서 흔히 접하게 되는 일종의 루비 라이브러리라고 간단하게 생각하면 된다. 이미 많은 `젬`들이 공개([http://rubygems.org](http://rubygems.org))되어 있기 때문에, 우리는 그저 필요한 `젬`을 `Gemfile`에 등록해서 사용하면 된다.
 
 > **참고** : [루비툴박스 웹사이트](https://www.ruby-toolbox.com/)를 방문하면 다양한 젬을 카테고리별로 검색할 수 있다.  
 
 ### Bundler 설치하기
 
-레일스는 `젬`의 의존성 관리를 위해 [`Bundler`](http://bundler.io/)를 이용한다.
+레일스는 `젬`의 의존성 관리를 위해 [`Bundler`](http://bundler.io/)를 사용한다.
 
-`Bundler`는  `젬` 의존성 관리를 쉽게해주는 프로그램으로 레일스에서 사용하는 `젬`을 다운로드 받아서 사용할수 있게 하는 역할을 한다. 위에서 언급한 `Gemfile`이 `Bundler`에서 사용하는 `젬` 의존성 정의 파일이고 `Gemfile`에 정의된 `젬`들의 의존성을 파악해서 올바른 `젬`을 사용할 수 있도록 하는 명령어는 `bundle`이다.
+`Bundler`는  `젬` 의존성 관리를 쉽게해주는 프로그램으로 레일스에서 사용하는 `젬`을 다운로드 받아서 사용할수 있게 하는 역할을 한다. 위에서 언급한 `Gemfile`이 `Bundler`에서 사용하는 `젬` 의존성 정의 파일이고, `bundle`은 `Gemfile`에 정의된 `젬`들의 의존성을 파악해서 올바른 `젬`을 사용할 수 있도록 하는 명령어다.
 
 `Bundler` 설치는 다음의 명령어로 가능하다. `rbenv`을 사용하는 경우 `Bundler` 설치후 `rbenv rehash`를 잊어서는 안된다.
 
@@ -30,24 +30,89 @@ gem 'simple_form'
 ```
 
 [참고사항]
->[`bootstrap-sass`](https://github.com/twbs/bootstrap-sass) : 반응형 모바일 웹브라우져 환경을 구축하기 위한 프론트엔드 프레임워크 중의 하나인 Twitter-Bootstrap을 레일스 프로젝트에서 사용하기 쉽게 해 주는 젬이다.
+>[`bootstrap-sass`](https://github.com/twbs/bootstrap-sass) : 반응형 모바일 웹브라우져 환경을 구축하기 위한 프론트엔드 프레임워크 중의 하나인 `Twitter-Bootstrap`(줄여서 `Bootstrap`이라고도 함)을 레일스 프로젝트에서 사용하기 쉽게 해 주는 젬이다.
 
->[`simple_form`](https://github.com/plataformatec/simple_form) : bootstrap과 함께 form을 사용할 때 잘 어울리는 젬으로 simple_form을 사용할 수 있다.
+>[`simple_form`](https://github.com/plataformatec/simple_form) : `bootstrap`과 함께 레일스의 `form_for` 헬퍼메소드을 사용할 때 잘 어울리는 젬이다.
 
 
 ### 젬 설치하기
 
-`젬`을 `Gemfile`에 등록한 것으로 바로 사용할 수 있는 것은 아니다. `bundle install`이라는 커맨드라인 명령을 수행하여 설치하는 과정이 필요하다. 아래와 같이 명령을 실행한다.
+`젬`을 `Gemfile`에 등록한 것만으로 바로 사용할 수 있는 것은 아니다. `bundle install`이라는 커맨드라인 명령을 수행하여 설치하는 과정이 필요하다. 아래와 같이 명령을 실행한다.
 
 ```
-$ bundle install
+$ bin/bundle install
+Fetching gem metadata from https://rubygems.org/..........
+Resolving dependencies...
+Using rake 10.4.2
+Using i18n 0.7.0.beta1
+Using json 1.8.1
+Using minitest 5.4.3
+Using thread_safe 0.3.4
+Using tzinfo 1.2.2
+Using activesupport 4.2.0.rc2
+Using builder 3.2.2
+Using erubis 2.7.0
+Using mini_portile 0.6.1
+Using nokogiri 1.6.5
+Using rails-deprecated_sanitizer 1.0.3
+Using rails-dom-testing 1.0.5
+Using loofah 2.0.1
+Using rails-html-sanitizer 1.0.1
+Using actionview 4.2.0.rc2
+Using rack 1.6.0.beta2
+Using rack-test 0.6.2
+Using actionpack 4.2.0.rc2
+Using globalid 0.3.0
+Using activejob 4.2.0.rc2
+Using mime-types 2.4.3
+Using mail 2.6.3
+Using actionmailer 4.2.0.rc2
+Using activemodel 4.2.0.rc2
+Using arel 6.0.0
+Using activerecord 4.2.0.rc2
+Using debug_inspector 0.0.2
+Using binding_of_caller 0.7.2
+Using sass 3.2.19
+Installing bootstrap-sass 3.1.1.1
+Using bundler 1.7.6
+Using columnize 0.9.0
+Using debugger-linecache 1.2.0
+Using slop 3.6.0
+Using byebug 3.5.1
+Using coffee-script-source 1.8.0
+Using execjs 2.2.2
+Using coffee-script 2.3.0
+Using thor 0.19.1
+Using railties 4.2.0.rc2
+Using coffee-rails 4.1.0
+Using hike 1.2.3
+Using multi_json 1.10.1
+Using jbuilder 2.2.5
+Using jquery-rails 4.0.0
+Using tilt 1.4.1
+Using sprockets 2.12.3
+Using sprockets-rails 2.2.2
+Using rails 4.2.0.rc2
+Using rdoc 4.1.2
+Using sass-rails 4.0.5
+Using sdoc 0.4.1
+Installing simple_form 3.1.0
+Using spring 1.2.0
+Using sqlite3 1.3.10
+Using turbolinks 2.5.2
+Using uglifier 2.5.3
+Using web-console 2.0.0
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
-> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 안되는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 완료된다. 사설로 `젬` 저장소를 운영하거나 git 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요는 없다.
+> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 안되는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 설치된다. 개인적으로 `젬` 저장소를 운영하거나 `git` 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요는 없다.
 
 `Bootstrap`을 실제로 프로젝트에 적용하기 위해서 약간의 설정 과정이 필요한다.
 
-우선, 모든 css 파일에서 `Bootstrap`의 모든 스타일, mixin, 변수들을 사용하기 위해서는 아래와 같이 추가한다.
+우선, 모든 [`scss` 파일](http://stackoverflow.com/a/5654471/1217633)에서 `Bootstrap`의 모든 스타일, mixin, 변수들을 사용하기 위해서는 아래와 같이 추가한다.
+
+> **INFO** : `SASS`에 대한 것은 '[SASS 간단정리](http://soooprmx.com/wp/archives/5059)'를 참고하면 도움이 된다. 
 
 ### Bootstrap Asset 설정
 
@@ -82,7 +147,24 @@ body { padding-top: 60px; }
 `Bootstrap`과 `Simple_form`을 연결하기 위해 아래와 같이 `Simple_form`을 `--bootstrap` 옵션과 함께 설치한다.
 
 ```
-$ rails generate simple_form:install --bootstrap
+$ bin/rails generate simple_form:install --bootstrap
+[Simple Form] Simple Form is not configured in the application and will use the default values. Use `rails generate simple_form:install` to generate the Simple Form configuration.
+      create  config/initializers/simple_form.rb
+      create  config/initializers/simple_form_bootstrap.rb
+       exist  config/locales
+      create  config/locales/simple_form.en.yml
+      create  lib/templates/erb/scaffold/_form.html.erb
+===============================================================================
+
+  Be sure to have a copy of the Bootstrap stylesheet available on your
+  application, you can get it on http://getbootstrap.com/.
+
+  Inside your views, use the 'simple_form_for' with one of the Bootstrap form
+  classes, '.form-horizontal' or '.form-inline', as the following:
+
+    = simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|
+
+===============================================================================
 ```
 
 ### Git 커밋후 Github에 푸시하기
