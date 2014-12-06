@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v 2.1.2](https://www.ruby-lang.org/ko/news/2014/05/09/ruby-2-1-2-is-released/) : 2014년 5월 9일 릴리스됨.
-* [rails v 4.1.1](http://weblog.rubyonrails.org/2014/5/6/Rails_3_2_18_4_0_5_and_4_1_1_have_been_released/) : 2014년 5월 6일 릴리스됨.
+* [ruby v 2.1.5](https://www.ruby-lang.org/ko/news/2014/11/13/ruby-2-1-5-is-released/) : 2014년 11월 13일 릴리스됨.
+* [rails v 4.2.0.rc2](http://weblog.rubyonrails.org/2014/12/5/Rails-4-2-0-rc2-has-been-released/) : 2014년 12월 5일 릴리스됨. 
 
 
 ### 소스 코드
@@ -57,6 +57,7 @@ $ rails new rcafe
       create  bin/bundle
       create  bin/rails
       create  bin/rake
+      create  bin/setup
       create  config
       create  config/routes.rb
       create  config/application.rb
@@ -67,6 +68,7 @@ $ rails new rcafe
       create  config/environments/production.rb
       create  config/environments/test.rb
       create  config/initializers
+      create  config/initializers/assets.rb
       create  config/initializers/backtrace_silencers.rb
       create  config/initializers/cookies_serializer.rb
       create  config/initializers/filter_parameter_logging.rb
@@ -121,7 +123,8 @@ $ rails new rcafe
 .
 .
 .
-
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
          run  bundle exec spring binstub --all
 * bin/rake: spring inserted
 * bin/rails: spring inserted
@@ -134,6 +137,7 @@ $ rails new rcafe
 이제 프로젝트 디렉토리로 이동하여 터미널에서 아래와 같이 로컬 웹서버를 실행한다.
 
 ```bash
+$ cd rcafe
 $ bin/rails server
 => Booting WEBrick
 => Rails 4.1.1 application starting in development on http://0.0.0.0:3000
