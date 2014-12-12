@@ -19,3 +19,5 @@
 
 ROR Lab. 운영자<br /> 최 효 성
 
+[![RORLAB](rorlab_final_sticker_187x95_white.png)](http://rorla.rorlab.org)
+
