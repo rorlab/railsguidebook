@@ -12,8 +12,10 @@ ruby 2.0
 대신에 루비 버전 관리자를 설치하여 루비를 버전별로 사용할 수 있도록 한다. 이를 위해서 `rbenv`을 이용하는 것이 추천된다. [rbenv 설치](rbenv.html)를 참고하여 설치한 후, 루비의 최신 버전인 2.1.2를 설치해 보자. 우선 `rbenv` 플러그인인  [`ruby-build`](https://github.com/sstephenson/ruby-build) 목록에 설치가능한 루비 버전이 어떤 것이 있는지 알아보자.(`rbenv` 최신버전을 설치하면 `ruby-build` 플러그인이 자동으로 설치된다)
 
 ```sh
-$ rbenv install list
+$ rbenv install --list
 ```
+
+> **Info** --list 옵션은 줄여서 -l 로 지정할 수도 있다. 
 
 만약, 목록 중에 2.1.2 버전이 없으면 `ruby-build` 플러그인을 업데이트할 필요가 있다. `homebrew`를 이용하여 `ruby-build`를 설치했다면 아래와 같이 업데이트할 수 있다.
 
