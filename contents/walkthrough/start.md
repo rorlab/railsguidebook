@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v 2.1.2](https://www.ruby-lang.org/ko/news/2014/05/09/ruby-2-1-2-is-released/) : 2014년 5월 9일 릴리스됨.
-* [rails v 4.1.1](http://weblog.rubyonrails.org/2014/5/6/Rails_3_2_18_4_0_5_and_4_1_1_have_been_released/) : 2014년 5월 6일 릴리스됨.
+* [ruby v 2.1.5](https://www.ruby-lang.org/ko/news/2014/11/13/ruby-2-1-5-is-released/) : 2014년 11월 13일 릴리스됨.
+* [rails v 4.2.0.rc2](http://weblog.rubyonrails.org/2014/12/5/Rails-4-2-0-rc2-has-been-released/) : 2014년 12월 5일 릴리스됨. 
 
 
 ### 소스 코드
@@ -57,6 +57,7 @@ $ rails new rcafe
       create  bin/bundle
       create  bin/rails
       create  bin/rake
+      create  bin/setup
       create  config
       create  config/routes.rb
       create  config/application.rb
@@ -67,6 +68,7 @@ $ rails new rcafe
       create  config/environments/production.rb
       create  config/environments/test.rb
       create  config/initializers
+      create  config/initializers/assets.rb
       create  config/initializers/backtrace_silencers.rb
       create  config/initializers/cookies_serializer.rb
       create  config/initializers/filter_parameter_logging.rb
@@ -121,7 +123,8 @@ $ rails new rcafe
 .
 .
 .
-
+Your bundle is complete!
+Use `bundle show [gemname]` to see where a bundled gem is installed.
          run  bundle exec spring binstub --all
 * bin/rake: spring inserted
 * bin/rails: spring inserted
@@ -134,20 +137,20 @@ $ rails new rcafe
 이제 프로젝트 디렉토리로 이동하여 터미널에서 아래와 같이 로컬 웹서버를 실행한다.
 
 ```bash
-$ bin/rails server
+$ cd rcafe
+$ bin/rails s
 => Booting WEBrick
-=> Rails 4.1.1 application starting in development on http://0.0.0.0:3000
+=> Rails 4.2.0.rc2 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
-=> Notice: server is listening on all interfaces (0.0.0.0). Consider using 127.0.0.1 (--binding option)
 => Ctrl-C to shutdown server
-[2014-05-17 12:26:38] INFO  WEBrick 1.3.1
-[2014-05-17 12:26:38] INFO  ruby 2.1.2 (2014-05-08) [x86_64-darwin13.0]
-[2014-05-17 12:26:38] INFO  WEBrick::HTTPServer#start: pid=65766 port=3000
+r[2014-12-06 10:23:04] INFO  WEBrick 1.3.1
+[2014-12-06 10:23:04] INFO  ruby 2.1.5 (2014-11-13) [x86_64-darwin14.0]
+[2014-12-06 10:23:04] INFO  WEBrick::HTTPServer#start: pid=23153 port=3000
 ```
 
-`Booting WEBrick` : 레일스 프로젝트의 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다.
+`Booting WEBrick` : 레일스 프로젝트의 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다. `WEBrick`은 루비 라이브러리로 간단한 HTTP 웹서버 서비스를 제공한다.  
 
-`starting in development on http://0.0.0.0:3000` : 레일스 프로젝트는 3가지 모드에서 실행할 수 있다. 개발모드(development), 운영모드(production), 테스트모드(test). 따라서 현재 개발모드에서 실행되는 프로젝트를 HTTP 프로토콜을 이용하여 3000포트에서 시작한다는 것을 의미한다.
+`starting in development on http://localhost:3000` : 레일스 프로젝트는 3가지 모드에서 실행할 수 있다. 개발모드(development), 운영모드(production), 테스트모드(test). 따라서 현재 개발모드에서 실행되는 프로젝트를 HTTP 프로토콜을 이용하여 `localhost`의 3000포트에서 시작한다는 것을 의미한다.
 
 `rails server -h` 와 같은 `-h` 옵션을 사용하여 서버를 구동하면 여러가지 시작 옵션을 볼 수 있다.
 

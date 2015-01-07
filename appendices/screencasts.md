@@ -9,3 +9,4 @@
 [국내자료]
 
 * [RORLab Podcast](http://rorlabpodcasts.github.io)
+* [RORLab Youtube Channel](http://youtube.com/user/rorlabkr)
