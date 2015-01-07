@@ -21,7 +21,7 @@ $ npm install gitbook -g
 
 ### 가이드북 Github 저장소 Forking 하기
 
-[Github](https://github.com)에 로그인한 상태에서 [https://github.com/RORLabGitBook/guideline](https://github.com/RORLabGitBook/guideline)로 접속한 후 우측 상단에 있는 `Fork` 버튼을 클릭한다.
+[Github](https://github.com)에 로그인한 상태에서 [https://github.com/RORLabGitBook/railsguidebook](https://github.com/RORLabGitBook/railsguidebook)로 접속한 후 우측 상단에 있는 `Fork` 버튼을 클릭한다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-18_20-08-57_zpsc381de0d.png)
 
