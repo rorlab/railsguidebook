@@ -68,6 +68,42 @@ $ open http://rcafe.dev
 
 http://rcafe.xxx.xxx.xx.xxx.xip.io
 
+
+
+### Foreman과 함께 사용하기
+
+로컬에서 레일스 서버와 함께 delayed_job과 같은 별개의 프로세스들을 동시에 실행해야 할 것 경우에는, [`foreman`](https://github.com/ddollar/foreman)을 사용하면 편리하다. 
+
+[`여기`](https://gist.github.com/dre1080/3980988)를 참고하면 쉽게 설정할 수 있다. 이를 위해서는 먼저 로컬에 foreman이 설치되어 있어야 한다. 
+
+1. 어플리케이션 루트 디렉토리에 `.powenv` 파일을 생성하고 아래와 같은 내용을 추가한다. 
+```
+# In your app's root.
+# Make Pow!! export all the env variables contained in the .env file used by Foreman.
+export $(cat .env)
+```
+2. 역시 어플리케이션 루트 디렉토리에 `.configuration.sh`파일을 생성하고 아래와 같은 내용을 추가한다. 
+
+  ```
+  # This should be run once only
+  cd /path/to/myapp
+  echo 7000 > .port # Whatever port your app server is using
+  ln -s $PWD/.port ~/.pow/`basename $PWD`
+  echo "port: 7000" > .foreman
+ 
+  # Then start your app normally everytime with:
+  # > foreman start
+  # Voila! App will be available at http://myapp.dev
+  ```
+
+  여기에서 수정이 필요한 곳은 3군데다. `/path/to/myapp`를 실제 어플리케이션 디렉토리로 변경하고, 포트를 원하는 것으로 변경하고자 한다면 7000이란 숫자를 두군데에서 변경하면 된다. 
+3. 이제 `foreman`을 아래와 같이 실행한다. 
+```
+$ foreman start
+```
+4. 다음은 브라우저에서 `http://{프로젝트명}.dev`로 접속해 본다. 
+
+  
 ---
 
 매뉴얼에 대한 자세한 내용을 원하면 http://pow.cx/manual.html 를 참고하기 바랍니다.
