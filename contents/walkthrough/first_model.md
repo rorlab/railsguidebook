@@ -103,9 +103,30 @@ database: /Users/hyo/prj/r4/rcafe/db/development.sqlite3
   down    20140501054730  Create posts
 ```
 
+db:migrate:redo 명령으로 취소했던 마이그레이션을 다시 실행할 수 있다.
+
+```bash
+$ bin/rake db:migrate:redo
+== 20140501054730 CreatePosts: migrating ======================================
+-- create_table(:posts)
+   -> 0.0011s
+== 20140501054730 CreatePosts: migrated (0.0012s) =============================
+```
+마이그레이션이 다시 실행된 상태('up')를 확인할 수 있다.
+
+```bash
+$ bin/rake db:migrate:status
+
+database: /Users/user/rcafe/db/development.sqlite3
+
+ Status   Migration ID    Migration Name
+--------------------------------------------------
+   up     20140501054730  Create posts
+```
+
 #### 마이그레이션 ID (Migration ID)
 
-이것은 마이그레이션 작업의 공유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 공유한 값을 가진다. 예를 들어 위에서 마이그레이션에 사용된 `20140501054730_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
+이것은 마이그레이션 작업의 고유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 고유한 값을 가진다. 예를 들어 위에서 마이그레이션에 사용된 `20140501054730_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
 
 #### 마이그레이션 이름(Migration Name)
 
