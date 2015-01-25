@@ -25,7 +25,7 @@
 
 #### index 액션
 
-DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 보여 준다.
+DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 보여 준다. posts 컨트롤러의 index 액션에서 인스턴스 변수 @posts에는 모든 객체가 저장된다. posts 뷰인 index.html.erb(app/views/posts/index.html.erb) 파일을 다음과 같이 **bootstrap 형식에 맞게** 수정했다. <% @posts.each do |post| %> 행에서 각 객체에 대한 정보를 post에 저장하고 브라우저에 보여줄 것이다.
 
 ```html
 <h2>Listing posts</h2>
@@ -60,7 +60,7 @@ DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 보여 준다.
 
 #### show 액션
 
-DB 쿼리후, 특정 모델의 특정 객체만을 불러와 보여 준다.
+DB 쿼리후, 특정 모델의 특정 객체만을 불러와 보여 준다. 다음은 posts 뷰인 show.html.erb(app/views/posts/show.html.erb)로 인스턴트 변수 @post에는 선택한 객체 정보가 저장된다. posts 컨트롤러를 확인해보면 show 액션에는 아무 내용도 없지만 private으로 선언된 set_post 메소드에 의해 파라미터로 넘겨받은 post 객체를 인스턴스 변수 @post에 저장한다.
 
 ```html
 <h2>Post Preview</h2>
@@ -91,11 +91,25 @@ DB 쿼리후, 특정 모델의 속성을 변경한 후 DB 테이블로 저장한
 #### destroy 액션
 
 DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
-액선 종류시 `index` 액션으로 리디렉트된다.
+액선 종료시 `index` 액션으로 리디렉트된다.
+
+#### new 액션
+
+새로운 데이터를 입력 받는 폼을 응답으로 보낸다. 새로운 입력을 처리하는 뷰 new.html.erb를 다음과 같이 수정한다. <%= render 'form' %>은 파셜 템플릿을 호출하는 헬프 메서드이다. 새로운 입력을 처리하는 뷰(new)와 자료 수정을 처리하는 뷰(edit) 양쪽에서 동일한 폼을 사용하기 때문에 코드 중복을 피하기 위해 파셜 템플릿이 사용된다.
+
+```html
+<h2>New post</h2>
+
+<%= render 'form' %>
+
+<hr>
+
+<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
+```
 
 #### form 파셜 템플릿 파일
 
-`new`와 `edit` 뷰 템플릿 파일에서 사용하는 `form` 파셜 템플릿 파일을 아래와 같이 수정한다.
+`new`와 `edit` 뷰 템플릿 파일에서 사용하는 `form` 파셜 템플릿 파일, _form.html.erb를 아래와 같이 수정한다. Content 열을 늘려 보기 좋게 변경했다.
 
 ```html
 <%= simple_form_for(@post) do |f| %>
@@ -113,25 +127,11 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 <% end %>
 ```
 
-#### new 액션
-
-새로운 데이터를 입력 받는 폼을 응답으로 보낸다.
-
-```html
-<h2>New post</h2>
-
-<%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
-```
-
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-05-03_12-20-43_zpse826f549.png)
 
 #### edit 액션
 
-기존 데이터를 수정하기 위한 폼을 응답으로 보낸다.
+기존 데이터를 수정하기 위한 폼을 응답으로 보낸다. 자료 수정을 처리하는 뷰 edit.html.erb를 다음과 같이 수정한다.
 
 ```html
 <h2>Editing post</h2>
@@ -148,6 +148,8 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 
 
 ### posts 컨트롤러
+
+scaffold에 의해 자동으로 생성된 posts 컨트롤러는 다음과 같다. 앞서 언급한대로 각 액션을 처리하는 뷰와 연결해서 생각해보면 컨트롤러가 자료를 어떻게 처리하는지 이해하는데 도움이 될 것이다.
 
 ```ruby
 class PostsController < ApplicationController
@@ -228,10 +230,6 @@ end
 
 ### before_action
 
-레일스 4부터 `_filter`가 `_action`으로 변경되었다.
-
-따라서 `before_filter`, `after_filter`, `around_filter`는 각각 `before_action`, `after_action`, `around_action`으로 변경되었다.
-
 컨트롤러의 상단에서 아래와 같은 `before_action` 필터를 볼 수 있다.
 
 ```ruby
@@ -249,9 +247,11 @@ private
 
 즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 특정 post를 조회한 후 `@post` 인스턴스 변수에 할당한다.
 
+이 기능은 필터라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 레일스 4부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
+
 ### Strong Parameters
 
-레일스 3에서는 mass assignment에 대한 화이트리스트를 해당 모델 클래스에서 `attr_accesible` 매크로로 작성하였다.
+레일스 3에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accesible` 매크로로 선언했다.
 
 ```
 class User < ActiveRecord::Base
