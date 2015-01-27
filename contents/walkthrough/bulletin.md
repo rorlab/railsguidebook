@@ -48,7 +48,6 @@ $ open http://localhost:3000/bulletins
 
 이전의 `posts` 뷰 페이지들과 같이 아래의 뷰 파일들을 `bootstrap` 클래스로 스타일을 수정한 후 브라우저로 확인한다.
 
-
 ### index 액션 뷰 템플릿 파일
 
 ```html
@@ -87,6 +86,8 @@ $ open http://localhost:3000/bulletins
 
 ### show 액션 뷰 템플릿 파일
 
+`show` 액션 뷰 템플릿은 차이가 있는데, 제목과 내용을 표 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
+
 ```html
 <h2>Preview Bulletin</h2>
 
@@ -108,6 +109,8 @@ $ open http://localhost:3000/bulletins
 <%= link_to 'Edit', edit_bulletin_path(@bulletin), class: 'btn btn-default' %>
 <%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
+
+모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 표준 시간대인 UTC를 기준으로 표시된다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-38-11_zps4cb136f4.png)
 
@@ -197,7 +200,7 @@ config.time_zone = 'Seoul'
 
 이제 `Created at` 값이 '2014-05-03 17:59:18 **+0900**' 와 같이 변경된 타임존에 맞게 나타나는 것을 볼 수 있다.
 
-> **Note** 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스 저장된 값을 항상 UTC 타임존으로 저장된다는 것을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 된다.
+> **Note** 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스는 값을 항상 UTC 타임존으로 저장한다는 사실을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 된다.
 
 
 ---
