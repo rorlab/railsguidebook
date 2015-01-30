@@ -64,7 +64,7 @@ $ bin/rails generate controller welcome index
       create      app/assets/stylesheets/welcome.css.scss
 ```
 
-이 명령 한줄로 여러 개의 파일들이 생성되었다. 모두 의미 있는 파일들이다. 먼저 `route`로 시작하는 세번째 줄을 보자. 이것은 `config/routes.rb` 파일에 `get 'welcome/index'`을 추가한다. 확인을 위해서 에디터로 이 파일을 열어 보면 아래와 같이 보일 것이다.
+이 명령 한줄로 여러 개의 파일들이 생성되었다. 모두 의미 있는 파일들이다. 먼저 `route`로 시작하는 세번째 줄을 보자. 이것은 `config/routes.rb` 파일에 `get 'welcome/index'`을 추가한다. 에디터로 이 파일을 열어 보면 아래와 같이 보일 것이다.
 
 ```ruby
 Rails.application.routes.draw do
@@ -86,7 +86,7 @@ end
 
 ![welcome_controller](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_11-13-10_zpsf5a549c1.png)
 
-짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬호스트 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 되는 것이다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 소스코드를 보자.
+짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬호스트 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 되는 것이다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 `welcome` 컨트롤러의 소스코드를 보자. 보는 바와 같이 애플리케이션 내의 모든 컨트롤러는 일차적으로  `ApplicationController` 클래스로부터 상속받는다.
 
 ```ruby
 class WelcomeController < ApplicationController
@@ -95,9 +95,9 @@ class WelcomeController < ApplicationController
 end
 ```
 
-`WelcomeController` 클래스의 `index` 액션에는 아무런 내용이 없다. 그런데도 위에서 본 브라우저 화면과 같은 결과물이 표시되는 것은 레일스의 COC(convention over configuration, 설정보다는 규칙을 따라라), 즉, 레일스 프레임워크의 법규를 따르기 때문이다. 다시말해서, 모든 액션이 실행된 후에는 `app/views/` 디렉토리에서 해당 컨트롤러의 이름과 동일한 디렉토리에서 동일한 액션명의 `.html.erb` 파일을 뷰 템플릿(`app/views/welcome/index.html.erb`)으로 사용하여 응답으로 보낼 파일(.html)을 렌더링한다.
+`WelcomeController` 클래스의 `index` 액션에는 아무런 내용이 없다. 그럼에도 불구하고 위에서 본 브라우저 화면과 같은 결과물이 표시되는 것은 레일스의 `C.O.C`(convention over configuration, 설정보다는 규칙을 따라라!), 즉, 레일스 프레임워크의 규칙를 따르기 때문이다. 다시말해서, 모든 액션(public 메소드)이 실행된 후에는 `app/views/` 디렉토리 아래에 있는 해당 컨트롤러의 이름과 동일한 디렉토리(여기서는 `welcome`)에서 동일한 액션명의 `erb`(여기서는 `index.html.erb`) 파일을 뷰 템플릿(`app/views/welcome/index.html.erb`)으로 사용하여 응답으로 보낼 파일(.html)을 렌더링한다.
 
-디폴트 생성된 이 뷰 템플릿 파일의 내용은 아래와 같다.
+디폴트로 생성된 이 뷰 템플릿 파일(`index.html.erb`)의 내용은 아래와 같다.
 
 ```html
 <h1>Welcome#index</h1>
