@@ -39,7 +39,11 @@ $ bin/rails generate scaffold Post title content:text
       create    app/assets/stylesheets/scaffolds.css.scss
 ```
 
-위에서 보는 바와 같이, 간단한 커맨드라인 명령으로 다양한 리소스 모듈들이 호출되고 연관 템플릿 파일들이 생성되었다. `MVC(Model-View-Controller)` 디자인 패턴에 따라 이 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
+위에서 보는 바와 같이, 간단한 커맨드라인 명령으로 다양한 리소스 모듈들이 호출되고 연관 템플릿 파일들이 생성되었다.
+
+하단에 있는 `scaffold.css.scss` 파일은 불필요하기 때문에 파일을 에디터로 열고 모든 스타일을 코맨트 처리하거나 삭제한다.
+
+`MVC(Model-View-Controller)` 디자인 패턴에 따라 생성된 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
 
 ```ruby
 class CreatePosts < ActiveRecord::Migration
@@ -127,7 +131,7 @@ database: /Users/rorlakr/rcafe/db/development.sqlite3
 
 #### 마이그레이션 ID (Migration ID)
 
-이것은 마이그레이션 작업의 고유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 고유한 값을 가진다. 예를 들어 위에서 마이그레이션에 사용된 `20140501054730_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
+이것은 마이그레이션 작업의 고유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 고유한 값을 가진다. 예를 들어, 위에서 사용된 `20140501054730_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
 
 #### 마이그레이션 이름(Migration Name)
 
@@ -135,22 +139,21 @@ database: /Users/rorlakr/rcafe/db/development.sqlite3
 
 #### schema_migrations 테이블
 
-데이터베이스 마이그레이션 작업은 `version`이라는 하나의 속성만을 가지는 `schema_migrations`라는 테이블에 마이그레이션 ID 값이 저장된다. 위에서 언급했던 마이그레이션 상태(Status)는 해당 마이그레이션 ID 값이 `schema_migrations` 테이블에 존재할 때 `up` 상태로 표시되고 없을 경우에 `down` 상태로 표시된다. 이를 확인하기 위해서 레일스 DB 콘솔로 접근해서 해당 테이블의 값을 조회해 보자.
+데이터베이스 마이그레이션 작업은 `version`이라는 하나의 속성만을 가지는 `schema_migrations`라는 테이블에 마이그레이션 ID 값이 저장된다. 위에서 언급했던 마이그레이션 상태(Status)는 해당 마이그레이션 ID 값이 `schema_migrations` 테이블에 존재할 때 `up` 상태로 표시되고 없을 경우에 `down` 상태로 표시된다. 이를 확인하기 위해서 **레일스 DB 콘솔**로 접근해서 해당 테이블의 값을 조회해 보자.
 
 ```bash
 $ bin/rails db
-SQLite version 3.7.13 2012-07-17 17:46:21
-Enter ".help" for instructions
-Enter SQL statements terminated with a ";"
+SQLite version 3.8.5 2014-08-15 22:37:57
+Enter ".help" for usage hints.
 sqlite> select version from schema_migrations;
-20140501054730
+20150130063424
 ```
 
 ### 리소스 라우팅
 
-브라우저에서 http://localhost:3000/posts 로 접근하면 아래와 같은 화면을 볼 수 있다.
+이제 브라우저에서 http://localhost:3000/posts 로 접근하면 아래와 같은 화면을 볼 수 있다. 
 
-![posts_index](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-10-08_zps09cc4c2c.png)
+![posts_index](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-47-26_zpsd0567b97.png)
 
 
 위에서 `Post` 모델을 scaffold 제너레이터를 이용하여 생성할 때 콘솔 출력내용 중 아래와 같은 부분을 발견할 수 있다.
