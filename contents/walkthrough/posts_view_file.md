@@ -31,40 +31,27 @@
 * `app/views/posts/edit.html.erb`
 
   ```
--<%= link_to 'Show', @post %> |
--<%= link_to 'Back', posts_path %>
-+<%= link_to 'Show', [@post.bulletin, @post] %> |
-+<%= link_to 'Back', bulletin_posts_path %>
+-<%= link_to 'Show', @post, class: 'btn btn-default' %>
+-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
++<%= link_to 'Show', [@post.bulletin, @post], class: 'btn btn-default' %>
++<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
-
-
-* `app/views/posts/index.html.erb`
-
-  ```
--<td><%= link_to 'Show', post %></td>
--<td><%= link_to 'Edit', edit_post_path(post) %></td>
--<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-+<td><%= link_to 'Show', [post.bulletin, post] %></td>
-+<td><%= link_to 'Edit', edit_bulletin_post_path(post.bulletin, post) %></td>
-+<td><%= link_to 'Destroy', [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-```
-
 
 * `app/views/posts/new.html.erb`
 
   ```
--<%= link_to 'Back', posts_path %>
-+<%= link_to 'Back', bulletin_posts_path %>
+-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
++<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
 
 * `app/views/posts/show.html.erb`
 
   ```
--<%= link_to 'Edit', edit_post_path(@post) %> |
--<%= link_to 'Back', posts_path %>
-+<%= link_to 'Edit', edit_bulletin_post_path(@post.bulletin, @post) %> |
-+<%= link_to 'Back', bulletin_posts_path %>
+-<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
+-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
++<%= link_to 'Edit', edit_bulletin_post_path(@post.bulletin, @post), class: 'btn btn-default %>
++<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
 
