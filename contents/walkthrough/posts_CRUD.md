@@ -62,7 +62,7 @@
 
 #### show 액션
 
-DB 쿼리후, 특정 모델의 특정 객체만을 불러와 보여 준다. `posts` 컨트롤러의 `show` 액션 뷰 템블릿 파일인 `show.html.erb(app/views/posts/show.html.erb)` 내의 인스턴트 변수 `@post`에는 선택한 객체 정보가 할당된다. `posts` 컨트롤러를 확인해보면 `show` 액션에는 아무 내용도 없지만 `private`으로 선언된 `set_post` 메소드에 의해 파라미터로 넘겨받은 `params[:id]`를 이용하여 `post` 객체를 인스턴스 변수 `@post`에 할당하게 된다.
+DB 쿼리후, 특정 모델의 특정 객체만을 불러와 보여 준다. `posts` 컨트롤러의 `show` 액션 뷰 템블릿 파일인 `show.html.erb(app/views/posts/show.html.erb)` 내의 인스턴트 변수 `@post`에는 선택한 객체 정보가 할당된다. `posts` 컨트롤러를 확인해 보면 `show` 액션에는 아무 내용도 없지만 `private`으로 선언된 `set_post` 메소드에 의해 파라미터로 넘겨받은 `params[:id]`를 이용하여 `post` 객체를 인스턴스 변수 `@post`에 할당하게 된다.
 
 ```html
 <h2>Post Preview</h2>
