@@ -90,16 +90,14 @@ bulletin.post_ids   bulletin.post_ids=  bulletin.posts      bulletin.posts=
 
 ### 관계선언의 잇점
 
-특정 게시판에 하나의 글을 추가한다고 가정해 보자. 우선,  `공지사항`이라는 `bulletin` 객체를 하나 생성하자.
+특정 게시판에 하나의 글을 추가한다고 가정해 보자. 우선, 레일스 콘솔을 열고 앞에서 생성했던 `공지사항`이라는 `bulletin` 객체를 불러 온다. 
 
 ```bash
 $ bin/rails console
 Loading development environment (Rails 4.2.0)
-irb(main):001:0> bulletin = Bulletin.create title:"공지사항"
-   (0.1ms)  begin transaction
-  SQL (0.4ms)  INSERT INTO "bulletins" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-04 09:05:25.688974"], ["title", "공지사항"], ["updated_at", "2014-05-04 09:05:25.688974"]]
-   (1.0ms)  commit transaction
-=> #<Bulletin id: 4, title: "공지사항", description: nil, created_at: "2014-05-04 09:05:25", updated_at: "2014-05-04 09:05:25">
+irb(main):001:0> bulletin = Bulletin.first
+  Bulletin Load (0.1ms)  SELECT  "bulletins".* FROM "bulletins"  ORDER BY "bulletins"."id" ASC LIMIT 1
+=> #<Bulletin id: 1, title: "공지사항", description: "공지사항을 입력하는 게시판입니다. ", created_at: "2015-01-30 10:55:47", updated_at: "2015-01-30 10:55:47">
 ```
 
 그리고 `post` 객체도 하나 생성하자.
@@ -124,31 +122,38 @@ irb(main):004:0> post.bulletin_id
 
 ```bash
 irb(main):005:0> bulletin.id
-=> 4
+=> 1
 irb(main):006:0> post.bulletin_id = bulletin.id
-=> 4
+=> 1
+irb(main):007:0> post.save
+   (0.1ms)  begin transaction
+  SQL (0.4ms)  UPDATE "posts" SET "bulletin_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["bulletin_id", 1], ["updated_at", "2015-01-30 11:59:53.609051"], ["id", 1]]
+   (1.6ms)  commit transaction
+=> true
 ```
 
 이제 아래와 같이 두 모델의 관계선언이 제대로 설정되었는지를 확인해 보자.
 
 ```bash
-irb(main):010:0> bulletin.posts
+irb(main):010:0> bulletin.reload.posts
   Post Load (0.2ms)  SELECT "posts".* FROM "posts"  WHERE "posts"."bulletin_id" = ?  [["bulletin_id", 4]]
 => #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스 가이드라인", created_at: "2014-05-04 09:06:54", updated_at: "2014-05-04 09:08:18", bulletin_id: 4>]>
 ```
 
+> **Caution** : 이 경우에는 `bulletin.posts` 대신에 `bulletin.reload.posts`와 같이 호출 해야 하는데, `bulletin` 변수는 `post.bulletin_id` 값을 변경하기 전의 상태이므로 변경 후의 상태를 갱신하기 위해서 `reload` 메소드를 사용해야 한다.
+
 지금까지 `bulletin` 객체에 임의의 `post` 객체를 추가하는 과정을 보았다. 왠지 모르게 번잡스러운 느낌이 든다.
 
-두 모델 클래스에서 관계선언을 한 경우에는 이러한 과정을 간단하게 해 줄 수 있다.
+두 모델 클래스에서 관계선언을 한 경우에는 이러한 과정을 간단하게 해결할 수 있다.
 
 ```bash
 irb(main):011:0> post = bulletin.posts.create title:"두번째 글", content: "관계선언을 이용하여 글을 등록합니다"
    (0.1ms)  begin transaction
-  SQL (0.3ms)  INSERT INTO "posts" ("bulletin_id", "content", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["bulletin_id", 4], ["content", "관계선언을 이용하여 글을 등록합니다"], ["created_at", "2014-05-04 09:20:18.328327"], ["title", "두번째 글"], ["updated_at", "2014-05-04 09:20:18.328327"]]
-   (1.0ms)  commit transaction
-=> #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2014-05-04 09:20:18", updated_at: "2014-05-04 09:20:18", bulletin_id: 4>
+  SQL (0.4ms)  INSERT INTO "posts" ("title", "content", "bulletin_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "두번째 글"], ["content", "관계선언을 이용하여 글을 등록합니다"], ["bulletin_id", 1], ["created_at", "2015-01-30 12:09:29.648254"], ["updated_at", "2015-01-30 12:09:29.648254"]]
+   (1.1ms)  commit transaction
+=> #<Post id: 2, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-01-30 12:09:29", updated_at: "2015-01-30 12:09:29", bulletin_id: 1>
 irb(main):012:0> bulletin.posts
-=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스 가이드라인", created_at: "2014-05-04 09:06:54", updated_at: "2014-05-04 09:08:18", bulletin_id: 4>, #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2014-05-04 09:20:18", updated_at: "2014-05-04 09:20:18", bulletin_id: 4>]>
+=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 1, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-01-30 11:54:26", updated_at: "2015-01-30 11:59:53", bulletin_id: 1>, #<Post id: 2, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-01-30 12:09:29", updated_at: "2015-01-30 12:09:29", bulletin_id: 1>]>
 irb(main):014:0> bulletin.posts.size
 => 2
 ```
@@ -157,4 +162,4 @@ irb(main):014:0> bulletin.posts.size
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.7장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_07
