@@ -104,7 +104,7 @@ end
 <p>Find me in app/views/welcome/index.html.erb</p>
 ```
 
-이와 같이 뷰 템플릿 파일에서 정적/동적 컨텐츠를 추가하면 바로 브라우저에서 응답결과로서 볼 수 있게 되는 것이다.
+이와 같이 뷰 템플릿 파일에 정적/동적 컨텐츠를 추가하면 바로 브라우저에서 응답결과로서 볼 수 있게 되는 것이다.
 
 이 파일의 내용을 아래와 같이 수정후 브라우저에서 확인해 보자.
 
@@ -113,7 +113,7 @@ end
 <p>이 페이지는 "RCafe 프로젝트"의 Welcome 페이지입니다.</p>
 ```
 
-![welcome_to_rcafe](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-07_12-08-53_zps70a3ff29.png)
+![welcome_to_rcafe](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-16-56_zps0144adca.png)
 
 여기서 `welcome` 컨트롤러의 `index` 액션을 루트 라우트로 지정하면 홈페이지(http://localhost:3000) 접속시에 자동으로 `welcome` 컨트롤러의 `index` 액션이 호출된다. 이를 위해서 `config/routes.rb`를 약간 수정해 보자.
 
