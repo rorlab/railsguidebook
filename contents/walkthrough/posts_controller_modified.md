@@ -57,12 +57,12 @@ Controller#Action : posts#index
 
 ### posts 컨트롤러의 변경
 
-`Controller#Action`의 `posts#index`는 `posts` 컨트롤러의 `index` 액션을 호출하라는 의미이다. 여기서는  `app/controllers/posts_controller.rb` 파일의 `index` 액션 코드만을 주목하자.
+`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 posts 컨트롤러도 수정해야 한다. 먼저 변경된 posts 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자.
 
 ``` ruby
 class PostsController < ApplicationController
 
- before_action :set_bulletin
+  before_action :set_bulletin
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -128,9 +128,92 @@ class PostsController < ApplicationController
 end
 ```
 
-`index` 액션의 인스턴스 변수 `@bulletin`는, 액션 실행전에 수행되는 `set_bulletin` 메소드의 결과로 만들어진다. 이 `private`  메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행된다. 반면에, `before_action`인 `set_post` 메소드는 `:show` `:edit`, `:update`, `:destroy` 액션이 실행되기 전에만 수행된다(`before_action` 매크로의 `:only` 옵션으로 지정함). 따라서 `index` 액션이 실행될 때는 `set_posts` 메소드가 사전에 실행되지 않게 된다. `index` 액션에서는 궁극적으로 인스턴스 변수 `@posts`를 생성하게 되고 이것은 해당 뷰 템플릿(`app/views/posts/index.html.erb`)에서 바로 사용할 수 있게 된다.
+먼저 `private` 메소드인 `set_bulletin`을 실행하는 `before_action` 필터가 지정되어 있다. 이 메소드는 posts 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다.(반면 `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에만 수행된다.)
 
+``` ruby
+class PostsController < ApplicationController
 
+  before_action :set_bulletin
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+```
+
+`index` 액션에서 인스턴스 변수 `@bulletin`이 `posts` 앞에 추가되었다. `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) 글을 저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
+
+``` ruby
+  def index
+    @posts = @bulletin.posts.all
+  end
+
+  def show
+  end
+
+  def new
+    @post = @bulletin.posts.new
+  end
+
+  def edit
+  end
+```
+
+새로운 글을 생성하는 `create` 액션에서도 게시판과 글의 종속 관계를 정의한다.(`@bulletin.posts.new`) 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 때문에 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 하므로 `redirect_to [@post.bulletin, @post]`로 변경되었다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
+
+``` ruby
+  def create
+    @post = @bulletin.posts.new(post_params)
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+```
+
+`destroy` 액션에서 글을 삭제하는 과정은 변함이 없다. `Bulletin` 모델과 `Post` 모델과의 관계는 일대다 관계로 글이 삭제된다고 해당 게시판에 영향을 미치지는 않기 때문이다. 반대로 게시판이 삭제되면 해당 게시판 내의 글이 모두 삭제되어야 하는데 이는 `Bulletin` 모델을 선언할 때 `Post` 모델과의 관계를 `dependent: :destroy`로 정의했기 때문에 자동으로 처리된다. 객체를 삭제한 다음 액션이 종료될 때 `index` 액션으로 리다이렉트 되는데 중첩 라우팅에 의해 `index` 액션의 경로 헬퍼 prefix가 `posts`에서 `bulletin_posts`로 바뀌었다. 따라서 리다이렉트 url도 `bulletin_posts_url`로 수정한다.
+
+``` ruby
+  def destroy
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to bulletin_posts_url, notice: 'Post was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+```
+
+마지막으로 `private` 메소드가 남았다. `private` 메소드는 클래스 안에서만 호출할 수 있는데, `before_action` 필터에 의해 먼저 실행될 `set_bulletin` 메소드는 파라미터로 넘겨 받은 게시판 id를 통해 해당 객체를 `@bulletin` 인스턴스 변수에 할당한다. 이렇게 해서 `posts` 컨트롤러에서 각 액션을 처리할 때 해당 글이 속하는 게시판 정보를 함께 처리할 수 있게 된다.
+
+``` ruby
+  private
+    def set_bulletin
+      @bulletin = Bulletin.friendly.find(params[:bulletin_id])
+    end
+
+    def set_post
+      @post = @bulletin.posts.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:title, :content)
+    end
+end
+```
 
 ---
 > **Git소스** https://github.com/rorlab/rcafe/tree/제5.9장
