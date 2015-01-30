@@ -96,21 +96,21 @@ $ bin/rake db:rollback
 ```bash
 $ bin/rake db:migrate:status
 
-database: /Users/hyo/prj/r4/rcafe/db/development.sqlite3
+database: /Users/rorlakr/rcafe/db/development.sqlite3
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-  down    20140501054730  Create posts
+  down    20150130063424  Create posts
 ```
 
-db:migrate:redo 명령으로 취소했던 마이그레이션을 다시 실행할 수 있다.
+`$ bin/rake db:migrate:redo` 명령으로 취소했던 마이그레이션을 다시 실행할 수 있다.
 
 ```bash
 $ bin/rake db:migrate:redo
-== 20140501054730 CreatePosts: migrating ======================================
+== 20150130063424 CreatePosts: migrating ======================================
 -- create_table(:posts)
-   -> 0.0011s
-== 20140501054730 CreatePosts: migrated (0.0012s) =============================
+   -> 0.0014s
+== 20150130063424 CreatePosts: migrated (0.0015s) =============================
 ```
 마이그레이션이 다시 실행된 상태('up')를 확인할 수 있다.
 
