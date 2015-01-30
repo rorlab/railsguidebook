@@ -48,9 +48,9 @@ end
 
 ### Bulletin 뷰 템플릿 파일의 변경
 
-`app/views/bulletins/_form.html.erb` 파일을 열어 아래의 코드를 추가해 준다.
+`app/views/bulletins/_form.html.erb` 파일을 열어 아래의 코드를 추가해 준다. Bulletin 형태를 게시판 또는 블로그로 선택할 수 있게 해준다.
 
-```html
+```ruby
 <div class="form-group">
   <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog']], input_html:{ class:'form-control'} %>
 </div>
@@ -58,9 +58,9 @@ end
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_17-52-00_zps4b0eb3c6.png)
 
-`app/views/bulletins/show.html.erb` 파일을 열어 아래의 코드를 추가해 준다.
+`app/views/bulletins/show.html.erb` 파일을 열어 아래의 코드를 추가한다. 선택한 게시판의 형태를 표시할 것이다. 
 
-```html
+```ruby
 <tr>
   <th>Post Type</th>
   <td><%= @bulletin.post_type %></td>
@@ -73,21 +73,21 @@ end
 
 `http://localhost:3000/bulletins`로 접속해서 세 개의 `bulletin`을 등록한다.(`'공지사항'`, `'새소식'`, `'가입인사'`)
 
-이제, 게시판의 형태에 따른 뷰를 보이도록 하기 위해서는 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
+게시판의 형태에 따른 뷰를 보이도록 하기 위해서는 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
 
-이제 `posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 옮기되, 마지막 `<%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>` 부분을 `<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>` 으로 수정하자.
+`posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 옮기되, 마지막 `<%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>` 부분을 `<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>` 으로 수정하자.
+
+`index.html.erb`에는 다음 내용만 남아 있게 된다. `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`을 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
 
 ```ruby
 <%= render "posts/post_types/#{@bulletin.post_type}" %>
 ```
 
-위에서 `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`는 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
-
 > **Note** `partial` 템플릿 파일에서는 부모 템플릿 파일에서 사용하는 모든 인스턴스 변수를 그대로 사용할 수 있다.
 
-`_blog.html.erb` 파일의 내용을 아래와 같이 작성한다.
+`_blog.html.erb` 파일의 내용을 아래와 같이 작성한다. 테이블 형태로 게시물을 보여줬던 `index.html.erb`와 비교해보면 조금 달라졌다.
 
-```html
+``` ruby
 <h2><%= params[:bulletin_id] %></h2>
 
 <% @posts.each do | post | %>
@@ -107,93 +107,13 @@ end
 <%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
 ```
 
-그리고 `app/constrollers/posts_controller.rb` 파일을 열고 아래와 같이 변경한다.
-
-```ruby
-class PostsController < ApplicationController
-  before_action :set_bulletin
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  # GET /posts
-  # GET /posts.json
-  def index
-    @posts = @bulletin.posts.all
-  end
-
-  # GET /posts/1
-  # GET /posts/1.json
-  def show
-  end
-
-  # GET /posts/new
-  def new
-    @post = @bulletin.posts.new
-  end
-
-  # GET /posts/1/edit
-  def edit
-  end
-
-  # POST /posts
-  # POST /posts.json
-  def create
-    @post = @bulletin.posts.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /posts/1
-  # DELETE /posts/1.json
-  def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to bulletin_posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
-    def set_bulletin
-      @bulletin = Bulletin.friendly.find(params[:bulletin_id])
-    end
-
-    def set_post
-      @post = @bulletin.posts.find(params[:id])
-    end
-
-    def post_params
-      params.require(:post).permit(:title, :content, :picture, :picture_cache)
-    end
-end
-```
-
 이제 `posts` 뷰 템플릿 파일들을 아래와 같이 수정한다.
 
 ### posts#new 뷰 템플릿 파일
 
-```html
+"New post"라는 제목 대신 글을 올리는 게시판 이름이 나오도록 했다.
+
+```ruby
 <h2><%= params[:bulletin_id] %></h2>
 
 <%= render 'form' %>
@@ -204,7 +124,9 @@ end
 
 ### posts#edit 뷰 템플릿 파일
 
-```html
+"Editing post"라는 제목 대신 글을 수정하는 게시판 이름이 나도오록 수정했다.
+
+```ruby
 <h2><%= params[:bulletin_id] %></h2>
 
 <%= render 'form' %>
@@ -216,7 +138,9 @@ end
 
 ### posts#show 뷰 템플릿 파일
 
-```html
+게시판 이름이 보이도록 수정했고 테이블 형태로 글을 보여준다.
+
+``` ruby
 <h2><%= params[:bulletin_id] %></h2>
 
 <table class='table'>
@@ -266,7 +190,7 @@ end
 
 그리고, `app/assets/stylesheets/` 디렉토리에 있는 `application.css.scss` 파일을 열고 아래와 같이 작성한다.(`@import 'posts';`을 추가했음)
 
-```html
+```bash
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 $navbar-default-bg: #312312;
