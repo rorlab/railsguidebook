@@ -25,7 +25,7 @@
 
 #### index 액션
 
-DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 보여 준다. `posts` 컨트롤러의 `index` 액션에서 인스턴스 변수 `@posts`에 모든 객체가 저장된다. `index` 액션의 뷰 템플릿 파일인 `index.html.erb(app/views/posts/index.html.erb)` 파일을 다음과 같이 ***bootstrap 형식에 맞게*** 수정한다. `<% @posts.each do | post | %>` 행의 `each` 블록에서 각 객체에 대한 정보를 블록 변수 `post`에 할당한 후 렌더링하게 된다.
+`posts` 컨트롤러의 `index` 액션에서 DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 인스턴스 변수 `@posts`에 할당한다. `index` 액션의 뷰 템플릿 파일인 `index.html.erb(app/views/posts/index.html.erb)` 파일을 다음과 같이 ***bootstrap 형식에 맞게*** 수정한다. `<% @posts.each do | post | %>` 행의 `each` 블록에서 각 객체에 대한 정보를 블록 변수 `post`에 할당한 후 렌더링하게 된다.
 
 ```html
 <h2>Listing posts</h2>
@@ -56,7 +56,9 @@ DB 쿼리후, 특정 모델(들)의 모든 객체를 불러와 보여 준다. `p
 <%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-05-03_12-17-22_zpsd8874ad6.png)
+브라우저에서 http://localhost:3000/posts 로 접속한 후 `New Post` 버튼을 클릭해서 글을 작성한 후 `index` 액션의 뷰 화면은 아래와 같다. 
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-25-44_zps5d737a01.png)
 
 #### show 액션
 
