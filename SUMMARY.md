@@ -23,7 +23,6 @@
    * [posts CRUD 살펴보기](contents/walkthrough/posts_CRUD.md)
    * [Bulletin 모델의 생성](contents/walkthrough/bulletin.md)
    * [모델 관계선언](contents/walkthrough/model_association.md)
-   * [friendly_id 젬 사용하기](contents/walkthrough/top_menu.md)
    * [posts 컨트롤러 변경](contents/walkthrough/posts_controller_modified.md)
    * [posts 뷰 변경](contents/walkthrough/posts_view_file.md)
    * [게시판 레이아웃 작성하기](contents/walkthrough/bulletin_type.md)
