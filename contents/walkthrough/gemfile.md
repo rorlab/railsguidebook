@@ -113,17 +113,17 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 위의 출력내용 중에서 `>>>>`로 표시된 부분이 추가될 젬을 나타낸다. 설명을 위해서 편집한 상태이다. 
 
-> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 연결되지 않는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 설치된다. 개인적으로 `젬` 저장소를 운영하거나 `git` 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요는 없다.
+> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 연결되지 않는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 설치된다. 개인적으로 `젬` 저장소를 운영하거나 `git` 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요없다.
 
-`Bootstrap`을 실제로 프로젝트에 적용하기 위해서 약간의 설정 과정이 필요한다.
+`Bootstrap`을 실제로 프로젝트에 적용하기 위해서 약간의 설정 과정이 필요하다.
 
-우선, 모든 [`scss` 파일](http://stackoverflow.com/a/5654471/1217633)에서 `Bootstrap`의 모든 스타일, mixin, 변수들을 사용하기 위해서는 아래와 같이 추가한다.
+우선, 모든 [`scss` 파일](http://stackoverflow.com/a/5654471/1217633)에서 `Bootstrap`의 모든 스타일, 믹신, 변수들을 사용하기 위해서 아래와 같이 추가한다.
 
 > **INFO** : `SASS`에 대한 것은 '[SASS 간단정리](http://soooprmx.com/wp/archives/5059)'를 참고하면 도움이 된다. 
 
 ### Bootstrap Asset 설정
 
-`app/assets/stylesheets/` 디렉토리 상의 `application.css`를 삭제하고 대신에 `application.css.scss` 파일을 생성하고 아래와 같이 추가한다.
+`app/assets/stylesheets/` 디렉토리 상의 `application.css`를 삭제하고 대신에 `application.scss` 파일을 생성하고 아래와 같이 추가한다.
 
 ```
 $light-orange: #ff8c00;
@@ -139,12 +139,12 @@ $navbar-default-link-hover-bg: black;
 body { padding-top: 60px; }
 ```
 
-`Bootstrap`의 모든 자바스크립트 헬퍼를 사용하기 위해서는 `app/assets/javascripts/application.js` 파일을 아래와 같이 수정한다. (//= require bootstrap 추가)
+`Bootstrap`의 모든 자바스크립트 헬퍼를 사용하기 위해서는 `app/assets/javascripts/application.js` 파일을 아래와 같이 수정한다. 
 
 ```
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap   <<< 추가한 부분 
 //= require turbolinks
 //= require_tree .
 ```
