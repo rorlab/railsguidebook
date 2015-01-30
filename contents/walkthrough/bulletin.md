@@ -86,7 +86,7 @@ $ open http://localhost:3000/bulletins
 
 ### show 액션 뷰 템플릿 파일
 
-`show` 액션 뷰 템플릿에서는 Title과 Descript    ion을 테이블 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
+`show` 액션 뷰 템플릿에서는 Title과 Description을 테이블 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
 
 ```ruby
 <h2>Preview Bulletin</h2>
