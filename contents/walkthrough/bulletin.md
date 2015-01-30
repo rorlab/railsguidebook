@@ -85,11 +85,11 @@ $ open http://localhost:3000/bulletins
 
 테스트용 데이터를 추가하면 아래와 같이 보인다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-28-59_zpsc7622442.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_19-56-42_zps9e0fd7c0.png)
 
 ### show 액션 뷰 템플릿 파일
 
-`show` 액션 뷰 템플릿에서는 Title과 Description을 테이블 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
+`show` 액션 뷰 템플릿에서는 **Title**과 **Description**을 테이블 형식으로 표시하고 **Created at**이라는 항목을 추가하여 생성한 시각을 보여준다.
 
 ```ruby
 <h2>Preview Bulletin</h2>
@@ -115,7 +115,7 @@ $ open http://localhost:3000/bulletins
 
 모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 UTC 타임존으로 표시된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-38-11_zps4cb136f4.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_19-59-12_zps467a56c9.png)
 
 
 ### form 파셜 템플릿 파일
@@ -161,7 +161,7 @@ $ open http://localhost:3000/bulletins
 <%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-33-57_zps1ff0d6f4.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_20-01-07_zps31c8eab4.png)
 
 
 ### 타임존(Timezone)
@@ -193,7 +193,7 @@ Seoul
 Tokyo
 ```
 
-타임존을 `Seoul`로 설정하기 위해서는 아래와 같이 값을 변경하고 로컬 웹서버 다시 시작한다. (config/application.rb)
+타임존을 `Seoul`로 설정하기 위해서는 아래와 같이 값을 변경하고 **로컬 웹서버 다시 시작한다**. (config/application.rb)
 
 ```ruby
 config.time_zone = 'Seoul'
