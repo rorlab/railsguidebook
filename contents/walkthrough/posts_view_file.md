@@ -39,12 +39,8 @@
 * `app/views/posts/index.html.erb`
 
   ```
--<%= link_to 'Show', post %>
--<%= link_to 'Edit', edit_post_path(post) %>
--<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-+<%= link_to 'Show', [post.bulletin, post] %>
-+<%= link_to 'Edit', edit_bulletin_post_path(post.bulletin, post) %>
-+<%= link_to 'Destroy', [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' } %>
+-<%= link_to 'New Post', post_path, class: 'btn btn-default' %>
++<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
   ```
 
 * `app/views/posts/new.html.erb`
@@ -70,11 +66,13 @@
 
 ```html
 <ul class="nav navbar-nav">
-  <li class="<%= params[:bulletin_id] == '공지사항' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('공지사항') %></li>
-  <li class="<%= params[:bulletin_id] == '새소식' ? 'active' : '' %>"><%= link_to '새소식', bulletin_posts_path('새소식') %></li>
-  <li class="<%= params[:bulletin_id] == '가입인사' ? 'active' : '' %>"><%= link_to '가입인사', bulletin_posts_path('가입인사') %></li>
+  <li class="<%= params[:bulletin_id] == '1' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('1') %></li>
+  <li class="<%= params[:bulletin_id] == '2' ? 'active' : '' %>"><%= link_to '새소식', bulletin_posts_path('2') %></li>
+  <li class="<%= params[:bulletin_id] == '3' ? 'active' : '' %>"><%= link_to '가입인사', bulletin_posts_path('3') %></li>
 </ul>
 ```
+
+그리고, `http://localhost:3000/bulletins` 로 접속한 후 `New Bulletin` 버튼을 클릭하여 "새소식"과 "가입인사" 게시판을 추가한다. 
 
 우리가 의도한 바는 상단 메뉴 항목를 클릭하면 해당 게시판으로 이동하고 해당 항목이 주황색의 글씨로 표시되도록 하는 것이다.
 (지금 상태에서 브라우저에서 확인하면 에러가 발생한다. 계속 진행하면서 별도의 지시가 있을 때 브라우저에서 확인하기로 한다.)
