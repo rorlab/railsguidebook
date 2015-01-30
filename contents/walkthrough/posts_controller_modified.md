@@ -40,7 +40,7 @@ edit_bulletin_post GET    /bulletins/:bulletin_id/posts/:id/edit(.:format) posts
               root GET    /                                                welcome#index
 ```
 
-위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 `URI Pattern` 중 심볼에 매칭되는 부분은 `params[]` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. 위의 예에서는 `params[:bulletin_id]` 키에 해당하는 파라미터 값을 불러와 액션에서 사용할 수 있게 된다.
+위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 `URI Pattern` 중 심볼에 매칭되는 부분은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. 위의 예에서는 `params[:bulletin_id]` 키에 해당하는 파라미터 값을 불러와 액션에서 사용할 수 있게 된다.
 
 특정 게시판의 게시물 목록을 불러오는 예를 들어 보자.
 
@@ -57,7 +57,7 @@ Controller#Action : posts#index
 
 ### posts 컨트롤러의 변경
 
-`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 posts 컨트롤러도 수정해야 한다. 먼저 변경된 posts 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자.
+`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자.
 
 ``` ruby
 class PostsController < ApplicationController
