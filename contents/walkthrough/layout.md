@@ -9,9 +9,9 @@ $ rails new rcafe
 ...중략 ~
 ```
 
-레일스에서는 `app/views/layouts/` 디렉토리에서 프로젝트 전용 레이아웃을 관리한다.
+레일스에서는 `app/views/layouts/` 디렉토리에서 애플리케이션의 레이아웃을 관리한다.
 
-특히 `application.html.erb` 파일은 전체 어플리케이션의 레이아웃을 만들어 주는데, 그 소스코드는 아래와 같다.
+특히 `application.html.erb` 파일은 전체 애플리케이션의 레이아웃을 만들어 주는데, 그 소스코드는 아래와 같다.
 
 ```html
 <!DOCTYPE html>
@@ -30,12 +30,12 @@ $ rails new rcafe
 </html>
 ```
 
-`.html.erb` 확장자로 끝나는 뷰 템플릿 파일들은 파인 내부에 `ERB(Embeded Ruby)` 코드를 포함하고 있다. 즉, HTML 파일에 루비코드를 삽입해 놓은 것이며 렌더링 과정 중에 연산 결과가 삽입된다. `<%= %>`와 같은 형태를 가지면 루비의 처리결과로 대체되며, `<% %>`와 같은 경우에는 삽입된 루비 코드를 실행만 한다.
+`.html.erb` 확장자로 끝나는 뷰 템플릿 파일들은 파일 내부에 `ERB(Embeded Ruby)` 코드를 포함하고 있다. 즉, HTML 파일에 루비코드를 삽입해 놓은 것이며 렌더링 과정 중에 루비 코드에 대한 처리 결과가 삽입된다. `<%= %>`와 같은 형태를 가지면 루비의 처리결과로 대체되며, `<% %>`와 같은 경우에는 삽입된 루비 코드를 실행만 한다.
 
 위의 HTML 코드 중 하단에 있는 `<%= yield %>` 부분을 주목하자.
-우선은 각각의 액션이 실행된 후 HTML로 렌더링되는 결과가 이 부분에 삽입된다고 알아 두자. 나중에 `yield`에 대해서 자세히 다루도록 하겠다.
+우선은 각 액션이 실행된 후 HTML로 렌더링되는 결과가 이 부분에 삽입된다고 알아 두자. 나중에 `yield`에 대해서 자세히 다루도록 하겠다.
 
-언급한 바와 같이, 어플리케이션 레이아웃은 어플리케이션의 전체 레이아웃을 만들어 준다. 따라서 전체 어플리케이션의 페이지 모습을 일관성 있게 변경하고자 할 때 바로 이 `application.html.erb` 파일에서 작업을 해 주면 된다. <body></body> 태그의 내용을 다음과 같이 수정하자. 모든 페이지에 `Bootstrap`의 `navbar` 메뉴가 추가될 것이다.
+언급한 바와 같이, 애플리케이션 레이아웃은 애플리케이션의 전체 레이아웃을 만들어 준다. 따라서 전체 애플리케이션의 페이지 모습을 일관성 있게 변경하고자 할 때 바로 이 `application.html.erb` 파일에서 작업을 해주면 된다. `<body></body>` 태그의 내용을 다음과 같이 수정하자. 모든 페이지에 `Bootstrap`의 `navbar` 메뉴가 추가될 것이다.
 
 ```html
 <body>
@@ -81,25 +81,10 @@ $ rails new rcafe
 </body>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-18-15_zps22c4fd56.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20rorla%202/2015-01-30_16-31-03_zps228be807.png)
 
-페이지 상단 부분이 `navbar`에 가려지는 문제를 해결하기 위해서는 아래와 같이 `app/assets/stylesheets/application.css.scss` 파일을 수정한다. 하단의 `body { top-padding: 60px; }`을 추가한다.
 
-```css
-$light-orange: #ff8c00;
-$navbar-default-color: $light-orange;
-$navbar-default-bg: #312312;
-$navbar-default-link-color: gray;
-$navbar-default-link-active-color: $light-orange;
-$navbar-default-link-hover-color: white;
-$navbar-default-link-hover-bg: black;
-
-@import 'bootstrap';
-
-body { padding-top: 60px; }
-```
-
-아제 브라우저를 다시 로딩하면 제대로 보이게 될 것이다.
+이제 브라우저를 다시 로딩하면 제대로 보이게 될 것이다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-25-31_zps48e2c9f3.png)
 
