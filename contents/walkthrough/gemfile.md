@@ -185,7 +185,7 @@ $ git commit -m "Gemfile에 젬추가 : bootstrap-sass & simple_form"
 
 `Github`에서 `rcafe`라는 저장소를 만들고 URL 주소를 로컬저장소의 원격 저장소 `origin`으로 등록한 후, 커밋내용을 `Github`로 푸시한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-07_10-52-32_zps9ac80427.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_18-29-24_zps5db315d4.png)
 
 이에 대한 자세한 내용은 아래를 참고하자.
 
