@@ -24,16 +24,16 @@ end
 
 > **Note** 단, 이와 같이 두 모델의 관계를 선언하는 것만으로 실제 DB 테이블이 자동으로 연결되지 않는다. 즉, 관계형 데이터베이스에서 두 테이블이 관계를 가지기 위해서는 자식 테이블 필드 중에 부모 테이블의 `id`를 외래키(foreign key)로 가지고 있어야 한다.
 
-실제 이 두 모델이 액티브레코드를 통해서 연결되는 각각의 테이블을 물리적으로 연결하기 위해서는 `posts` 테이블에 `bulletin_id`(모델명 + 'id')이란 정수형의 필드를 추가해 주어야 한다.
+액티브레코드를 통해서 이 두 모델이  연결되는 각각의 테이블을 물리적으로 연결하기 위해서는 `posts` 테이블에 `bulletin_id`(모델명 + 'id')란 정수형(integer형)의 필드를 추가해 주어야 한다.
 
-> **Note** 레일스의 모든 모델 클래스는 각각의 해당 테이블의 `primary key`가 `id`인 것으로 가정한다. 이것은 레일스의 규칙이다. 물론 `id` 이외의 다른 키를 `primary key`로 사용할 수 있지만, 부가적인 작업을 더 해주어야 하기 때문에 매우 불편하다. 따라서 레일스 나라에서 살려면 레일스의 법을 준수할 필요가 있는 것이다.
+> **Note** 레일스의 모든 모델 클래스는 해당 테이블의 `primary key`가 `id`인 것으로 가정한다. 이것은 레일스의 규칙이다. 물론 `id` 이외의 다른 키를 `primary key`로 사용할 수 있지만, 부가적인 작업을 더 해주어야 하기 때문에 불편하다. 따라서 레일스 나라에서 살려면 레일스의 법을 준수할 필요가 있는 것이다.
 
-이번에는 `posts` 테이블에 `bulletin_id` 필드를 추가하기 위해 마이그레이션 파일을 작성해 보자.
+따라서 `posts` 테이블에 `bulletin_id` 필드를 추가하기 위해 마이그레이션 파일을 작성한다.
 
 ```bash
-$ bin/rails g migration AddBulletinIdToPosts bulletin_id:integer:index
+$ bin/rails g migration add_bulletin_id_to_posts bulletine_id:integer
       invoke  active_record
-      create    db/migrate/20140509005154_add_bulletin_id_to_posts.rb
+      create    db/migrate/20150130114421_add_bulletin_id_to_posts.rb
 ```
 
 위의 `bulletin_id:integer:index`와 같이 추가할 필드명과 데이터형 다음에 `index` 옵션을 지정하면 해당 필드에 대한 인덱스 파일이 지정되며, 이는 빠른 검색을 가능하게 한다.
