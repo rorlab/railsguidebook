@@ -1,11 +1,11 @@
 # Bulletin 모델의 생성
 
-때로는 글의 성격에 따라 별도로 관리할 필요가 있다. `게시판`의 개념을 도입하면 원하는 만큼의 게시판을 작성하여 글을 게시판별로 묶을 수 있다. 이를 위해서 `Bulletin`이란 모델을 작성하기로 하자.
+때로는 글의 성격에 따라 별도로 관리할 필요가 있다. `게시판`의 개념을 도입하면 원하는 만큼의 게시판을 추가로 작성하여 글을 게시판별로 묶을 수 있다. 이를 위해서 `Bulletin`이란 모델을 작성하기로 하자.
 
 ```bash
 $ bin/rails g scaffold Bulletin title description:text
       invoke  active_record
-      create    db/migrate/20140503084439_create_bulletins.rb
+      create    db/migrate/20150130105025_create_bulletins.rb
       create    app/models/bulletin.rb
       invoke    test_unit
       create      test/models/bulletin_test.rb
@@ -26,17 +26,18 @@ $ bin/rails g scaffold Bulletin title description:text
       invoke    helper
       create      app/helpers/bulletins_helper.rb
       invoke      test_unit
-      create        test/helpers/bulletins_helper_test.rb
       invoke    jbuilder
       create      app/views/bulletins/index.json.jbuilder
       create      app/views/bulletins/show.json.jbuilder
       invoke  assets
       invoke    coffee
-      create      app/assets/javascripts/bulletins.js.coffee
+      create      app/assets/javascripts/bulletins.coffee
       invoke    scss
-      create      app/assets/stylesheets/bulletins.css.scss
+      create      app/assets/stylesheets/bulletins.scss
       invoke  scss
-   identical    app/assets/stylesheets/scaffolds.css.scss
+    conflict    app/assets/stylesheets/scaffolds.scss
+  Overwrite /Users/hyo/prj/rorlakr/rcafe/app/assets/stylesheets/scaffolds.scss? (enter "h" for help) [Ynaqdh] n
+        skip    app/assets/stylesheets/scaffolds.scss
 ```
 
 DB 마이그레이션 후 브라우저에서 확인해 보자.
@@ -81,6 +82,8 @@ $ open http://localhost:3000/bulletins
 
 <%= link_to 'New Bulletin', new_bulletin_path, class: 'btn btn-default' %>
 ```
+
+테스트용 데이터를 추가하면 아래와 같이 보인다. 
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-28-59_zpsc7622442.png)
 
