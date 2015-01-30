@@ -95,19 +95,6 @@ DB 쿼리후, 특정 모델의 속성을 변경한 후 DB 테이블로 저장한
 DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 액션 종료시 `index` 액션으로 리디렉트된다.
 
-#### new 액션
-
-새로운 데이터를 입력 받을 폼을 응답으로 보낸다. `new` 액션 뷰 템블릿 파일인 `new.html.erb`를 다음과 같이 수정한다. `<%= render 'form' %>`은 `_form.html.erb` 파셜 템플릿을 불러와 `render` 메소드로 삽입해 준다. 새로운 입력을 처리하는 뷰(new)와 자료 수정을 처리하는 뷰(edit) 양쪽에서 동일한 폼을 사용하기 때문에 코드 중복을 피하기 위해 파셜 템플릿이 사용된다. `new` 액션 뷰 템플릿 파일을 아래와 같이 수정하고 브라우저에서 확인한다. 
-
-```html
-<h2>New post</h2>
-
-<%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
-```
 
 #### form 파셜 템플릿 파일
 
@@ -129,11 +116,25 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 <% end %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-05-03_12-20-43_zpse826f549.png)
+#### new 액션
+
+새로운 데이터를 입력 받을 폼을 응답으로 보낸다. `new` 액션 뷰 템블릿 파일인 `new.html.erb`를 다음과 같이 수정한다. `<%= render 'form' %>`은 `_form.html.erb` 파셜 템플릿을 불러와 `render` 메소드로 삽입해 준다. 새로운 입력을 처리하는 뷰(new)와 자료 수정을 처리하는 뷰(edit) 양쪽에서 동일한 폼을 사용하기 때문에 코드 중복을 피하기 위해 파셜 템플릿이 사용된다. `new` 액션 뷰 템플릿 파일을 아래와 같이 수정하고 브라우저에서 확인한다. 
+
+```html
+<h2>New post</h2>
+
+<%= render 'form' %>
+
+<hr>
+
+<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
+```
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-50-52_zps54d3a9dd.png)
 
 #### edit 액션
 
-기존 데이터를 수정하기 위한 폼을 응답으로 보낸다. edit 액션 뷰 템플릿 파일 edit.html.erb를 다음과 같이 수정한다.
+기존 데이터를 수정하기 위한 폼을 응답으로 보낸다. `edit` 액션 뷰 템플릿 파일 `edit.html.erb`를 다음과 같이 수정한다.
 
 ```html
 <h2>Editing post</h2>
@@ -146,7 +147,7 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-05-03_12-21-51_zps869f6832.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-52-53_zpsbe607ecf.png)
 
 
 ### posts 컨트롤러
