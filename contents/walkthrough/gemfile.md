@@ -18,16 +18,18 @@ $ gem install bundler
 
 이제부터 `Gemfile` 이 있는 곳에서 `bundle install` 명령어를 실행하면 `Gemfile`에 명시된 `젬`을 사용할 수 있게된다.
 
-> **주의** : 새로운 루비 버전을 설치할 때마다 `bundler` 젬을 설치해야 한다.
+> **Warning** : 새로운 루비 버전을 설치할 때마다 `bundler` 젬을 설치해야 한다.
 
 ### 사용할 젬 소개
 
-레일스 프로젝트를 생성하면 이미 다수의 젬들이 등록되어 있다. 이 젬들은 레일스 프로젝트가 실행되기 위한 최소한의 것들이다. 모든 `젬`은 버전을 가지고 있어서 이러한 버전이 때로는 호환성 문제로 매우 중요하게 다루어진다. 프로젝트 디렉토리를 유심히 보면 `Gemfile.lock` 파일을 찾을 수 있다. 이 파일은 `bundle install`로 설치된 젬들의 버전을 기억해 두는 파일 정도로 생각하면 된다. 따라서 이 파일은 소스관리(git)에 포함해 두는 것이 좋다. 이것은 다른 개발자가 동일한 소스로 개발할 때 동일한 `젬` 버전을 사용할 수 있게 해 주어 호환성의 문제를 해결할 수 있는 방법이 되기도 한다.
+레일스 프로젝트를 생성하면 이미 다수의 젬들이 등록되어 있다. 이 젬들은 레일스 프로젝트가 실행되기 위한 최소한의 것들이다. 모든 `젬`은 버전을 가지고 있어서 이러한 버전이 때로는 호환성 문제로 매우 중요하게 다루어진다. 
+
+> **Info** : 프로젝트 디렉토리를 유심히 보면 `Gemfile.lock` 파일을 찾을 수 있다. 이 파일은 `bundle install`로 설치된 젬들의 버전을 기억해 두는 파일 정도로 생각하면 된다. 따라서 이 파일은 소스관리(git)에 포함해 두는 것이 좋다. 이것은 다른 개발자가 동일한 소스로 개발할 때 동일한 `젬` 버전을 사용할 수 있게 해 주어 호환성의 문제를 해결할 수 있는 방법이 되기도 한다.
 
 이제 여러가지 기능을 구현하기 위해 필요한 `젬`들을 `Gemfile`에 추가해 보자. 추가할 `젬` 목록은 아래와 같다.
 
 ```
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass', '~> 3.3.3'
 gem 'simple_form'
 ```
 
@@ -46,69 +48,72 @@ $ bin/bundle install
 Fetching gem metadata from https://rubygems.org/..........
 Resolving dependencies...
 Using rake 10.4.2
-Using i18n 0.7.0.beta1
-Using json 1.8.1
-Using minitest 5.4.3
+Using i18n 0.7.0
+Using json 1.8.2
+Using minitest 5.5.1
 Using thread_safe 0.3.4
 Using tzinfo 1.2.2
-Using activesupport 4.2.0.rc2
+Using activesupport 4.2.0
 Using builder 3.2.2
 Using erubis 2.7.0
-Using mini_portile 0.6.1
-Using nokogiri 1.6.5
+Using mini_portile 0.6.2
+Using nokogiri 1.6.6.2
 Using rails-deprecated_sanitizer 1.0.3
 Using rails-dom-testing 1.0.5
 Using loofah 2.0.1
 Using rails-html-sanitizer 1.0.1
-Using actionview 4.2.0.rc2
-Using rack 1.6.0.beta2
-Using rack-test 0.6.2
-Using actionpack 4.2.0.rc2
+Using actionview 4.2.0
+Using rack 1.6.0
+Using rack-test 0.6.3
+Using actionpack 4.2.0
 Using globalid 0.3.0
-Using activejob 4.2.0.rc2
+Using activejob 4.2.0
 Using mime-types 2.4.3
 Using mail 2.6.3
-Using actionmailer 4.2.0.rc2
-Using activemodel 4.2.0.rc2
+Using actionmailer 4.2.0
+Using activemodel 4.2.0
 Using arel 6.0.0
-Using activerecord 4.2.0.rc2
+Using activerecord 4.2.0
+Using execjs 2.2.2
+>>>> Installing autoprefixer-rails 5.1.0
 Using debug_inspector 0.0.2
 Using binding_of_caller 0.7.2
-Using sass 3.2.19
-Installing bootstrap-sass 3.1.1.1
-Using bundler 1.7.6
+Using sass 3.4.10
+>>>> Installing bootstrap-sass 3.3.3
+Using bundler 1.7.12
 Using columnize 0.9.0
 Using debugger-linecache 1.2.0
 Using slop 3.6.0
 Using byebug 3.5.1
-Using coffee-script-source 1.8.0
-Using execjs 2.2.2
+Using coffee-script-source 1.9.0
 Using coffee-script 2.3.0
 Using thor 0.19.1
-Using railties 4.2.0.rc2
+Using railties 4.2.0
 Using coffee-rails 4.1.0
 Using hike 1.2.3
 Using multi_json 1.10.1
-Using jbuilder 2.2.5
-Using jquery-rails 4.0.0
+Using jbuilder 2.2.6
+Using jquery-rails 4.0.3
 Using tilt 1.4.1
 Using sprockets 2.12.3
-Using sprockets-rails 2.2.2
-Using rails 4.2.0.rc2
-Using rdoc 4.1.2
-Using sass-rails 4.0.5
+Using sprockets-rails 2.2.4
+Using rails 4.2.0
+Using rdoc 4.2.0
+Using sass-rails 5.0.1
 Using sdoc 0.4.1
-Installing simple_form 3.1.0
+>>>> Installing simple_form 3.1.0
 Using spring 1.2.0
 Using sqlite3 1.3.10
-Using turbolinks 2.5.2
-Using uglifier 2.5.3
+Using turbolinks 2.5.3
+Using uglifier 2.7.0
 Using web-console 2.0.0
 Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
-> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 안되는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 설치된다. 개인적으로 `젬` 저장소를 운영하거나 `git` 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요는 없다.
+위의 출력내용 중에서 `>>>>`로 표시된 부분이 추가될 젬을 나타낸다. 설명을 위해서 편집한 상태이다. 
+
+> **Info** `젬`은 [rubygems.org](http://rubygems.org/)로부터 다운로드 받기 때문에 인터넷이 연결되지 않는경우 설치가 불가능하다. 이미 컴퓨터에 해당 `젬` 버전이 설치되어 있으면 해당 버전을 사용하기때문에 좀더 빠르게 설치된다. 개인적으로 `젬` 저장소를 운영하거나 `git` 저장소로부터 `젬`을 설치 할 수있으므로 닫힌 네트워크 환경이라고 걱정할 필요는 없다.
 
 `Bootstrap`을 실제로 프로젝트에 적용하기 위해서 약간의 설정 과정이 필요한다.
 
