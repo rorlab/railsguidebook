@@ -50,7 +50,7 @@ $ open http://localhost:3000/bulletins
 
 ### index 액션 뷰 템플릿 파일
 
-```html
+```ruby
 <h2>Bulletins</h2>
 
 <table class="table">
@@ -86,9 +86,9 @@ $ open http://localhost:3000/bulletins
 
 ### show 액션 뷰 템플릿 파일
 
-`show` 액션 뷰 템플릿은 차이가 있는데, 제목과 내용을 표 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
+`show` 액션 뷰 템플릿에서는 Title과 Descript    ion을 테이블 형식으로 표시하고 Created at이라는 항목을 추가하여 생성한 시각을 보여준다.
 
-```html
+```ruby
 <h2>Preview Bulletin</h2>
 
 <table class='table table-bordered'>
@@ -110,14 +110,14 @@ $ open http://localhost:3000/bulletins
 <%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
 
-모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 표준 시간대인 UTC를 기준으로 표시된다.
+모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 UTC 타임존으로 표시된다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_09-38-11_zps4cb136f4.png)
 
 
 ### form 파셜 템플릿 파일
 
-```html
+```ruby
 <%= simple_form_for(@bulletin) do |f| %>
   <%= f.error_notification %>
 
@@ -135,7 +135,7 @@ $ open http://localhost:3000/bulletins
 
 ### new 액션 뷰 템플릿 파일
 
-```html
+```ruby
 <h2>New bulletin</h2>
 
 <%= render 'form' %>
@@ -147,7 +147,7 @@ $ open http://localhost:3000/bulletins
 
 ### edit 액션 뷰 템플릿 파일
 
-```html
+```ruby
 <h2>Editing bulletin</h2>
 
 <%= render 'form' %>
