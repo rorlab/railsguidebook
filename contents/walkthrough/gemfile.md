@@ -30,7 +30,7 @@ $ gem install bundler
 
 ```
 gem 'bootstrap-sass', '~> 3.3.3'
-gem 'simple_form'
+gem 'simple_form', '3.1.0'
 ```
 
 [참고사항]
@@ -194,7 +194,7 @@ $ git commit -m "Gemfile에 젬추가 : bootstrap-sass & simple_form"
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.1장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_01
 
 
 
