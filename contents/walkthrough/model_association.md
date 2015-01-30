@@ -33,10 +33,10 @@ end
 ```bash
 $ bin/rails g migration add_bulletin_id_to_posts bulletin_id:integer:index
       invoke  active_record
-      create    db/migrate/20150130114421_add_bulletin_id_to_posts.rb
+      create    db/migrate/20150130114743_add_bulletin_id_to_posts.rb
 ```
 
-위의 `bulletin_id:integer:index`와 같이 추가할 필드명과 데이터형 다음에 `index` 옵션을 지정하면 해당 필드에 대한 인덱스 파일이 지정되며, 이는 빠른 검색을 가능하게 한다.
+`bulletin_id:integer:index`와 같이 추가할 필드명과 데이터형 다음에 `index` 옵션을 지정하면 해당 필드에 대한 인덱스 파일이 지정되며, 이는 빠른 검색을 가능하게 한다.
 
 생성된 마이그레이션 파일(`db/migrate/(생성된 일자가 포함된 일련의 숫자)_add_bulletin_id_to_posts.rb`)은 아래와 같다.
 
@@ -67,7 +67,7 @@ $ bin/rake db:migrate
 
 ```bash
 $ bin/rails console
-Loading development environment (Rails 4.1.1)
+Loading development environment (Rails 4.2.0)
 irb(main):001:0> bulletin = Bulletin.new
 => #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil>
 ```
@@ -94,7 +94,7 @@ bulletin.post_ids   bulletin.post_ids=  bulletin.posts      bulletin.posts=
 
 ```bash
 $ bin/rails console
-Loading development environment (Rails 4.1.1)
+Loading development environment (Rails 4.2.0)
 irb(main):001:0> bulletin = Bulletin.create title:"공지사항"
    (0.1ms)  begin transaction
   SQL (0.4ms)  INSERT INTO "bulletins" ("created_at", "title", "updated_at") VALUES (?, ?, ?)  [["created_at", "2014-05-04 09:05:25.688974"], ["title", "공지사항"], ["updated_at", "2014-05-04 09:05:25.688974"]]
