@@ -112,16 +112,17 @@ $ bin/rake db:migrate:redo
    -> 0.0014s
 == 20150130063424 CreatePosts: migrated (0.0015s) =============================
 ```
+
 마이그레이션이 다시 실행된 상태('up')를 확인할 수 있다.
 
 ```bash
 $ bin/rake db:migrate:status
 
-database: /Users/user/rcafe/db/development.sqlite3
+database: /Users/rorlakr/rcafe/db/development.sqlite3
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20140501054730  Create posts
+   up     20150130063424  Create posts
 ```
 
 #### 마이그레이션 ID (Migration ID)
