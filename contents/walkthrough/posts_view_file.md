@@ -75,7 +75,7 @@
 그리고, `http://localhost:3000/bulletins` 로 접속한 후 `New Bulletin` 버튼을 클릭하여 "새소식"과 "가입인사" 게시판을 추가한다. 
 
 우리가 의도한 바는 상단 메뉴 항목를 클릭하면 해당 게시판으로 이동하고 해당 항목이 주황색의 글씨로 표시되도록 하는 것이다.
-(지금 상태에서 브라우저에서 확인하면 에러가 발생한다. 계속 진행하면서 별도의 지시가 있을 때 브라우저에서 확인하기로 한다.)
+
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_11-19-28_zps89cc799c.png)
 
