@@ -156,7 +156,7 @@ sqlite> select version from schema_migrations;
 ![posts_index](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-47-26_zpsd0567b97.png)
 
 
-위에서 `Post` 모델을 scaffold 제너레이터를 이용하여 생성할 때 콘솔 출력내용 중 아래와 같은 부분을 발견할 수 있다.
+위에서 `Post` 모델을 **scaffold 제너레이터**를 이용하여 생성할 때 콘솔 출력내용 중 아래와 같은 부분을 발견할 수 있다.
 
 ```bash
 $ bin/rails generate scaffold Post title content:text
@@ -166,7 +166,7 @@ $ bin/rails generate scaffold Post title content:text
        ...
 ```
 
-즉, resource_route 모듈을 호출하여 config/routes.rb 파일에 `resources :posts` 라인을 추가한다. 이와 같이 라우팅을 선언하는 방법을 `리소스 라우팅`이라고 한다. 이로서 아래와 같은 라우팅을 사용할 수 있게 된다.
+즉, `resource_route` 모듈을 호출하여 `config/routes.rb` 파일에 `resources :posts` 라인을 추가한다. 이와 같이 라우팅을 선언하는 방법을 `리소스 라우팅`이라고 한다. 이로서 아래와 같은 라우팅을 사용할 수 있게 된다.
 
 ```bash
 $ bin/rake routes
@@ -182,11 +182,11 @@ edit_post GET    /posts/:id/edit(.:format) posts#edit
      root GET    /                         welcome#index
 ```
 
-따라서, 위와 같이 브라우저에서 `http://localhost:3000/posts`와 같이 요청하게 되면 디폴트로 HTTP GET 메소드에 매칭되는 URI 패턴을 찾아보게 된다. 결과적으로 `posts` 컨트롤러를 호출하여 `index` 액션을 실행하게 되고 최종적으로 `app/views/posts/` 디렉토리 상의  `index.html.erb` 뷰 템플릿을 렌더링하여 응답으로 보내게 된다.
+따라서, 위와 같이 브라우저에서 `http://localhost:3000/posts`와 같이 요청하게 되면 디폴트로 HTTP **GET 메소드**에 매칭되는 URI 패턴을 찾아보게 된다. 결과적으로 `posts` 컨트롤러를 호출하여 `index` 액션을 실행하게 되고 최종적으로 `app/views/posts/` 디렉토리 상의  `index.html.erb` 뷰 템플릿을 렌더링하여 응답으로 보내게 된다.
 
-브라우저 상에서 데이터를 추가, 삭제 변경해서 문제없이 잘 수행되는 것을 확인하자.
+브라우저 상에서 데이터를 추가, 삭제, 변경해서 문제없이 잘 수행되는 것을 확인하자.
 
-지금까지 scaffold 제너레이터를 이용하여 특별한 추가 코딩없이 최소한의 기능을 가진 게시물 작성 모듈을 작성할 수 있게 되었는데, 처음 레일스를 접하는 개발자들에게는 놀라운 일이다. 레일스는 이와 같이 개발자들이 기본적인 기능을 구현하기 위해서 추가하는 코딩을 대신해서 작성해 준다.
+지금까지 **scaffold 제너레이터**를 이용하여 특별한 추가 코딩없이 최소한의 기능을 가진 게시물 작성 모듈을 작성할 수 있게 되었는데, 처음 레일스를 접하는 개발자들에게는 놀라운 일이다. 레일스는 이와 같이 기본적인 기능을 구현하기 위해서 개발자들이 추가해야 하는 코드를 대신해서 작성해 준다.
 
 
 
