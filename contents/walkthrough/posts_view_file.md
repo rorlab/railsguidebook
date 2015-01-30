@@ -24,7 +24,7 @@
 
   ```
 -<%= form_for(@post) do |f| %>
-+<%= form_for([@bulletin, @post]) do |f| %>
++<%= simple_form_for([@bulletin, @post]) do |f| %>
 ```
 
 
