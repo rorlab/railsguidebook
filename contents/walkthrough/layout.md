@@ -91,15 +91,12 @@ $ rails new rcafe
 
 ### Twitter-Bootstrap
 
-위에서 언급한 바와 같이 어플리케이션의 레이아웃을 작성하기 위해서는 `HTML`과 `CSS`에 대한 기본적인 지식이 있어야 한다. 이것에 대한 자세한 내용은 이 책의 범위를 벗어나는 것이므로 관련 서적을 참고하기 바랍니다. 또한 `.css` 파일과 `.scss` 파일의 차이에 대해서도 알아야 하는데 이에 대한 자세한 내용은 [여기](http://stackoverflow.com/a/5654471)를 참고하기 바란다. 어플리케이션 파일로 사용하는 `application.css.scss`와 같이 `.scss` 확장로 끝나는 파일은 `Sassy SCSS`라고 말하는데, `CSS3`의 확장기능(태그 중첩, 변수 기능 등)이 추가된 것이다.
+위에서 언급한 바와 같이 애플리케이션의 레이아웃을 작성하기 위해서는 `HTML`과 `CSS`에 대한 기본적인 지식이 있어야 한다. 이것에 대한 자세한 내용은 이 책의 범위를 벗어나는 것이므로 관련 서적을 참고하기 바란다. 또한 `.css` 파일과 `.scss` 파일의 차이에 대해서도 알아야 하는데 이에 대한 자세한 내용은 [여기](http://stackoverflow.com/a/5654471)를 참고하기 바란다. 애플리케이션 스타일 파일로 사용하는 `application.scss`와 같이 `.scss` 확장로 끝나는 파일은 `Sassy SCSS`라고 말하는데, `CSS3`의 확장기능(태그 중첩, 변수 기능 등)이 추가된 것이다.
 
-최근에는 뷰의 스타일링을 편하기 작성할 수 있도록 도와주는 소위 `front-end framework`로 `Twitter-Bootstrap`, `Foundation` 등을 많이 사용한다. 여기서는 `Twitter-Bootstrap`을 이용하여 작업을 하기로 한다.
-
-[주의사항] `Twitter-Bootstrap`은 `Bootstrap`으로 줄여서 흔히 말한다.
 
 ### 헬퍼메소드
 
-루트 URL로 접속하면 보이는 페이지(이하, 루트페이지, app/views/welcome/index.html.erb)에서 게시물(posts)을 작성하는 페이지로 이동하는 링크를 아래와 같이 추가하고 브라우저에서 확인해 보자.
+루트페이지(루트 URL로 접속하면 보이는 페이지, `app/views/welcome/index.html.erb`)에서 게시물(posts)을 작성하는 페이지로 이동하는 링크를 아래와 같이 추가하고 브라우저에서 확인해 보자.
 
 ```
 <h2>레일스카페<small>에 오신 것을 환영합니다.</small></h2>
@@ -108,7 +105,7 @@ $ rails new rcafe
 <%= link_to "글작성", posts_path, class:'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-55-19_zps50de921c.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-05-54_zps065e8c02.png)
 
 
 컨트롤러의 특정 메소드를 뷰 템플릿 파일에서도 사용할 수 있게 해 놓은 것을 [`헬퍼메소드`](http://stackoverflow.com/a/3993323)라고 한다.
@@ -120,7 +117,7 @@ $ rails new rcafe
 <%= link_to "글작성", posts_path, class:'btn btn-default' %>
 ```
 
-위의 erb 코드는 렌더링 후 아래와 같이 HTML 코드로 변경된다.
+위의 `erb` 코드는 렌더링 후 아래와 같이 HTML 코드로 변경된다.
 
 ```
 <a class="btn btn-default" href="/posts">글작성</a>
@@ -136,4 +133,4 @@ $ rails new rcafe
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.4장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_04
