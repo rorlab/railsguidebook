@@ -85,10 +85,10 @@ database: /Users/rorlakr/rcafe/db/development.sqlite3
 
 ```bash
 $ bin/rake db:rollback
-== 20140501054730 CreatePosts: reverting ======================================
+== 20150130063424 CreatePosts: reverting ======================================
 -- drop_table(:posts)
    -> 0.0006s
-== 20140501054730 CreatePosts: reverted (0.0033s) =============================
+== 20150130063424 CreatePosts: reverted (0.0045s) =============================
 ```
 
 이 결과로 데이터베이스에서 `posts` 테이블이 `drop`된다. 그리고 마이그레이션 상태를 확인하면,
