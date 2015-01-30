@@ -152,7 +152,7 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 
 ### posts 컨트롤러
 
-레일스의 scaffold 제너레이터에 의해 자동으로 생성된 posts 컨트롤러는 다음과 같다. 앞서 언급한대로 각 액션을 처리하는 뷰 템플릿와 연결해서 생각해보면 컨트롤러가 자료를 어떻게 처리하는지 이해하는데 도움이 될 것이다.
+레일스의 `scaffold` 제너레이터에 의해 자동으로 생성된 `posts` 컨트롤러는 다음과 같다. 앞서 언급한대로 각 액션을 처리하는 뷰 템플릿와 연결해서 생각해보면 컨트롤러가 자료를 어떻게 처리하는지 이해하는데 도움이 될 것이다.
 
 ```ruby
 class PostsController < ApplicationController
@@ -248,13 +248,13 @@ private
   end
 ```
 
-즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 특정 post를 조회한 후 `@post` 인스턴스 변수에 할당한다.
+즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 특정 `post`를 조회한 후 `@post` 인스턴스 변수에 할당한다.
 
-이 기능은 필터라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 레일스 4부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
+이 기능은 **필터**라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 **레일스 4**부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
 
 ### Strong Parameters
 
-레일스 3에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accessible` 매크로로 선언했다.
+**레일스 3**에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accessible` 매크로로 선언했다.
 
 ```
 class User < ActiveRecord::Base
@@ -264,7 +264,7 @@ end
 
 즉, `User` 모델의 `first`, `last`, `email` 속성만을 [mass assignment](http://code.tutsplus.com/tutorials/mass-assignment-rails-and-you--net-31695)로 저장할 수 있다는 것이다.
 
-그러나 레일스 4로 업그레이드되면서 이러한 속성 보안관련 기능이 모델로부터 컨트롤러로 이동하여 [Strong Parameters](http://richonrails.com/articles/rails-4-preview-strong-parameters)의 개념으로 재구성되었다.
+그러나 **레일스 4**로 업그레이드되면서 이러한 속성 보안관련 기능이 모델로부터 컨트롤러로 이동하여 [Strong Parameters](http://richonrails.com/articles/rails-4-preview-strong-parameters)의 개념으로 재구성되었다.
 
 `posts` 컨트롤러 클래스 파일의 하단에는 아래와 같이 정의되어 있다.
 
@@ -275,7 +275,7 @@ private
   end
 ```
 
-즉, 파라미터로 넘겨 받은 속성 중에 `title`과 `content`만을 화이트리스트로 인정하겠다는 뜻이다. 따라서 다른 속성은 `save` 또는 `udpate` 되지 않게 된다.
+즉, 파라미터로 넘겨 받은 속성 중에 `title`과 `content`만을 화이트리스트(white-list)로 인정하겠다는 뜻이다. 따라서 다른 속성은 `save` 또는 `udpate` 되지 않게 된다.
 
 
 ---
