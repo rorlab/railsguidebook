@@ -81,16 +81,11 @@ $ rails new rcafe
 </body>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20rorla%202/2015-01-30_16-31-03_zps228be807.png)
-
-
-이제 브라우저를 다시 로딩하면 제대로 보이게 될 것이다.
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-25-31_zps48e2c9f3.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_16-53-09_zps8a496008.png)
 
 브라우저의 폭을 줄이면 브라우저 상단의 navbar 메뉴가 모바일 화면에 적합하게 자동으로 축소된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-09_08-38-27_zpsaf2d513a.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_16-55-43_zps8cdb3caa.png)
 
 이 메뉴 아이콘을 클릭하면 감춰진 메뉴항목들이 보인다.
 
