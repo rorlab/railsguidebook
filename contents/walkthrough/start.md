@@ -6,16 +6,23 @@
 
 ### 개발환경
 
-* [ruby v 2.2.0](https://www.ruby-lang.org/ko/news/2014/12/25/ruby-2-2-0-released/) : 2014년 12월 25일 릴리스됨.
+* [ruby v 2.2.0p0](https://www.ruby-lang.org/ko/news/2014/12/25/ruby-2-2-0-released/) : 2014년 12월 25일 릴리스됨.
 * [rails v 4.2.0](http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/) : 2014년 12월 20일 릴리스됨. 
 
+```bash
+$ ruby -v
+ruby 2.2.0p0 (2014-12-25 revision 49005)
+
+$ rails -v
+Rails 4.2.0
+```
 
 ### 소스 코드
 
 로컬 머신에 `git`이 설치되어 있는 상태에서 아래와 같이 소스를 받을 수 있다.
 
-```sh
-$ git clone https://github.com/rorlab/rcafe.git
+```bash
+$ git clone https://github.com/rorlakr/rcafe.git
 ```
 
 ### 주요기능
@@ -36,7 +43,7 @@ $ git clone https://github.com/rorlab/rcafe.git
 
 ```bash
 $ rails new rcafe
-      create
+       exist
       create  README.rdoc
       create  Rakefile
       create  config.ru
@@ -117,7 +124,7 @@ $ rails new rcafe
          run  bundle install
 ```
 
-이어서 rails 젬과 관련 의존성 젬들이 설치되고, 특히, 레일스 4.1 버전부터는 어플리케이션 프리로더(preloader) spring이 기본적으로 설치되어 커맨드라인 명령어인 rake와 rails 명령의 실행속도를 빠르게 해 주는데, 실행 결과물의 마지막에 아래와 같은 간단한 안내문이 나타난다.
+이어서 rails 젬과 관련 의존성 젬들이 설치되고, 특히, **레일스 4.1 버전**부터는 어플리케이션 프리로더(preloader)인 [`spring`](https://github.com/rails/spring)이 기본적으로 설치되어 커맨드라인 명령어인 `rake`와 `rails` 명령의 실행속도를 빠르게 해 주는데, 실행 결과물의 마지막에 아래와 같은 간단한 안내문이 나타난다.
 
 ```
 .
@@ -129,10 +136,6 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 * bin/rake: spring inserted
 * bin/rails: spring inserted
 ```
-
-[참고사항]
-
-> Spring is our new application preloader. It makes running tests, rake, and generators much faster on large applications. You could think of what we had before as the CGI-mode of the command-line. Every time you ran rake, your entire application would be loaded from scratch, only to be thrown out as soon as the command finished. With Spring, your application is a persistent process that can be reused across commands, so only the first run is slow. And we automatically detect code changes, and reload just those parts. It makes a big difference!
 
 이제 프로젝트 디렉토리로 이동하여 터미널에서 아래와 같이 로컬 웹서버를 실행한다.
 
