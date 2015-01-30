@@ -1,6 +1,6 @@
 # 첫번째 모델의 생성
 
-`Post`라는 모델을 작성해 보자. 이 모델은 우선 title(글제목)과 content(글내용) 두개의 속성으로 구성하자. 나중에 필요한 속성을 추가하게 될 것이다. 커맨드라인에서 아래와 같이 명령을 실행하자.
+`Post`라는 모델을 작성해 보자. 이 모델은 우선 `title`(글제목)과 `content`(글내용) 두개의 속성으로 구성하자. 나중에 필요한 속성을 추가하게 될 것이다. 커맨드라인에서 아래와 같이 명령을 실행하자.
 
 ```bash
 $ bin/rails generate scaffold Post title content:text
@@ -39,7 +39,7 @@ $ bin/rails generate scaffold Post title content:text
       create    app/assets/stylesheets/scaffolds.css.scss
 ```
 
-위에서 보는 바와 같이, 간단한 커맨드라인 명령으로 다양한 리소스 모듈들이 호출되고 연관 템플릿 파일들이 생성되었다. MVC(Model-View-Controller) 디자인 패턴에 따라 이 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
+위에서 보는 바와 같이, 간단한 커맨드라인 명령으로 다양한 리소스 모듈들이 호출되고 연관 템플릿 파일들이 생성되었다. `MVC(Model-View-Controller)` 디자인 패턴에 따라 이 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
 
 ```ruby
 class CreatePosts < ActiveRecord::Migration
@@ -54,14 +54,14 @@ class CreatePosts < ActiveRecord::Migration
 end
 ```
 
-이 파일은 `rake` 명령의 여러가지 `task` 중 `db:migrate` 작업을 실행할 때 `rake`가 이용하게 되며 데이터베이스 테이블을 생성한다. 이 때 테이블의 이름은 모델명(Post)의 복수형(posts)으로 자동 지정된다.
+`rake` 명령의 여러가지 `task` 중 `db:migrate` 작업을 실행할 때 `rake`가 이 파일은 사용하게 되며 실행결과 데이터베이스 테이블을 생성하게 된다. 이 때 테이블의 이름은 레일스의 `C.O.C`에 따라 모델명(Post)의 복수형(posts)으로 자동 지정된다.
 
 ```bash
 $ bin/rake db:migrate
-== 20140501054730 CreatePosts: migrating ======================================
+== 20150130063424 CreatePosts: migrating ======================================
 -- create_table(:posts)
-   -> 0.0011s
-== 20140501054730 CreatePosts: migrated (0.0012s) =============================
+   -> 0.0010s
+== 20150130063424 CreatePosts: migrated (0.0011s) =============================
 ```
 
 ### 마이그레이션 상태 확인
