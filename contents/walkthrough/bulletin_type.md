@@ -71,8 +71,6 @@ end
 
 이렇게 해서 `Bulletin` 모델에서 추가할 작업이 완료되었다.
 
-`http://localhost:3000/bulletins`로 접속해서 세 개의 `bulletin`을 등록한다.(`'공지사항'`, `'새소식'`, `'가입인사'`)
-
 게시판의 형태에 따른 뷰를 보이도록 하기 위해서는 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
 
 `posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 옮기되, 마지막 `<%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>` 부분을 `<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>` 으로 수정하자.
