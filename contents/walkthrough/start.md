@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v 2.1.5](https://www.ruby-lang.org/ko/news/2014/11/13/ruby-2-1-5-is-released/) : 2014년 11월 13일 릴리스됨.
-* [rails v 4.2.0.rc2](http://weblog.rubyonrails.org/2014/12/5/Rails-4-2-0-rc2-has-been-released/) : 2014년 12월 5일 릴리스됨. 
+* [ruby v 2.2.0](https://www.ruby-lang.org/ko/news/2014/12/25/ruby-2-2-0-released/) : 2014년 12월 25일 릴리스됨.
+* [rails v 4.2.0](http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/) : 2014년 12월 20일 릴리스됨. 
 
 
 ### 소스 코드
