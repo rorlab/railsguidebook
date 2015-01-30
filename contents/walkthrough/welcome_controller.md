@@ -1,15 +1,20 @@
 # "welcome" 컨트롤러의 생성
 
 이제 처음으로 프로젝트에 변화를 주어 보자.
-레일스 프로젝트 생성 직후에 보이는 브라우저 화면에 해당하는 html 파일은 실제로 public 디렉토리에 존재하지 않는다. 특별히 루트 라우트로 지정하지 않는 한, 이 디폴트 파일은 레이스가 백그라운드에서 동적으로 생성하는 index.html 파일인 것이다.
+레일스 프로젝트 생성 직후에 보이는 브라우저 화면에 해당하는 html 파일(smoke 페이지)은 실제로 **public 디렉토리**에 존재하지 않는다. 루트 라우트로 지정하지 않는 한, 이 디폴트 파일은 레일스가 백그라운드에서 동적으로 생성하는 index.html 파일인 것이다.
 
 
 ### 라우팅 정보
 
-이제 루트 라우트를 하나 생성해 보자. 먼저, 현재 프로젝트의 라우트 정보를 알아 보자. 터미널 콘솔에서 아래와 같이 `rake` 명령을 실행해 보자.
+이제 루트 라우트를 하나 생성해 보자. 먼저, 현재 프로젝트의 라우트 정보를 알기 위해서 터미널 콘솔에서 아래와 같이 `rake` 명령을 실행한다.
 
 ```bash
 $ bin/rake routes
+You don't have any routes defined!
+
+Please add some routes in config/routes.rb.
+
+For more information about routes, see the Rails guide: http://guides.rubyonrails.org/routing.html.
 ```
 
 아마도 아무런 라우팅 정보가 보이지 않을 것이다. 이러한 라우팅 정보는 실제로 `config/routes.rb` 파일에 정의한다.
@@ -33,7 +38,7 @@ Rails.application.routes.draw do
 end
 ```
 
-아직 아무런 라우팅 선언을 볼 수 없다. 대부분은 라우팅을 선언하는 예를 코멘트 처리해 놓은 것이다.
+아직 아무런 라우팅 선언을 볼 수 없다. 내용의 대부분은 라우팅을 선언하는 예를 코멘트 처리해 놓은 것이다.
 
 ### 컨트롤러와 액션의 생성
 
@@ -59,7 +64,7 @@ $ bin/rails generate controller welcome index
       create      app/assets/stylesheets/welcome.css.scss
 ```
 
-이 명령 한줄로 여러 개의 파일들이 생성되었다. 모두 의미 있는 파일들이다. 먼저 세번째 줄에 있는 `route` 부분을 보자. 이것은 config/routes.rb 파일에 `get 'welcome/index'`을 추가한다. 확인을 위해서 에디터로 이 파일을 열어 보면 아래와 같이 보일 것이다.
+이 명령 한줄로 여러 개의 파일들이 생성되었다. 모두 의미 있는 파일들이다. 먼저 `route`로 시작하는 세번째 줄을 보자. 이것은 `config/routes.rb` 파일에 `get 'welcome/index'`을 추가한다. 확인을 위해서 에디터로 이 파일을 열어 보면 아래와 같이 보일 것이다.
 
 ```ruby
 Rails.application.routes.draw do
@@ -76,9 +81,10 @@ Rails.application.routes.draw do
 end
 ```
 
-두번째 줄에서 추가된 라우트 선언을 확인할 수 있다. 브라우저에서 http://localhost:3000/welcome/index 로 접근하면 아래 같이 보일 것이다.
+두번째 줄에서 추가된 라우트 선언을 확인할 수 있다. 
+이제 브라우저에서 http://localhost:3000/welcome/index 로 접근하면 아래 같이 보일 것이다.
 
-![welcome_controller](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-07_12-04-55_zps2285bc31.png)
+![welcome_controller](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_11-13-10_zpsf5a549c1.png)
 
 짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬호스트 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 되는 것이다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 소스코드를 보자.
 
