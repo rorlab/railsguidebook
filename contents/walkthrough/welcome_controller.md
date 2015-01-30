@@ -135,11 +135,13 @@ end
 
 `root` 메소드를 이용하여 `'welcome#index'`와 같이 설정하면 된다. 여기서 주의할 것은 컨틀롤러와 액션명 사이에 `'/'`가 아니고 `'#'` 문자를 사용해야 한다는 것이다.
 
+> **Note** : `root` 정의는 `routes.rb` 파일에서 최상위에  위치해야 한다. 자세한 내용은 [여기](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-root)를 보기 바란다.
+
 이제 브라우저를 다시 로드([http://localhost:3000](http://localhost:3000))하면 `welcome` 컨트롤러의 `index` 액션이 호출되어 해당 뷰 템플릿 파일이 렌더링되어 보이게 된다.
 
 
-![root_page](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-07_12-11-19_zps6113739b.png)
+![root_page](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-28-50_zpsbb1dcb18.png)
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.2장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_02
