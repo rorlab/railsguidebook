@@ -69,13 +69,13 @@ $ bin/rake db:migrate
 이와 같은 마이그레이션 작업의 수행결과는 히스토리로 관리되는데 아래와 같이 커맨드라인 명령으로 확인할 수 있다.
 
 ```bash
-$ bin/rake db:migrate:status
+$ in/rake db:migrate:status
 
-database: /Users/user/rcafe/db/development.sqlite3
+database: /Users/rorlakr/rcafe/db/development.sqlite3
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20140501054730  Create posts
+   up     20150130063424  Create posts
 ```
 
 #### 상태(status)
