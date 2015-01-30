@@ -36,6 +36,16 @@
 +<%= link_to 'Show', [@post.bulletin, @post], class: 'btn btn-default' %>
 +<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
+* `app/views/posts/index.html.erb`
+
+  ```
+-<%= link_to 'Show', post %>
+-<%= link_to 'Edit', edit_post_path(post) %>
+-<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
++<%= link_to 'Show', [post.bulletin, post] %>
++<%= link_to 'Edit', edit_bulletin_post_path(post.bulletin, post) %>
++<%= link_to 'Destroy', [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' } %>
+  ```
 
 * `app/views/posts/new.html.erb`
 
@@ -53,8 +63,6 @@
 +<%= link_to 'Edit', edit_bulletin_post_path(@post.bulletin, @post), class: 'btn btn-default' %>
 +<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
-
-
 
 ### navbar 메뉴변경
 
