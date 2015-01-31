@@ -207,6 +207,6 @@ config.time_zone = 'Seoul'
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.6장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_06
 
 
