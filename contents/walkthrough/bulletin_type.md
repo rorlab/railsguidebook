@@ -213,7 +213,7 @@ $navbar-default-link-hover-bg: black;
 body { padding-top: 60px; }
 ```
 
-이제 브라우저에서 상단 메뉴 중 `가입인사`를 클릭해서 보면 아래와 같이 변경되어 보이게 된다.(가입인사를 테스트로 몇개 새로 추가한 후)
+이제 브라우저에서 상단 메뉴 중 `가입인사`를 클릭하고 가입인사를 테스트로 몇개 새로 추가하면 아래와 같이 변경되어 보이게 된다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_18-27-05_zps11cfa325.png)
 
