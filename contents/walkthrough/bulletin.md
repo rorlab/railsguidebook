@@ -125,10 +125,10 @@ $ open http://localhost:3000/bulletins
   <%= f.error_notification %>
 
   <div class="form-group">
-    <%= f.input :title, input_html: { class: 'form-control' } %>
+    <%= f.input :title %>
   </div>
   <div class="form-group">
-    <%= f.input :description, input_html: { class: 'form-control', rows: 5 } %>
+    <%= f.input :description, input_html: { rows: 5 } %>
   </div>
 
   <%= f.button :submit, class: 'btn btn-default' %>
