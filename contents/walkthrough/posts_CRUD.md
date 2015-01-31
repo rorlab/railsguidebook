@@ -105,10 +105,10 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
   <%= f.error_notification %>
 
   <div class="form-group">
-    <%= f.input :title,input_html: { class: 'form-control' } %>
+    <%= f.input :title %>
   </div>
   <div class="form-group">
-    <%= f.input :content,input_html: { class: 'form-control', rows: 10 } %>
+    <%= f.input :content, input_html: { rows: 10 } %>
   </div>
 
   <%= f.button :submit, class: 'btn btn-default' %>
