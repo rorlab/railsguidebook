@@ -77,7 +77,7 @@ end
 
 `posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 이동한다.
 
-`index.html.erb`에는 다음 내용만 남아 있게 된다. `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`을 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
+`index.html.erb`는 아래와 같이 수정한다. `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`을 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
 
 ```ruby
 <%= render "posts/post_types/#{@bulletin.post_type}" %>
@@ -163,7 +163,7 @@ end
 <%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
-이제 브라우저에서 `http://localhost:3000/bulletins/가입인사/edit`로 접속한 후 게시판의 종류를 `블로그`로 변경한 후,
+이제 브라우저에서 `http://localhost:3000/bulletins/3/edit`로 접속한 후 게시판의 종류를 `블로그`로 변경한 후,
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_18-24-22_zpsd9dcab9f.png)
 
