@@ -79,9 +79,8 @@
 `root` 경로로 지정한다. 
 
 ```erb
-<%= link_to "Rails<i>Cafe</i>", root_path, class:'navbar-brand' %>
+<%= link_to raw("Rails<i>Cafe</i>"), root_path, class:'navbar-brand' %>
 ```
-
 
 ### navbar 메뉴변경
 
