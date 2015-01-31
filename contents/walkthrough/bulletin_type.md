@@ -58,7 +58,7 @@ end
 </div>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_17-52-00_zps4b0eb3c6.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_07-47-19_zpsbb9e3bbf.png)
 
 `app/views/bulletins/show.html.erb` 파일을 열어 아래의 코드를 추가한다. 선택한 게시판의 형태를 표시할 것이다. 
 
@@ -69,13 +69,13 @@ end
 </tr>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_17-55-07_zps869b50c5.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_07-50-56_zps22401824.png)
 
 이렇게 해서 `Bulletin` 모델에서 추가할 작업이 완료되었다.
 
 게시판의 형태에 따른 뷰를 보이도록 하기 위해서는 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
 
-`posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 옮기되, 마지막 `<%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>` 부분을 `<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>` 으로 수정하자.
+`posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 이동한다.
 
 `index.html.erb`에는 다음 내용만 남아 있게 된다. `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`을 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
 
