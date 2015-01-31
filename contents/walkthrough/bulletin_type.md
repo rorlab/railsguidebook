@@ -54,7 +54,7 @@ end
 
 ```ruby
 <div class="form-group">
-  <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog']], input_html:{ class:'form-control'} %>
+  <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog'], ['갤러리', 'gallery']], input_html:{ class:'form-control'} %>
 </div>
 ```
 
