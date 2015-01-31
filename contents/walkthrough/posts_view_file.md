@@ -68,6 +68,20 @@
 <%= link_to "글작성", posts_path, class:'btn btn-default' %>
 ```
 
+### 브랜드 로고 링크 업데이트
+
+애플리케이션 레이아웃 파일을 열고 21번째 코드라인 코드를,
+
+```erb
+<a class="navbar-brand" href="#">Rails<i>Cafe</i></a>
+```
+
+`root` 경로로 지정한다. 
+
+```erb
+<%= link_to "Rails<i>Cafe</i>", root_path, class:'navbar-brand' %>
+```
+
 
 ### navbar 메뉴변경
 
