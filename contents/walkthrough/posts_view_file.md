@@ -60,6 +60,15 @@
 +<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
+### welcome#index 뷰 파일 변경
+
+`welcome` 컨틀로러의 `index` 액션 뷰 파일(`app/views/welcome/index.html.erb')을 열고 `posts_path`를 bulletin_posts_path(1)`로 변경한다. 이것은 `공지사항` 게시판으로 이동하기 위한 것이다.
+
+```html
+<%= link_to "글작성", posts_path, class:'btn btn-default' %>
+```
+
+
 ### navbar 메뉴변경
 
 `app/views/layouts/application.html.erb` 파일에서 아래와 같이 `<ul class='nav navbar-nav'>` 부분을 아래와 같이 변경한다.
