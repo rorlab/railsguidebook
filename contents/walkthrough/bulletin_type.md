@@ -1,10 +1,12 @@
 # 게시판 레이아웃 작성하기
 
-게시판의 형태는 흔히 세가지 정도로 분류할 수 있다.
+게시판의 형태를 세가지로 분류해 보자.
 
-* `일반형(bulletin)` : 일반적인 게시판의 형태. 디폴트 형태
-* `블로그형(blog)` : 블그로와 게시물의 내용이 일렬로 보이도록 하는 형태
-* `갤러리형(gallery)` : 이미지 갤러리처럼 한 줄에 여러개의 썸네일 이미지가 보이도록 하는 형태
+| 형태 | 설명 |
+|------|------|
+|`일반형(bulletin)`|일반적인 게시판의 형태. 디폴트 형태|
+|`블로그형(blog)`|블그로와 게시물의 내용이 일렬로 보이도록 하는 형태|
+|`갤러리형(gallery)`|이미지 갤러리처럼 한 줄에 여러개의 썸네일 이미지가 보이도록 하는 형태|
 
 ### Bulletin 모델에 post_type 속성 추가하기
 
@@ -13,7 +15,7 @@
 ```bash
 $ bin/rails g migration add_post_type_to_bulletins post_type
       invoke  active_record
-      create    db/migrate/20140513063455_add_post_type_to_bulletins.rb
+      create    db/migrate/20150131223640_add_post_type_to_bulletins.rb
 ```
 
 그리고 방금 전에 생성된 마이그레이션 파일을 열어 아래와 같이 `post_type`의 디폴트 값을 `bulletin`으로 추가하고,
@@ -30,15 +32,15 @@ end
 
 ```bash
 $ bin/rake db:migrate
-== 20140513063455 AddPostTypeToBulletins: migrating ===========================
+== 20150131223640 AddPostTypeToBulletins: migrating ===========================
 -- add_column(:bulletins, :post_type, :string, {:default=>"bulletin"})
-   -> 0.0037s
-== 20140513063455 AddPostTypeToBulletins: migrated (0.0038s) ==================
+   -> 0.0007s
+== 20150131223640 AddPostTypeToBulletins: migrated (0.0008s) ==================
 ```
 
 ### Strong Parameter 추가하기
 
-`bulletins_controller.rb` 파일의 열어 하단에 있는 `bulletin_params` 메소드에 아래와 같이 `post_type` 속성을 추가한다.
+`bulletins_controller.rb` 파일을 열어 하단에 있는 `bulletin_params` 메소드에 아래와 같이 `post_type` 속성을 추가한다.
 
 ```ruby
 def bulletin_params
