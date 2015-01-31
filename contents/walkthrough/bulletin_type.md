@@ -85,10 +85,22 @@ end
 
 > **Note** `partial` 템플릿 파일에서는 부모 템플릿 파일에서 사용하는 모든 인스턴스 변수를 그대로 사용할 수 있다.
 
+`post` 객체의 `bulletin_id` 속성값으로부터 게시판 이름을 얻기 위한 헬퍼 메소드를 작성한다. `app/helpers/posts_helper.rb` 파일을 열고 아래와 같이 추가한다. 
+
+```ruby
+module PostsHelper
+
+  def bulletin_name(bulletin_id)
+    Bulletin.find(bulletin_id).title
+  end
+
+end
+```
+
 `_blog.html.erb` 파일의 내용을 아래와 같이 작성한다. 테이블 형태로 게시물을 보여줬던 `index.html.erb`와 비교해보면 조금 달라졌다.
 
 ``` ruby
-<h2><%= params[:bulletin_id] %></h2>
+<h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <% @posts.each do | post | %>
     <div class='post'>
@@ -114,7 +126,7 @@ end
 "New post"라는 제목 대신 글을 올리는 게시판 이름이 나오도록 했다.
 
 ```ruby
-<h2><%= params[:bulletin_id] %></h2>
+<h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <%= render 'form' %>
 
@@ -127,7 +139,7 @@ end
 "Editing post"라는 제목 대신 글을 수정하는 게시판 이름이 나도오록 수정했다.
 
 ```ruby
-<h2><%= params[:bulletin_id] %></h2>
+<h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <%= render 'form' %>
 
@@ -141,7 +153,7 @@ end
 게시판 이름이 보이도록 수정했고 테이블 형태로 글을 보여준다.
 
 ``` ruby
-<h2><%= params[:bulletin_id] %></h2>
+<h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <table class='table'>
 <tr>
@@ -165,14 +177,10 @@ end
 
 이제 브라우저에서 `http://localhost:3000/bulletins/3/edit`로 접속한 후 게시판의 종류를 `블로그`로 변경한 후,
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_18-24-22_zpsd9dcab9f.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_08-04-11_zpsf31f98b6.png)
 
-브라우저에서 상단 메뉴 중 `가입인사`를 클릭해서 보면 아래와 같이 변경되어 보이게 된다.(가입인사를 테스트로 몇개 새로 추가한 후)
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_18-27-05_zps11cfa325.png)
-
-위와 같이 보이게 하기 위해서의 약간의 작업을 추가로 해 주어야 한다.
-우선 `CSS` 클래스 `post`, `title`, `content`를 `app/assets/stylesheets/posts.css.scss` 파일에 작성해 준다.
+`CSS` 클래스 `post`, `title`, `content`를 `app/assets/stylesheets/posts.css.scss` 파일에 작성해 준다.
 
 ```css
 .post {
@@ -190,7 +198,7 @@ end
 
 그리고, `app/assets/stylesheets/` 디렉토리에 있는 `application.css.scss` 파일을 열고 아래와 같이 작성한다.(`@import 'posts';`을 추가했음)
 
-```bash
+```bash{10}
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 $navbar-default-bg: #312312;
@@ -200,10 +208,16 @@ $navbar-default-link-hover-color: white;
 $navbar-default-link-hover-bg: black;
 
 @import 'bootstrap';
-@import 'posts';
+@import 'posts';  <<< 추가함
 
 body { padding-top: 60px; }
 ```
+
+이제 브라우저에서 상단 메뉴 중 `가입인사`를 클릭해서 보면 아래와 같이 변경되어 보이게 된다.(가입인사를 테스트로 몇개 새로 추가한 후)
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-13_18-27-05_zps11cfa325.png)
+
+
 
 
 ---
