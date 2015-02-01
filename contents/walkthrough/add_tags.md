@@ -220,7 +220,7 @@ private
 </li>
 ```
 
-`app/assets/stylesheets/posts.css.scss` 파일을 열고 아래의 내용을 추가한다.
+`app/assets/stylesheets/posts.scss` 파일을 열고 아래의 내용을 추가한다.
 
 ```css
 ...
