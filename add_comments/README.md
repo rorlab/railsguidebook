@@ -310,10 +310,12 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 <% comment = @post.comments.new %>
 <div id="comments_form_<%=@post.id%>">
 <%= simple_form_for([@post, comment], remote: true ) do | f | %>
-  <div class='form-group'>
-    <%= f.input :body, label: false, placeholder: 'Add a comment.',  input_html: { class: 'form-control', rows: 5 } %>
+  <div class='form-inputs'>
+    <%= f.input :body, label: false, placeholder: 'Add a comment.',  input_html: { rows: 5 } %>
   </div>
-  <%= f.button :submit, class: 'btn btn-default' %>
+  <div class='form-actions'>
+    <%= f.button :submit %>
+  </div>
 <% end %>
 </div>
 ```
