@@ -237,6 +237,17 @@ end
 
 위에서 `erb` 코드 부분을 보면, `gallery`형 게시판에서만 이미지를 업로드할 수 있도록 조건을 추가한 것을 주목하자.
 
+그리고 파일 업로드 `input`에 대한 스타일을 `app/assets/stylesheets/posts.scss` 파일에 추가한다. 
+
+```css
+input[type='file'] {
+  border: 1px solid #d1d1d1;
+  padding: .5em;
+  border-radius: .3em;
+  width: 100%;
+}
+```
+
 ### 갤러리 게시판을 생성
 
 이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
@@ -258,7 +269,7 @@ end
 다음에는 `갤러리`용 `partial` 템플릿 파일을 생성하기 위해  `app/views/posts/post_types/` 디렉토리에 `_gallery.html.erb` 파일을 추가하고 아래와 같이 작성한다.
 
 ```erb
-<h2><%= params[:bulletin_id] %></h2>
+<h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <% @posts.each do | post | %>
     <div class='gallery'>
@@ -278,9 +289,11 @@ end
 <%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
 ```
 
+
+
 갤러리 게시판에서 이미지를 추가하는 화면은 아래와 같다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-17_12-31-35_zps0d325841.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_13-03-17_zps11cb5681.png)
 
 
 또한, 업로더 클래스에 아래와 같이 업로드할 수 있는 파일 포맷을 지정할 수 있다.
@@ -297,7 +310,7 @@ end
 
 이러한 파일확장자 이외의 파일을 업로드하면 아래와 같은 에러 메시지가 표시된다.
 
-에러 메시지를 위한 `CSS`를 추가하기 위해 `app/assets/stylesheets/`  디렉토리에 `custom.css.scss` 파일을 생성하고 아래와 같이 추가한다.
+에러 메시지를 위한 `CSS`를 추가하기 위해 `app/assets/stylesheets/`  디렉토리에 `custom.scss` 파일을 생성하고 아래와 같이 추가한다.
 
 ```css
 @import 'bootstrap/variables';
