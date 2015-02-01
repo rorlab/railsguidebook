@@ -69,9 +69,9 @@ class Post < ActiveRecord::Base
 end
 ```
 
-여기서 `has_many` 메소드의 `:dependent` 옵션은 `post` 객체가 삭제될 때 이 객체의 `child` 객체인 `comment` 객체들도 함께 삭제하기 위해서 지정한다. 만약 이 옵션을 지정하기 않을 경우 `parent` 객체(`post` 객체)가 삭제될 때 `child` 객체(`comment`)들은 삭제되지 않고 그대로 남아 있게 되어 어플리케이션 입장에서 볼 때 쓰레기 데이터가 되어 불필요하게 데이터 용량만 낭비하는 결과를 가져올 수 있다.
+여기서 `has_many` 메소드의 `:dependent` 옵션은 `post` 객체가 삭제될 때 이 객체의 `child` 객체인 `comment` 객체들도 함께 삭제하기 위해서 지정한다. 만약 이 옵션을 지정하기 않을 경우 `parent` 객체(`post` 객체)가 삭제될 때 `child` 객체(`comment`)들은 삭제되지 않고 그대로 남아 있게 되어 애플리케이션 입장에서 볼 때 쓰레기 데이터가 되어 불필요하게 데이터 용량만 낭비하는 결과를 가져올 수 있다.
 
-이제 코멘트를 생성하고 삭제하는 액션을 구현해야 한다. 여기서는 코멘트 업데이트 기능을 없는 것으로 한다.
+이제 코멘트를 생성하고 삭제하는 액션을 구현해야 한다. 여기서는 코멘트를 업데이트하는 기능은 구현하지 않을 것이다.
 
 이번에는 아래와 같이 레일스의 컨트롤러 제너레이터를 이용하여 코멘트의 컨트롤러와 액션을 만들기로 하자.
 
@@ -79,7 +79,7 @@ end
 $ bin/rails g controller comments create destroy
 ```
 
-`controller` 다음에 오는 첫번째 인수가 컨트롤러의 이름을 지정하는 것이다. 이것은 레일스의 규칙상 연관되는 모델명의 복수형으로 지정하는데, 반드시 그런 것은 아니다. 연과되는 모델이 없을 경우에는 임의 이름으로 지정해도 된다. 여기서는 `Comment` 모델과 연관을 가지므로 `comments`로 이름을 지정한다. 이어서 오는 모든 인수는 컨트롤러내의 액션명으로 지정하게 된다. 따라서 `comments` 컨틀로러는 `create`와 `destroy` 액션 두개만을 가지게 된다. 이제 실행해서 콘솔상에 보이는 결과를 확인해 보자.
+`controller` 다음에 오는 첫번째 인수에 컨트롤러의 이름을 지정한다. 이것은 레일스의 규칙상 연관되는 모델명의 복수형으로 지정하는데, 반드시 그런 것은 아니다. 연관되는 모델이 없을 경우에는 임의 이름으로 지정해도 된다. 여기서는 `Comment` 모델과 연관을 가지므로 `comments`로 이름을 지정한다. 이어서 오는 모든 인수는 컨트롤러내의 액션명으로 지정하게 된다. 따라서 `comments` 컨틀로러는 `create`와 `destroy` 액션 두개만을 가지게 된다. 이제 실행해서 콘솔상에 보이는 결과를 확인해 보자.
 
 ```bash
 $ bin/rails g controller comments create destroy
@@ -105,7 +105,7 @@ $ bin/rails g controller comments create destroy
 
 이 명령이 하는 주요 작업은, 컨트롤러 파일(`app/controllers/comments_controller.rb`)을 생성하고, 두개의 라우트(`route  get 'comments/destroy'`, `route  get 'comments/create'`)를 추가하며, 각 액션에 해당하는 뷰 템플릿 파일(`app/views/comments/create.html.erb`, `app/views/comments/destroy.html.erb`)을 생성한다.
 
-그러나 우리는 코멘트를 추가할 때 `ajax` 기능을 이용할 것이기 때문에, `~.html.erb` 파일이 아니라, `~.js.erb` 파일이 필요하다. 즉, `create.js.erb`와 `destroy.js.erb` 파일이다. 나중에 이 두 자바스크립트 파일을 작성할 때 추가로 설명을 이어가도록 하자.
+그러나 우리는 코멘트를 추가할 때 `ajax` 기능을 이용할 것이기 때문에, `~.html.erb` 파일이 아니라, `~.js.erb` 파일이 필요하다. 즉, `create.js.erb`와 `destroy.js.erb` 파일이다. 나중에 이 두 `erb` 파일을 작성할 때 추가로 설명을 이어가도록 할 것이다.
 
 `app/controllers/comments_controller.rb` 파일을 열어 보면 아래와 같다.
 
@@ -151,7 +151,7 @@ class CommentsController < ApplicationController
 end
 ```
 
-그리고 `config/routes.rb` 파일을 열어 관련 라우팅 테이블 수정해 주어야 한다. 아래는 레일스의 컨트롤러 제너레이터를 이용하여 생성한 직 후의 `routes.rb` 파일의 코드베이스이다.
+그리고 `config/routes.rb` 파일을 열어 관련 라우팅 테이블 수정해 주어야 한다. 아래는 레일스의 컨트롤러 제너레이터를 이용하여 생성한 직후의 `routes.rb` 파일의 코드베이스이다.
 
 ```ruby
 Rails.application.routes.draw do
@@ -229,7 +229,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 
 이제 외부로부터 코멘트에 대한 요청이 들어올 때 적절하게 대응할 수 있게 되었다.
 
-작성된 코멘트를 보여주고 작성할 수 있도록 하는 웹페이지가 필요하다. 그러나 `posts#show` 액션 뷰 템플릿 파일 하단에 아래와 같이 코멘트를 삽입하는 `partial`을 삽입하자.
+각 게시물마다 이미 작성된 코멘트를 보여주고, 또 새로 코멘트를  작성할 수 있도록 `posts#show` 액션 뷰 템플릿 파일 하단에 기능을 추가할 것이다. 우선 아래와 같이 코멘트를 삽입하는 `partial`을 추가하자.
 
 ```ruby
 ...
@@ -252,7 +252,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 </div>
 ```
 
-여기에서는 하는 `CSS` 클래스를 `app/assets/stylesheets/` 디렉토리에 있는 `comments.css.scss` 파일에 아래와 같이 추가하고,
+여기에서는 하는 `CSS` 클래스를 `app/assets/stylesheets/` 디렉토리에 있는 `comments.scss` 파일에 아래와 같이 추가하고,
 
 ```css
 .comments {
