@@ -48,14 +48,30 @@ end
 실제로 `:tag_list` 속성을 폼으로부터 입력받기 위해서 `post` 폼 `partial` 템플릿 파일(`app/views/posts/_form.html.erb`)을 열고 아래와 같이 추가한다.
 
 ```html
-<div class="form-group">
-  <%= f.input :tag_list, placeholder: '하나 이상의 태그는 콤마(,)로 구분하여 입력하세요.', input_html: { class: 'form-control' } %>
-</div>
+<%= simple_form_for([@bulletin, @post]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content, input_html: { rows: 10 } %>
+
+    <% if @post.bulletin.post_type == "gallery" %>
+      <%= f.input :picture, as: :file %>
+      <%= f.hidden_field :picture_cache %>
+    <% end %>
+
+    <%= f.input :tag_list, placeholder: '하나 이상의 태그는 콤마(,)로 구분하여 입력하세요.' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-06_07-05-59_zpse0848285.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-07-26_zpsfcd6e428.png)
 
-`1`번과 같이 태그는 한글도 가능하고, 태그 사이에 공백도 가능하다.
+태그는 한글도 가능하고, 태그 사이에 공백도 가능하다.
 
 이와 같이 입력된 태그를 보여 주기위해 `posts#show` 액션 뷰 템플릿 파일(`app/views/posts/show.html.erb`)을 열고 아래와 같이 추가한다.
 
@@ -86,11 +102,10 @@ end
 ...
 <% if @post.bulletin.post_type == "gallery" %>
   <tr>
-    <th>Picutre</th>
+    <th>Picture</th>
     <td><%= image_tag @post.picture_url %></td>
   </tr>
 <% end %>
-</table>
 ...
 ```
 
