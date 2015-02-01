@@ -196,7 +196,7 @@ end
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_08-04-11_zpsf31f98b6.png)
 
 
-`CSS` 클래스 `post`, `title`, `content`를 `app/assets/stylesheets/posts.css.scss` 파일에 작성해 준다.
+`CSS` 클래스 `post`, `title`, `content`를 `app/assets/stylesheets/posts.scss` 파일에 작성해 준다.
 
 ```css
 .post {
@@ -212,7 +212,7 @@ end
 }
 ```
 
-그리고, `app/assets/stylesheets/` 디렉토리에 있는 `application.css.scss` 파일을 열고 아래와 같이 작성한다.(`@import 'posts';`을 추가했음)
+그리고, `app/assets/stylesheets/` 디렉토리에 있는 `application.scss` 파일을 열고 아래와 같이 작성한다.(`@import 'posts';`을 추가했음)
 
 ```bash{10}
 $light-orange: #ff8c00;
