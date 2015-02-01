@@ -217,5 +217,5 @@ ul#posts_tagged {
 이상으로 태그 달기를 마치도록 하겠다.
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.16장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_15
 
