@@ -282,7 +282,7 @@ $ cap production deploy
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.17장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_16
 
 ---
 
