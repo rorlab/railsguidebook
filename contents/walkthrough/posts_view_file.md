@@ -65,7 +65,7 @@
 `welcome` 컨틀로러의 `index` 액션 뷰 파일(`app/views/welcome/index.html.erb')을 열고 `posts_path`를 bulletin_posts_path(1)`로 변경한다. 이것은 `공지사항` 게시판으로 이동하기 위한 것이다.
 
 ```html
-<%= link_to "글작성", posts_path, class:'btn btn-default' %>
+<%= link_to "글작성", bulletin_posts_path(1), class:'btn btn-default' %>
 ```
 
 ### 브랜드 로고 링크 업데이트
