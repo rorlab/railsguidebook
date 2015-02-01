@@ -389,7 +389,10 @@ end
 
 > **Info** : 업로드된 파일은 `public/uploads/` 디렉토리에 저장된다. 이 파일들은 소스관리를 할 필요가 없기 때문에, `.gitignore` 파일을 열어 하단에 아래와 같이 추가해 준다.
 
- 
+```
+...
+public/uploads/*
+```
 
 ---
 > **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_11
