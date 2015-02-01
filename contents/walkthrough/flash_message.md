@@ -82,7 +82,7 @@ end
 
 이제 새로운 게시물을 작성하거나 수정하면 페이지 상단의 메뉴 아래에 적절한 메시지가 표시될 것이다. 당연한 것이지만, 이 메시지를 페이지를 다시 로딩하면 사라질 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-18_16-17-06_zps5a67bce4.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_17-06-08_zpsda2bed8f.png)
 
 지금까지 레일스의 `flash` 메시지를 표시하는 방법을 소개했다.
 
