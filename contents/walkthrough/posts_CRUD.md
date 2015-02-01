@@ -110,7 +110,7 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-default' %>
+    <%= f.button :submit %>
   </div>
 <% end %>
 ```
