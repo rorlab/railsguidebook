@@ -8,7 +8,7 @@
 $ bin/rails g model Comment post:references body:text
 ```
 
-위에서 `Comment` 모델에 대해서 실제로는 `post_id`, `body` 두 개의 속성을 만들게 된다. 이와 같이 모델을 생성하게 되면 이 모델과 액티브레코드에 의해 자동으로 연결될 수 있는 데이터베이스 테이블을 생성할 수 있도록 마이그레이션 파일도 생성된다. 우리는 이 파일을 이용하여 실제로 테이블을 생성하게 되는 것이다.
+이와 같이 모델을 생성하게 되면 액티브레코드에 의해 이 모델과 자동으로 연결될 수 있는 데이터베이스 테이블을 생성할 수 있도록 마이그레이션 파일도 함께 생성된다. 우리는 이 파일을 이용하여 실제로 테이블을 생성하게 되는 것이다.
 
 위의 커맨트라인에서 `post:references`라고  모델 속성을 지정했는데, 이것은 `post_id`라는 속성을 만들고 이 속성을 `foreign key`로 사용하도록 해 준다. 그리고 해당 모델(`Comment`) 클래스에는 `belongs_to :post`라는 관계선언을 자동으로 추가해 준다.
 
@@ -17,7 +17,7 @@ $ bin/rails g model Comment post:references body:text
 ```bash
 $ bin/rails g model Comment post:references body:text
       invoke  active_record
-      create    db/migrate/20140703020720_create_comments.rb
+      create    db/migrate/20150201110502_create_comments.rb
       create    app/models/comment.rb
       invoke    test_unit
       create      test/models/comment_test.rb
