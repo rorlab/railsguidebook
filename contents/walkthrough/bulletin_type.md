@@ -50,7 +50,7 @@ end
 
 ### Bulletin 뷰 템플릿 파일의 변경
 
-`app/views/bulletins/_form.html.erb` 파일을 열어 아래의 코드를 추가해 준다. Bulletin 형태를 게시판 또는 블로그로 선택할 수 있게 해준다.
+`app/views/bulletins/_form.html.erb` 파일을 열어 아래의 코드를 추가해 준다. `Bulletin` 형태를 게시판, 블로그, 또는 갤러리로 선택할 수 있게 해준다.
 
 ```ruby
 <div class="form-group">
