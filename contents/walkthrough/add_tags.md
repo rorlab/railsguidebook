@@ -209,7 +209,7 @@ private
 <% end %>
 ```
 
-`<%= render @posts %>`에서 사용할 `_post.html.erb` 파일을 `app/views/posts/` 디렉토리에 생성하고 아래와 같이 추가한다.
+그리고 `<%= render @posts %>`에서 사용할 `_post.html.erb` 파일을 `app/views/posts/` 디렉토리에 생성하고 아래와 같이 추가한다.
 
 ```html
 <li>
