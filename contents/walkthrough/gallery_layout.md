@@ -233,17 +233,27 @@ end
 
 ### Post 폼에 파일업로드 추가하기
 
-폼 `partial` 템플릿 파일(`app/views/posts/_form.html.erb`)을 아래와 같이 추가한다.
+폼 `partial` 템플릿 파일(`app/views/posts/_form.html.erb`)을 아래와 같이 변경한다.
 
 ```erb
-...
-<% if @post.bulletin.post_type == "gallery" %>
-  <div class="form-group">
-    <%= f.input :picture, as: :file %>
-    <%= f.hidden_field :picture_cache %>
+<%= simple_form_for([@bulletin, @post]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :content, input_html: { rows: 10 } %>
+
+    <% if @post.bulletin.post_type == "gallery" %>
+      <%= f.input :picture, as: :file %>
+      <%= f.hidden_field :picture_cache %>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
-...
+
 ```
 
 위에서 `erb` 코드 부분을 보면, `gallery`형 게시판에서만 이미지를 업로드할 수 있도록 조건을 추가한 것을 주목하자.
