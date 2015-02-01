@@ -113,7 +113,7 @@ $ open http://localhost:3000/bulletins
 <%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
 
-모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 UTC 타임존으로 표시된다.
+모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 `UTC 타임존`으로 표시된다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_19-59-12_zps467a56c9.png)
 
