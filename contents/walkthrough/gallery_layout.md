@@ -282,7 +282,7 @@ input[type='file'] {
 
 <% @posts.each do | post | %>
     <div class='gallery'>
-      <div class='picture'><%= image_tag(post.picture_url) if post.picture? %></div>
+      <div class='picture'><%= image_tag(post.picture_url(:thumb) if post.picture? %></div>
       <div class='title'><%= post.title %></div>
       <div class='content'><%= simple_format post.content %></div>
       <div>
