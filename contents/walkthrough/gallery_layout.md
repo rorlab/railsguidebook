@@ -275,30 +275,69 @@ input[type='file'] {
 ...
 ```
 
+다음은, `awesome` 폰트를 사용하기 위해서 아래와 같이 `Gemfile`에 추가하고 
+
+```ruby
+gem "font-awesome-rails"
+```
+
+`bundle install` 후 웹서버를 다시 시작한다.
+
+그리고 `app/assets/stylesheets/application.scss` 파일을 열고 아래와 같이 추가한다. 
+
+```ruby
+...
+@import 'bootstrap';
+@import "font-awesome";  <<< 추가
+@import 'posts';
+...
+```
+
+> **Info** : 이 젬은 `fa_icon`이라는 헬퍼메소드를 지원해 준다. 사용법은 [여기](https://github.com/bokmann/font-awesome-rails#helpers)를 참고한다. 
+
 다음에는 `갤러리`용 `partial` 템플릿 파일을 생성하기 위해  `app/views/posts/post_types/` 디렉토리에 `_gallery.html.erb` 파일을 추가하고 아래와 같이 작성한다.
 
 ```erb
 <h2><%= bulletin_name params[:bulletin_id] %></h2>
 
+<div class='gallery'>
 <% @posts.each do | post | %>
-    <div class='gallery'>
-      <div class='picture'><%= image_tag(post.picture_url(:thumb) if post.picture? %></div>
+    <div class='col-lg-3 col-md-3 col-xs-4  picture'>
+      <div class='image'><%= link_to(image_tag(post.picture_url(:thumb)), [post.bulletin, post]) if post.picture? %></div>
       <div class='title'><%= post.title %></div>
-      <div class='content'><%= simple_format post.content %></div>
-      <div>
-          <%= link_to 'Show', [post.bulletin, post], class:'btn btn-default' %>
-          <%= link_to 'Edit', edit_bulletin_post_path(post.bulletin, post), class:'btn btn-default' %>
-          <%= link_to 'Destroy', [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %>
+      <div class='content'><%= post.content %></div>
+      <div class='actions'>
+          <%= link_to fa_icon('eye'), [post.bulletin, post] %>
+          <%= link_to fa_icon('edit'), edit_bulletin_post_path(post.bulletin, post) %>
+          <%= link_to fa_icon('trash'), [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
 <% end %>
-
+</div>
 <br>
 
 <%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
 ```
 
+`app/assets/stylesheets/posts.scss` 파일에 아래와 같이 추가한다.
 
+```css
+.gallery {
+  overflow:auto;
+  .picture {
+    position:relative;
+    margin:1.5em 0;
+    .image img {
+      border: 1px solid #928c75;
+    }
+    .title {}
+    .content {}
+    .actions {
+      position:absolute;
+    }
+  }
+}
+```
 
 갤러리 게시판에서 이미지를 추가하는 화면은 아래와 같다.
 
@@ -320,6 +359,8 @@ end
 이러한 파일확장자 이외의 파일을 업로드하면 아래와 같은 에러 메시지가 표시된다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_13-32-37_zps404bdb11.png)
+
+
 
 `.pdf` 파일을 업로드할 경우에는 `pdf` 파일의 첫페이지가 쎔네일 이미지로 만들어진다.
 
