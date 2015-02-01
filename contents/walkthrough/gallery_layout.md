@@ -56,7 +56,7 @@ CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\s\.\-\+]/
 ```
 
-> **Caution** : 설정파일을 변경한 경우에는 반드시 웹서버를 다시 시작해야 한다.
+> **Caution** : 젬을 추가하거나 설정파일을 변경한 경우에는 반드시 웹서버를 다시 시작해야 한다.
 
 ### 업로드 클래스의 생성
 
