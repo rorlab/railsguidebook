@@ -402,13 +402,14 @@ $("#comment_<%=@comment.id %>").slideUp('fast');
 
 `app/views/posts/post_types/_blog.html.erb` 파일과 `app/views/posts/post_types/_gallery.html.erb` 파일도 동일한 작업을 해 준다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-03_17-56-26_zps7045ae89.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_20-57-45_zps9cd49dd2.png)
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_21-02-04_zpsd67368f5.png)
 
 이상으로 코멘트 달기를 마무리하고 다음 장에서는 태그 달기를 해 보기 하자.
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.15장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_14
 
 
 
