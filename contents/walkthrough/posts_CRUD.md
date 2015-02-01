@@ -104,15 +104,14 @@ DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group">
+  <div class="form-inputs">
     <%= f.input :title %>
-  </div>
-  <div class="form-group">
     <%= f.input :content, input_html: { rows: 10 } %>
   </div>
 
-  <%= f.button :submit, class: 'btn btn-default' %>
-
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
 <% end %>
 ```
 
