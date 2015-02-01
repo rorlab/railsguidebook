@@ -17,7 +17,7 @@ $ bin/rake db:seed
 
 이와 같은 명령은 `db/seeds.rb` 파일에 있는 명령을 실행하여 데이터를 생성하게 된다.
 
-이제, 여기서는 4개의 게시판을 생성하는 명령을 추가해 주도록 한다.
+이제, 여기서는 4개의 게시판을 생성하는 명령을 추가하도록 한다.
 
 ```ruby
 # 디폴트 게시판 생성
@@ -35,7 +35,7 @@ Bulletin.create! title: '갤러리', post_type: 'gallery'
 $ bin/rake db:reset
 ```
 
-`db:reset`은 DB를 삭제한 후 다시 `db:setup`하는 작업을 하는데, 이 때 `db:seed` 작업도 함께 한다.
+`db:reset`은 DB를 삭제한 후 다시 `db:setup`하는 작업을 하는데, 이 때 `db:seed` 작업도 함께 수행된다.
 
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-20_17-31-39_zps9b225561.png)
@@ -45,4 +45,4 @@ $ bin/rake db:reset
 > **Note** `rcafe` 프로젝트에서는 데이터베이스로 [`sqlite`](http://www.sqlite.org)를 사용한다. 이 데이터베이스는 서버 설정이 필요없는 `serverless` 데이터베이스로 트랜잭션이 가능한 관계형데이터베이스(RDBMS)이다. 따라서 데이터베이스를 생성하는 과정이 필요없지만, 다른 일반적인 `MySQL` 등과 같은 경우는 처음에 `db:create` 작업을 해 주어야 한다.
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.14장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_13
