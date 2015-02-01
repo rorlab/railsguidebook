@@ -164,13 +164,13 @@ end
 ```bash
 $ bin/rails g migration add_picture_to_posts picture
       invoke  active_record
-      create    db/migrate/20140517023813_add_picture_to_posts.rb
+      create    db/migrate/20150201000532_add_picture_to_posts.rb
 
 $ bin/rake db:migrate
-== 20140517023813 AddPictureToPosts: migrating ================================
+== 20150201000532 AddPictureToPosts: migrating ================================
 -- add_column(:posts, :picture, :string)
-   -> 0.0023s
-== 20140517023813 AddPictureToPosts: migrated (0.0024s) =======================
+   -> 0.0007s
+== 20150201000532 AddPictureToPosts: migrated (0.0007s) =======================
 ```
 
 ### 업로더 마운트하기
