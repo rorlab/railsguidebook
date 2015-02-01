@@ -96,6 +96,8 @@ end
 
 여기서 사용한 `CGI::escape()` 메소드는 태그에서 사용할 수 있는 특수문자를 이스케이핑하기 위한 것이다.
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-12-30_zps1c3547d7.png)
+
 `posts#show` 액션 뷰 템프릿 파일에 갤러리 게시판의 경우 업로드된 이미지를 보여 줄 필요가 있다. 이를 위해서 `@post.bulletin.post_type`이 `gallery`일 경우 아래와 같이 추가해 준다.
 
 ```html
@@ -109,6 +111,8 @@ end
 ...
 ```
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-17-54_zps2bbd5e41.png)
+
 이제는 `posts#index` 액션 뷰 템플릿 파일에서 태그를 표시하도록 하자. 이 때는 여건상 블로그형과 갤러리형 게시판에서만 태그를 표시하도록 하자.
 
 우선 `app/views/posts/post_types/_blog.html.erb` 파일을 열고 아래와 같이 추가한다.
@@ -121,7 +125,7 @@ end
 
 `app/views/posts/post_types/_gallery.html.erb` 파일에도 적당한 위치에 동일한 내용을 추가한다.
 
-태그 존재할 경우만 보여주기 위해 `if` 조건문을 사용하였다. `tag_list` CSS 클래스를 정의해 주기 위해서 `app/assets/stylesheets/posts.css.scss` 파일을 열고 아래와 같이 추가해 준다.
+태그 존재할 경우만 보여주기 위해 `if` 조건문을 사용하였다. `tag_list` CSS 클래스를 정의해 주기 위해서 `app/assets/stylesheets/posts.scss` 파일을 열고 아래와 같이 추가해 준다.
 
 ```css
 ...
