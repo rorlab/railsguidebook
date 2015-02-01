@@ -382,24 +382,11 @@ $("#comment_<%=@comment.id %>").slideUp('fast');
 <li id="comment_<%=comment.id %>">
   <%= comment.body %>,
   <%= time_ago_in_words(comment.created_at) %> ago
-  <%= link_to icon('remove-circle'), [comment.post, comment], method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
+  <%= link_to fa_icon("times-circle-o"), [comment.post, comment], method: :delete, remote: true, data: { confirm: "Are you sure?" } %>
 </li>
 ```
 
 여기서 주목할 것은 `link_to` 헬퍼 메소드에서 `remote: true` 옵션을 사용했다는 것이다. 이로써 `comments#destroy` 액션이 호출된 후 `destroy.js.erb` 파일을 렌더링한 후 `destroy.js` 파일을 응답으로 보내게 되는 것이다.
-
-또 한가지, `link_to` 헬퍼 메소드에서 `icon()` 헬퍼 메소드를 사용하였는데, 이것은 링크의 라벨 대신에 아이콘을 표시하기 위해서다. `app/helpers/application_helper.rb` 파일을 열고 아래와 같이 `icon()` 메소드를 정의한다.
-
-```ruby
-module ApplicationHelper
-  ...
-  def icon(font)
-    "<span class='glyphicon glyphicon-#{font}'></span>".html_safe
-  end
-end
-```
-
-여기서 사용한 `span` 태그의 `class`는 [`glyphicons`](http://getbootstrap.com/components/#glyphicons-examples) 사용법을 참고하였다.
 
 이제 자유롭게 코멘트를 작성하고 삭제해 보자.
 
