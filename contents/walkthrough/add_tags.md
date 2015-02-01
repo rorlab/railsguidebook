@@ -153,7 +153,9 @@ a.tag {
 }
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-06_19-24-01_zpsa0ff25fc.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-27-47_zps540e8d95.png)
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-23-58_zps94ba1da2.png)
 
 각 태그에는 해당 태그로 검색할 수 있도록  `<a>` 링크 태그의 `href` 속성으로 `/posts?tag=...`와 같이 지정했다. 즉, `posts#index` 액션을 호출시에 `:bulletin_id` 파라미터 없이 `:tag` 파라미터만 넘겨 주게 된다. 따라서 모든 `posts` 객체에 대해서 해당 태그를 가진 것들을 쿼리하게 된다.
 
@@ -175,7 +177,7 @@ end
 ...
 private
   def set_bulletin
-    @bulletin = Bulletin.friendly.find(params[:bulletin_id]) if params[:bulletin_id]
+    @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id]
   end
 
   def set_post
