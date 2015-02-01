@@ -88,7 +88,7 @@ end
 
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe/tree/제5.13장
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_12
 
 
 
