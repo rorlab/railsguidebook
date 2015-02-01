@@ -124,16 +124,16 @@ $ open http://localhost:3000/bulletins
 <%= simple_form_for(@bulletin) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-group">
+  <div class="form-inputs">
     <%= f.input :title %>
-  </div>
-  <div class="form-group">
     <%= f.input :description, input_html: { rows: 5 } %>
   </div>
 
-  <%= f.button :submit, class: 'btn btn-default' %>
-
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
 <% end %>
+
 ```
 
 ### new 액션 뷰 템플릿 파일
