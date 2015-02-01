@@ -53,9 +53,19 @@ end
 `app/views/bulletins/_form.html.erb` 파일을 열어 아래의 코드를 추가해 준다. `Bulletin` 형태를 게시판, 블로그, 또는 갤러리로 선택할 수 있게 해준다.
 
 ```ruby
-<div class="form-group">
-  <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog'], ['갤러리', 'gallery'] ] %>
-</div>
+<%= simple_form_for(@bulletin) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description, input_html: { rows: 5 } %>
+    <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog'], ['갤러리', 'gallery'] ] %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 ```
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_07-47-19_zpsbb9e3bbf.png)
