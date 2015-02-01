@@ -228,7 +228,7 @@ end
 ...
 <% if @post.bulletin.post_type == "gallery" %>
   <div class="form-group">
-    <%= f.input :picture, as: :file, input_html:{ class: 'form-control' } %>
+    <%= f.input :picture, as: :file %>
     <%= f.hidden_field :picture_cache %>
   </div>
 <% end %>
