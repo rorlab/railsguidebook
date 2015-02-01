@@ -45,16 +45,16 @@ $ bin/rake db:migrate
 ```bash
 $ bin/rake db:migrate:status
 
-database: /Users/hyo/prj/hschoidr/rcafe/db/development.sqlite3
+database: /Users/hyo/prj/rorlakr/rcafe/db/development.sqlite3
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20140702081221  Create posts
-   up     20140702085302  Create bulletins
-   up     20140702092209  Add bulletin id to posts
-   up     20140702095119  Add post type to bulletins
-   up     20140702105305  Add picture to posts
-   up     20140703020720  Create comments
+   up     20150201062618  Create posts
+   up     20150201063531  Create bulletins
+   up     20150201064121  Add bulletin id to posts
+   up     20150201070733  Add post type to bulletins
+   up     20150201073035  Add picture to posts
+   up     20150201110502  Create comments
 ```
 
 
