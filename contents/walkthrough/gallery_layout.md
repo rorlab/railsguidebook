@@ -6,7 +6,7 @@
 
 이미지를 업로드를 구현하기 위해서는 두가지 젬을 사용할 수 있다. 하나는 [`paperclip`](https://github.com/thoughtbot/paperclip)이고 다른 하나는 [`carrierwave`](https://github.com/carrierwaveuploader/carrierwave)라는 젬이다.
 
-이 두 젬은 모두 시스템에 `ImageMagick`이라는 툴이 설치되어 있어야 한다. 시스템에서 아래와 같은 명령으로 설치 여부를 알 수 있다.
+이 두 젬은 모두 시스템에 `ImageMagick`이라는 툴이 설치되어 있어야 한다. 시스템에서 아래와 같은 명령으로 설치 여부를 알 수 있다. [`ghostscript`](http://www.ghostscript.com)도 함께 설치하면 PDF 파일 업로드시 첫페이지 이미지를 썸네일로 만들 수 있다. 
 
 ```bash
 $ convert
