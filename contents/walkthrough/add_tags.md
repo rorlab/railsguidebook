@@ -119,7 +119,7 @@ end
 
 ```html
 <% if post.tag_list.size > 0 %>
-  <div class='tag_list'><%= icon('tags') + " " + tag_icons(post.tag_list) %></div>
+  <div class='tag_list'><%= fa_icon('tags') + " " + tag_icons(post.tag_list) %></div>
 <% end %>
 ```
 
