@@ -376,7 +376,7 @@ end
 
 `.pdf` 파일을 업로드할 경우에는 `pdf` 파일의 첫페이지가 쎔네일 이미지로 만들어진다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_14-18-12_zps6ce641f5.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_16-46-07_zps8d9481b4.png)
 
 각 게시판형에 따른 레이아웃용 `partial` 템플릿 파일에서 헤더 부분에 아래와 같이 추가하여 게시판 제목 옆에 `설정` 링크를 두면 좋겠다. (`_bulletin.html.erb`, `_blog.html.erb`, `_gallery.html.erb`)
 
@@ -385,6 +385,10 @@ end
 ```
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_14-21-30_zpsbd72d3bc.png)
+
+
+> **Info** : 업로드된 파일은 `public/uploads/` 디렉토리에 저장된다. 이 파일들은 소스관리를 할 필요가 없기 때문에, `.gitignore` 파일을 열어 하단에 아래와 같이 추가해 준다.
+
 
 
 ---
