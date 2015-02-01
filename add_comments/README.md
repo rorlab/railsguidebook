@@ -273,12 +273,12 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 }
 ```
 
-`app/assets/stylesheets/application.css.scss` 파일에 이 파일을 임포드한다.
+`app/assets/stylesheets/application.scss` 파일에 이 파일을 임포드한다.
 
 ```css
 ...
 @import 'comments';
-..
+...
 ```
 
 그리고 위에서 사용한 `partial`을 만들기 위해 `app/views/comments/` 디렉토리에 `_list.html.erb` 파일을 생성하고 아래와 같이 작성한다.
