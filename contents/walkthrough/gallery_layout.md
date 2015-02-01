@@ -239,35 +239,19 @@ end
 
 ### 갤러리 게시판을 생성
 
-우선 게시판 생성시 `Post type`에 `gallery` 옵션을 추가하기 위해 아래와 같이 변경한다.
+이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
 
-```erb
-...
-<div class="form-group">
-  <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog'], ['갤러리', 'gallery']], input_html:{ class:'form-control'} %>
-</div>
-...
-```
-
-다음으로, 이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-17_12-13-02_zpsb3c96ebb.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_09-15-25_zps70fcf00e.png)
 
 이렇게 해서 게시판은 총 4개가 되었다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-17_12-18-25_zps5b7f02bb.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_09-18-38_zps3ceb0979.png)
 
 이제 어플리케이션 레이아웃 파일(`app/views/layouts/application.html.erb`)을 열고, 상단 메뉴항목에 `갤러리`를 추가한다.
 
 ```erb
 ...
-<div class="navbar-collapse collapse">
-  <ul class="nav navbar-nav">
-    <li class="<%= params[:bulletin_id] == '공지사항' ? 'active' : '' %>"><%= link_to '공지사항', bulletin_posts_path('공지사항') %></li>
-    <li class="<%= params[:bulletin_id] == '새소식' ? 'active' : '' %>"><%= link_to '새소식', bulletin_posts_path('새소식') %></li>
-    <li class="<%= params[:bulletin_id] == '가입인사' ? 'active' : '' %>"><%= link_to '가입인사', bulletin_posts_path('가입인사') %></li>
-    <li class="<%= params[:bulletin_id] == '갤러리' ? 'active' : '' %>"><%= link_to '갤러리', bulletin_posts_path('갤러리') %></li>
-  </ul>
+<li class="<%= params[:bulletin_id] == '4' ? 'active' : '' %>"><%= link_to '갤러리', bulletin_posts_path(4) %></li>
 ...
 ```
 
