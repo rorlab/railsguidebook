@@ -184,6 +184,15 @@ class Post < ActiveRecord::Base
 end
 ```
 
+또한 `posts` 컨트롤러의 params 해시에 `picture`와 `picture_cahe` 속성을 추가한다. 
+
+```ruby
+def post_params
+  params.require(:post).permit(:title, :content, :picture, :picture_cache)
+end
+```
+
+
 ### MiniMagick 젬 추가하기
 
 이미지 크기를 조절하기 위해서 `Rmagick`이나 `MiniMagick` 젬을 추가한다. `carrierwave` 문서에 따르면 `MiniMagick` 젬을 추천하므로 아래와 같이 `Gemfile`에 `minimagick` 젬을 추가하고,
@@ -310,28 +319,9 @@ end
 
 이러한 파일확장자 이외의 파일을 업로드하면 아래와 같은 에러 메시지가 표시된다.
 
-에러 메시지를 위한 `CSS`를 추가하기 위해 `app/assets/stylesheets/`  디렉토리에 `custom.scss` 파일을 생성하고 아래와 같이 추가한다.
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_13-32-37_zps404bdb11.png)
 
-```css
-@import 'bootstrap/variables';
-
-.help-inline {
-  color: #ff0000;
-  font-style: italic;
-}
-
-.alert-error {
-  color: #7d0505 !important;
-  background-color: rgba(123, 34, 34, 0.16) !important;
-  border: 1px solid #7d0505 !important;
-}
-```
-
-브라우저에서 허용되지 않는 파일 종류의 파일을 업로드해 보자.  
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-17_21-25-04_zps0d9549a7.png)
-
-`.pdf` 파일을 업로드하면 첫페이지의 이미지가 쎔네일로 만들어진다.
+`.pdf` 파일을 업로드할 경우에는 `pdf` 파일의 첫페이지가 쎔네일 이미지로 만들어진다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-17_16-00-09_zps7a9c5c52.png)
 
