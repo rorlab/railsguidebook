@@ -327,6 +327,8 @@ end
 }
 ```
 
+브라우저에서 허용되지 않는 파일 종류의 파일을 업로드해 보자.  
+
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-17_21-25-04_zps0d9549a7.png)
 
 `.pdf` 파일을 업로드하면 첫페이지의 이미지가 쎔네일로 만들어진다.
