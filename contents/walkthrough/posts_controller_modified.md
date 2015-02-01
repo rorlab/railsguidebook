@@ -115,7 +115,7 @@ class PostsController < ApplicationController
 
   private
     def set_bulletin
-      @bulletin = Bulletin.friendly.find(params[:bulletin_id])
+      @bulletin = Bulletin.find(params[:bulletin_id])
     end
 
     def set_post
