@@ -23,7 +23,7 @@
 * `app/views/posts/_form.html.erb`에서 아래와 같이 수정한다.
 
   ```
--<%= form_for(@post) do |f| %>
+-<%= simple_form_for(@post) do |f| %>
 +<%= simple_form_for([@bulletin, @post]) do |f| %>
 ```
 
