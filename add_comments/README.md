@@ -322,21 +322,21 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 
 여기서 주목할 것은 폼 데이터를 `ajax`로 서밋하기 위해서 `simple_form_for` 메소드에 `remote: true` 옵션을 지정했다는 것이다. 이로서 서밋 액션이 일어날 경우 `comments#create` 액션이 호출된 후 `create.html.erb` 파일 대신에 `create.js.erb` 파일이 렌더링되고 최종적으로 `create.js` 자바스크립트 파일을 응답으로 클라언트로 보낸다.
 
-이제는 실제로 브라우저 상에서 `http://localhost:3000/bulletins/새소식/posts`로 이동한 후 새소식을 새로 작성하고 해당 새소식에 대한 `show`액션 `URI`로 이동한다. 여기서는 예로 `4`번의 글로 이동하기로 한다.
+이제는 실제로 브라우저 상에서 `http://localhost:3000/bulletins/3/posts`로 이동한 후 새소식을 새로 작성하고 해당 새소식에 대한 `show`액션 `URI`로 이동한다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-03_17-55-49_zps5ee193ec.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_20-33-22_zpsf0014672.png)
 
-그리고 댓글 입력하는 곳에 임의의 글을 작성하고 `Create comment` 버튼을 클릭한다.
+그리고 코멘트를 입력하는 곳에 임의의 글을 작성하고 `Create comment` 버튼을 클릭한다.
 
 그러나 아무런 반응이 없을 것이다. 이와 같은 상황은 정상이다.
 
 브라우저를 다시 로드하면 방금 전에 작성한 코멘트가 보이게 될 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-03_17-54-39_zps94620d7d.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_20-43-50_zps79ca61b0.png)
 
-이것은 코멘트는 생성이 잘 되었지만 실제로 화면상에 바로 보여 주지 못하기 때문이 발생하는 현상이다.
+이와 같은 현상은, 코멘트는 생성 되었지만 실제로 화면상에 제대로 보여 주지 못하기 때문에 발생한다.
 
-이 문제를 해결하기 위해서 위에서 언급했던 `ajax` 동작을 완성하기 위해서 `app/views/comments/` 디렉토리에 있는 `create.html.erb` 파일을 `create.js.erb` 파일로 이름을 변경하고 아래와 같이 코드를 작성한다.
+이 문제를 해결하기 위해서 위에서 언급했던 `ajax` 동작을 추가하자. `app/views/comments/` 디렉토리에 있는 `create.html.erb` 파일을 `create.js.erb` 파일로 이름을 변경하고 아래와 같이 코드를 작성한다.
 
 ```js
 <% if @comment.errors.size == 0 %>
@@ -357,7 +357,7 @@ class Comment < ActiveRecord::Base
 end
 ```
 
-이제 내용을 입력하지 않은 상태에서 `Create comment` 버튼을 클릭하면 `"Please submit after commenting..."` 이라는 `alert` 창이 보이게 될 것이다.
+이제 내용을 입력하지 않은 상태에서 `Create comment` 버튼을 클릭하면 `"Please submit after commenting..."` 이라는 팝업 창이 보이게 될 것이다.
 
 이제는 특정 코멘트를 `ajax`로 삭제해 보자. 즉, 페이지 이동이 없이 바로 코멘트가 사라지게 해 보자.
 
@@ -367,7 +367,7 @@ end
 $("#comment_<%=@comment.id %>").slideUp('fast');
 ```
 
-위의 자바스크립트가 제대로 동작하기 위해서는 `_comment.html.erb` 파일의 아래와 같이 변경한다.
+위의 자바스크립트가 제대로 동작하기 위해서는 `_comment.html.erb` 파일을 아래와 같이 변경한다.
 
 ```html
 <li id="comment_<%=comment.id %>">
