@@ -135,12 +135,10 @@ irb(main):007:0> post.save
 이제 아래와 같이 두 모델의 관계선언이 제대로 설정되었는지를 확인해 보자.
 
 ```bash
-irb(main):010:0> bulletin.reload.posts
-  Post Load (0.2ms)  SELECT "posts".* FROM "posts"  WHERE "posts"."bulletin_id" = ?  [["bulletin_id", 4]]
-=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스 가이드라인", created_at: "2014-05-04 09:06:54", updated_at: "2014-05-04 09:08:18", bulletin_id: 4>]>
+irb(main):010:0> bulletin.posts
+  Post Load (0.2ms)  SELECT "posts".* FROM "posts" WHERE "posts"."bulletin_id" = ?  [["bulletin_id", 1]]
+=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-02-01 06:42:13", updated_at: "2015-02-01 06:42:56", bulletin_id: 1>]>
 ```
-
-> **Caution** : 이 경우에는 `bulletin.posts` 대신에 `bulletin.reload.posts`와 같이 호출 해야 하는데, `bulletin` 변수는 `post.bulletin_id` 값을 변경하기 전의 상태이므로 변경 후의 상태를 갱신하기 위해서 `reload` 메소드를 사용해야 한다.
 
 지금까지 `bulletin` 객체에 임의의 `post` 객체를 추가하는 과정을 보았다. 왠지 모르게 번잡스러운 느낌이 든다.
 
@@ -149,11 +147,11 @@ irb(main):010:0> bulletin.reload.posts
 ```bash
 irb(main):011:0> post = bulletin.posts.create title:"두번째 글", content: "관계선언을 이용하여 글을 등록합니다"
    (0.1ms)  begin transaction
-  SQL (0.4ms)  INSERT INTO "posts" ("title", "content", "bulletin_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "두번째 글"], ["content", "관계선언을 이용하여 글을 등록합니다"], ["bulletin_id", 1], ["created_at", "2015-01-30 12:09:29.648254"], ["updated_at", "2015-01-30 12:09:29.648254"]]
-   (1.1ms)  commit transaction
-=> #<Post id: 2, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-01-30 12:09:29", updated_at: "2015-01-30 12:09:29", bulletin_id: 1>
+  SQL (0.3ms)  INSERT INTO "posts" ("title", "content", "bulletin_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "두번째 글"], ["content", "관계선언을 이용하여 글을 등록합니다"], ["bulletin_id", 1], ["created_at", "2015-02-01 06:45:34.648475"], ["updated_at", "2015-02-01 06:45:34.648475"]]
+   (1.7ms)  commit transaction
+=> #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-02-01 06:45:34", updated_at: "2015-02-01 06:45:34", bulletin_id: 1>
 irb(main):012:0> bulletin.posts
-=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 1, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-01-30 11:54:26", updated_at: "2015-01-30 11:59:53", bulletin_id: 1>, #<Post id: 2, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-01-30 12:09:29", updated_at: "2015-01-30 12:09:29", bulletin_id: 1>]>
+=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-02-01 06:42:13", updated_at: "2015-02-01 06:42:56", bulletin_id: 1>, #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-02-01 06:45:34", updated_at: "2015-02-01 06:45:34", bulletin_id: 1>]>
 irb(main):014:0> bulletin.posts.size
 => 2
 ```
