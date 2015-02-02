@@ -279,6 +279,9 @@ ubuntu@ubuntu-VirtualBox:~$ sudo apt-get install -y mysql-server mysql-client li
 # Imagemagick 이미지 툴 설치
 ubuntu@ubuntu-VirtualBox:~$ sudo apt-get -y install libmagickwand-dev imagemagick
 
+# Ghostscript 설치
+ubuntu@ubuntu-VirtualBox:~$ sudo apt-get install ghostscript
+
 # Nodejs 설치
 ubuntu@ubuntu-VirtualBox:~$ sudo apt-get -y install nodejs
 ```
