@@ -257,6 +257,40 @@ mysql> grant all privileges on rcafe_production.* to deployer@localhost;
 $ cap production setup
 ```
 
+아래와 같이 루비 2.2.0 설치 중 에러가 발생하면,
+
+```bash
+INFO [b3b4b5bb] Running /usr/bin/env ~/.rbenv/bin/rbenv install 2.2.0 as deployer@ubuntu14.vm
+DEBUG [b3b4b5bb] Command: /usr/bin/env ~/.rbenv/bin/rbenv install 2.2.0
+DEBUG [b3b4b5bb] 	Downloading ruby-2.2.0.tar.gz...
+DEBUG [b3b4b5bb] 	-> http://dqw8nmjcqpjn7.cloudfront.net/7671e394abfb5d262fbcd3b27a71bf78737c7e9347fa21c39e58b0bb9c4840fc
+DEBUG [b3b4b5bb] 	Installing ruby-2.2.0...
+DEBUG [b3b4b5bb]
+DEBUG [b3b4b5bb] 	BUILD FAILED
+DEBUG [b3b4b5bb] 	 (Ubuntu 14.10 using ruby-build 20150130)
+DEBUG [b3b4b5bb]
+DEBUG [b3b4b5bb] 	Inspect or clean up the working tree at /tmp/ruby-build.20150202122321.28969
+DEBUG [b3b4b5bb] 	Results logged to /tmp/ruby-build.20150202122321.28969.log
+DEBUG [b3b4b5bb]
+DEBUG [b3b4b5bb] 	Last 10 log lines:
+DEBUG [b3b4b5bb] 	./libffi-3.2.1/.libs/libffi.a: error adding symbols: Bad value
+DEBUG [b3b4b5bb] 	collect2: error: ld returned 1 exit status
+DEBUG [b3b4b5bb] 	Makefile:325: recipe for target '../../.ext/x86_64-linux/fiddle.so' failed
+DEBUG [b3b4b5bb] 	make[2]: *** [../../.ext/x86_64-linux/fiddle.so] Error 1
+DEBUG [b3b4b5bb] 	make[2]: Leaving directory '/tmp/ruby-build.20150202122321.28969/ruby-2.2.0/ext/fiddle'
+DEBUG [b3b4b5bb] 	exts.mk:177: recipe for target 'ext/fiddle/all' failed
+DEBUG [b3b4b5bb] 	make[1]: *** [ext/fiddle/all] Error 2
+DEBUG [b3b4b5bb] 	make[1]: Leaving directory '/tmp/ruby-build.20150202122321.28969/ruby-2.2.0'
+DEBUG [b3b4b5bb] 	uncommon.mk:187: recipe for target 'build-ext' failed
+DEBUG [b3b4b5bb] 	make: *** [build-ext] Error 2
+```
+
+서버에 접속하여 아래와 같이 `libffi-dev` 라이브러리를 설치하고 다시 시도한다.  
+
+```bash
+deployer@ubuntu $ sudo apt-get libffi-dev
+```
+
 ### 배포하기
 
 이제 실제 배포 명령을 실행한다.
