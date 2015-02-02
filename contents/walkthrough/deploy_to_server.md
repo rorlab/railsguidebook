@@ -49,7 +49,7 @@ root@ubuntu $ sudo visudo
 deployer ALL=(ALL) NOPASSWD: ALL
 ```
 
-또한, 매번 `ssh`로 서버에 접속할 때마다 비밀번호를 입력하는 절차를 생략하기 위해서, 아래와 같이 `ssh` 키를 서버로 복사한다.
+또한, 매번 `ssh`로 서버에 접속할 때마다 비밀번호를 입력하는 절차를 생략하기 위해서, 아래와 같이 `ssh` 키를 서버로 복사한다. 
 
 ```bash
 $ ssh-copy-id -i ~/.ssh/id_rsa deployer@ubuntu.vm
