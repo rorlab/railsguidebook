@@ -304,6 +304,12 @@ $ cap production deploy
   Couldn't reload, starting 'cd /home/deployer/apps/blog/current && ( RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 ~/.rbenv/bin/rbenv exec bundle exec unicorn -D -c /home/deployer/apps/blog/shared/config/unicorn.rb -E production )' instead
   ```
 
+마지막으로 한가지 추가할 것은 서버에서 `rake db:seed`가 실행되도록 하여 기본 게시판을 생성하도록 한다. 
+
+```bash
+$ cap production rails:rake:db:seed
+```
+
 에러 없이 배포가 완료되면 브라우저에서 확인한다.
 
 ### 소스코드의 관리
