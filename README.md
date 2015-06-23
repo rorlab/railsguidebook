@@ -1,6 +1,5 @@
 # 초보자를 위한 레일스 가이드북 v1.0.6
 
-[![Build Status](https://www.gitbook.io/button/status/book/rorlab/railsguidebook)](https://www.gitbook.io/book/rorlab/railsguidebook/activity)
 
 이 책은 이제 막 루비온레일스를 시작하는 개발자를 대상으로 실무 프로젝트를 따라 하면서 루비온레일스의 전반적인 내용을 쉽게 이해할 수 있도록 구성하였다.
 
