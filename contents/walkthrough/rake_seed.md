@@ -42,7 +42,9 @@ $ bin/rake db:reset
 
 이제 브라우저에서 확인하여 메뉴항목을 클릭하면 해당 게시판이 에러 없이 보이게 된다.
 
-> **Note** `rcafe` 프로젝트에서는 데이터베이스로 [`sqlite`](http://www.sqlite.org)를 사용한다. 이 데이터베이스는 서버 설정이 필요없는 `serverless` 데이터베이스로 트랜잭션이 가능한 관계형데이터베이스(RDBMS)이다. 따라서 데이터베이스를 생성하는 과정이 필요없지만, 다른 일반적인 `MySQL` 등과 같은 경우는 처음에 `db:create` 작업을 해 주어야 한다.
+> #### Note::노트
+> 
+> `rcafe` 프로젝트에서는 데이터베이스로 [`sqlite`](http://www.sqlite.org)를 사용한다. 이 데이터베이스는 서버 설정이 필요없는 `serverless` 데이터베이스로 트랜잭션이 가능한 관계형데이터베이스(RDBMS)이다. 따라서 데이터베이스를 생성하는 과정이 필요없지만, 다른 일반적인 `MySQL` 등과 같은 경우는 처음에 `db:create` 작업을 해 주어야 한다.
 
 ---
 > **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_13
