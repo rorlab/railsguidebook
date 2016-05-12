@@ -1,12 +1,12 @@
 {
     "name": "RailsGuideline",
     "version": "0.0.1",
-    "description": "초보자를 위한 레일스 가이드북",
+    "description": "초보자를 위한 레일스 가이드북(초레가)",
     "repository": {
         "type": "git",
-        "url": "https://github.com/RORLabGitBook/guideline.git"
+        "url": "https://github.com/rorlab/railsguidebook.git"
     },
-    "author": "ROR Lab. <admin@rorlab.org>",
+    "author": "RORLAB <rorlab@gmail.com>",
     "license": "Apache 2",
     "dependencies": {
       "gitbook-plugin-autocover": "0.0.5",
