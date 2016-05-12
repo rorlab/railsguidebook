@@ -3,7 +3,8 @@
         "disqus",
         "richquotes",
         "richquotesbooster",
-        "richquotes-booster"
+        "richquotes-booster",
+        "callouts"
     ],
     "pluginsConfig": {
         "disqus": {
