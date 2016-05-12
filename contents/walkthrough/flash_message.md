@@ -29,7 +29,9 @@ redirect_to ..., notice: 'Post was successfully created.'
 
 `flash` 메시지를 할당할 때 `flash[:notice] = 'some message'`와 같이 코드를 작성할 수 있지만, 위에서와 같이 `redirect_to` 메소드를 사용할 때는 해시형태의 옵션으로 `flash` 메시지를 지정할 수도 있다.
 
-> **Note** 루비에서 해시 키/값을 표현할 때 :notice => "some message"와 같이 작성할 수도 있지만 루비 1.9부터는 notice: "some message"와 같이 축약형으로도 지정할 수 있다.
+> #### Note::노트
+> 
+> 루비에서 해시 키/값을 표현할 때 :notice => "some message"와 같이 작성할 수도 있지만 루비 1.9부터는 notice: "some message"와 같이 축약형으로도 지정할 수 있다.
 
 위에서 언급한 바와 같이 이 메시지는 어플리케이션 레이아웃 템플릿(`application.html.erb`)에 `partial`로 삽입하기로 한다.
 
