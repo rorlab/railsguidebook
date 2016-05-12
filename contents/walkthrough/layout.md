@@ -125,7 +125,9 @@ $ rails new rcafe
 
 이제 `글작성` 링크 버튼을 클릭하여 이동해 보자.
 
-> **Note** `Bootstrap 3`는 `모바일 우선` 정책을 지원한다. 따라서 자동으로 `responsive` 또는 `fluid` 페이지 레이아웃이 적용되어 화면크기에 따라 레이아웃이 최적화되어 변경된다. 그러나 실제로 `HTML` 페이지의 `<head></head>` 태그 사이에 `viewport`에 대한 메터데이터를 추가하지 않으면 제대로 적용되지 않는다. 따라서 아래와 같은 메타 데이터를 추가해 주어야 한다.
+> #### Note::노트
+> 
+> `Bootstrap 3`는 `모바일 우선` 정책을 지원한다. 따라서 자동으로 `responsive` 또는 `fluid` 페이지 레이아웃이 적용되어 화면크기에 따라 레이아웃이 최적화되어 변경된다. 그러나 실제로 `HTML` 페이지의 `<head></head>` 태그 사이에 `viewport`에 대한 메터데이터를 추가하지 않으면 제대로 적용되지 않는다. 따라서 아래와 같은 메타 데이터를 추가해 주어야 한다.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
