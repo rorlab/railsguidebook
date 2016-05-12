@@ -1,7 +1,6 @@
 {
     "plugins": [
         "disqus",
-        "richquotesbooster",
         "callouts"
     ],
     "pluginsConfig": {
