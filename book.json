@@ -9,7 +9,11 @@
             "shortName": "railsguideline"
         },
         "richquotes": {
-            "todos": true
+            "todos": true,
+            "star": {
+                "alert": "warning",
+                "picto": "fa-star"
+            }
         }
     }
 }
