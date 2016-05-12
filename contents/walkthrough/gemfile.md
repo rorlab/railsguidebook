@@ -123,7 +123,9 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 우선, 모든 [`scss` 파일](http://stackoverflow.com/a/5654471/1217633)에서 `Bootstrap`의 모든 스타일, 믹신, 변수들을 사용하기 위해서 아래와 같이 추가한다.
 
-> **INFO** : `SASS`에 대한 것은 '[SASS 간단정리](http://soooprmx.com/wp/archives/5059)'를 참고하면 도움이 된다. 
+> #### Note::노트
+> 
+> `SASS`에 대한 것은 '[SASS 간단정리](http://soooprmx.com/wp/archives/5059)'를 참고하면 도움이 된다. 
 
 ### Bootstrap Asset 설정
 
