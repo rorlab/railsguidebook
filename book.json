@@ -2,7 +2,7 @@
     "plugins": [
         "disqus",
         "-richquotes",
-        "richquotesbooster",
+        "-richquotesbooster",
         "richquotes-booster"
     ],
     "pluginsConfig": {
