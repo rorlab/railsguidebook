@@ -1,7 +1,7 @@
 {
     "plugins": [
         "disqus",
-        "-richquotes",
+        "richquotes",
         "-richquotesbooster",
         "richquotes-booster"
     ],
@@ -9,7 +9,7 @@
         "disqus": {
             "shortName": "railsguideline"
         },
-        "-richquotes": {
+        "richquotes": {
             "todos": true,
             "star": {
                 "alert": "warning",
