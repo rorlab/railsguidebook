@@ -16,5 +16,5 @@
 
 ---
 
-ROR Lab. 운영자<br />
+RORLAB 운영자<br />
 최 효 성
