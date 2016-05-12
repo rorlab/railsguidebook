@@ -91,7 +91,9 @@ end
 <h2><%= bulletin_name params[:bulletin_id] %></h2>
 ```
 
-> **Info** : `bulletin_name` 헬퍼 메소드는 잠시 후에 설명할 것이다.  
+> #### Info::안내
+> 
+> `bulletin_name` 헬퍼 메소드는 잠시 후에 설명할 것이다.  
 
 그리고, `index.html.erb`는 아래와 같이 수정한다. `render` 메소드는 `partial` 템플릿 파일을 인수로 받아 렌더링 결과를 삽입해 준다. 루비에서는 이중 인용부호 내의 `#{expression}`을 표현식의 결과로 대체해 준다. 따라서 `@bulletin.post_type` 값이 `'bulletin'`일 경우 `"posts/post_types/bulletin"`로 평가되어 `app/views/posts/post_types/` 디렉토리의 `_bulletin.html.erb`이라는 `partial` 템플릿 파일을 `render` 메소드가 처리하게 된다.
 
@@ -99,7 +101,9 @@ end
 <%= render "posts/post_types/#{@bulletin.post_type}" %>
 ```
 
-> **Note** `partial` 템플릿 파일에서는 부모 템플릿 파일에서 사용하는 모든 인스턴스 변수를 그대로 사용할 수 있다.
+> #### Note::노트
+> 
+> `partial` 템플릿 파일에서는 부모 템플릿 파일에서 사용하는 모든 인스턴스 변수를 그대로 사용할 수 있다.
 
 `post` 객체의 `bulletin_id` 속성값으로부터 게시판 이름을 얻기 위한 헬퍼 메소드를 작성한다. `app/helpers/posts_helper.rb` 파일을 열고 아래와 같이 추가한다. 
 
