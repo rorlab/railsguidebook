@@ -14,7 +14,9 @@
 * MySQL : 데이터베이스 서버
 * Nodejs : 서버사이드 자바스크립트
 
-> **Caution** `MySQL DB 서버`의 경우 원격서버의 `/etc/mysql/conf.d/` 디렉토리에 `deployer.cnf` 파일을 새로 추가하고 아래와 같이 문자 인코딩을 `uft8`로 추가해 주어야 한글 인코딩 문제를 해결할 수 있다.
+> #### Caution::주의
+> 
+> `MySQL DB 서버`의 경우 원격서버의 `/etc/mysql/conf.d/` 디렉토리에 `deployer.cnf` 파일을 새로 추가하고 아래와 같이 문자 인코딩을 `uft8`로 추가해 주어야 한글 인코딩 문제를 해결할 수 있다.
 ```
 root@ubuntu $ sudo vi /etc/mysql/conf.d/deployer.cnf
 [mysqld]
@@ -23,7 +25,9 @@ character-set-server = utf8
 
 그리고 배포 전용 계정(`'deployer'`)도 추가해 둔다.
 
-> **Info** 아직 서버에 배포용 계정을 생성하지 않았다면 서버로 접속한 후 아래와 같이 계정을 생성한다.
+> #### Note::노트
+> 
+> 아직 서버에 배포용 계정을 생성하지 않았다면 서버로 접속한 후 아래와 같이 계정을 생성한다.
 ```bash
 root@ubuntu $ sudo adduser deployer
 root@ubutnu $ sudo addgroup admin
@@ -56,11 +60,15 @@ $ ssh-copy-id -i ~/.ssh/id_rsa deployer@ubuntu.vm
 deployer@ubuntu.vm's password:
 ```
 
-> **Info** 해당 디렉토리에 `id_rsa` 파일이 없다면 [SSH Key 생성하기](http://webdir.tistory.com/200)를 참고하여 생성한다.
+> #### Note::노트 
+> 
+> 해당 디렉토리에 `id_rsa` 파일이 없다면 [SSH Key 생성하기](http://webdir.tistory.com/200)를 참고하여 생성한다.
 
 이후부터는 `ssh`로 연결시에 비밀번호 입력없이 바로 접속이 된다.
 
-> **Note** 여기서 사용한 `ubuntu.vm`은 가상머신으로 설치한 우분투 서버의 가상 도메인이다. 도메인 대신 서버의 ip를 지정해도 된다. 맥 사용자들은 [`Horst`](http://penck.de/horst/)라는 툴을 사용하면 `/etc/hosts` 파일을 GUI로 편하게 관리할 수 있다.
+> #### Note::노트 
+> 
+> 여기서 사용한 `ubuntu.vm`은 가상머신으로 설치한 우분투 서버의 가상 도메인이다. 도메인 대신 서버의 ip를 지정해도 된다. 맥 사용자들은 [`Horst`](http://penck.de/horst/)라는 툴을 사용하면 `/etc/hosts` 파일을 GUI로 편하게 관리할 수 있다.
 
 제대로 설정이 되었다면 아래의 명령을 실행했을 때 비밀번호 입력없이 결과를 확인할 수 있다.
 
@@ -70,7 +78,9 @@ ubuntu
  10:26:54 up  3:49,  1 user,  load average: 0.02, 0.02, 0.05
 ```
 
-> **Caution** 복수개의 서버를 설치 중이라면 모든 서버에서 위의 작업을 해 주어야 한다.
+> #### Caution::주의
+> 
+> 복수개의 서버를 설치 중이라면 모든 서버에서 위의 작업을 해 주어야 한다.
 
 
 ### database.yml 설정
@@ -299,7 +309,9 @@ deployer@ubuntu $ sudo apt-get libffi-dev
 $ cap production deploy
 ```
 
-> **버그** : 이 때 아래와 같은 에러가 발생하고 중단할 경우에는 배포서버로 접속한 후 `'...'` 내용을 복사해서 실행하고 한번더 **deploy**하면 해결된다. 아직 이런 현상의 이유를 알 수 없다.
+> #### Danger::버그
+> 
+> 이 때 아래와 같은 에러가 발생하고 중단할 경우에는 배포서버로 접속한 후 `'...'` 내용을 복사해서 실행하고 한번더 **deploy**하면 해결된다. 아직 이런 현상의 이유를 알 수 없다.
   ```
   Couldn't reload, starting 'cd /home/deployer/apps/blog/current && ( RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 ~/.rbenv/bin/rbenv exec bundle exec unicorn -D -c /home/deployer/apps/blog/shared/config/unicorn.rb -E production )' instead
   ```
