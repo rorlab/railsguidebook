@@ -33,6 +33,6 @@
 
 **저작권**
 
-> 이 책의 모든 소유권은 ROR Lab.에 속한다.
+> 이 책의 모든 소유권은 RORLAB에 속한다.
 
 [![RORLAB](../rorlab_final_sticker_187x95_white.png)](http://rorla.rorlab.org)
