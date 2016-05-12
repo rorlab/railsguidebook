@@ -93,7 +93,9 @@ $ gem install bundler
 $ rbenv rehash
 ```
 
-> **Hint** [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash)을 설치하면, 매번 `rbenv rehash` 명령을 실행하지 않아도 된다. 또한, [rbenv-bundler](https://github.com/carsomyr/rbenv-bundler)를 설치하면 `bundle exec`를 생략해도 된다.
+> #### Hint::힌트
+> 
+> [rbenv-gem-rehash](https://github.com/sstephenson/rbenv-gem-rehash)을 설치하면, 매번 `rbenv rehash` 명령을 실행하지 않아도 된다. 또한, [rbenv-bundler](https://github.com/carsomyr/rbenv-bundler)를 설치하면 `bundle exec`를 생략해도 된다.
 
 ### 윈도우
 
