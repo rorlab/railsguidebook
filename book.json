@@ -6,6 +6,9 @@
     "pluginsConfig": {
         "disqus": {
             "shortName": "railsguideline"
+        },
+        "callouts": {
+            "showTypeInHeader": false
         }
     }
 }
