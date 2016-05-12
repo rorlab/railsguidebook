@@ -203,7 +203,9 @@ config.time_zone = 'Seoul'
 
 이제 `Created at` 값이 '2014-05-03 17:59:18 **+0900**' 와 같이 변경된 타임존에 맞게 나타나는 것을 볼 수 있다.
 
-> **Note** 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스는 값을 항상 UTC 타임존으로 저장한다는 사실을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 된다.
+> #### Note::노트
+> 
+> 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스는 값을 항상 UTC 타임존으로 저장한다는 사실을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 된다.
 
 
 ---
