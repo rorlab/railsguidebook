@@ -2,7 +2,9 @@
 
 `scaffold` 제너레이터를 이용하여 특정 모델 리소스를 생성하면 기본적으로 `index`, `show`, `new`, `edit`, `create`, `update`, `destroy` 등 7개의 컨트롤러 액션이 생성된다.
 
-> **Info** 제너레이터의 종류를 보고 싶은 경우에는 콘솔에서 bin/rails generate 명령을 실행하면 된다. 결과에서 Rails: scaffold 를 찾아 볼 수 있을 것이다.
+> #### Info::노트
+> 
+> 제너레이터의 종류를 보고 싶은 경우에는 콘솔에서 bin/rails generate 명령을 실행하면 된다. 결과에서 Rails: scaffold 를 찾아 볼 수 있을 것이다.
 
 데이터의 생성, 읽기, 업데이트, 삭제가 위의 5개의 액션(`create`, `index`, `show`, `update`, `destroy`)으로 구현된다.
 
