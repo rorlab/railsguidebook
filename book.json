@@ -1,7 +1,8 @@
 {
     "plugins": [
         "disqus",
-        "richquotes"
+        "richquotes",
+        "richquotesbooster"
     ],
     "pluginsConfig": {
         "disqus": {
