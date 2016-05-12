@@ -56,7 +56,9 @@ CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
 CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\s\.\-\+]/
 ```
 
-> **Caution** : 젬을 추가하거나 설정파일을 변경한 경우에는 반드시 웹서버를 다시 시작해야 한다.
+> #### Caution::주의
+> 
+> 젬을 추가하거나 설정파일을 변경한 경우에는 반드시 웹서버를 다시 시작해야 한다.
 
 ### 업로드 클래스의 생성
 
@@ -387,7 +389,9 @@ end
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_14-21-30_zpsbd72d3bc.png)
 
 
-> **Info** : 업로드된 파일은 `public/uploads/` 디렉토리에 저장된다. 이 파일들은 소스관리를 할 필요가 없기 때문에, `.gitignore` 파일을 열어 하단에 아래와 같이 추가해 준다.
+> #### Note::노트
+> 
+> 업로드된 파일은 `public/uploads/` 디렉토리에 저장된다. 이 파일들은 소스관리를 할 필요가 없기 때문에, `.gitignore` 파일을 열어 하단에 아래와 같이 추가해 준다.
 
 ```
 ...
