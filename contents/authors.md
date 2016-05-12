@@ -22,7 +22,7 @@
 
 (가나다 ABC 순)
 
-> #### Info::안내
+> #### Success::안내
 > 
 > 공동집필자로 등록 후 활동을 원할 경우 본인의 성함과 github 계정명을 연락([rorlab@gmail.com](mailto:rorlab@gmail.com))을 주기 바람.
 
