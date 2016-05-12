@@ -10,7 +10,7 @@
 * [손영채](https://github.com/ptjoker95)
 * [이한결](https://github.com/leehankyeol)
 * [정창훈](https://github.com/seapy)
-* [최효성](https://github.com/rorlab)
+* [최효성](https://github.com/luciuschoi)
 * [Shim Tw](https://github.com/marocchino)
 
 **기여자**
