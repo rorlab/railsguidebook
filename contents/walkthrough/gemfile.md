@@ -33,8 +33,8 @@ $ gem install bundler
 이제 여러가지 기능을 구현하기 위해 필요한 `젬`들을 `Gemfile`에 추가해 보자. 추가할 `젬` 목록은 아래와 같다.
 
 ```
-gem 'bootstrap-sass', '~> 3.3.3'
-gem 'simple_form', '3.1.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'simple_form', '3.2.1'
 ```
 
 [참고사항]
