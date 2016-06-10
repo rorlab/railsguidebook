@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v 2.3.1](https://www.ruby-lang.org/ko/news/2016/04/26/ruby-2-3-1-released/) : 2016년 4월 26일 릴리스됨.
-* [rails v 4.2.6](http://weblog.rubyonrails.org/2016/3/11/Rails-4-2-6-and-4-1-15-have-been-released/) : 2016년 3월 11일 릴리스됨. 
+* [ruby v2.3.1p112](https://www.ruby-lang.org/ko/news/2016/04/26/ruby-2-3-1-released/) : 2016년 4월 26일 릴리스됨.
+* [rails v4.2.6](http://weblog.rubyonrails.org/2016/3/11/Rails-4-2-6-and-4-1-15-have-been-released/) : 2016년 3월 11일 릴리스됨. 
 
 ```bash
 $ ruby -v
@@ -130,7 +130,7 @@ $ rails new rcafe
 .
 .
 .
-Your bundle is complete!
+Bundle complete! 12 Gemfile dependencies, 56 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
          run  bundle exec spring binstub --all
 * bin/rake: spring inserted
@@ -143,12 +143,12 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 $ cd rcafe
 $ bin/rails server
 => Booting WEBrick
-=> Rails 4.2.0 application starting in development on http://localhost:3000
+=> Rails 4.2.6 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
 => Ctrl-C to shutdown server
-[2015-01-30 09:17:57] INFO  WEBrick 1.3.1
-[2015-01-30 09:17:57] INFO  ruby 2.2.0 (2014-12-25) [x86_64-darwin14]
-[2015-01-30 09:17:57] INFO  WEBrick::HTTPServer#start: pid=98413 port=3000
+[2016-06-10 15:14:37] INFO  WEBrick 1.3.1
+[2016-06-10 15:14:37] INFO  ruby 2.3.1 (2016-04-26) [x86_64-darwin15]
+[2016-06-10 15:14:37] INFO  WEBrick::HTTPServer#start: pid=91093 port=3000
 ```
 
 `Booting WEBrick` : 레일스 프로젝트를 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다. `WEBrick`은 루비 라이브러리로 간단한 **HTTP 웹서버 서비스**를 제공한다.  
