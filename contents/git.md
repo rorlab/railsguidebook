@@ -22,6 +22,7 @@
 * [GIT-IMMERSION](http://gitimmersion.com)
 * [Try Git](https://www.codeschool.com/courses/try-git)
 * [Git 브랜치 배우기](http://pcottle.github.io/learnGitBranching/)
+* [누구나 쉽게 이해할 수 있는 Git 에 입문](http://backlogtool.com/git-guide/kr/)
 
 
 ### Git GUI 툴
