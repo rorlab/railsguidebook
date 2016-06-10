@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v 2.2.0p0](https://www.ruby-lang.org/ko/news/2014/12/25/ruby-2-2-0-released/) : 2014년 12월 25일 릴리스됨.
-* [rails v 4.2.0](http://weblog.rubyonrails.org/2014/12/19/Rails-4-2-final/) : 2014년 12월 20일 릴리스됨. 
+* [ruby v 2.3.1](https://www.ruby-lang.org/ko/news/2016/04/26/ruby-2-3-1-released/) : 2016년 4월 26일 릴리스됨.
+* [rails v 4.2.6](http://weblog.rubyonrails.org/2016/3/11/Rails-4-2-6-and-4-1-15-have-been-released/) : 2016년 3월 11일 릴리스됨. 
 
 ```bash
 $ ruby -v
