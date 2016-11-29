@@ -10,5 +10,8 @@
         "callouts": {
             "showTypeInHeader": false
         }
+    },
+    "styles": {
+        "website": "styles/website.css"
     }
 }
