@@ -1,5 +1,4 @@
-h1 { background-color: yellow; }
-
 code { 
-    background-color: red !important; 
+    background-color: #eaeaea;
+    border: 1px solid #ccc; 
 }
