@@ -8,7 +8,6 @@
     * [개발환경](contents/dev_env.md)
     * [Git 설치](contents/git.md)
     * [rbenv 설치](contents/rbenv.md)
-    * [rvm 설치](contents/rvm.md)
     * [소스코드 에디터](contents/editors.md)
     * [서버 운영환경 구축](contents/pro_env.md)
 * [레일스 설치](contents/rails/install.md)
