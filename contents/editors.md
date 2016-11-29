@@ -5,7 +5,7 @@
 * [Textmate 2](http://macromates.com/) : 레일스 코어팀이 사용하는 맥전용 에디터(유료)
 * [Vim](http://www.vim.org/) + [vim-rails](https://github.com/tpope/vim-rails): 유명한 유닉스 에디터로  맥용/윈도우용도 있음(무료).
 
-### IDE (통합개발환경) 툴
+# IDE (통합개발환경) 툴
 
 * [RubyMine](http://www.jetbrains.com/ruby/index.html) (유료)
 * [Aptana RadRails](http://www.aptana.com/rails) (무료)
