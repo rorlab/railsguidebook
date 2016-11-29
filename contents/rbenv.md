@@ -21,6 +21,30 @@ $ brew update
 $ brew install rbenv ruby-build
 ```
 
+새로운 루비 버전이 릴리스된 후에는 아래와 같이 명령을 실행한 후 
+
+```bash
+$ brew upgrade ruby-build
+```
+
+다음의 명령을 실행하여 설치할 수 있는 루비 비전을 확인한다. 
+
+```bash
+$ rbenv install -l
+```
+
+여기서는 최선 버전인 `2.3.3` 버전을 설치하기로 한다. 
+
+```bash
+$ rbenv install 2.3.3 && rbenv rehash
+```
+
+그리고 각각의 필요성에 따라 `global`, `local`, `shell` 옵션을 이용하여 루비 버전을 지정한다. 
+
+
+
+
+
 최근에는 [Homebrew GUI 애플리케이션(Cakebrew)](https://www.cakebrew.com/)도 출시되었다.
 
 ### 리눅스
