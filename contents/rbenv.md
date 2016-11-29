@@ -41,8 +41,9 @@ $ rbenv install 2.3.3 && rbenv rehash
 
 그리고 각각의 필요성에 따라 `global`, `local`, `shell` 옵션을 이용하여 루비 버전을 지정한다. 
 
-
-
+```bash
+$ rbenv global 2.3.3
+```
 
 
 최근에는 [Homebrew GUI 애플리케이션(Cakebrew)](https://www.cakebrew.com/)도 출시되었다.
