@@ -2,7 +2,7 @@
 
 `레일스`는 `루비`로 작성되었으며, 웹애플리케이션 개발을 위한 프레임워크를 말한다.
 
-<img src="http://david.heinemeierhansson.com/images/me.jpg">
+![DHH사진](http://david.heinemeierhansson.com/images/me.jpg)
 
 2003년 미국의 [David Heinemeier Hansson](http://david.heinemeierhansson.com)이 처음으로 레일스를 발표한 후 현재 버전 4.1이 릴리스된 상태이며, 최신의 웹기술들을 과감하게 도입하고 있으며 지금도 매우 빠르게 버전업이 지속되고 있다. 따라서, 부지런하지 않으면 레일스의 멋진 기능을 제대로 사용하지 못할 정도이다.
 
@@ -19,7 +19,7 @@
 # 루비
 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/Matz_zpsb4305ed2.png)
+![마츠사진](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/Matz_zpsb4305ed2.png)
 
 레일스는 루비언어로 만들어졌기 때문에 모든 환경에서 루비 인터프리터가 설치되어 있어야 한다. 루비 언어를 만든 일본의 마츠의 이름이 기리기 위해서 원조 루비 인터프리터를 MRI(Matz' Ruby Interpreter)라고 하는데, C 언어로 작성되었다. 참고로 MRI외의 대표적인 루비 구현체로 JRuby와 Rubinius 등이 있는데, JRuby는 자바로 구현된 루비 구현체이고 Rubinius는 루비로 구현된 루비구현체이다.
 
