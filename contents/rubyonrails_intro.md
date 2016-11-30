@@ -2,7 +2,7 @@
 
 `레일스`는 `루비`로 작성되었으며, 웹애플리케이션 개발을 위한 프레임워크를 말한다.
 
-<img src="http://david.heinemeierhansson.com/images/me.jpg"  width='150'>
+<img src="http://david.heinemeierhansson.com/images/me.jpg"  width='100'>
 
 2003년 미국의 [David Heinemeier Hansson](http://david.heinemeierhansson.com)이 처음으로 레일스를 발표한 후 현재 버전 4.1이 릴리스된 상태이며, 최신의 웹기술들을 과감하게 도입하고 있으며 지금도 매우 빠르게 버전업이 지속되고 있다. 따라서, 부지런하지 않으면 레일스의 멋진 기능을 제대로 사용하지 못할 정도이다.
 
@@ -13,6 +13,17 @@
 그러나, 레일스를 이용하여 웹애플리케이션을 개발할 때의 여러가지 장점을 고려해 볼 때, 많은 스타트업들이 레일스로 웹애플리케이션을 개발하여 하나 둘씩 그 성공신화가 이어져 간다면, 머지 않아 국내에서도 레일스를 이용한 웹개발 시장이 자연스럽게 형성되지 않을까 생각한다. 이것은 마치 선순환의 고리를 연상케 한다.
 
 이를 위해서 국내에서 초보자들이 쉽게 레일스 프레임워크를 이용하여 웹애플리케이션을 개발할 수 있도록 하기 위해서는 한글로 작성된 레일스 관련 리소스들이 많이 제작되어야 함은 물론이고, 영문으로 작성된 문서들을 한글화 하는 작업에도 관심을 가져야 할 것으로 생각한다.
+
+
+
+# 루비
+
+<img src="http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/Matz_zpsb4305ed2.png">
+
+레일스는 루비언어로 만들어졌기 때문에 모든 환경에서 루비 인터프리터가 설치되어 있어야 한다. 루비 언어를 만든 일본의 마츠의 이름이 기리기 위해서 원조 루비 인터프리터를 MRI(Matz' Ruby Interpreter)라고 하는데, C 언어로 작성되었다. 참고로 MRI외의 대표적인 루비 구현체로 JRuby와 Rubinius 등이 있는데, JRuby는 자바로 구현된 루비 구현체이고 Rubinius는 루비로 구현된 루비구현체이다.
+
+
+
 
 ---
 
