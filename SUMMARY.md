@@ -9,7 +9,7 @@
     * [Git 설치](contents/git.md)
     * [rbenv 설치](contents/rbenv.md)
     * [소스코드 에디터](contents/editors.md)
-    * [서버 운영환경 구축](contents/pro_env.md)
+    * [운영서버 환경구축](contents/pro_env.md)
 * [레일스 설치](contents/rails/install.md)
     * [인스톨러를 이용한 설치](contents/rails/using_installer.md)
     * [맥 OSX 개발머신에 설치하기](contents/rails/mac_install.md)
