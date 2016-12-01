@@ -140,7 +140,7 @@
   # /etc/init.d/nginx start
   ```
 
-###MySQL (5.5.36) 서버 ([ref.](http://www.webtatic.com/packages/mysql55/))
+### MySQL (5.5.36) 서버 ([ref.](http://www.webtatic.com/packages/mysql55/))
 
 
 - MySQL 서버를 설치하기 전에 mysql 관련된 것을 모두 제거한다.
@@ -169,6 +169,31 @@
 
   mysql> grant usage on *.* to deployer@localhost identified by 'password';
   ```
+
+###PostgreSQL(9.2.15) 서버 ([ref.](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7))
+
+```bash
+$ sudo yum install postgresql-server postgresql-contrib
+$ sudo postgresql-setup initdb
+$ sudo vi /var/lib/pgsql/data/pg_hba.conf
+```
+
+```
+host    all       all       127.0.0.1/32        ident
+host    all       all       ::1/128             ident
+```
+
+```
+host    all       all       127.0.0.1/32        md5
+host    all       all       ::1/128             md5
+```
+
+```bash
+$ sudo systemctl start postgresql
+$ sudo systemctl enable postgresql
+$ sudo -i -u postgres
+$ psql
+```
 
 ###NodeJs 설치
 
