@@ -193,6 +193,10 @@ $ sudo systemctl start postgresql
 $ sudo systemctl enable postgresql
 $ sudo -i -u postgres
 $ psql
+$ createuser --interactive   # test1 유저 생성
+$ createdb test1
+$ sudo -i -u test1
+$ psql 
 ```
 
 ###NodeJs 설치
