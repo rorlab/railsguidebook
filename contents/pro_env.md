@@ -44,9 +44,20 @@
 ```
 Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 ```
-아래의 링크에 따라 조치를 하면 해결할 수 있다. 
+아래와 같은 조치를 하면 해결할 수 있다. 
+(https://www.conory.com/note_linux/44007)
 
-: https://www.conory.com/note_linux/44007
+아래 명령어를 실행하여 해당 파일이 속한 패키지이름을 알려 준다.
+
+```
+# yum provides '*/applydeltarpm'
+```
+
+그 결과 deltarpm 패키지를 설치해주면 된다.
+
+```
+# yum install deltarpm
+```
 
 ###Sudo 패키지 설치
 
