@@ -25,6 +25,8 @@
   - [Everything ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso)
   - [DVD ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso)
 
+여기서는 Minimal ISO 버전을 설치하여 작업할 것이다. 
+
 ---
 
 ###시스템 업데이트
