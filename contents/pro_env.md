@@ -16,7 +16,7 @@
 
 ---
 
-# CentOS 7 서버 설치
+# CentOS 7.2 서버 설치
 
 아래의 링크에서 원하는 ISO 파일을 다운로드 받아 서버에 설치한다.
 
@@ -28,6 +28,13 @@
 여기서는 _**Minimal ISO 버전을 설치**_하여 작업할 것이다. 
 
 ---
+
+###시스템 버전 
+
+```
+# cat /etc/centos-release
+CentOS Linux release 7.2.1511 (Core)
+```
 
 ###시스템 업데이트
 
