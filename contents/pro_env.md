@@ -84,11 +84,10 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   ```
 
 
-* `/etc/group` 파일을 에디터(vi)로 열고 `wheel` 그룹에 `deployer`를 추가하고,
+* `wheel` 그룹에 `deployer`를 추가한다.
 
   ```
-  # vi /etc/group
-  wheel:x:10:root,deployer
+  # usermod -aG wheel deployer
   ```
 
 
@@ -226,20 +225,33 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 - 설치
   ```
   # yum install postgresql-server postgresql-contrib
+  ```
+
+- 데이터베이스 초기화
+  ```
   # postgresql-setup initdb
+  ```
+- HBA에서 password-based authentication 을 가능하도록 해준다.
+  ``` 
   # vi /var/lib/pgsql/data/pg_hba.conf
   ```
+
   82, 84번째 `ident` 를 `md5`로 변경함. 
 
   ```
-  host    all       all        127.0.0.1/32       md5
-  host    all       all        ::1/128            md5
+  ...
+  82 | host    all      all      127.0.0.1/32      md5
+  ...
+  84 | host    all      all      ::1/128           md5
+  ...
   ```
+- PostgreSQL 서버를 시작하여 사용가능하도록 해준다.
 
   ```
   # systemctl start postgresql
   # systemctl enable postgresql
   ```
+- 
 
   ```
   # sudo -i -u postgres
