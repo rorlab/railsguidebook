@@ -236,7 +236,17 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   host    all       all        ::1/128            md5
   ```
 
+  ```
+  # systemctl start postgresql
+  # systemctl enable postgresql
+  ```
 
+  ```
+  # sudo -i -u postgres
+  # psql -d [데이터베이스명]
+  # createuser --interactive
+  # createdb [데이터베이스명] 
+  ```
 
 ###NodeJs 설치
 
