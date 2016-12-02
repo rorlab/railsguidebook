@@ -217,9 +217,24 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   mysql> grant usage on *.* to deployer@localhost identified by 'password';
   ```
 
-###PostgreSQL 설치
+###PostgreSQL (9.2.15) 설치
+
+- 참고:
+  - [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
 
 
+- 설치
+  ```
+  # yum install postgresql-server postgresql-contrib
+  # postgresql-setup initdb
+  # vi /var/lib/pgsql/data/pg_hba.conf
+  ```
+  82, 84번째 `ident` 를 `mad5`로 변경함. 
+
+  ```
+host    all       all        127.0.0.1/32       md5
+host    all       all        ::1/128            md5
+  ```
 
 
 ###NodeJs 설치
