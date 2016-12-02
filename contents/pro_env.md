@@ -8,7 +8,7 @@
 2. NodeJS 설치
 3. ImageMagick 설치
 4. Nginx(또는 Apache) 웹서버 설치
-5. MySQL 서버 설치
+5. MySQL(또는 PostgreSQL) DB서버 설치
 
 이외에도 웹서버에 설치할 웹어플리케이션의 기능을 지원하기 위한 다양한 툴을 설치할 수 있다.
 
@@ -16,7 +16,7 @@
 
 ---
 
-# CentOS 7 x86_64 서버 설치
+# CentOS 7 서버 설치
 
 - 현재 가장 최신 버전은 [7](http://mirror.premi.st/centos/6.5/isos/x86_64/)
 - DVD 한장으로 구울 수 있는 배포판으로 [CentOS-6.5-x86_64-LiveDVD.iso](http://mirror.premi.st/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-LiveDVD.iso) 가 있고,
