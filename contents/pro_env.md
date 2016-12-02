@@ -25,7 +25,7 @@
   - [Everything ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso)
   - [DVD ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso)
 
-여기서는 Minimal ISO 버전을 설치하여 작업할 것이다. 
+여기서는 _**Minimal ISO 버전을 설치**_하여 작업할 것이다. 
 
 ---
 
@@ -33,9 +33,20 @@
 
 : `Development Tools`를 설치할 때 `git`도 함께 설치된다. (2014년 3월 7일  현재 - 1.7.1 버전, 그러나 최신버전은 1.9.0)
 
+`root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
+
 ```
 # yum -y update
 ```
+
+업데이트 진행 중에 다음과 같은 에러가 발생하면
+
+```
+Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+```
+아래의 링크에 따라 조치를 하면 해결할 수 있다. 
+
+: https://www.conory.com/note_linux/44007
 
 ###Sudo 패키지 설치
 
