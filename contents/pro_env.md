@@ -185,18 +185,20 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   # systemctl start nginx
   ```
 
-###MySQL (5.5.36) 서버 ([ref.](http://www.webtatic.com/packages/mysql55/))
+###MySQL (5.6.34) 서버
+
+- 참고 : 
+  - [How to Install MySQL on CentOS 7](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7)
+  - [Centos 7 - 데이타베이스(MySql) 설치](https://opentutorials.org/module/1701/10229)
 
 
-- MySQL 서버를 설치하기 전에 mysql 관련된 것을 모두 제거한다.
+- 설치하기 
 
  ```bash
- # yum remove mysql mysql-* -y
- # cd /etc/yum.repos.d
- # wget http://rpms.famillecollet.com/enterprise/remi.repo
- # yum --enablerepo=remi install -y mysql mysql-server mysql-devel
- # chkconfig --levels 235 mysqld on
- # service mysqld start
+ # yum -y install http://dev.mysql.com/get/mysql-community-release-el7-5.noarch.rpm
+ # yum -y install mysql-community-server
+ # systemctl start mysqld
+ # systemctl enable mysqld.service
  # mysql_secure_installation
  ```
 
@@ -214,6 +216,11 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 
   mysql> grant usage on *.* to deployer@localhost identified by 'password';
   ```
+
+###PostgreSQL 설치
+
+
+
 
 ###NodeJs 설치
 
