@@ -18,9 +18,10 @@
 
 # CentOS 7 서버 설치
 
-- 현재 가장 최신 버전은 [7](http://mirror.premi.st/centos/6.5/isos/x86_64/)
-- DVD 한장으로 구울 수 있는 배포판으로 [CentOS-6.5-x86_64-LiveDVD.iso](http://mirror.premi.st/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-LiveDVD.iso) 가 있고,
-- 최소설치만 할 수 있는 배포판으로는 [](http://data.nicehosting.co.kr/os/CentOS/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso) 가 있다.
+- [CentOS 다운로드](https://www.centos.org/download/)
+  - [Minimal ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso) 
+  - [Everything ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso)
+  - [DVD ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso)
 
 <hr>
 
