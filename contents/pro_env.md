@@ -229,12 +229,13 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   # postgresql-setup initdb
   # vi /var/lib/pgsql/data/pg_hba.conf
   ```
-  82, 84번째 `ident` 를 `mad5`로 변경함. 
+  82, 84번째 `ident` 를 `md5`로 변경함. 
 
   ```
-host    all       all        127.0.0.1/32       md5
-host    all       all        ::1/128            md5
+  host    all       all        127.0.0.1/32       md5
+  host    all       all        ::1/128            md5
   ```
+
 
 
 ###NodeJs 설치
