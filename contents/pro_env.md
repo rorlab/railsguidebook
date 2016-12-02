@@ -18,12 +18,14 @@
 
 # CentOS 7 서버 설치
 
+아래의 링크에서 원하는 ISO 파일을 다운로드 받아 서버에 설치한다.
+
 - [CentOS 다운로드](https://www.centos.org/download/)
   - [Minimal ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso) 
   - [Everything ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso)
   - [DVD ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso)
 
-<hr>
+---
 
 ###시스템 업데이트
 
