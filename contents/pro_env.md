@@ -59,16 +59,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 # yum install deltarpm
 ```
 
-###Sudo 패키지 설치
-
-: 최소판에는 sudo가 설치되어 있지 않으므로 아래와 같이 sudo 패키지를 설치한다.
-
-```
-# yum install -y sudo
-```
-
 ###개발툴 설치
-
 
 ```
 # yum groupinstall -y "Development Tools"
@@ -94,9 +85,11 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   ```
 
 
-* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 코멘트 표시(#)를 삭제한다.
+* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 코멘트 표시(#)를 삭제한다(108번째 코드라인).
 
   ```
+  # vi /etc/sudoers
+
   ## Allows people in group wheel to run all commands
   %wheel  ALL=(ALL)       ALL
   ## Same thing without a password
@@ -113,8 +106,28 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 
 ###Firewall 설정
 
+* 참고 : 
+  - [CentOS 7 에서 iptables 방화벽 데몬 사용하기](http://luckyyowu.tistory.com/286)
+  - [RHEL/CentOS 7 에서 방화벽(firewalld) 설정하기](https://www.lesstif.com/pages/viewpage.action?pageId=22053128)
 
-* 방화벽에서 80포트를 열어둔다.
+
+* 방화벽의 설치 
+
+  ```
+  # yum install firewalld
+  # systemctl stop firewalld
+  # systemctl mask firewalld
+  ```
+
+* iptables 서비스 설치
+
+  ```
+  # yum install iptables-services
+  # systemctl [stop | start | restart ] iptables
+  # service iptables save
+  ```
+
+* 방화벽에서 80포트를 열어둔다.(9번째 코드라인 아래에 아래의 내용을 추가한다.)
 
   ```
   # vi /etc/sysconfig/iptables
@@ -132,7 +145,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 ###Nginx 서버
 
 
-- http://wiki.nginx.org/Install
+- 참고 : http://wiki.nginx.org/Install
 
 - `nginx`의 yum 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 붙여 넣는다.
 
@@ -144,7 +157,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   enabled=1
   ```
 
- : CentOS, RHEL, Scientific Linux가 릴리스 버전($releasever) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 5.x는 "5", 6.x 는 "6"을 사용하면 된다. $basesearch 에는 "x86_64" 값을 지정한다.
+  > **_주의:_** CentOS, RHEL, Scientific Linux가 릴리스 버전($releasever) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 6.x는 "6", 7.x 는 "7"을 사용하면 된다. $basesearch 에는 "x86_64" 값을 지정한다.
 
   ```
   # yum install -y nginx
@@ -154,7 +167,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   ```
 
 
-* 설치하고 /etc/nginx 디렉토리에 sites-enabled 폴더를 생성해 준다. 그리고 /etc/nginx/nginx.conf 파일 32번 줄에 include /etc/nginx/sites-enabled/*.conf; 추가한다.
+* 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 폴더를 생성해 준다. 그리고 `/etc/nginx/nginx.conf` 파일 32번 줄에 `include /etc/nginx/sites-enabled/*.conf;` 추가한다.
 
 * `include /etc/nginx/sites-enabled/*.conf;` 을 추가하고, user를 `deployer`로 변경한다.
 
@@ -162,7 +175,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 * nginx 를 시작한다.
 
   ```
-  # /etc/init.d/nginx start
+  # systemctl start nginx
   ```
 
 ###MySQL (5.5.36) 서버 ([ref.](http://www.webtatic.com/packages/mysql55/))
