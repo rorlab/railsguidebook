@@ -266,13 +266,14 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 
 ###NodeJs 설치
 
-: [참고] : https://www.digitalocean.com/community/articles/how-to-install-and-run-a-node-js-app-on-centos-6-4-64bit
+- [참고] : [How To Install Node.js on a CentOS 7 server](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server)
 
 ```
 # cd /usr/src
-# wget http://nodejs.org/dist/v0.10.26/node-v0.10.26.tar.gz
-# tar zxf node-v0.10.26.tar.gz
-# cd node-v0.10.26
+# yum install -y wget
+# wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
+# tar xzvf node-v* && cd node-v*
+# sudo yum install gcc gcc-c++
 # ./configure
 # make   (6-7분 소요됨)  pc 사양이 좋으면 3분안에 끝나기도 함 ㅎㅎㅎ.
 # make install
