@@ -369,7 +369,16 @@ CentOS Linux release 7.2.1511 (Core)
   # echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/bashrc
   # source /etc/bashrc
   ```
-  설치 시점에서의 최신 버전으로 파일명을 변경하면 된다.
+  > 설치 시점에서의 최신 버전으로 파일명을 변경하면 된다.
+
+- 기존의 `git` 은 삭제한다.
+
+  ```
+  # yum remove git
+  # yum clean all
+  ```
+
+  > `git version` 명령을 실행하여 최신 버전을 확인한다. 이전 버전으로 표시될 경우에는 다시 로그인하면 제대로 반영된다. 
 
 
 ###구글링 자료 모음
