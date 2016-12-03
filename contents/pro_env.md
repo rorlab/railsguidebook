@@ -284,11 +284,9 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 ```
 # yum install -y tcl-devel libpng-devel libjpeg-devel ghostscript-devel bzip2-devel freetype-devel libtiff-devel
 # wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
-
 # tar -xzvf ImageMagick.tar.gz
-# cd ImageMagick-6.8.8-7
+# cd ImageMagick-7.0.3-8
 # ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
-
 # make
 # make install
 # convert --version
@@ -298,7 +296,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 * `deployer` 계정 홈페이지의 `.bashrc` 파일에 아래를 추가한다.
 
  ```
- # su deployer
+ # sudo -i -u deployer
  # vi ~/.bashrc
 
  export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
@@ -308,11 +306,11 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 * 그리고, root 계정으로 접속해서
 
   ```
+  # exit
   # ln -s /usr/local/include/ImageMagick/wand /usr/local/include/wand
   # ln -s /usr/local/include/ImageMagick/magick /usr/local/include/magick
   # ldconfig /usr/local/lib
-  # su deployer
-  # cd ~
+  # sudo -i -u deployer
   ```
 
 
