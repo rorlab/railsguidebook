@@ -391,12 +391,3 @@ CentOS Linux release 7.2.1511 (Core)
   # git config -l
   ```
 
-
-###구글링 자료 모음
-
-- http://www.centos.org [공식홈페이지]
-- http://isoredirect.centos.org/centos/6/isos/x86_64/ [다운로드]
-- http://faq.hostway.co.kr/story/4510 [CentOS 6.3 10분 안에 설치하기, 한글]
-- http://mcchae.egloos.com/10937303 [지훈현서의 CentOS 6.3 미니멀(서버) 설치하기, 한글]
-
-
