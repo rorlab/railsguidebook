@@ -38,33 +38,33 @@ CentOS Linux release 7.2.1511 (Core)
 
 ###시스템 업데이트
 
-: `Development Tools`를 설치할 때 `git`도 함께 설치된다. (2014년 3월 7일  현재 - 1.7.1 버전, 그러나 최신버전은 1.9.0)
+- `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
 
-`root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
+- `root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
 
-```
-# yum -y update
-```
+  ```
+  # yum -y update
+  ```
 
-업데이트 진행 중에 다음과 같은 에러가 발생하면
+- 업데이트 진행 중에 다음과 같은 에러가 발생하면
 
-```
-Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
-```
-아래와 같은 조치를 하면 해결할 수 있다. 
-(https://www.conory.com/note_linux/44007)
+  ```
+  Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+  ```
+  아래와 같은 조치를 하여 해결할 수 있다. 
+  (https://www.conory.com/note_linux/44007)
 
-아래 명령어를 실행하여 해당 파일이 속한 패키지이름을 알려 준다.
+  아래 명령어를 실행하여 해당 파일이 속한 패키지이름을 알려 준다.
 
-```
-# yum provides '*/applydeltarpm'
-```
+  ```
+  # yum provides '*/applydeltarpm'
+  ```
 
-그 결과 deltarpm 패키지를 설치해주면 된다.
+  그 결과 deltarpm 패키지를 설치해주면 된다.
 
-```
-# yum install deltarpm
-```
+  ```
+  # yum install deltarpm
+  ```
 
 ###개발툴 설치
 
