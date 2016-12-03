@@ -251,11 +251,15 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   # systemctl start postgresql
   # systemctl enable postgresql
   ```
-- 
+
+- `postgres` 계정(PostgreSQL 관리자 계정)으로 변경한 후,
 
   ```
   # sudo -i -u postgres
-  # psql -d [데이터베이스명]
+  ```
+- `deployer` 계정(PostgreSQL용)을 생성한 후 데이터베이스까지 생성한다. (이 때 `deployer` 계정에는 데이터베이스 생성 권한을 부여한다.)
+
+  ```
   # createuser --interactive
   # createdb [데이터베이스명] 
   ```
