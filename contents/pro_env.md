@@ -339,14 +339,15 @@ CentOS Linux release 7.2.1511 (Core)
 
 : 아래의 설치는 옵션이다.
 
-###Postfix 설치
+###Sendmail 설치
 
+- 참고 
+  - [How to Install Sendmail Server on CentOS/RHEL 7/6/5](http://tecadmin.net/install-sendmail-server-on-centos-rhel-server/)
 
-: 서버에서 이메일을 보내고 싶은 경우 설치한다.
-* [Gmail을 이용해서 postfix 설정하기](http://freelinuxtutorials.com/quick-tips-and-tricks/configure-postfix-to-use-gmail-in-rhelcentos/)
+- 설치 
 
   ```
-  # yum install -y postfix
+  # yum install sendmail sendmail-cf m4
   ```
 
 ### Git 업그레이드하기
