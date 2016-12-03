@@ -268,30 +268,33 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 
 - [참고] : [How To Install Node.js on a CentOS 7 server](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-a-centos-7-server)
 
-```
-# cd /usr/src
-# yum install -y wget
-# wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
-# tar xzvf node-v* && cd node-v*
-# sudo yum install gcc gcc-c++
-# ./configure
-# make   (6-7분 소요됨)  pc 사양이 좋으면 3분안에 끝나기도 함 ㅎㅎㅎ.
-# make install
-```
+- 설치
+
+  ```
+  # cd /usr/src
+  # yum install -y wget
+  # wget http://nodejs.org/dist/v0.10.30/node- v0.10.30.tar.gz
+  # tar xzvf node-v* && cd node-v*
+  # sudo yum install gcc gcc-c++
+  # ./configure
+  # make
+  # make install
+  ```
 
 ### ImageMagick 설치 (시간 많이 걸리네~)
 
-```
-# yum install -y tcl-devel libpng-devel libjpeg-devel ghostscript-devel bzip2-devel freetype-devel libtiff-devel
-# wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
-# tar -xzvf ImageMagick.tar.gz
-# cd ImageMagick-7.0.3-8
-# ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
-# make
-# make install
-# convert --version
-# yum install -y ImageMagick-devel
-```
+* 설치
+
+  ```
+  # yum install -y tcl-devel libpng-devel libjpeg-devel ghostscript-devel bzip2-devel freetype-devel libtiff-devel
+  # wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
+  # tar -xzvf ImageMagick.tar.gz# cd ImageMagick-7.0.3-8
+  # ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
+  # make
+  # make install
+  # convert --version
+  # yum install -y ImageMagick-devel
+  ```
 
 * `deployer` 계정 홈페이지의 `.bashrc` 파일에 아래를 추가한다.
 
@@ -313,6 +316,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   # sudo -i -u deployer
   ```
 
+---
 
 ###배포
 
@@ -328,7 +332,7 @@ Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
 
 * `capistrano`와 `capistrano-rbenv` 젬을  레일스 프로젝트의 `gemfile`에 추가하여, `bundle install` 하면, `capistrano`로 배포시, 특히, `cap deploy:setup` 명령을 실행하면, 자동으로 `rbenv`와 `ruby-build`가 설치되고, 디폴트로 `1.9.3-p194` 버전 루비가 설치된다. `config/deploy.rb` 파일에 `set :rbenv_ruby_version, "1.9.3-p286"` 와 같이 추가해 주면, 원하는 루비 버전을 설치할 수도 있다. [ref.](https://github.com/yyuu/capistrano-rbenv)
 
-<hr>
+---
 
 ###부록
 
