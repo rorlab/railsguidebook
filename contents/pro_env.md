@@ -354,6 +354,7 @@ CentOS Linux release 7.2.1511 (Core)
 - 참고
   - [How to install the latest GIT version on CentOS](https://www.howtoforge.com/how-to-install-the-latest-git-version-on-centos)
   - [“Can’t locate ExtUtils/MakeMaker.pm” while compile git](https://madcoda.com/2013/09/cant-locate-extutilsmakemaker-pm-while-compile-git/)
+  - [Uninstall git on linux, fedora](http://superuser.com/questions/973961/uninstall-git-on-linux-fedora)
 
 
 - 설치 및 업그레이드하기
@@ -379,6 +380,15 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
   > `git version` 명령을 실행하여 최신 버전을 확인한다. 이전 버전으로 표시될 경우에는 다시 로그인하면 제대로 반영된다. 
+
+- git 설정
+  : 최초 설치시 다음과 같이 사용자 정보를 설정한다.
+
+  ```
+  # git config --global user.name "Your Name"
+  # git config --global user.email "you@example.com"
+  # git config -l
+  ```
 
 
 ###구글링 자료 모음
