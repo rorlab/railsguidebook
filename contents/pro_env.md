@@ -39,6 +39,7 @@ CentOS Linux release 7.2.1511 (Core)
 ###시스템 업데이트
 
 - `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
+  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기` 가 도움이 될 것이다.  
 
 - `root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
 
@@ -348,41 +349,11 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install -y postfix
   ```
 
-###Git 업그레이드하기
+### Git 업그레이드하기
 
-: 참고 - http://tecadmin.net/how-to-upgrade-git-version-1-7-10-on-centos-6
-
-```
-# rpm -i 'http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm'
-# rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
-```
-
-
-아래와 같이 rpmforge.repo 파일을 열어서 [rpmforge-extras] 부분의 enabled=0 to 1로 변경한다.
-
-```
-# vim /etc/yum.repos.d/rpmforge.repo
-```
-
-
-###Git 별도설치
-
-
-: `git`를 별도록 설치할 때 아래와 같이 한다.
-* `git`를 소스컴파일로 설치한다. ([ref.](http://rajivpandit.wordpress.com/2013/09/21/how-to-install-git-1-8-4-and-git-client-on-linux-centos-6-4-rhel6/)) 깔금하게 설치된다.
-* 가장 최신버전 1.9.0 (3월 7일, 2014년 현재)
-( [버전별 git 다운로드 리스트 보기](http://code.google.com/p/git-core/downloads/list) )
-
-  ```bash
-  # yum install gettext-devel expat-devel curl-devel zlib-devel openssl-devel
-  # cd /usr/src
-  # wget https://www.kernel.org/pub/software/scm/git/git-1.8.4.tar.gz
-  # tar xzvf git-1.8.4.tar.gz
-  # cd git-1.8.4
-  # make prefix=/opt/git all
-  # make prefix=/opt/git install
-  # export PATH=”/opt/git/bin:$PATH”
-  ```
+- 참고
+  - [How to install the latest GIT version on CentOS](https://www.howtoforge.com/how-to-install-the-latest-git-version-on-centos)
+  - [“Can’t locate ExtUtils/MakeMaker.pm” while compile git](https://madcoda.com/2013/09/cant-locate-extutilsmakemaker-pm-while-compile-git/)
 
 ###구글링 자료 모음
 
