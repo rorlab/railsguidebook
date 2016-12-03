@@ -355,6 +355,23 @@ CentOS Linux release 7.2.1511 (Core)
   - [How to install the latest GIT version on CentOS](https://www.howtoforge.com/how-to-install-the-latest-git-version-on-centos)
   - [“Can’t locate ExtUtils/MakeMaker.pm” while compile git](https://madcoda.com/2013/09/cant-locate-extutilsmakemaker-pm-while-compile-git/)
 
+
+- 설치 및 업그레이드하기
+
+  ```
+  # yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel gcc perl-ExtUtils
+  # cd /usr/src
+  # wget https://www.kernel.org/pub/software/scm/git/git-2.11.0.tar.gz
+  # tar xzf git-2.11.0.tar.gz
+  # cd git-2.11.0
+  # make prefix=/usr/local/git all
+  # make prefix=/usr/local/git install
+  # echo "export PATH=$PATH:/usr/local/git/bin" >> /etc/bashrc
+  # source /etc/bashrc
+  ```
+  설치 시점에서의 최신 버전으로 파일명을 변경하면 된다.
+
+
 ###구글링 자료 모음
 
 - http://www.centos.org [공식홈페이지]
