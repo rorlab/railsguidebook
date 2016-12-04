@@ -317,6 +317,12 @@ CentOS Linux release 7.2.1511 (Core)
   # sudo -i -u deployer
   ```
 
+* 서버에서 루비를 설치할 때 필요한 모듈을 추가로 설치한다. 
+
+  ```
+  # yum install -y readline-devel
+  ```
+
 ---
 
 ###배포
