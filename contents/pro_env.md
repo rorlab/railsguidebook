@@ -129,7 +129,7 @@ CentOS Linux release 7.2.1511 (Core)
 * iptables 서비스 설치
 
   ```
-  # yum install iptables-services
+  # yum install -y iptables-services
   # systemctl [stop | start | restart ] iptables
   # service iptables save
   ```
@@ -275,9 +275,9 @@ CentOS Linux release 7.2.1511 (Core)
   ```
   # cd /usr/src
   # yum install -y wget
-  # wget http://nodejs.org/dist/v0.10.30/node- v0.10.30.tar.gz
+  # wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
   # tar xzvf node-v* && cd node-v*
-  # sudo yum install gcc gcc-c++
+  # sudo yum install -y gcc gcc-c++
   # ./configure
   # make
   # make install
