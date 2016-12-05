@@ -290,7 +290,8 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install -y tcl-devel libpng-devel libjpeg-devel ghostscript-devel bzip2-devel freetype-devel libtiff-devel
   # cd /usr/src
   # wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
-  # tar -xzvf ImageMagick.tar.gz# cd ImageMagick-7.0.3-8
+  # tar -xzvf ImageMagick.tar.gz
+  # cd ImageMagick-7.0.3-8
   # ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
   # make
   # make install
@@ -308,14 +309,13 @@ CentOS Linux release 7.2.1511 (Core)
  ```
 
 
-* 그리고, root 계정으로 접속해서
+* 이제 다시, root 계정으로 빠져나와
 
   ```
   # exit
   # ln -s /usr/local/include/ImageMagick/wand /usr/local/include/wand
   # ln -s /usr/local/include/ImageMagick/magick /usr/local/include/magick
   # ldconfig /usr/local/lib
-  # sudo -i -u deployer
   ```
 
 * 서버에서 루비를 설치할 때 필요한 모듈을 추가로 설치한다. 
