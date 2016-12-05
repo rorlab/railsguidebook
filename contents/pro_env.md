@@ -225,7 +225,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 - 설치
   ```
-  # yum install postgresql-server postgresql-contrib
+  # yum install -y postgresql-server postgresql-devel postgresql-contrib
   ```
 
 - 데이터베이스 초기화
