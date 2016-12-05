@@ -170,6 +170,7 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install -y nginx
   # chkconfig --levels 235 nginx on
   # mkdir -p /etc/nginx/sites-enabled
+  # mkdir -p /etc/nginx/sites-available
   # vi /etc/nginx/nginx.conf
   ```
 
