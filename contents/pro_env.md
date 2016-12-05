@@ -175,7 +175,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 폴더를 생성해 준다. 그리고 `/etc/nginx/nginx.conf` 파일 32번 줄에 `include /etc/nginx/sites-enabled/*.conf;` 추가한다.
+* 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 와 `sites-available`폴더를 생성해 준다. 그리고 `/etc/nginx/nginx.conf` 파일 32번 줄에 `include /etc/nginx/sites-enabled/*.conf;` 추가한다.
 
 * `include /etc/nginx/sites-enabled/*.conf;` 을 추가하고, user를 `deployer`로 변경한다.
 
