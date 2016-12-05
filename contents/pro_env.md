@@ -277,7 +277,6 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install -y wget
   # wget http://nodejs.org/dist/v0.10.30/node-v0.10.30.tar.gz
   # tar xzvf node-v* && cd node-v*
-  # sudo yum install -y gcc gcc-c++
   # ./configure
   # make
   # make install
