@@ -181,7 +181,7 @@ CentOS Linux release 7.2.1511 (Core)
   # mkdir -p /etc/nginx/sites-available
   ```
 
-* 그리고 `/etc/nginx/nginx.conf` 파일을 열고 32번 줄에 `include /etc/nginx/sites-enabled/*.conf;` 추가하고,
+* 그리고 `/etc/nginx/nginx.conf` 파일을 열고 32번 줄에 `include /etc/nginx/sites-enabled/*;` 추가하고,
 
   ```
   # vi /etc/nginx/nginx.conf
