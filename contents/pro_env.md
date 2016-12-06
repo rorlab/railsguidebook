@@ -147,6 +147,7 @@ CentOS Linux release 7.2.1511 (Core)
 
   ```
   # service iptables restart
+  # firewall-cmd --reload
   ```
 
 ###Nginx 서버
@@ -168,7 +169,8 @@ CentOS Linux release 7.2.1511 (Core)
 
   ```
   # yum install -y nginx
-  # chkconfig --levels 235 nginx on
+  # systemctl enable nginx.service
+  # systemctl start nginx.service
   ```
 
 
