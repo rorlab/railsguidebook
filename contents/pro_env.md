@@ -114,41 +114,60 @@ CentOS Linux release 7.2.1511 (Core)
 ###Firewall 설정
 
 * 참고 : 
-  - [CentOS 7 에서 iptables 방화벽 데몬 사용하기](http://luckyyowu.tistory.com/286)
   - [RHEL/CentOS 7 에서 방화벽(firewalld) 설정하기](https://www.lesstif.com/pages/viewpage.action?pageId=22053128)
 
 
 * 방화벽의 설치 
 
   ```
-  # yum install -y firewalld
-  # systemctl stop firewalld
-  # systemctl mask firewalld
+  # yum install firewalld
+  # systemctl start firewalld
+  #  systemctl enable firewalld
   ```
 
-* iptables 서비스 설치
+* `/etc/firewalld/zones/public.xml` 파일을 생성하고 아래의 내용을 붙여 넣기 한다. 
 
   ```
-  # yum install -y iptables-services
-  # systemctl [stop | start | restart ] iptables
-  # service iptables save
+<?xml version="1.0" encoding="utf-8"?>
+<zone>
+  <short>Public</short>
+  <description>For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accept
+ed.</description>
+  <service name="dhcpv6-client"/>
+  <service name="http"/>
+  <service name="ssh"/>
+  <service name="https"/>
+</zone>
   ```
 
-* 방화벽에서 80포트를 열어둔다.(9번째 코드라인 아래에 아래의 내용을 추가한다.)
+* 그리고 재구동한다. 
 
   ```
-  # vi /etc/sysconfig/iptables
-
-  -A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-  ```
-
-
-* iptables를 재시작한다.
-
-  ```
-  # service iptables restart
   # firewall-cmd --reload
   ```
+
+* 방화벽 포트 추가 
+
+  ```
+  # firewall-cmd --permanent --zone=public --add-service=http
+  # firewall-cmd --permanent --zone=public --add-service=https
+  ```
+
+* firewalld 재시작
+
+  ```
+  # firewall-cmd --reload
+  ```
+
+* 제대로 반영되었는지 확인한다.
+
+  ```
+  # firewall-cmd --list-services --zone=public
+    ===> dhcpv6-client http https ssh
+  ```
+
+
+
 
 ###Nginx 서버
 
