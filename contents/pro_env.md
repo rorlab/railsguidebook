@@ -193,8 +193,7 @@ CentOS Linux release 7.2.1511 (Core)
 * 이제 파일을 닫고, `nginx`를 시작한다.
 
   ```
-  # systemctl start nginx
-  # systemctl enable nginx
+  # systemctl restart nginx.service
   ```
 
 ###MySQL (5.6.34) 서버
@@ -261,8 +260,8 @@ CentOS Linux release 7.2.1511 (Core)
 - PostgreSQL 서버를 시작하여 사용가능하도록 해준다.
 
   ```
-  # systemctl start postgresql
   # systemctl enable postgresql
+  # systemctl start postgresql
   ```
 
 - `postgres` 계정(PostgreSQL 관리자 계정)으로 변경한 후,
@@ -302,7 +301,7 @@ CentOS Linux release 7.2.1511 (Core)
   # cd /usr/src
   # wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
   # tar -xzvf ImageMagick.tar.gz
-  # cd ImageMagick-7.0.3-8
+  # cd ImageMagick-7.0.3-9
   # ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
   # make
   # make install
