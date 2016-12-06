@@ -192,6 +192,7 @@ CentOS Linux release 7.2.1511 (Core)
 
   ```
   # systemctl start nginx
+  # systemctl enable nginx
   ```
 
 ###MySQL (5.6.34) 서버
