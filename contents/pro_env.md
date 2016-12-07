@@ -97,19 +97,20 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 코멘트 표시(#)를 삭제한다(108번째 코드라인).
+* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 _**코멘트 표시(#)를 삭제**_한다(108번째 코드라인).
 
   ```bash
   # vi /etc/sudoers
-
+  ```
+  ```
   ## Allows people in group wheel to run all commands
   %wheel  ALL=(ALL)       ALL
   ## Same thing without a password
-  %wheel  ALL=(ALL)       NOPASSWD: ALL
+  %wheel  ALL=(ALL)       NOPASSWD: ALL     <=== 108번째 코드라인
   ```
 
 
-* sshd를 재시작한다.
+* `sshd`를 재시작한다.
 
   ```bash
   # systemctl restart sshd
@@ -135,13 +136,13 @@ CentOS Linux release 7.2.1511 (Core)
   ```
   <?xml version="1.0" encoding="utf-8"?>
   <zone>
-  <short>Public</short>
-  <description>For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accept
+    <short>Public</short>
+    <description>For use in public areas. You do not trust the other computers on networks to not harm your computer. Only selected incoming connections are accept
   ed.</description>
-  <service name="dhcpv6-client"/>
-  <service name="http"/>
-  <service name="ssh"/>
-  <service name="https"/>
+    <service name="dhcpv6-client"/>
+    <service name="http"/>
+    <service name="ssh"/>
+    <service name="https"/>
   </zone>
   ```
 
@@ -158,7 +159,7 @@ CentOS Linux release 7.2.1511 (Core)
   # firewall-cmd --permanent --zone=public --add-service=https
   ```
 
-* firewalld 재시작
+* `firewalld` 재시작
 
   ```bash
   # firewall-cmd --reload
@@ -246,7 +247,8 @@ CentOS Linux release 7.2.1511 (Core)
 
   ```bash
   # mysql -u root -p
-
+  ```
+  ```sql
   mysql> grant usage on *.* to deployer@localhost identified by 'password';
   ```
 
@@ -275,7 +277,7 @@ CentOS Linux release 7.2.1511 (Core)
   # vi /var/lib/pgsql/data/pg_hba.conf
   ```
 
-  82, 84번째 `ident 를 md5로 변경함.`
+  82, 84번째 `ident` 를 `md5`로 변경함.
 
   ```
   ...
@@ -292,13 +294,13 @@ CentOS Linux release 7.2.1511 (Core)
   # systemctl start postgresql
   ```
 
-* `postgres 계정(PostgreSQL 관리자 계정)으로 변경한 후,`
+* `postgres` 계정(PostgreSQL 관리자 계정)으로 변경한 후,
 
   ```
   # sudo -i -u postgres
   ```
 
-* `deployer 계정(PostgreSQL용)을 생성한 후 데이터베이스까지 생성한다. (이 때 deployer 계정에는 데이터베이스 생성 권한을 부여한다.)`
+* `deployer` 계정(PostgreSQL용)을 생성한 후 데이터베이스까지 생성한다. (이 때 `deployer` 계정에는 데이터베이스 생성 권한을 부여한다.)
 
   ```
   # createuser --interactive
@@ -531,13 +533,12 @@ CentOS Linux release 7.2.1511 (Core)
 
 * 이후 코드 수정후 반복해서 배포할 때는 마지막에 실행한 명령을 반복해서 실행하면 된다.
 
+* 가끔 nginx 설정 파일에 대한 퍼미션 오류가 나는 경우가 있는데, 이 때는 서버로 접근하여 아래의 명령을 실행하면 해결된다.
+    * 참고 : http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied
 
-http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied
-
-
-```
-# setenforce permissive
-```
+  ```
+  # setenforce permissive
+  ```
 
 ---
 
@@ -608,6 +609,7 @@ http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-
 * 참고
 
   * [CentOS 7 \| ntp로 시간 동기화 하는 방법](https://www.cmsfactory.net/node/11424)
+
 
 * 우선 ntp를 설치한다..
 
