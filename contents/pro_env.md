@@ -380,6 +380,8 @@ CentOS Linux release 7.2.1511 (Core)
   gem 'capistrano-rails', group: :development
   gem 'capistrano3-puma' , group: :development
   gem 'capistrano-figaro-yml', '~> 1.0.2'
+  gem 'capistrano-upload-config'
+  gem 'capistrano3-nginx', '~> 2.0'
   ```
 
 
@@ -415,7 +417,9 @@ CentOS Linux release 7.2.1511 (Core)
   require 'capistrano/rails/migrations'
   require 'capistrano/puma'
   require 'capistrano/figaro_yml'
+  require 'capistrano/upload-config'
   require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
+  require 'capistrano/nginx'
 
   # Load custom tasks from 'lib/capistrano/tasks' if you have any defined
   Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
