@@ -122,7 +122,7 @@ CentOS Linux release 7.2.1511 (Core)
 * 방화벽의 설치 
 
   ```
-  # yum install firewalld
+  # yum install -y firewalld
   # systemctl start firewalld
   # systemctl enable firewalld
   ```
