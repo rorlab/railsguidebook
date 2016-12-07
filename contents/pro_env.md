@@ -498,10 +498,11 @@ CentOS Linux release 7.2.1511 (Core)
 
   set :pty, true
 
-  # set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+  set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
   set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
 
+  before 'deploy:check:linked_files', 'config:push'
   before 'deploy:starting', 'figaro_yml:setup'
   after 'figaro_yml:setup', 'puma:nginx_config'
 
