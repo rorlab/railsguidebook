@@ -414,6 +414,14 @@ ed.</description>
   set :nginx_server_name, '[domain-name]'
   ```
 
+* 원격 서버에서 사용할 환경변수를 지정한다. 여기서는 `capistrano-figaro-yml` 젬을 사용하였다. 우선 `config/application.yml` 파일을 생성한 후 아래와 같이 작성한다.
+
+  ```
+  staging:
+    DATABASE_USERNAME: [username]
+    DATABASE_PASSWORD: [password]
+    SECRET_KEY_BASE: 9cf54********ee00f66162b7f0ce12********789b5ce782a8b1fb95d********06d78608eb9bc*********2abb
+  ```
 
 ---
 
