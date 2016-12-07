@@ -528,6 +528,11 @@ CentOS Linux release 7.2.1511 (Core)
 
 http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied
 
+
+```
+# setenforce permissive
+```
+
 ---
 
 ### 부록
