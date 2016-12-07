@@ -452,6 +452,67 @@ ed.</description>
     password: <%= ENV['DATABASE_PASSWORD'] %>
   ```
 
+* `config/secrets.yml` 파일은 다음과 같이 작성한다. 
+
+  ```
+  staging:
+    secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  ```
+
+* `config/deploy.rb` 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)
+
+  ```
+  lock '3.5.0'
+  
+  set :application, '[project-name]'
+  set :repo_url, 'git@bitbucket.org:[git-account]/[project-name].git'
+  
+  set :migration_role, :app
+  
+  set :rbenv_type, :user 
+  set :rbenv_ruby, File.read('.ruby-version').strip
+  
+  set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
+  set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+  set :rbenv_roles, :all # default value
+    
+  set :deploy_to, '/home/[deploy-account]/apps/[project-name]'
+  
+  set :pty, true
+  
+  set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+  
+  set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system')
+  
+  before 'deploy:starting', 'figaro_yml:setup'
+  
+  namespace :deploy do
+    after :restart, :clear_cache do
+      on roles(:web), in: :groups, limit: 3, wait: 10 do
+        # Here we can do anything such as:
+        # within release_path do
+        #   execute :rake, 'cache:clear'
+        # end
+      end
+    end
+  
+  end
+  ```
+
+  위의 코드 중의 `[...]` 부분은 각자의 상황에 맞는 값으로 변경한다.(5군데)
+
+* 실제 staging 서버로 배포 명령은 실행하는 순서는 다음과 같다. 
+
+  ```
+  $ cap staging deploy:check
+  $ cap staging doctor
+  $ cap staging deploy 
+  ```  
+
+* 이후 코드 수정후 반복해서 배포할 때는 마지막에 실행한 명령을 반복해서 실행하면 된다. 
+
+
+
 
 
 ---
