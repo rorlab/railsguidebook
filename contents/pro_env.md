@@ -340,7 +340,7 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install -y ImageMagick-devel
   ```
 
-* `deployer 계정 홈페이지의 .bashrc 파일에 아래를 추가한다.`
+* `deployer` 계정 홈페이지의 `.bashrc` 파일에 아래를 추가한다.
 
   ```bash
   # sudo -i -u deployer
@@ -350,7 +350,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* 이제 다시, root 계정으로 빠져나와
+* 이제 다시, `root` 계정으로 빠져나와
 
   ```bash
   # exit
@@ -370,9 +370,9 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### 배포
 
-: 이후부터는 로컬에서 `capistrano로 배포작업을 수행한다.`
+: 이후부터는 로컬에서 `capistrano` 로 배포작업을 수행한다.
 
-* 프로젝트 `Gemfile 파일에 추가해야할 최소한의 젬.`
+* 프로젝트 `Gemfile` 파일에 추가해야할 최소한의 젬.
 
   ```
   gem 'capistrano-rbenv', '~> 2.0'
