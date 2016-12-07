@@ -358,10 +358,14 @@ ed.</description>
 : 이후부터는 로컬에서 capistrano로 배포작업을 수행한다.
 
 
-* 프로젝트의 Gemfile 파일에 아래의 젬을 추가하고 bundle install 한다.
+* 프로젝트 `Gemfile` 파일에 추가해야할 최소한의 젬.
 
-  ```
-  gem 'capistrano-rbenv'
+  ```# Use Capistrano for deployment
+  gem 'capistrano-rbenv', '~> 2.0'
+  gem 'capistrano-rbenv-install', '~> 1.2.0'
+  gem 'capistrano-rails', group: :development
+  gem 'capistrano3-puma' , group: :development
+  gem 'capistrano-figaro-yml', '~> 1.0.2'
   ```
 
 
