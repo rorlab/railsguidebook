@@ -109,7 +109,7 @@ CentOS Linux release 7.2.1511 (Core)
 * sshd를 재시작한다.
 
   ```
-  # service sshd restart
+  # systemctl restart sshd
   ```
 
 
