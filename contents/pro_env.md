@@ -124,7 +124,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
   # yum install firewalld
   # systemctl start firewalld
-  #  systemctl enable firewalld
+  # systemctl enable firewalld
   ```
 
 * `/etc/firewalld/zones/public.xml` 파일을 생성하고 아래의 내용을 붙여 넣기 한다. 
