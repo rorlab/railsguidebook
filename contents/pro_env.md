@@ -7,8 +7,8 @@
 1. Git 설치
 2. NodeJS 설치
 3. ImageMagick 설치
-4. Nginx\(또는 Apache\) 웹서버 설치
-5. MySQL\(또는 PostgreSQL\) DB서버 설치
+4. Nginx(또는 Apache) 웹서버 설치
+5. MySQL(또는 PostgreSQL) DB서버 설치
 
 이외에도 웹서버에 설치할 웹어플리케이션의 기능을 지원하기 위한 다양한 툴을 설치할 수 있다.
 
@@ -39,7 +39,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### 시스템 업데이트
 
-* `root 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.`
+* `root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
 
   ```bash
   # yum -y update
@@ -60,7 +60,7 @@ CentOS Linux release 7.2.1511 (Core)
   # yum provides '*/applydeltarpm'
   ```
 
-  그 결과 deltarpm 패키지를 설치해주면 된다.
+  그 결과 `deltarpm` 패키지를 설치해주면 된다.
 
   ```bash
   # yum install deltarpm
@@ -69,9 +69,9 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### 개발툴 설치
 
-* `Development Tools 를 설치할 때 git도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)`
+* `Development Tools` 를 설치할 때 git도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
 
-  > 참고 : `git 최신버전으로 업그레이드할 경우에는 아래의 git 업그레이드하기 가 도움이 될 것이다.`
+  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기` 가 도움이 될 것이다.
 
   ```bash
   # yum groupinstall -y "Development Tools"
@@ -82,7 +82,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 : 서버 배포를 위한 유저를 등록한다.
 
-* 통상 `deployer라는 유저명을 사용한다.`
+* 통상 `deployer` 라는 유저명을 사용한다.
 
   ```bash
   # useradd deployer
@@ -90,14 +90,14 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `wheel 그룹에 deployer를 추가한다.`
+* `wheel` 그룹에 `deployer` 를 추가한다.
 
   ```bash
   # usermod -aG wheel deployer
   ```
 
 
-* `/etc/sudoers 파일을 열어 wheel 그룹에 대해서 아래와 같이 코멘트 표시(#)를 삭제한다(108번째 코드라인).`
+* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 코멘트 표시(#)를 삭제한다(108번째 코드라인).
 
   ```bash
   # vi /etc/sudoers
@@ -130,7 +130,7 @@ CentOS Linux release 7.2.1511 (Core)
   # systemctl enable firewalld
   ```
 
-* `/etc/firewalld/zones/public.xml 파일을 생성하고 아래의 내용을 붙여 넣기 한다.`
+* `/etc/firewalld/zones/public.xml` 파일을 생성하고 아래의 내용을 붙여 넣기 한다.
 
   ```
   <?xml version="1.0" encoding="utf-8"?>
@@ -176,7 +176,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 * 참고 : [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
 
-* `nginx의 yum 저장소를 추가하기 위해서, /etc/yum.repos.d/nginx.repo 파일을 생성하고 아래의 옵션을 붙여 넣는다.`
+* `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 붙여 넣는다.
 
   ```
   [nginx]
@@ -383,7 +383,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `bundle install 명령을 실행한 후 프로젝트를 capify한다.`
+* `bundle install` 명령을 실행한 후 프로젝트를 capify한다.
 
   ```
   $ cap install
@@ -398,7 +398,7 @@ CentOS Linux release 7.2.1511 (Core)
               └── tasks
   ```
 
-* `Capfile은 다음과 같이 작성한다.`
+* `Capfile` 은 다음과 같이 작성한다.
 
   ```
   # Load DSL and set up stages
@@ -421,14 +421,14 @@ CentOS Linux release 7.2.1511 (Core)
   Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
   ```
 
-* `config/deploy/staging.rb 파일은 다음과 같이 작성한다.`
+* `config/deploy/staging.rb` 파일은 다음과 같이 작성한다.
 
   ```
   server '[server-ip]', user: 'deployer', roles: %w{app db web}
   set :nginx_server_name, '[domain-name]'
   ```
 
-* 원격 서버에서 사용할 환경변수를 지정한다. 여기서는 [`capistrano-figaro-yml`](https://github.com/chouandy/capistrano-figaro-yml) 젬을 사용하였다. 우선 `config/application.yml 파일을 생성한 후 아래와 같이 작성한다.`
+* 원격 서버에서 사용할 환경변수를 지정한다. 여기서는 [`capistrano-figaro-yml`](https://github.com/chouandy/capistrano-figaro-yml) 젬을 사용하였다. 우선 `config/application.yml` 파일을 생성한 후 아래와 같이 작성한다.
 
   ```
   staging:
@@ -437,21 +437,21 @@ CentOS Linux release 7.2.1511 (Core)
     SECRET_KEY_BASE: 9cf54********ee00f66162b7f0ce12********789b5ce782a8b1fb95d********06d78608eb9bc*********2abb
   ```
 
-  > 주의 : 이 파일은 소스관리에 포함해서는 안된다는 것이다. 따라서 `.gitignore 파일에 추가한다.`
+  > 주의 : 이 파일은 소스관리에 포함해서는 안된다는 것이다. 따라서 `.gitignore` 파일에 추가한다.
 
-* 위에서 `Capfile에 이미 아래와 같이 추가하였다.`
+* 위에서 `Capfile` 에 이미 아래와 같이 추가하였다.
 
   ```
   require 'capistrano/figaro_yml'
   ```
 
-* `staging 서버로 config/application.yml 파일을 업로드하기 위해서 다음과 같이 명령을 실행한다.`
+* `staging` 서버로 `config/application.yml` 파일을 업로드하기 위해서 다음과 같이 명령을 실행한다.
 
   ```
   $ cap staging setup
   ```
 
-* `config/database.yml 파일은 다음과 같이 작성한다.`
+* `config/database.yml` 파일은 다음과 같이 작성한다.
 
   ```
   default: &default
@@ -466,14 +466,14 @@ CentOS Linux release 7.2.1511 (Core)
     password: <%= ENV['DATABASE_PASSWORD'] %>
   ```
 
-* `config/secrets.yml 파일은 다음과 같이 작성한다.`
+* `config/secrets.yml` 파일은 다음과 같이 작성한다.
 
   ```
   staging:
     secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
   ```
 
-* `config/deploy.rb 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)`
+* `config/deploy.rb` 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)
 
   ```
   lock '3.5.0'
@@ -513,9 +513,9 @@ CentOS Linux release 7.2.1511 (Core)
   end
   ```
 
-  위의 코드 중의 `[...] 부분은 각자의 상황에 맞는 값으로 변경한다.(5군데)`
+  위의 코드 중의 `[...]` 부분은 각자의 상황에 맞는 값으로 변경한다.(5군데)
 
-* 실제 staging 서버로 배포 명령은 실행하는 순서는 다음과 같다.
+* 실제 `staging` 서버로 배포 명령은 실행하는 순서는 다음과 같다.
 
   ```
   $ cap staging deploy:check
@@ -569,14 +569,14 @@ CentOS Linux release 7.2.1511 (Core)
 
   > 설치 시점에서의 최신 버전으로 파일명을 변경하면 된다.
 
-* 기존의 `git 은 삭제한다.`
+* 기존의 `git` 은 삭제한다.
 
   ```
   # yum remove git
   # yum clean all
   ```
 
-  > `git version 명령을 실행하여 최신 버전을 확인한다. 이전 버전으로 표시될 경우에는 다시 로그인하면 제대로 반영된다.`
+  > `git version` 명령을 실행하여 최신 버전을 확인한다. 이전 버전으로 표시될 경우에는 다시 로그인하면 제대로 반영된다.
 
 * git 설정  
   : 최초 설치시 다음과 같이 사용자 정보를 설정한다.
@@ -626,7 +626,7 @@ CentOS Linux release 7.2.1511 (Core)
   # systemctl enable ntpd
   ```
 
-* 이제 터미널 에서 `date 명령을 실행하여 로컬 시간이 제대로 설정되었는지 확인한다.`
+* 이제 터미널 에서 `date` 명령을 실행하여 로컬 시간이 제대로 설정되었는지 확인한다.
 
   ```
   # date
