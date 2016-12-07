@@ -526,6 +526,8 @@ CentOS Linux release 7.2.1511 (Core)
 * 이후 코드 수정후 반복해서 배포할 때는 마지막에 실행한 명령을 반복해서 실행하면 된다.
 
 
+http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied
+
 ---
 
 ### 부록
