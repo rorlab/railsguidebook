@@ -387,26 +387,32 @@ ed.</description>
 * `Capfile`은 다음과 같이 작성한다. 
 
   ```
-# Load DSL and set up stages
-require 'capistrano/setup'
+  # Load DSL and set up stages
+  require 'capistrano/setup'
 
-# Include default deployment tasks
-require 'capistrano/deploy'
+  # Include default deployment tasks
+  require 'capistrano/deploy'
 
-# Include tasks from other gems included in your Gemfile
-require 'capistrano/rbenv'
-require 'capistrano/rbenv_install'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano/puma'
-require 'capistrano/figaro_yml'
-require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
+  # Include tasks from other gems included in your Gemfile
+  require 'capistrano/rbenv'
+  require 'capistrano/rbenv_install'
+  require 'capistrano/bundler'
+  require 'capistrano/rails/assets'
+  require 'capistrano/rails/migrations'
+  require 'capistrano/puma'
+  require 'capistrano/figaro_yml'
+  require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
 
-# Load custom tasks from `lib/capistrano/tasks` if you have any defined
-Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+  # Load custom tasks from 'lib/capistrano/tasks' if you have any defined
+  Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
   ```
 
+* `config/deploy/staging.rb` 파일은 다음과 같이 작성한다. 
+
+  ```
+  server '[server-ip]', user: 'deployer', roles: %w{app db web}
+  set :nginx_server_name, '[domain-name]'
+  ```
 
 
 ---
