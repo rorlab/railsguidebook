@@ -426,3 +426,47 @@ ed.</description>
   # git config -l
   ```
 
+### CentOS 7 시스템 시간의 동기화
+
+* 서버시간과 실제시간을 동기화 해 주어야 시간이 제대로 표시된다. 
+
+* 참고 
+  - [CentOS 7 | ntp로 시간 동기화 하는 방법](https://www.cmsfactory.net/node/11424)
+
+* 우선 ntp를 설치한다..
+
+  ```
+  # yum install ntp
+  ```
+
+* 방화벽을 설치한다.
+
+  ```
+  # firewall-cmd --add-service=ntp --permanent
+  ```
+
+* 방화벽을 다시 로드한다. 
+
+  ```
+  # firewall-cmd --reload
+  ```
+
+* ntp 서비스 시작
+  
+  ```
+  # systemctl start ntpd
+  ```
+
+* 시스템 재부팅 후에도 자동으로 시작할 수 있도록 한다.
+
+  ```
+  # systemctl enable ntpd
+  ```
+
+* 이제 터미널 에서 `date` 명령을 실행하여 로컬 시간이 제대로 설정되었는지 확인한다.
+
+  ```
+  # date
+  ```
+
+
