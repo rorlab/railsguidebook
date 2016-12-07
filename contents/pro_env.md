@@ -38,8 +38,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 ###시스템 업데이트
 
-- `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
-  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기` 가 도움이 될 것이다.  
+
 
 - `root` 계정으로 로그인한 후 터미널에서 아래의 작업을 진행한다.
 
@@ -69,9 +68,12 @@ CentOS Linux release 7.2.1511 (Core)
 
 ###개발툴 설치
 
-```
-# yum groupinstall -y "Development Tools"
-```
+- `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
+  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기` 가 도움이 될 것이다.  
+
+  ```
+  # yum groupinstall -y "Development Tools"
+  ```
 
 ###Deployer 유저 등록
 
