@@ -218,7 +218,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-### MySQL \(5.6.34\) 서버
+### MySQL (5.6.34) 서버
 
 * 참고 : 
   * [How to Install MySQL on CentOS 7](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7)
@@ -251,7 +251,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-### PostgreSQL \(9.2.15\) 설치
+### PostgreSQL (9.2.15) 설치
 
 * 참고:
   * [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
@@ -518,8 +518,8 @@ CentOS Linux release 7.2.1511 (Core)
 * 실제 `staging` 서버로 배포 명령은 실행하는 순서는 다음과 같다.
 
   ```
-  $ cap staging deploy:check
   $ cap staging doctor
+  $ cap staging deploy:check
   $ cap staging deploy
   ```
 
