@@ -195,23 +195,23 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* 설치하고 `/etc/nginx 디렉토리에 sites-enabled 와 sites-available폴더를 생성해 준다.`
+* 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 와 `sites-available` 폴더를 생성해 준다.
 
   ```bash
   # mkdir -p /etc/nginx/sites-enabled
   # mkdir -p /etc/nginx/sites-available
   ```
 
-* 그리고 `/etc/nginx/nginx.conf 파일을 열고 32번 줄에 include /etc/nginx/sites-enabled/*; 추가하고,`
+* 그리고 `/etc/nginx/nginx.conf` 파일을 열고 32번 줄에 `include /etc/nginx/sites-enabled/*;` 추가하고,
 
   ```bash
   # vi /etc/nginx/nginx.conf
   ```
 
-* 최상단에 있는 `user 값을 deployer로 변경한다.`
+* 최상단에 있는 `user` 값을 `deployer`로 변경한다.
 
 
-* 이제 파일을 닫고, `nginx를 시작한다.`
+* 이제 파일을 닫고, `nginx` 를 시작한다.
 
   ```bash
   # systemctl restart nginx.service
