@@ -355,12 +355,12 @@ ed.</description>
 
 ###배포
 
-: 이후부터는 로컬에서 capistrano로 배포작업을 수행한다.
+: 이후부터는 로컬에서 `capistrano`로 배포작업을 수행한다.
 
 
 * 프로젝트 `Gemfile` 파일에 추가해야할 최소한의 젬.
 
-  ```# Use Capistrano for deployment
+  ```
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-rbenv-install', '~> 1.2.0'
   gem 'capistrano-rails', group: :development
@@ -369,7 +369,45 @@ ed.</description>
   ```
 
 
-* `capistrano`와 `capistrano-rbenv` 젬을  레일스 프로젝트의 `gemfile`에 추가하여, `bundle install` 하면, `capistrano`로 배포시, 특히, `cap deploy:setup` 명령을 실행하면, 자동으로 `rbenv`와 `ruby-build`가 설치되고, 디폴트로 `1.9.3-p194` 버전 루비가 설치된다. `config/deploy.rb` 파일에 `set :rbenv_ruby_version, "1.9.3-p286"` 와 같이 추가해 주면, 원하는 루비 버전을 설치할 수도 있다. [ref.](https://github.com/yyuu/capistrano-rbenv)
+* `bundle install` 명령을 실행한 후 프로젝트를 `capify`한다. 
+
+  ```
+  $ cap install
+  ├── Capfile
+  ├── config
+  │   ├── deploy
+  │   │   ├── production.rb
+  │   │   └── staging.rb
+  │   └── deploy.rb
+  └── lib
+      └── capistrano
+              └── tasks
+  ```
+
+* `Capfile`은 다음과 같이 작성한다. 
+
+  ```
+# Load DSL and set up stages
+require 'capistrano/setup'
+
+# Include default deployment tasks
+require 'capistrano/deploy'
+
+# Include tasks from other gems included in your Gemfile
+require 'capistrano/rbenv'
+require 'capistrano/rbenv_install'
+require 'capistrano/bundler'
+require 'capistrano/rails/assets'
+require 'capistrano/rails/migrations'
+require 'capistrano/puma'
+require 'capistrano/figaro_yml'
+require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
+
+# Load custom tasks from `lib/capistrano/tasks` if you have any defined
+Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
+  ```
+
+
 
 ---
 
