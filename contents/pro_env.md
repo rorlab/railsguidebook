@@ -525,7 +525,7 @@ ed.</description>
 
 - 참고 
   - [How to Install Sendmail Server on CentOS/RHEL 7/6/5](http://tecadmin.net/install-sendmail-server-on-centos-rhel-server/)
-  - [sendmail 설정 및 dovecot (imap4, pop3) 설치](http://dslee1.blogspot.kr/2016/04/sendmail-dovecot-imap4-pop3.html)
+  
 
 - 설치 
 
