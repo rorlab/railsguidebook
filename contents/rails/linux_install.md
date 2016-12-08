@@ -1,10 +1,10 @@
 # 리눅스 개발머신에 설치하기
 
-## 우분투 14.04 LTS (Trusty Tahr)의 경우
+## 우분투 16.04.1 LTS (Xenial Xerus)의 경우
 
-[gorail.com 사이트 참조](https://gorails.com/setup/ubuntu/14.04)
+[gorail.com 사이트 참조](https://gorails.com/setup/ubuntu/16.04)
 
-### Ruby 설치 (2.1.2)
+### Ruby 설치 (2.3.3)
 
 Ruby 설치를 위해 필요한 라이브러리 등을 우선 설치합니다.
 
