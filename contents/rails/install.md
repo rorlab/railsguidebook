@@ -6,6 +6,6 @@
 
 * [인스톨러를 이용한 설치](/contents/rails/using_installer.md)
 * 매뉴얼 설치
-  * [맥 OSX 개발머신에 설치하기](/contents/rails/mac_install.html)
-  * [리눅스 개발머신에 설치하기](/contents/rails/linux_install.html)
-  * [윈도우즈 개발머신에 설치하기](/contents/rails/windows_install.html)
+  * [맥 OSX 개발머신에 설치하기](/contents/rails/mac_install.md)
+  * [리눅스 개발머신에 설치하기](/contents/rails/linux_install.md)
+  * [윈도우즈 개발머신에 설치하기](/contents/rails/windows_install.md)
