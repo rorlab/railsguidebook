@@ -48,8 +48,8 @@ $ sudo apt-get install libgdbm-dev libncurses5-dev automake libtool bison libffi
 $ curl -L https://get.rvm.io | bash -s stable
 $ source ~/.rvm/scripts/rvm
 $ echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
-$ rvm install 2.1.2
-$ rvm use 2.1.2 --default
+$ rvm install 2.3.3
+$ rvm use 2.3.3 --default
 $ ruby -v
 ```
 
@@ -64,9 +64,9 @@ $ echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 
 ``` bash
 $ cd
-$ wget http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz
-$ tar -xzvf ruby-2.1.2.tar.gz
-$ cd ruby-2.1.2/
+$ wget http://ftp.ruby-lang.org/pub/ruby/2.3/ruby-2.3.3.tar.gz
+$ tar -xzvf ruby-2.3.3.tar.gz
+$ cd ruby-2.3.3/
 $ ./configure
 $ make
 $ sudo make install
