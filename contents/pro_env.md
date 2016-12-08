@@ -71,9 +71,9 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### 개발툴 설치
 
-* `Development Tools` 를 설치할 때 git도 함께 설치된다. (2016년 12월 3일  현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
+* `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일 현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
 
-  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기` 가 도움이 될 것이다.
+  > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기`가 도움이 될 것이다.
 
   ```bash
   # yum groupinstall -y "Development Tools"
@@ -92,7 +92,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `wheel` 그룹에 `deployer` 를 추가한다.
+* 관리자 권한을 주기 위해 `wheel` 그룹에 `deployer`를 추가한다.
 
   ```bash
   # usermod -aG wheel deployer
@@ -154,7 +154,7 @@ CentOS Linux release 7.2.1511 (Core)
   # firewall-cmd --reload
   ```
 
-* 방화벽 포트 추가
+* 방화벽 포트의 추가
 
   ```bash
   # firewall-cmd --permanent --zone=public --add-service=http
