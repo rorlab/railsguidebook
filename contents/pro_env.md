@@ -491,7 +491,7 @@ CentOS Linux release 7.2.1511 (Core)
 * `config/deploy.rb` 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)
 
   ```
-  lock '3.5.0'
+  lock '3.6.1'
 
   set :application, '[project-name]'
   set :repo_url, 'git@bitbucket.org:[git-account]/[project-name].git'
