@@ -217,7 +217,7 @@ CentOS Linux release 7.2.1511 (Core)
 * 이제 파일을 닫고, `nginx`를 재시작한다.
 
   ```bash
-  # systemctl restart nginx.service
+  # systemctl restart nginx
   ```
 
 
