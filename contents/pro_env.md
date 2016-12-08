@@ -214,7 +214,7 @@ CentOS Linux release 7.2.1511 (Core)
 * 최상단에 있는 `user` 값을 `deployer`로 변경한다.
 
 
-* 이제 파일을 닫고, `nginx` 를 시작한다.
+* 이제 파일을 닫고, `nginx`를 재시작한다.
 
   ```bash
   # systemctl restart nginx.service
