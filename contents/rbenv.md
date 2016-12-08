@@ -14,11 +14,11 @@
 
 `Homebrew`는 한줄의 명령어로 설치 가능한데 해당 명령어는 계속 변경되기 때문에 문서에 언급하지 않는다. http://brew.sh 하단의 `Install Homebrew`를 참고하기 바란다.
 
-`Homebrew`를 이용한 `rbenv`, `ruby-build` 설치 방법
+`Homebrew`를 이용한 `rbenv`, `ruby-build` 설치 방법 (`ruby-build` 는 `rbenv` 설치시에 의존성으로 함께 설치됨)
 
 ```bash
 $ brew update
-$ brew install rbenv ruby-build
+$ brew install rbenv
 ```
 
 새로운 루비 버전이 릴리스된 후에는 아래와 같이 명령을 실행한 후 
