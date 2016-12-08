@@ -387,7 +387,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `bundle install` 명령을 실행한 후 프로젝트를 `capify`한다.
+* `bundle install` 명령을 실행한 후 프로젝트 배포 준비를 위해 `capify` 명령을 실행한다.
 
   ```
   $ cap install
@@ -417,11 +417,11 @@ CentOS Linux release 7.2.1511 (Core)
   require 'capistrano/bundler'
   require 'capistrano/rails/assets'
   require 'capistrano/rails/migrations'
+  require 'capistrano/nginx'
   require 'capistrano/puma'
+  require 'capistrano/puma/nginx'   
   require 'capistrano/figaro_yml'
   require 'capistrano/upload-config'
-  require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
-  require 'capistrano/nginx'
 
   # Load custom tasks from 'lib/capistrano/tasks' if you have any defined
   Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
