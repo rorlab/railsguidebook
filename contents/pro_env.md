@@ -427,14 +427,14 @@ CentOS Linux release 7.2.1511 (Core)
   Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
   ```
 
-* `config/deploy/staging.rb` 파일은 다음과 같이 작성한다.
+* 정식 배포 전에 `"staging 서버"`로의 배포환경 설정을 위해 `config/deploy/staging.rb` 파일은 다음과 같이 작성한다.
 
   ```
   server '[server-ip]', user: 'deployer', roles: %w{app db web}
   set :nginx_server_name, '[domain-name]'
   ```
 
-* 원격 서버에서 사용할 환경변수를 지정한다. 여기서는 [`capistrano-figaro-yml`](https://github.com/chouandy/capistrano-figaro-yml) 젬을 사용하였다. 우선 `config/application.yml` 파일을 생성한 후 아래와 같이 작성한다.
+* `"staging 서버"`에서 사용할 환경변수와 값을 설정한다. 여기서는 [`capistrano-figaro-yml`](https://github.com/chouandy/capistrano-figaro-yml) 젬을 사용하였다. 우선 `config/application.yml` 파일을 생성한 후 아래와 같이 작성한다.
 
   ```
   staging:
@@ -443,7 +443,7 @@ CentOS Linux release 7.2.1511 (Core)
     SECRET_KEY_BASE: 9cf54********ee00f66162b7f0ce12********789b5ce782a8b1fb95d********06d78608eb9bc*********2abb
   ```
 
-  > 주의 : 이 파일(`config/appliation.yml`)은 소스관리에 포함해서는 안된다. 따라서 `.gitignore` 파일에 추가한다. 위에서 `Capfile` 에 이미 아래와 같이 추가하였다.
+  > 주의 : 이 파일(`config/appliation.yml`)은 소스관리에 포함해서는 안된다. 따라서 `.gitignore` 파일에 추가한다. 또한 `Capfile` 에 이미 아래와 같이 추가한 바 있다.
     ```
     require 'capistrano/figaro_yml'
     ```
@@ -454,7 +454,13 @@ CentOS Linux release 7.2.1511 (Core)
   $ cap staging setup
   ```
 
-* `config/database.yml` 파일은 다음과 같이 작성한다.
+* `database.yml` 과 `secrets.yml` 파일에는 보안상 공개해서는 안되는 정보가 들어 있기 때문에 직접 서버로 업로드하지 않고 로컬에 있는 파일을 서버로 직접 업로드하기 위한 젬을 사용한다. 따라서 아래와 같이 명령을 실행하여 `database.staging.yml`, `secrets.staging.yml` 파일을 생성하고 각각 아래와 같이 작성한다.
+
+  ```
+  $ cap staging config:init
+  ``` 
+
+* `config/database.staging.yml` 파일은 다음과 같이 작성한다.
 
   ```
   default: &default
@@ -464,16 +470,22 @@ CentOS Linux release 7.2.1511 (Core)
 
   staging:
     <<: *default
-    database: blog5_staging
+    database: [database-name]
     username: <%= ENV['DATABASE_USERNAME'] %>
     password: <%= ENV['DATABASE_PASSWORD'] %>
   ```
 
-* `config/secrets.yml` 파일은 다음과 같이 작성한다.
+* `config/secrets.staging.yml` 파일은 다음과 같이 작성한다.
 
   ```
   staging:
     secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  ```
+
+* 이제 이 두 파일은 아래의 명령을 통해서 직접 서버로 업로드되면 `linked_files`로 등록된다. 
+
+  ```
+  $ cap staging config:push
   ```
 
 * `config/deploy.rb` 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)
