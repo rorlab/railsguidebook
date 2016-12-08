@@ -18,7 +18,7 @@
 
 # CentOS 7.2 서버 설치
 
-아래의 링크에서 원하는 ISO 파일을 다운로드 받아 서버에 설치한다.
+아래의 링크에서 원하는 `ISO` 파일을 다운로드 받아 서버에 설치한다.
 
 * [CentOS 다운로드](https://www.centos.org/download/)
   * [Minimal ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso) 
@@ -31,6 +31,8 @@
 ---
 
 ### 시스템 버전
+
+최소버전을 설치한 후 터미널에서 운영체제 버전을 확인하기 위해서는 아래의 명령을 실행한다.
 
 ```bash
 # cat /etc/centos-release
@@ -51,16 +53,16 @@ CentOS Linux release 7.2.1511 (Core)
   Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   ```
 
-  아래와 같은 조치를 하여 해결할 수 있다.   
+  다음과 같은 조치로 해결할 수 있다.   
   \([https://www.conory.com/note\_linux/44007](https://www.conory.com/note_linux/44007)\)
 
-  아래 명령어를 실행하여 해당 파일이 속한 패키지이름을 알려 준다.
+  (1) 아래 명령어를 실행하여 해당 파일이 속한 패키지명을 알려 준다.
 
   ```bash
   # yum provides '*/applydeltarpm'
   ```
 
-  그 결과 `deltarpm` 패키지를 설치해주면 된다.
+  (2) 이제 `deltarpm` 패키지를 설치한다.
 
   ```bash
   # yum install deltarpm
