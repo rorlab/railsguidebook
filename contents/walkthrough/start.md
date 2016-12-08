@@ -11,10 +11,10 @@
 
 ```bash
 $ ruby -v
-ruby 2.2.0p0 (2014-12-25 revision 49005)
+ruby 2.3.3p222 (2016-11-21 revision 56859)
 
 $ rails -v
-Rails 4.2.0
+Rails 5.0.0.1
 ```
 
 ### 소스 코드
