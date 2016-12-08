@@ -179,7 +179,7 @@ CentOS Linux release 7.2.1511 (Core)
 
 * 참고 : [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
 
-* `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 붙여 넣는다.
+* `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 복사한 후 붙여 넣는다.
 
   ```
   [nginx]
@@ -189,12 +189,12 @@ CentOS Linux release 7.2.1511 (Core)
   enabled=1
   ```
 
-  > _**주의:**_ CentOS, RHEL, Scientific Linux가 릴리스 버전\($releasever\) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 6.x는 "6", 7.x 는 "7"을 사용하면 된다. $basesearch 에는 "x86\_64" 값을 지정한다.
+  > _**주의:**_ CentOS, RHEL, Scientific Linux 릴리스 버전\($releasever\) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 6.x는 "6", 7.x 는 "7"을 사용하면 된다. $basesearch 에는 "x86\_64" 값을 지정한다.
 
   ```bash
   # yum install -y nginx
-  # systemctl enable nginx.service
-  # systemctl start nginx.service
+  # systemctl enable nginx
+  # systemctl start nginx
   ```
 
 
