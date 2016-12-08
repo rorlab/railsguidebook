@@ -30,8 +30,8 @@ $ git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 $ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
 $ exec $SHELL
 
-$ rbenv install 2.1.2
-$ rbenv global 2.1.2
+$ rbenv install 2.3.3
+$ rbenv global 2.3.3
 $ ruby -v
 ```
 
