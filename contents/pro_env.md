@@ -387,7 +387,7 @@ CentOS Linux release 7.2.1511 (Core)
   ```
 
 
-* `bundle install` 명령을 실행한 후 프로젝트를 capify한다.
+* `bundle install` 명령을 실행한 후 프로젝트를 `capify`한다.
 
   ```
   $ cap install
@@ -443,13 +443,10 @@ CentOS Linux release 7.2.1511 (Core)
     SECRET_KEY_BASE: 9cf54********ee00f66162b7f0ce12********789b5ce782a8b1fb95d********06d78608eb9bc*********2abb
   ```
 
-  > 주의 : 이 파일은 소스관리에 포함해서는 안된다는 것이다. 따라서 `.gitignore` 파일에 추가한다.
-
-* 위에서 `Capfile` 에 이미 아래와 같이 추가하였다.
-
-  ```
-  require 'capistrano/figaro_yml'
-  ```
+  > 주의 : 이 파일(`config/appliation.yml`)은 소스관리에 포함해서는 안된다. 따라서 `.gitignore` 파일에 추가한다. 위에서 `Capfile` 에 이미 아래와 같이 추가하였다.
+    ```
+    require 'capistrano/figaro_yml'
+    ```
 
 * `staging` 서버로 `config/application.yml` 파일을 업로드하기 위해서 다음과 같이 명령을 실행한다.
 
