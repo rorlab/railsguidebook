@@ -6,8 +6,8 @@
 
 ### 개발환경
 
-* [ruby v2.3.1p112](https://www.ruby-lang.org/ko/news/2016/04/26/ruby-2-3-1-released/) : 2016년 4월 26일 릴리스됨.
-* [rails v4.2.6](http://weblog.rubyonrails.org/2016/3/11/Rails-4-2-6-and-4-1-15-have-been-released/) : 2016년 3월 11일 릴리스됨. 
+* [ruby 2.3.3p222](https://www.ruby-lang.org/ko/news/2016/11/21/ruby-2-3-3-released/) : 2016년 11월 21일 릴리스됨.
+* [rails v5.0.0.1](http://weblog.rubyonrails.org/2016/8/11/Rails-5-0-0-1-4-2-7-2-and-3-2-22-3-have-been-released/) : 2016년 8월 11일 릴리스됨. 
 
 ```bash
 $ ruby -v
