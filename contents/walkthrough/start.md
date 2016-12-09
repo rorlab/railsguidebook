@@ -227,6 +227,12 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 * bin/rails: spring inserted
 ```
 
+> **팁:** 계정 루트 디렉토리에 `.railsrc` 파일을 생성하고 `rails new` 명령의 옵션을 추가해 주면 이 명령이 실행될 때마다 디폴트 옵션으로 사용하게 된다. 
+  ```
+  $ cat ~/.railsrc
+  -d postgresql
+  ```
+
 이제 프로젝트 디렉토리로 이동하여 터미널에서 아래와 같이 로컬 웹서버를 실행한다.
 
 ```bash
