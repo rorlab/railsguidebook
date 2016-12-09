@@ -233,20 +233,12 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
   -d postgresql
   ```
 
-이제 프로젝트 디렉토리로 이동하여 git 초기화한다.
-
-```bash
-$ cd rcafe2
-$ git init
-$ git add .
-$ git commit -m "최초커밋"
-```
-
 > **_소스코드 관리_** : 공개 프로젝인 경우에는 http://github.com 클라우드 저장소를 무료로 사용할 수 있다. 물론 유료이긴 하지만 비공개 저장소로 사용할 수도 있다.  
 
 로컬 서버를 실행한다. 레일스 5부터는 디폴트 로컬 서버로 `WEBrick` 대신 `Puma`를 사용한다 
 
 ```
+$ cd rcafe2
 $ bin/rails s
 => Booting Puma
 => Rails 5.0.0.1 application starting in development on http://localhost:3000
@@ -288,7 +280,7 @@ Usage: rails server [mongrel, thin, etc] [options]
 
 이제 브라우저에서 `http://localhost:3000` 주소로 확인할 수 있다.
 
-![localhost:3000](http://i1373.photobucket.com/albums/ag392/rorlab/localhost_3000_zps48e7d0ba.png)
+![localhost:3000](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-09_17-13-41_zpse9msque0.png)
 
 이제 터미널에서 소스관리를 위해 `git`을 초기화한 후 커밋한다.
 
