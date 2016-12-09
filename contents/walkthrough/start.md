@@ -242,22 +242,22 @@ $ git add .
 $ git commit -m "최초커밋"
 ```
 
-> 소스코드 관리 : 공개 프로젝인 경우에는 github.com 클라우드 저장소를 무료로 사요할 수 있다. 
+> **_소스코드 관리_** : 공개 프로젝인 경우에는 http://github.com 클라우드 저장소를 무료로 사용할 수 있다. 물론 유료이긴 하지만 비공개 저장소로 사용할 수도 있다.  
+
+로컬 서버를 실행한다. 레일스 5부터는 디폴트 로컬 서버로 `WEBrick` 대신 `Puma`를 사용한다 
 
 ```
-$ bin/rails server
-=> Booting WEBrick
-=> Rails 4.2.6 application starting in development on http://localhost:3000
+$ bin/rails s
+=> Booting Puma
+=> Rails 5.0.0.1 application starting in development on http://localhost:3000
 => Run `rails server -h` for more startup options
-=> Ctrl-C to shutdown server
-[2016-06-10 15:14:37] INFO  WEBrick 1.3.1
-[2016-06-10 15:14:37] INFO  ruby 2.3.1 (2016-04-26) [x86_64-darwin15]
-[2016-06-10 15:14:37] INFO  WEBrick::HTTPServer#start: pid=91093 port=3000
+Puma starting in single mode...
+* Version 3.6.2 (ruby 2.3.1-p112), codename: Sleepy Sunday Serenity
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://localhost:3000
+Use Ctrl-C to stop
 ```
-
-`Booting WEBrick` : 레일스 프로젝트를 실행하기 위해 로컬 웹서버(WEBrick)를 부팅한다는 것을 표시한다. `WEBrick`은 루비 라이브러리로 간단한 **HTTP 웹서버 서비스**를 제공한다.  
-
-`starting in development on http://localhost:3000` : 레일스 프로젝트는 **3가지 모드**에서 실행할 수 있다. **개발모드**(development), **운영모드**(production), **테스트모드**(test). 따라서 현재 개발모드에서 실행되는 프로젝트를 HTTP 프로토콜을 이용하여 `localhost`의 3000포트에서 시작한다는 것을 의미한다.
 
 `rails server -h` 와 같이 `-h` 옵션을 사용하여 서버를 구동하면 여러가지 시작 옵션을 볼 수 있다.
 
@@ -281,12 +281,12 @@ Usage: rails server [mongrel, thin, etc] [options]
 
 자주 사용하는 옵션에 대해서 간단히 설명한다. 
 
-* `-p` : 레일스 서버를 특정 포트에서 실행할 때 사용한다. 디폴트로는 3000 포트를 사용한다. 로컬에서 하나의 이상의 프로젝트를 실행하고자 할 때 각기 다른 포트를 사용하면 편리하다. 예, `-p 4000`
+* `-p` : 레일스 서버를 특정 포트에서 실행할 때 사용한다. 디폴트로는 3000 포트를 사용한다. 로컬에서 하나 이상의 프로젝트를 실행하고자 할 때 각기 다른 포트를 사용하면 편리하다. 예, `-p 4000`
 * `-b` : 로컬호스트 외에 특정 ip로 연결하고자 할 때 사용한다. 예를 들어, 가상머신에서 레일스 서버를 시작하고 호스트 머신에서 브라우저로 접근하고자 할 때 이 옵션에 가상머신의 ip을 지정하여 연결할 수 있다. 예, `-b 192.168.56.101`
 * `-d` : 레일스 서버를 데몬으로 실행할 때 사용한다.
 * `-e` : 서버 실행 환경을 지정할 때 사용한다. 디폴트는 `development`이다. 운영환경에서 실행할 때는 `-e production`과 같이 옵션을 지정하면 된다. 
 
-이제 브라우저에서 http://localhost:3000 주소로 확인할 수 있다.
+이제 브라우저에서 `http://localhost:3000` 주소로 확인할 수 있다.
 
 ![localhost:3000](http://i1373.photobucket.com/albums/ag392/rorlab/localhost_3000_zps48e7d0ba.png)
 
