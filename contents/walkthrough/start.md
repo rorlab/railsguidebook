@@ -214,7 +214,7 @@ Using rails 5.0.0.1
 Using sass-rails 5.0.6
 ```
 
-이어서 rails 젬과 관련 의존성 젬들이 설치되고, 특히, **레일스 4.1 버전**부터는 어플리케이션 프리로더(preloader)인 [`spring`](https://github.com/rails/spring)이 기본적으로 설치되어 커맨드라인 명령어인 `rake`와 `rails` 명령의 실행속도를 빠르게 해 주는데, 실행 결과물의 마지막에 아래와 같은 간단한 안내문이 나타난다.
+이어서 rails 젬과 관련 의존성 젬들이 설치되고, 특히, **레일스 4.1 버전**부터는 어플리케이션 프리로더(preloader)인 [`spring`](https://github.com/rails/spring)이 기본적으로 설치되어 있어 커맨드라인 명령어인 `rake`와 `rails` 명령의 실행속도를 빠르게 해 주는데, 실행 로그 마지막에 아래와 같은 간단한 안내문이 나타난다.
 
 ```
 .
@@ -227,16 +227,24 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 * bin/rails: spring inserted
 ```
 
-> **팁:** 계정 루트 디렉토리에 `.railsrc` 파일을 생성하고 `rails new` 명령의 옵션을 추가해 주면 이 명령이 실행될 때마다 디폴트 옵션으로 사용하게 된다. 
+> **팁:** 계정 루트 디렉토리에 `.railsrc` 파일을 생성하고 `rails new` 명령의 옵션을 추가해 두면, 이 명령이 실행될 때마다 디폴트 옵션으로 사용하게 된다. 
   ```
   $ cat ~/.railsrc
   -d postgresql
   ```
 
-이제 프로젝트 디렉토리로 이동하여 터미널에서 아래와 같이 로컬 웹서버를 실행한다.
+이제 프로젝트 디렉토리로 이동하여 git 초기화한다.
 
 ```bash
-$ cd rcafe
+$ cd rcafe2
+$ git init
+$ git add .
+$ git commit -m "최초커밋"
+```
+
+> 소스코드 관리 : 공개 프로젝인 경우에는 github.com 클라우드 저장소를 무료로 사요할 수 있다. 
+
+```
 $ bin/rails server
 => Booting WEBrick
 => Rails 4.2.6 application starting in development on http://localhost:3000
