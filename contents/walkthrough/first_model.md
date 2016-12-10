@@ -169,7 +169,7 @@ database: rcafe2_development
 
 #### 마이그레이션 ID (Migration ID)
 
-이것은 마이그레이션 작업의 고유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 고유한 값을 가진다. 예를 들어, 위에서 사용된 `20140501054730_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
+이것은 마이그레이션 작업의 고유 번호다. 이 값은 마이그레이션 파일이 생성될 때 자동으로 파일명 앞에 붙는 타임스탬프로 고유한 값을 가진다. 예를 들어, 위에서 사용된 `20161210103346_create_posts.rb` 파일의 파일명 시작부분에 있는 숫자가 이에 해당한다.
 
 #### 마이그레이션 이름(Migration Name)
 
@@ -181,10 +181,14 @@ database: rcafe2_development
 
 ```bash
 $ bin/rails db
-SQLite version 3.8.5 2014-08-15 22:37:57
-Enter ".help" for usage hints.
-sqlite> select version from schema_migrations;
-20150130063424
+psql (9.6.1)
+Type "help" for help.
+
+rcafe2_development=# select version from schema_migrations;
+    version
+----------------
+ 20161210103346
+(1 row)
 ```
 
 ### 리소스 라우팅
