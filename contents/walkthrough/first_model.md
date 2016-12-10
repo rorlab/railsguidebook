@@ -65,10 +65,11 @@ end
 
 ```bash
 $ bin/rake db:migrate
-== 20150130063424 CreatePosts: migrating ======================================
+Running via Spring preloader in process 19527
+== 20161210103346 CreatePosts: migrating ======================================
 -- create_table(:posts)
-   -> 0.0010s
-== 20150130063424 CreatePosts: migrated (0.0011s) =============================
+   -> 0.0272s
+== 20161210103346 CreatePosts: migrated (0.0273s) =============================
 ```
 
 ### 마이그레이션 상태 확인
