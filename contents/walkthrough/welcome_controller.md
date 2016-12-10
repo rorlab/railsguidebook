@@ -124,7 +124,6 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
 ```
 
 `root` 메소드를 이용하여 `'welcome#index'`와 같이 설정하면 된다. 여기서 주의할 것은 컨틀롤러와 액션명 사이에 `'/'`가 아니고 `'#'` 문자를 사용해야 한다는 것이다.
