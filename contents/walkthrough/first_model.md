@@ -87,8 +87,20 @@ Running via Spring preloader in process 19527
 == 20161210103346 CreatePosts: migrated (0.0273s) =============================
 ```
 
-이제 `config/schema.rb` 파일을 열어 보면 아래와 같이 각 필드에 대한 설명을 볼 수 있게 된다. 
+이제 `db/schema.rb` 파일을 열어 보면 아래와 같이 각 필드에 대한 설명을 볼 수 있게 된다. 
 
+```
+ActiveRecord::Schema.define(version: 20161210103346) do
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "title",                   comment: "글 제목"
+    t.text     "content",                 comment: "글 내용"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+end
+```
 
 
 ### 마이그레이션 상태 확인
@@ -113,10 +125,11 @@ database: rcafe2_development
 
 ```bash
 $ bin/rake db:rollback
-== 20150130063424 CreatePosts: reverting ======================================
+Running via Spring preloader in process 20691
+== 20161210103346 CreatePosts: reverting ======================================
 -- drop_table(:posts)
-   -> 0.0006s
-== 20150130063424 CreatePosts: reverted (0.0045s) =============================
+   -> 0.0277s
+== 20161210103346 CreatePosts: reverted (0.0312s) =============================
 ```
 
 이 결과로 데이터베이스에서 `posts` 테이블이 `drop`된다. 그리고 마이그레이션 상태를 확인하면,
