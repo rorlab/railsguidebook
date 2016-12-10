@@ -208,7 +208,7 @@ $ git commit -m "Gemfile에 젬추가 : bootstrap-sass & simple_form"
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_01
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_01
 
 
 
