@@ -46,7 +46,7 @@ Running via Spring preloader in process 18827
 > 
 >  하단에 있는 `scaffold.css.scss` 파일은 불필요하기 때문에 파일을 에디터로 열고 모든 스타일을 코맨트 처리하거나 삭제한다. 또는 `application.scss` 파일에서 `import` 하지 않는다.
 
-`MVC(Model-View-Controller)` 디자인 패턴에 따라 생성된 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
+`MVC(Model-View-Controller)` 디자인 패턴에 따라 생성된 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 네번째 줄에 있는 마이그레이션 파일 `db/migrate/20161210103346_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20161210103346` 값은 파일생성 시간에 따라 다를 수 있다.)
 
 ```ruby
 class CreatePosts < ActiveRecord::Migration
