@@ -95,7 +95,7 @@ class WelcomeController < ApplicationController
 end
 ```
 
-`WelcomeController` 클래스의 `index` 액션에는 아무런 내용이 없다. 그럼에도 불구하고 위에서 본 브라우저 화면과 같은 결과물이 표시되는 것은 레일스의 `C.O.C`(convention over configuration, 설정보다는 규칙을 따라라!), 즉, 레일스 프레임워크의 규칙를 따르기 때문이다. 다시말해서, 모든 액션(public 메소드)이 실행된 후에는 `app/views/` 디렉토리 아래에 있는 해당 컨트롤러의 이름과 동일한 디렉토리(여기서는 `welcome`)에서 동일한 액션명의 `erb`(여기서는 `index.html.erb`) 파일을 뷰 템플릿(`app/views/welcome/index.html.erb`)으로 사용하여 응답으로 보낼 파일(.html)을 렌더링한다.
+`WelcomeController` 클래스의 `index` 액션에는 아무런 내용이 없다. 그럼에도 불구하고 위에서 본 브라우저 화면과 같은 결과물이 표시되는 것은 레일스의 `C.O.C`(convention over configuration, 설정보다는 규칙을 따라라!), 즉, 레일스 프레임워크의 규칙를 따르기 때문이다. 다시말해서, 모든 액션(public 메소드)이 실행된 후에는 `app/views/` 디렉토리 아래에 있는 해당 컨트롤러의 이름과 동일한 디렉토리(여기서는 `welcome`)에서 동일한 액션명의 `erb`(여기서는 `index.html.erb`) 파일을 뷰 템플릿(`app/views/welcome/index.html.erb`)으로 사용하여 응답으로 보낼 파일(.html)로 렌더링한다.
 
 디폴트로 생성된 이 뷰 템플릿 파일(`index.html.erb`)의 내용은 아래와 같다.
 
@@ -120,17 +120,11 @@ end
 ```ruby
 Rails.application.routes.draw do
   root 'welcome#index'
-  # get 'welcome/index'
+  #get 'welcome/index'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-
-
-... 중략 ~
-
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
 ```
 
 `root` 메소드를 이용하여 `'welcome#index'`와 같이 설정하면 된다. 여기서 주의할 것은 컨틀롤러와 액션명 사이에 `'/'`가 아니고 `'#'` 문자를 사용해야 한다는 것이다.
