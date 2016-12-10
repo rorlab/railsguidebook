@@ -130,7 +130,7 @@ end
 
 > #### Note::노트
 > 
-> `root` 정의는 `routes.rb` 파일에서 최상위에  위치해야 한다. 자세한 내용은 [여기](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-root)를 보기 바란다.
+> `root` 라우트 정의는 `routes.rb` 파일에서 최상위에 위치해야 한다. 자세한 내용은 [여기](http://api.rubyonrails.org/classes/ActionDispatch/Routing/Mapper/Base.html#method-i-root)를 보기 바란다.
 
 이제 브라우저를 다시 로드([http://localhost:3000](http://localhost:3000))하면 `welcome` 컨트롤러의 `index` 액션이 호출되어 해당 뷰 템플릿 파일이 렌더링되어 보이게 된다.
 
