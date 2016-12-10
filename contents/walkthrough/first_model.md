@@ -136,22 +136,23 @@ Running via Spring preloader in process 20691
 
 ```bash
 $ bin/rake db:migrate:status
+Running via Spring preloader in process 22137
 
-database: /Users/rorlakr/rcafe/db/development.sqlite3
+database: rcafe2_development
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-  down    20150130063424  Create posts
+   up     20161210103346  Create posts
 ```
 
 `$ bin/rake db:migrate:redo` 명령으로 취소했던 마이그레이션을 다시 실행할 수 있다.
 
 ```bash
 $ bin/rake db:migrate:redo
-== 20150130063424 CreatePosts: migrating ======================================
+== 20161210103346 CreatePosts: migrating ======================================
 -- create_table(:posts)
    -> 0.0014s
-== 20150130063424 CreatePosts: migrated (0.0015s) =============================
+== 20161210103346 CreatePosts: migrated (0.0015s) =============================
 ```
 
 마이그레이션이 다시 실행된 상태('up')를 확인할 수 있다.
@@ -159,11 +160,11 @@ $ bin/rake db:migrate:redo
 ```bash
 $ bin/rake db:migrate:status
 
-database: /Users/rorlakr/rcafe/db/development.sqlite3
+database: rcafe2_development
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20150130063424  Create posts
+   up     20161210103346  Create posts
 ```
 
 #### 마이그레이션 ID (Migration ID)
