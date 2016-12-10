@@ -61,6 +61,21 @@ class CreatePosts < ActiveRecord::Migration
 end
 ```
 
+한가지 유용한 기능은 아래와 같이 각 필드에 대한 설명을 `:comment` 옵션으로 지정할 수 있게 되었다는 것이다. 
+
+```
+class CreatePosts < ActiveRecord::Migration[5.0]
+  def change
+    create_table :posts do |t|
+      t.string :title, comment: "글 제목"
+      t.text :content, comment: "글 내용"
+
+      t.timestamps
+    end
+  end
+end
+```
+
 `rake` 명령의 여러가지 `task` 중 `db:migrate` 작업을 실행할 때 `rake`가 이 파일은 사용하게 되며 실행결과 데이터베이스 테이블을 생성하게 된다. 이 때 테이블의 이름은 레일스의 `C.O.C`에 따라 모델명(Post)의 복수형(posts)으로 자동 지정된다.
 
 ```bash
@@ -72,18 +87,23 @@ Running via Spring preloader in process 19527
 == 20161210103346 CreatePosts: migrated (0.0273s) =============================
 ```
 
+이제 `config/schema.rb` 파일을 열어 보면 아래와 같이 각 필드에 대한 설명을 볼 수 있게 된다. 
+
+
+
 ### 마이그레이션 상태 확인
 
 이와 같은 마이그레이션 작업의 수행결과는 히스토리로 관리되는데 아래와 같이 커맨드라인 명령으로 확인할 수 있다.
 
 ```bash
-$ in/rake db:migrate:status
+$ rake db:migrate:status
+Running via Spring preloader in process 20093
 
-database: /Users/rorlakr/rcafe/db/development.sqlite3
+database: rcafe2_development
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20150130063424  Create posts
+   up     20161210103346  Create posts
 ```
 
 #### 상태(status)
