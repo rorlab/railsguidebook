@@ -1,7 +1,7 @@
 # "welcome" 컨트롤러의 생성
 
 이제 처음으로 프로젝트에 변화를 주어 보자.
-레일스 프로젝트 생성 직후에 보이는 브라우저 화면에 해당하는 html 파일(smoke 페이지)은 실제로 **public 디렉토리**에 존재하지 않는다. 루트 라우트로 지정하지 않는 한, 이 디폴트 파일은 레일스가 백그라운드에서 동적으로 생성하는 index.html 파일인 것이다.
+레일스 프로젝트 생성 직후에 보이는 브라우저 화면에 해당하는 html 파일(smoke 페이지)은 실제로 **`/public` 디렉토리**에 존재하지 않는다. 루트 라우트를 별도로 지정하지 않는 한, 이 디폴트 파일은 레일스가 백그라운드에서 동적으로 생성하는 `index.html` 파일인 것이다.
 
 
 ### 라우팅 정보
@@ -86,7 +86,7 @@ end
 
 ![welcome_controller](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_11-13-10_zpsf5a549c1.png)
 
-짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬호스트 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 되는 것이다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 `welcome` 컨트롤러의 소스코드를 보자. 보는 바와 같이 애플리케이션 내의 모든 컨트롤러는 일차적으로  `ApplicationController` 클래스로부터 상속받는다.
+짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 된다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 `welcome` 컨트롤러의 소스코드를 살펴 보자. 보는 바와 같이 애플리케이션 내의 모든 컨트롤러는 일차적으로  `ApplicationController` 클래스로부터 상속받는다.
 
 ```ruby
 class WelcomeController < ApplicationController
