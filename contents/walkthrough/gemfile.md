@@ -50,68 +50,75 @@ gem 'simple_form'
 ```
 $ bin/bundle install
 Fetching gem metadata from https://rubygems.org/..........
+Fetching version metadata from https://rubygems.org/..
+Fetching dependency metadata from https://rubygems.org/.
 Resolving dependencies...
-Using rake 10.4.2
+Using rake 12.0.0
+Using concurrent-ruby 1.0.2
 Using i18n 0.7.0
-Using json 1.8.2
-Using minitest 5.5.1
-Using thread_safe 0.3.4
-Using tzinfo 1.2.2
-Using activesupport 4.2.0
+Using minitest 5.10.1
+Using thread_safe 0.3.5
 Using builder 3.2.2
 Using erubis 2.7.0
-Using mini_portile 0.6.2
-Using nokogiri 1.6.6.2
-Using rails-deprecated_sanitizer 1.0.3
-Using rails-dom-testing 1.0.5
-Using loofah 2.0.1
-Using rails-html-sanitizer 1.0.1
-Using actionview 4.2.0
-Using rack 1.6.0
-Using rack-test 0.6.3
-Using actionpack 4.2.0
-Using globalid 0.3.0
-Using activejob 4.2.0
-Using mime-types 2.4.3
-Using mail 2.6.3
-Using actionmailer 4.2.0
-Using activemodel 4.2.0
-Using arel 6.0.0
-Using activerecord 4.2.0
-Using execjs 2.2.2
->>>> Installing autoprefixer-rails 5.1.0
+Using mini_portile2 2.1.0
+Using rack 2.0.1
+Using nio4r 1.2.1
+Using websocket-extensions 0.1.2
+Using mime-types-data 3.2016.0521
+Using arel 7.1.4
+Using execjs 2.7.0
+Using sass 3.4.22
+Using bundler 1.13.6
+Using byebug 9.0.6
+Using coffee-script-source 1.11.1
+Using method_source 0.8.2
+Using thor 0.19.4
 Using debug_inspector 0.0.2
-Using binding_of_caller 0.7.2
-Using sass 3.4.10
->>>> Installing bootstrap-sass 3.3.3
-Using bundler 1.7.12
-Using columnize 0.9.0
-Using debugger-linecache 1.2.0
-Using slop 3.6.0
-Using byebug 3.5.1
-Using coffee-script-source 1.9.0
-Using coffee-script 2.3.0
-Using thor 0.19.1
-Using railties 4.2.0
-Using coffee-rails 4.1.0
-Using hike 1.2.3
-Using multi_json 1.10.1
-Using jbuilder 2.2.6
-Using jquery-rails 4.0.3
-Using tilt 1.4.1
-Using sprockets 2.12.3
-Using sprockets-rails 2.2.4
-Using rails 4.2.0
-Using rdoc 4.2.0
-Using sass-rails 5.0.1
-Using sdoc 0.4.1
->>>> Installing simple_form 3.1.0
-Using spring 1.2.0
-Using sqlite3 1.3.10
-Using turbolinks 2.5.3
-Using uglifier 2.7.0
-Using web-console 2.0.0
-Your bundle is complete!
+Using ffi 1.9.14
+Using multi_json 1.12.1
+Using rb-fsevent 0.9.8
+Using pg 0.19.0
+Using puma 3.6.2
+Using tilt 2.0.5
+Using turbolinks-source 5.0.0
+Using tzinfo 1.2.2
+Using nokogiri 1.6.8.1
+Using rack-test 0.6.3
+Using sprockets 3.7.0
+Using websocket-driver 0.6.4
+Using mime-types 3.1
+>>>>>>Installing autoprefixer-rails 6.5.3.1
+Using uglifier 3.0.4
+Using coffee-script 2.4.1
+Using rb-inotify 0.9.7
+Using turbolinks 5.0.1
+Using activesupport 5.0.0.1
+Using loofah 2.0.3
+Using mail 2.6.4
+>>>>>>Installing bootstrap-sass 3.3.7
+Using listen 3.0.8
+Using rails-dom-testing 2.0.1
+Using globalid 0.3.7
+Using activemodel 5.0.0.1
+Using jbuilder 2.6.1
+Using spring 2.0.0
+Using rails-html-sanitizer 1.0.3
+Using activejob 5.0.0.1
+Using activerecord 5.0.0.1
+Using spring-watcher-listen 2.0.1
+Using actionview 5.0.0.1
+Using actionpack 5.0.0.1
+Using actioncable 5.0.0.1
+Using actionmailer 5.0.0.1
+Using railties 5.0.0.1
+Using sprockets-rails 3.2.0
+>>>>>>Installing simple_form 3.3.1
+Using coffee-rails 4.2.1
+Using jquery-rails 4.2.1
+Using web-console 3.4.0
+Using rails 5.0.0.1
+Using sass-rails 5.0.6
+Bundle complete! 17 Gemfile dependencies, 65 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
