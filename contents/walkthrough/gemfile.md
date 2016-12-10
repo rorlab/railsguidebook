@@ -40,12 +40,12 @@ gem 'simple_form'
 [참고사항]
 >[`bootstrap-sass`](https://github.com/twbs/bootstrap-sass) : 반응형 모바일 웹브라우져 환경을 구축하기 위한 프론트엔드 프레임워크 중의 하나인 `Twitter-Bootstrap`(줄여서 `Bootstrap`이라고도 함)을 레일스 프로젝트에서 사용하기 쉽게 해 주는 젬이다.
 
->[`simple_form`](https://github.com/plataformatec/simple_form) : `bootstrap`과 함께 레일스의 `form_for` 헬퍼메소드을 사용할 때 잘 어울리는 젬이다.
+>[`simple_form`](https://github.com/plataformatec/simple_form) : `bootstrap`과 함께 레일스의 `form_for` 헬퍼메소드을 사용할 때 문법을 더 간단하게 작성할 수 있도록 해주는 젬이다.
 
 
 ### 젬 설치하기
 
-`젬`을 `Gemfile`에 등록한 것만으로 바로 사용할 수 있는 것은 아니다. `bundle install`이라는 커맨드라인 명령을 수행하여 설치하는 과정이 필요하다. 아래와 같이 명령을 실행한다.
+`젬`을 `Gemfile`에 등록한 것만으로 바로 사용할 수 있는 것은 아니다. `bundle install`이라는 커맨드라인 명령을 실행하는 설치하는 과정이 필요하다. 아래와 같이 명령을 실행한다.
 
 ```
 $ bin/bundle install
