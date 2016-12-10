@@ -1,11 +1,12 @@
 # 첫번째 모델의 생성
 
-`Post`라는 모델을 작성해 보자. 이 모델은 우선 `title`(글제목)과 `content`(글내용) 두개의 속성으로 구성하자. 나중에 필요한 속성을 추가하게 될 것이다. 커맨드라인에서 아래와 같이 명령을 실행하자.
+`Post`라는 모델을 작성해 보자. 이 모델은 우선 `title`(글제목)과 `content`(글내용) 두개의 속성으로 구성하자. 나중에 필요한 속성을 추가할 것이다. 커맨드라인에서 아래와 같이 명령을 실행하자.
 
 ```bash
 $ bin/rails generate scaffold Post title content:text
+Running via Spring preloader in process 18827
       invoke  active_record
-      create    db/migrate/20140501054730_create_posts.rb
+      create    db/migrate/20161210103346_create_posts.rb
       create    app/models/post.rb
       invoke    test_unit
       create      test/models/post_test.rb
@@ -26,24 +27,24 @@ $ bin/rails generate scaffold Post title content:text
       invoke    helper
       create      app/helpers/posts_helper.rb
       invoke      test_unit
-      create        test/helpers/posts_helper_test.rb
       invoke    jbuilder
       create      app/views/posts/index.json.jbuilder
       create      app/views/posts/show.json.jbuilder
+      create      app/views/posts/_post.json.jbuilder
       invoke  assets
       invoke    coffee
-      create      app/assets/javascripts/posts.js.coffee
+      create      app/assets/javascripts/posts.coffee
       invoke    scss
-      create      app/assets/stylesheets/posts.css.scss
+      create      app/assets/stylesheets/posts.scss
       invoke  scss
-      create    app/assets/stylesheets/scaffolds.css.scss
+      create    app/assets/stylesheets/scaffolds.scss
 ```
 
 위에서 보는 바와 같이, 간단한 커맨드라인 명령으로 다양한 리소스 모듈들이 호출되고 연관 템플릿 파일들이 생성되었다.
 
 > #### Note::노트
 > 
->  하단에 있는 `scaffold.css.scss` 파일은 불필요하기 때문에 파일을 에디터로 열고 모든 스타일을 코맨트 처리하거나 삭제한다.
+>  하단에 있는 `scaffold.css.scss` 파일은 불필요하기 때문에 파일을 에디터로 열고 모든 스타일을 코맨트 처리하거나 삭제한다. 또는 `application.scss` 파일에서 `import` 하지 않는다.
 
 `MVC(Model-View-Controller)` 디자인 패턴에 따라 생성된 파일들을 분류해 볼 수 있는데, 우선 위의 실행 결과물의 세번째 줄에 있는 마이그레이션 파일 `20140501054730_create_posts.rb`에 주목하자. 이 파일의 내용은 아래와 같다. (`20140501054730` 값은 상황에 따라 다를 수 있다.)
 
