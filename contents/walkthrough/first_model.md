@@ -233,4 +233,4 @@ edit_post GET    /posts/:id/edit(.:format) posts#edit
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_03
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_03
