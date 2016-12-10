@@ -147,7 +147,8 @@ $navbar-default-link-active-color: $light-orange;
 $navbar-default-link-hover-color: white;
 $navbar-default-link-hover-bg: black;
 
-@import 'bootstrap';
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 body { padding-top: 60px; }
 ```
