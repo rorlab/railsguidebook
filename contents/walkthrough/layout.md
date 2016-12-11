@@ -3,7 +3,7 @@
 프로젝트를 생성할 때 콘솔의 출력 내용에는 아래와 같은 내용을 볼 수 있었을 것이다.
 
 ```bash
-$ rails new rcafe
+$ rails new rcafe2
 ...중략~
       create  app/views/layouts/application.html.erb
 ...중략 ~
