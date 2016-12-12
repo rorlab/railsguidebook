@@ -137,4 +137,4 @@ $ rails new rcafe2
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_04
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_04
