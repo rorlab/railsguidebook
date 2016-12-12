@@ -105,7 +105,7 @@ $ rails new rcafe2
 <%= link_to "글작성", posts_path, class:'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-05-54_zps065e8c02.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-12_20-45-16_zpsj9rmy8js.png)
 
 
 컨트롤러의 특정 메소드를 뷰 템플릿 파일에서도 사용할 수 있게 해 놓은 것을 [`헬퍼메소드`](http://stackoverflow.com/a/3993323)라고 한다.
