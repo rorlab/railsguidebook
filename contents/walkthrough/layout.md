@@ -108,7 +108,9 @@ $ rails new rcafe2
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-12_20-45-16_zpsj9rmy8js.png)
 
 
-컨트롤러의 특정 메소드를 뷰 템플릿 파일에서도 사용할 수 있게 해 놓은 것을 [`헬퍼메소드`](http://stackoverflow.com/a/3993323)라고 한다.
+> **용어설명**: 
+  - "**_헬퍼메소드_**"란 뷰 파일에서 사용할 목적으로 만든 메소드를 말하며 웹사이트 내의 모든 곳에서 재사용할 수 있도록 작성되었고 뷰 파일내의 일부 로직을 별도로 분리하여 뷰 코드를 깔끔하게 정리할 수 있도록 해 준다. 
+  - 참고 : http://6ftdan.com/allyourdev/2015/01/28/rails-helper-methods/
 
 
 위에서 사용한 `link_to` 헬퍼메소드는 링크태그(`<a>`)를 만들어 준다.
