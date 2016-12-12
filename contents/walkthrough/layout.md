@@ -1,6 +1,6 @@
 # 애플리케이션 레이아웃의 작성
 
-프로젝트를 생성할 때 콘솔의 출력 내용에는 아래와 같은 내용을 볼 수 있었을 것이다.
+이 프로젝트를 생성할 때 콘솔의 출력 내용 중에서 아래와 같은 내용을 볼 수 있었을 것이다.
 
 ```bash
 $ rails new rcafe2
@@ -11,22 +11,22 @@ $ rails new rcafe2
 
 레일스에서는 `app/views/layouts/` 디렉토리에서 애플리케이션의 레이아웃을 관리한다.
 
-특히 `application.html.erb` 파일은 전체 애플리케이션의 레이아웃을 만들어 주는데, 그 소스코드는 아래와 같다.
+특히 `application.html.erb` 파일은 전체 애플리케이션 레이아웃을 만들어 주는데, 그 소스코드는 아래와 같다.
 
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Rcafe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Rcafe2</title>
+    <%= csrf_meta_tags %>
 
-<%= yield %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-</body>
+  <body>
+    <%= yield %>
+  </body>
 </html>
 ```
 
@@ -35,7 +35,7 @@ $ rails new rcafe2
 위의 HTML 코드 중 하단에 있는 `<%= yield %>` 부분을 주목하자.
 우선은 각 액션이 실행된 후 HTML로 렌더링되는 결과가 이 부분에 삽입된다고 알아 두자. 나중에 `yield`에 대해서 자세히 다루도록 하겠다.
 
-언급한 바와 같이, 애플리케이션 레이아웃은 애플리케이션의 전체 레이아웃을 만들어 준다. 따라서 전체 애플리케이션의 페이지 모습을 일관성 있게 변경하고자 할 때 바로 이 `application.html.erb` 파일에서 작업을 해주면 된다. `<body></body>` 태그의 내용을 다음과 같이 수정하자. 모든 페이지에 `Bootstrap`의 `navbar` 메뉴가 추가될 것이다.
+언급한 바와 같이, 애플리케이션 레이아웃은 애플리케이션의 전체 레이아웃을 만들어 준다. 따라서 전체 애플리케이션의 페이지 모습을 일관성 있게 변경하고자 할 때 바로 이 `application.html.erb` 파일에서 작업을 해주면 된다. `<body></body>` 태그의 내용을 다음과 같이 수정한다. 모든 페이지에 `Bootstrap`의 `navbar` 메뉴가 추가될 것이다.
 
 ```html
 <body>
@@ -49,7 +49,7 @@ $ rails new rcafe2
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Rails<i>Cafe</i></a>
+          <a class="navbar-brand" href="#">Rails<i>Cafe2</i></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
