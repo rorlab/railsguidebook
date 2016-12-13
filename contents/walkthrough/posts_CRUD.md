@@ -299,7 +299,7 @@ class PostsController < ApplicationController
 end
 ```
 
-### before_action
+### before_action 필터 
 
 컨트롤러의 상단에서 아래와 같은 `before_action` 필터를 볼 수 있다.
 
@@ -307,7 +307,7 @@ end
 before_action :set_post, only: [:show, :edit, :update, :destroy]
 ```
 
-이것은 `posts` 컨트롤러의 액션 중에서 `show`, `edit`,`update`, `destroy` 액션이 실행되기 전에 반드시 `set_post` 메소드를 실행하라는 필터인 것이다. 이와 같은 필터 메소드는 해당 컨트롤러에서 `private`으로 선언되어 있다.
+이것은 `posts` 컨트롤러의 액션 중에서 `show`, `edit`,`update`, `destroy` 액션이 실행되기 전에 반드시 `set_post` 메소드를 실행하도록 해 준다. 이와 같은 필터 메소드는 해당 컨트롤러에서 `private`으로 선언되어 있다.
 
 ```ruby
 private
@@ -316,7 +316,7 @@ private
   end
 ```
 
-즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 특정 `post`를 조회한 후 `@post` 인스턴스 변수에 할당한다.
+즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 쿼리하여 해당 `post` 객체를 `@post` 인스턴스 변수에 할당한다.
 
 이 기능은 **필터**라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 **레일스 4**부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
 
