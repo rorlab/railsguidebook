@@ -220,7 +220,7 @@ end
 
 ### posts 컨트롤러
 
-레일스의 `scaffold` 제너레이터에 의해 자동으로 생성된 `posts` 컨트롤러는 다음과 같다. 앞서 언급한대로 각 액션을 처리하는 뷰 템플릿와 연결해서 생각해보면 컨트롤러가 자료를 어떻게 처리하는지 이해하는데 도움이 될 것이다.
+레일스의 `scaffold` 제너레이터에 의해 자동으로 생성된 `posts` 컨트롤러는 다음과 같다. 앞서 언급한대로 각 액션을 처리하는 뷰 템플릿과 연결해서 생각해보면 컨트롤러가 자료를 어떻게 처리하는지 이해하는데 도움이 될 것이다.
 
 ```ruby
 class PostsController < ApplicationController
@@ -281,7 +281,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
