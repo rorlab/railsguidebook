@@ -324,7 +324,7 @@ private
 
 **레일스 3**에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accessible` 매크로로 선언했었다.
 
-```
+```ruby
 class User < ActiveRecord::Base
   attr_accessible :first, :last, :email
 end
