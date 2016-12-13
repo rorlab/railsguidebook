@@ -109,7 +109,7 @@ DB 쿼리후, 특정 모델의 특정 객체만을 불러와 보여 준다. `pos
 <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-42-10_zpsb3249498.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_18-50-57_zps9x3hslem.png)
 
 #### 4. update 액션
 
