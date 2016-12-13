@@ -318,11 +318,11 @@ private
 
 즉, 파라미터로 넘겨 받은 `id` 값을 이용하여 쿼리하여 해당 `post` 객체를 `@post` 인스턴스 변수에 할당한다.
 
-이 기능은 **필터**라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 **레일스 4**부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
+> **노트** : 이 기능은 **필터**라고 하며 이전에는 `before_filter`, `after_filter`, `around_filter`로 사용되었지만 **레일스 4**부터 `_filter`가 `_action`으로 변경되었다. 따라서 각각 `before_action`, `after_action`, `around_action`으로 사용된다.
 
 ### Strong Parameters
 
-**레일스 3**에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accessible` 매크로로 선언했다.
+**레일스 3**에서는 각 모델 속성에 대한 접근을 제한하기 위해 모델 클래스에서 접근 가능한 속성(white list)을 `attr_accessible` 매크로로 선언했었다.
 
 ```
 class User < ActiveRecord::Base
