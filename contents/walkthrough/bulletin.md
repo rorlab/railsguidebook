@@ -138,12 +138,12 @@ end
 
 모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 `UTC 타임존`으로 표시된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_19-59-12_zps467a56c9.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-49-52_zpsycbmhk1t.png)
 
 
 ### form 파셜 템플릿 파일
 
-```ruby
+```ERB
 <%= simple_form_for(@bulletin) do |f| %>
   <%= f.error_notification %>
 
@@ -154,6 +154,8 @@ end
 
   <div class="form-actions">
     <%= f.button :submit %>
+    <%= link_to 'Show', @bulletin, class: 'btn btn-default' if @bulletin.persisted? %>
+    <%= link_to 'List', bulletins_path, class: 'btn btn-default' %>
   </div>
 <% end %>
 
@@ -165,10 +167,6 @@ end
 <h2>New bulletin</h2>
 
 <%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
 
 ### edit 액션 뷰 템플릿 파일
@@ -177,11 +175,6 @@ end
 <h2>Editing bulletin</h2>
 
 <%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Show', @bulletin, class: 'btn btn-default' %>
-<%= link_to 'Back', bulletins_path, class: 'btn btn-default' %>
 ```
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_20-01-07_zps31c8eab4.png)
