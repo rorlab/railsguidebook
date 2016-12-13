@@ -159,24 +159,24 @@ def destroy
 end
 ```  
 
-#### form 파셜 템플릿 파일
-
-`new`와 `edit` 뷰 템플릿 파일에서 사용하는 `form` 파셜 템플릿 파일을 아래와 같이 수정하여 `Content` 열의 폭을 늘려 보기 좋게 변경했다.
-
-```html
+> #### form 파셜 템플릿 파일
+  `new`와 `edit` 뷰 템플릿 파일에서 사용하는 `form` 파셜 템플릿 파일(`app/views/posts/_form.html.erb`)을 아래와 같이 수정하여 `Content` 열의 폭을 늘려 보기 좋게 변경했다.
+> 
+  ```ERB
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
-
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :content, input_html: { rows: 10 } %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit %>
+    <%= link_to 'Show', @post, class: 'btn btn-default' if @post.persisted? %>
+    <%= link_to 'List', posts_path, class: 'btn btn-default' %>    
   </div>
-<% end %>
-```
+<% end %>  
+  ```
+  
 
 #### 6. new 액션
 
@@ -186,10 +186,6 @@ end
 <h2>New post</h2>
 
 <%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
 ```
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-50-52_zps54d3a9dd.png)
@@ -202,11 +198,6 @@ end
 <h2>Editing post</h2>
 
 <%= render 'form' %>
-
-<hr>
-
-<%= link_to 'Show', @post, class: 'btn btn-default' %>
-<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
 ```
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-52-53_zpsbe607ecf.png)
