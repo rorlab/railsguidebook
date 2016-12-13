@@ -180,7 +180,15 @@ end
 
 #### 6. new 액션
 
-새로운 데이터를 입력 받을 폼을 렌더링하여 응답으로 보낸다. `new` 액션 뷰 템블릿 파일인 `new.html.erb`를 다음과 같이 수정한다. `<%= render 'form' %>`은 `_form.html.erb` 파셜 템플릿을 불러와 `render` 메소드로 삽입해 준다. 새로운 입력을 처리하는 뷰(`new`)와 자료 수정을 처리하는 뷰(`edit`) 양쪽에서 동일한 폼을 사용하기 때문에 코드 중복을 피하기 위해 파셜 템플릿이 사용된다. `new` 액션 뷰 템플릿 파일을 아래와 같이 수정하고 브라우저에서 확인한다. 
+새로운 데이터를 입력 받을 폼을 렌더링하여 응답으로 보낸다. 
+
+```ruby
+def new
+  @post = Post.new
+end
+```
+
+`new` 액션 뷰 템블릿 파일인 `new.html.erb`를 다음과 같이 수정한다. `<%= render 'form' %>`은 `_form.html.erb` 파셜 템플릿을 불러와 `render` 메소드로 삽입해 준다. 새로운 입력을 처리하는 뷰(`new`)와 자료 수정을 처리하는 뷰(`edit`) 양쪽에서 동일한 폼을 사용하기 때문에 코드 중복을 피하기 위해 파셜 템플릿이 사용된다. `new` 액션 뷰 템플릿 파일을 아래와 같이 수정하고 브라우저에서 확인한다. 
 
 ```html
 <h2>New post</h2>
@@ -192,7 +200,14 @@ end
 
 #### 7. edit 액션
 
-기존 데이터를 수정하기 위한 폼을 응답으로 보낸다. `edit` 액션 뷰 템플릿 파일 `edit.html.erb`를 다음과 같이 수정한다.
+기존 데이터를 수정하기 위한 폼을 렌더링하여 응답으로 보낸다. 
+
+```ruby
+def edit
+end
+```
+
+`edit` 액션 뷰 템플릿 파일 `edit.html.erb`를 다음과 같이 수정한다.
 
 ```html
 <h2>Editing post</h2>
@@ -200,7 +215,7 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_17-52-53_zpsbe607ecf.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-25-26_zpsylds0hvp.png)
 
 
 ### posts 컨트롤러
