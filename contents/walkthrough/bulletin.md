@@ -215,10 +215,226 @@ end
 
 ```bash
 $ bin/rails time:zones:all
-rake time:zones:all
-    Displays all time zones, also available: time:zones:us, time:zones:local -- filter with OFFSET parameter, e.g., OFFSET=-6
 
-$ bin/rake time:zones:local
+* UTC -11:00 *
+American Samoa
+International Date Line West
+Midway Island
+Samoa
+
+* UTC -10:00 *
+Hawaii
+
+* UTC -09:00 *
+Alaska
+
+* UTC -08:00 *
+Pacific Time (US & Canada)
+Tijuana
+
+* UTC -07:00 *
+Arizona
+Chihuahua
+Mazatlan
+Mountain Time (US & Canada)
+
+* UTC -06:00 *
+Central America
+Central Time (US & Canada)
+Guadalajara
+Mexico City
+Monterrey
+Saskatchewan
+
+* UTC -05:00 *
+Bogota
+Eastern Time (US & Canada)
+Indiana (East)
+Lima
+Quito
+
+* UTC -04:00 *
+Atlantic Time (Canada)
+Caracas
+Georgetown
+La Paz
+Santiago
+
+* UTC -03:30 *
+Newfoundland
+
+* UTC -03:00 *
+Brasilia
+Buenos Aires
+Greenland
+Montevideo
+
+* UTC -02:00 *
+Mid-Atlantic
+
+* UTC -01:00 *
+Azores
+Cape Verde Is.
+
+* UTC +00:00 *
+Casablanca
+Dublin
+Edinburgh
+Lisbon
+London
+Monrovia
+UTC
+
+* UTC +01:00 *
+Amsterdam
+Belgrade
+Berlin
+Bern
+Bratislava
+Brussels
+Budapest
+Copenhagen
+Ljubljana
+Madrid
+Paris
+Prague
+Rome
+Sarajevo
+Skopje
+Stockholm
+Vienna
+Warsaw
+West Central Africa
+Zagreb
+Zurich
+
+* UTC +02:00 *
+Athens
+Bucharest
+Cairo
+Harare
+Helsinki
+Jerusalem
+Kaliningrad
+Kyiv
+Pretoria
+Riga
+Sofia
+Tallinn
+Vilnius
+
+* UTC +03:00 *
+Baghdad
+Istanbul
+Kuwait
+Minsk
+Moscow
+Nairobi
+Riyadh
+St. Petersburg
+Volgograd
+
+* UTC +03:30 *
+Tehran
+
+* UTC +04:00 *
+Abu Dhabi
+Baku
+Muscat
+Samara
+Tbilisi
+Yerevan
+
+* UTC +04:30 *
+Kabul
+
+* UTC +05:00 *
+Ekaterinburg
+Islamabad
+Karachi
+Tashkent
+
+* UTC +05:30 *
+Chennai
+Kolkata
+Mumbai
+New Delhi
+Sri Jayawardenepura
+
+* UTC +05:45 *
+Kathmandu
+
+* UTC +06:00 *
+Almaty
+Astana
+Dhaka
+Urumqi
+
+* UTC +06:30 *
+Rangoon
+
+* UTC +07:00 *
+Bangkok
+Hanoi
+Jakarta
+Krasnoyarsk
+Novosibirsk
+
+* UTC +08:00 *
+Beijing
+Chongqing
+Hong Kong
+Irkutsk
+Kuala Lumpur
+Perth
+Singapore
+Taipei
+Ulaanbaatar
+
+* UTC +09:00 *
+Osaka
+Sapporo
+Seoul
+Tokyo
+Yakutsk
+
+* UTC +09:30 *
+Adelaide
+Darwin
+
+* UTC +10:00 *
+Brisbane
+Canberra
+Guam
+Hobart
+Melbourne
+Port Moresby
+Sydney
+Vladivostok
+
+* UTC +11:00 *
+Magadan
+New Caledonia
+Solomon Is.
+Srednekolymsk
+
+* UTC +12:00 *
+Auckland
+Fiji
+Kamchatka
+Marshall Is.
+Wellington
+
+* UTC +12:45 *
+Chatham Is.
+
+* UTC +13:00 *
+Nuku'alofa
+Tokelau Is.
+```
+
+```bash
+$ bin/rails time:zones:local
 
 * UTC +09:00 *
 Osaka
@@ -231,16 +447,26 @@ Yakutsk
 타임존을 `Seoul`로 설정하기 위해서는 아래와 같이 값을 변경하고 **로컬 웹서버 다시 시작한다**. (config/application.rb)
 
 ```ruby
-config.time_zone = 'Seoul'
+
+...
+
+module Rcafe2
+  class Application < Rails::Application
+    # Settings in config/environments/* take precedence over those specified here.
+    # Application configuration should go into files in config/initializers
+    # -- all .rb files in that directory are automatically loaded.
+    config.time_zone = 'Seoul'
+  end
+end
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_20-04-37_zpsf9d968b0.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_20-29-01_zpscgu8mgq9.png)
 
-이제 `Created at` 값이 '2014-05-03 17:59:18 **+0900**' 와 같이 변경된 타임존에 맞게 나타나는 것을 볼 수 있다.
+이제 `Created at` 값이 '2016-12-13 19:43:57 **+0900**' 와 같이 변경된 타임존에 맞게 나타나는 것을 볼 수 있다.
 
 > #### Note::노트
 > 
-> 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스는 값을 항상 UTC 타임존으로 저장한다는 사실을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 된다.
+> 이와 같이 타임존을 변경하여 시간을 해당 타임존에 맞게 표시할 수 있지만, 데이터베이스는 값을 항상 UTC 타임존으로 저장한다는 사실을 주목하자. DB로부터 `UTC`로 저장된 시간을 불러와 표시할 때는 레일스가 config/application.rb 에 저장된 time_zone 값에 맞게 자동으로 변경한 후에 표시한다. 그러나, DB에 저장할 때도 로컬 타임존에 맞게 저장하려면 `config.time_zone = 'Seoul'` 아래에  `config.active_record.default_timezone = :local`와 같이 추가해 주면 되지만, 궂이 이렇게 할 필요는 없다.
 
 
 ---
