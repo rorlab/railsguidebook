@@ -48,10 +48,9 @@ Running via Spring preloader in process 34806
 생성된 마이그레이션 파일(`db/migrate/(생성된 일자가 포함된 일련의 숫자)_add_bulletin_id_to_posts.rb`)은 아래와 같다.
 
 ```ruby
-class AddBulletinIdToPosts < ActiveRecord::Migration
+class AddBulletinIdToPosts < ActiveRecord::Migration[5.0]
   def change
-    add_column :posts, :bulletin_id, :integer
-    add_index :posts, :bulletin_id
+    add_reference :posts, :bulletin, foreign_key: true
   end
 end
 ```
@@ -59,13 +58,25 @@ end
 이 마이그레이션 파일에 대해서 `db:migrate` 작업을 한다.
 
 ```bash
-$ bin/rake db:migrate
-== 20140509005154 AddBulletinIdToPosts: migrating =============================
--- add_column(:posts, :bulletin_id, :integer)
-   -> 0.0035s
--- add_index(:posts, :bulletin_id)
-   -> 0.0004s
-== 20140509005154 AddBulletinIdToPosts: migrated (0.0040s) ====================
+$ bin/rails db:migrate
+Running via Spring preloader in process 35094
+== 20161213115533 AddBulletinIdToPosts: migrating =============================
+-- add_reference(:posts, :bulletin, {:foreign_key=>true})
+   -> 0.0371s
+== 20161213115533 AddBulletinIdToPosts: migrated (0.0372s) ====================
+```
+
+`db/schema.rb` 파일에서 `posts` 테이블 부분을 보면 `bulletin_id` 속성이 추가되고 인덱스 파일까지 생성된 것을 확인할 수 있다.  
+
+```sql
+create_table "posts", force: :cascade do |t|
+  t.string   "title",                    comment: "글 제목"
+  t.text     "content",                  comment: "글 내용"
+  t.datetime "created_at",  null: false
+  t.datetime "updated_at",  null: false
+  t.integer  "bulletin_id"
+  t.index ["bulletin_id"], name: "index_posts_on_bulletin_id", using: :btree
+end
 ```
 
 ### 레일스 콘솔에서 확인
