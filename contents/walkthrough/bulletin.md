@@ -179,7 +179,7 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_20-01-07_zps31c8eab4.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-56-12_zpsmhkpau02.png)
 
 
 ### 타임존(Timezone)
