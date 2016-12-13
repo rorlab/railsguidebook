@@ -1,11 +1,12 @@
 # Bulletin 모델의 생성
 
-때로는 글의 성격에 따라 별도로 관리할 필요가 있다. `게시판`의 개념을 도입하면 원하는 만큼의 게시판을 추가로 작성하여 글을 게시판별로 묶을 수 있다. 이를 위해서 `Bulletin`이란 모델을 작성하기로 하자.
+때로는 글의 성격에 따라 별도로 관리할 필요가 있다. `게시판`의 개념을 도입하면 글을 게시판별로 묶을 수 있다. 이를 위해서 `Bulletin`이란 모델을 작성하기로 한다.
 
 ```bash
 $ bin/rails g scaffold Bulletin title description:text
+Running via Spring preloader in process 9842
       invoke  active_record
-      create    db/migrate/20150130105025_create_bulletins.rb
+      create    db/migrate/20161213103856_create_bulletins.rb
       create    app/models/bulletin.rb
       invoke    test_unit
       create      test/models/bulletin_test.rb
@@ -29,25 +30,33 @@ $ bin/rails g scaffold Bulletin title description:text
       invoke    jbuilder
       create      app/views/bulletins/index.json.jbuilder
       create      app/views/bulletins/show.json.jbuilder
+      create      app/views/bulletins/_bulletin.json.jbuilder
       invoke  assets
       invoke    coffee
       create      app/assets/javascripts/bulletins.coffee
       invoke    scss
       create      app/assets/stylesheets/bulletins.scss
       invoke  scss
-    conflict    app/assets/stylesheets/scaffolds.scss
-  Overwrite /Users/hyo/prj/rorlakr/rcafe/app/assets/stylesheets/scaffolds.scss? (enter "h" for help) [Ynaqdh] n
-        skip    app/assets/stylesheets/scaffolds.scss
+   identical    app/assets/stylesheets/scaffolds.scss
+
 ```
 
 DB 마이그레이션 후 브라우저에서 확인해 보자.
 
 ```bash
-$ bin/rake db:migrate
-$ open http://localhost:3000/bulletins
+$ bin/rails db:migrate
+Running via Spring preloader in process 10428
+== 20161213103856 CreateBulletins: migrating ==================================
+-- create_table(:bulletins)
+   -> 0.0372s
+== 20161213103856 CreateBulletins: migrated (0.0373s) =========================
 ```
 
 이전의 `posts` 뷰 페이지들과 같이 아래의 뷰 파일들을 `bootstrap` 클래스로 스타일을 수정한 후 브라우저로 확인한다.
+
+```
+$ open http://localhost:3000/bulletins
+```
 
 ### index 액션 뷰 템플릿 파일
 
