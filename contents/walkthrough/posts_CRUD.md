@@ -1,6 +1,6 @@
 # Post 모델 CRUD 살펴보기
 
-`scaffold` 제너레이터를 이용하여 특정 모델 리소스를 생성하면 기본적으로 `index`, `show`, `new`, `edit`, `create`, `update`, `destroy` 등 7개의 컨트롤러 액션이 생성된다.
+`scaffold` 제너레이터(`$ bin/rails generate scaffold`)를 사용하여 특정 모델 리소스를 생성하면 기본적으로 `index`, `show`, `new`, `edit`, `create`, `update`, `destroy` 등 7개의 컨트롤러 액션이 생성된다.
 
 > #### Info::노트
 > 
