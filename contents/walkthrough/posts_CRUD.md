@@ -343,7 +343,7 @@ private
   end
 ```
 
-즉, 파라미터로 넘겨 받은 속성 중에 `title`과 `content`만을 화이트리스트(white-list)로 인정하겠다는 뜻이다. 따라서 다른 속성은 `save` 또는 `udpate` 되지 않게 된다.
+즉, 파라미터로 넘겨 받은 속성 중에 `title`과 `content`만을 화이트리스트(white-list)로 인정하겠다는 뜻이다. 따라서 다른 속성은 `save` 또는 `update` 되지 않게 된다.
 
 
 ---
