@@ -2,6 +2,8 @@
 
 `posts` 테이블의 글을 게시판별로 분류하기 위해서는 `Bulletin` 모델과 `Post` 모델 사이에 일대다의 관계선언을 해 줄 필요가 있다.
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_20-47-09_zpsujhmnhu1.png)
+
 `app/models/bulletin.rb` 파일을 열고 아래와 같이 추가한다.
 
 ```ruby
