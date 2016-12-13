@@ -161,9 +161,19 @@ end
 
 ```
 
-### new 액션 뷰 템플릿 파일
+### new 액션과 뷰 템플릿 파일
+
+`app/controllers/bulletins_controller.rb` :
 
 ```ruby
+def new
+  @bulletin = Bulletin.new
+end
+```
+
+`app/views/bulletins/new.html.erb` :
+
+```ERB
 <h2>New bulletin</h2>
 
 <%= render 'form' %>
@@ -171,9 +181,18 @@ end
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-54-40_zpsgiumjaoc.png)
 
-### edit 액션 뷰 템플릿 파일
+### edit 액션과 뷰 템플릿 파일
+
+`app/controllers/bulletins_controller.rb` :
 
 ```ruby
+def edit
+end
+```
+
+`app/views/bulletins/edit.html.erb` :
+
+```ERB
 <h2>Editing bulletin</h2>
 
 <%= render 'form' %>
