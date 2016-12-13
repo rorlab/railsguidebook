@@ -169,6 +169,8 @@ end
 <%= render 'form' %>
 ```
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-54-40_zpsgiumjaoc.png)
+
 ### edit 액션 뷰 템플릿 파일
 
 ```ruby
