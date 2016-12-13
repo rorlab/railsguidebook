@@ -214,18 +214,18 @@ end
 레일스의 디폴트 타임존은 `UTC`이고, 로컬 타임존 목록을 보기 위해서는 터미널에서 아래와 같이 명령을 실행한다.
 
 ```bash
-$ bin/rake -D time
+$ bin/rails time:zones:all
 rake time:zones:all
     Displays all time zones, also available: time:zones:us, time:zones:local -- filter with OFFSET parameter, e.g., OFFSET=-6
 
 $ bin/rake time:zones:local
 
 * UTC +09:00 *
-Irkutsk
 Osaka
 Sapporo
 Seoul
 Tokyo
+Yakutsk
 ```
 
 타임존을 `Seoul`로 설정하기 위해서는 아래와 같이 값을 변경하고 **로컬 웹서버 다시 시작한다**. (config/application.rb)
