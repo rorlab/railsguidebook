@@ -130,11 +130,34 @@ class PostsController < ApplicationController
 DB 쿼리후, 특정 모델의 속성을 변경한 후 DB 테이블로 저장한다.
 액션 종료시 `show` 액션으로 리디렉트된다.
 
+```ruby
+def update
+  respond_to do |format|
+    if @post.update(post_params)
+      format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+      format.json { render :show, status: :ok, location: @post }
+    else
+      format.html { render :edit }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
+    end
+  end
+end
+```
+
 #### 5. destroy 액션
 
-DB 쿼리후, 특정 모델의 특정 객체(들)를 삭제한다.
+DB 쿼리후, 특정 모델의 특정 객체를 삭제한다.
 액션 종료시 `index` 액션으로 리디렉트된다.
 
+```ruby
+def destroy
+  @post.destroy
+  respond_to do |format|
+    format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+    format.json { head :no_content }
+  end
+end
+```  
 
 #### form 파셜 템플릿 파일
 
