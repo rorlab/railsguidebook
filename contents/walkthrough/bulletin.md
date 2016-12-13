@@ -58,9 +58,18 @@ Running via Spring preloader in process 10428
 $ open http://localhost:3000/bulletins
 ```
 
-### index 액션 뷰 템플릿 파일
+### index 액션과 뷰 템플릿 파일
+
+`app/controllers/bulletins_controller.rb` :
 
 ```ruby
+def index
+  @bulletins = Bulletin.all
+end
+```
+`app/views/bulletins/index.html.erb` :
+
+```ERB
 <h2>Bulletins</h2>
 
 <table class="table">
@@ -94,13 +103,18 @@ $ open http://localhost:3000/bulletins
 
 테스트용 데이터를 추가하면 아래와 같이 보인다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_19-56-42_zps9e0fd7c0.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-44-23_zps8rsxvd40.png)
 
-### show 액션 뷰 템플릿 파일
+### show 액션과 뷰 템플릿 파일
 
 `show` 액션 뷰 템플릿에서는 **Title**과 **Description**을 테이블 형식으로 표시하고 **Created at**이라는 항목을 추가하여 생성한 시각을 보여준다.
 
 ```ruby
+def show
+end
+```
+
+```ERB
 <h2>Preview Bulletin</h2>
 
 <table class='table table-bordered'>
