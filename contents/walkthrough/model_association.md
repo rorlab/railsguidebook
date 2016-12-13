@@ -39,12 +39,11 @@ end
 따라서 `posts` 테이블에 `bulletin_id` 필드를 추가하기 위해 마이그레이션 파일을 작성한다.
 
 ```bash
-$ bin/rails g migration add_bulletin_id_to_posts bulletin_id:integer:index
+$ bin/rails g migration add_bulletin_id_to_posts bulletin:references
+Running via Spring preloader in process 34806
       invoke  active_record
-      create    db/migrate/20150130114743_add_bulletin_id_to_posts.rb
+      create    db/migrate/20161213115533_add_bulletin_id_to_posts.rb
 ```
-
-`bulletin_id:integer:index`와 같이 추가할 필드명과 데이터형 다음에 `index` 옵션을 지정하면 해당 필드에 대한 인덱스 파일이 지정되며, 이는 빠른 검색을 가능하게 한다.
 
 생성된 마이그레이션 파일(`db/migrate/(생성된 일자가 포함된 일련의 숫자)_add_bulletin_id_to_posts.rb`)은 아래와 같다.
 
