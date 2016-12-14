@@ -113,43 +113,41 @@ bulletin.post_ids   bulletin.post_ids=  bulletin.posts      bulletin.posts=
 
 ```bash
 $ bin/rails console
-Loading development environment (Rails 4.2.0)
-irb(main):001:0> bulletin = Bulletin.first
-  Bulletin Load (0.1ms)  SELECT  "bulletins".* FROM "bulletins"  ORDER BY "bulletins"."id" ASC LIMIT 1
-=> #<Bulletin id: 1, title: "공지사항", description: "공지사항을 입력하는 게시판입니다. ", created_at: "2015-01-30 10:55:47", updated_at: "2015-01-30 10:55:47">
+Running via Spring preloader in process 32673
+Loading development environment (Rails 5.0.0.1)
+>> bulletin = Bulletin.first
+  Bulletin Load (0.3ms)  SELECT  "bulletins".* FROM "bulletins" ORDER BY "bulletins"."id" ASC LIMIT $1  [["LIMIT", 1]]
+=> #<Bulletin id: 1, title: "공지사항", description: "공지사항을 입력하는 게시판입니다.", created_at: "2016-12-13 10:43:57", updated_at: "2016-12-13 10:43:57">
 ```
 
-그리고 `post` 객체도 하나 생성하자.
+그리고 `post` 객체도 하나 생성하자. 공지사항 게시판에서 글을 생성할 것이기 때문에 아래와 같이 `bulletin.posts`에 대해서 `create` 메소드를 호출하고 각 속성에 값을 할당하여 넘겨 준다. 
 
 ```bash
-irb(main):003:0> post = Post.create title:"레일스 가이드라인 책 집필", content:"초보자를 위한 레일스"
-   (0.0ms)  begin transaction
-  SQL (0.2ms)  INSERT INTO "posts" ("content", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)  [["content", "초보자를 위한 레일스 가이드라인"], ["created_at", "2014-05-04 09:06:54.879852"], ["title", "레일스 가이드라인 책 집필"], ["updated_at", "2014-05-04 09:06:54.879852"]]
-   (1.3ms)  commit transaction
-=> #<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스 가이드라인", created_at: "2014-05-04 09:06:54", updated_at: "2014-05-04 09:06:54", bulletin_id: nil>
+>> post = bulletin.posts.create title:"레일스 가이드라인 책 집필", content:"초보자를 위한 레일스"
+   (0.3ms)  BEGIN
+  SQL (24.3ms)  INSERT INTO "posts" ("title", "content", "created_at", "updated_at", "bulletin_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "레일스 가이드라인 책 집필"], ["content", "초보자를 위한 레일스"], ["created_at", 2016-12-14 07:48:52 UTC], ["updated_at", 2016-12-14 07:48:52 UTC], ["bulletin_id", 1]]
+   (1.0ms)  COMMIT
+=> #<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2016-12-14 07:48:52", updated_at: "2016-12-14 07:48:52", bulletin_id: 1>
 ```
 
-현재는 `post.bulletin_id` 값이 `nil`이기 때문에,
-`post` 객체와 `bulletin` 객체가 물리적으로 연결되지 않은 상태이다.
+현재는 `post.bulletin_id` 값이 `1`이기 때문에,
+`post` 객체와 `bulletin` 객체가 물리적으로 연결되어 있지만, 이 값을 `nil`로 지정하면 두 객체의 관계는 없어지게 된다. 
 
 ```bash
-irb(main):004:0> post.bulletin_id
+>> post.bulletin_id = nil
+=> nil
+>> post.save
+   (0.3ms)  BEGIN
+  SQL (0.5ms)  UPDATE "posts" SET "updated_at" = $1, "bulletin_id" = $2 WHERE "posts"."id" = $3  [["updated_at", 2016-12-14 07:54:56 UTC], ["bulletin_id", nil], ["id", 2]]
+   (1.1ms)  COMMIT
+=> true
+>> post.bulletin
+=> #<Bulletin id: 1, title: "공지사항", description: "공지사항을 입력하는 게시판입니다.", created_at: "2016-12-13 10:43:57", updated_at: "2016-12-13 10:43:57">
+>> post.reload.bulletin
+  Post Load (0.3ms)  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2  [["id", 2], ["LIMIT", 1]]
 => nil
 ```
 
-이 문제를 해결하기 위해서 `post.bulletin_id=` 메소드에 `bulletin.id` 값을 할당한다.
-
-```bash
-irb(main):005:0> bulletin.id
-=> 1
-irb(main):006:0> post.bulletin_id = bulletin.id
-=> 1
-irb(main):007:0> post.save
-   (0.1ms)  begin transaction
-  SQL (0.4ms)  UPDATE "posts" SET "bulletin_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["bulletin_id", 1], ["updated_at", "2015-01-30 11:59:53.609051"], ["id", 1]]
-   (1.6ms)  commit transaction
-=> true
-```
 
 이제 아래와 같이 두 모델의 관계선언이 제대로 설정되었는지를 확인해 보자.
 
