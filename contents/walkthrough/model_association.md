@@ -85,12 +85,13 @@ end
 
 ```bash
 $ bin/rails console
-Loading development environment (Rails 4.2.0)
-irb(main):001:0> bulletin = Bulletin.new
+Running via Spring preloader in process 31958
+Loading development environment (Rails 5.0.0.1)
+>> bulletin = Bulletin.new
 => #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil>
 ```
 
-그리고 `bulletin.post`까지 입력한 후 `<tab>` 키를 눌러보면 사용할 수 있는 메소드들을 볼 수 있다.
+그리고 아래와 같이 `bulletin.post`까지 입력한 후 `<tab>` 키를 눌러보면 사용할 수 있는 메소드들을 볼 수 있다.
 
 ```bash
 irb(main):002:0> bulletin.post
