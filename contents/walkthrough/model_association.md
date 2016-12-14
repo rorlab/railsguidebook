@@ -91,14 +91,14 @@ Loading development environment (Rails 5.0.0.1)
 => #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil>
 ```
 
-그리고 아래와 같이 `bulletin.post`까지 입력한 후 `<tab>` 키를 눌러보면 사용할 수 있는 메소드들을 볼 수 있다.
+그리고 아래와 같이 `bulletin.post`까지 입력한 후 `<tab>` 키를 두번 눌러보면 사용할 수 있는 메소드들을 볼 수 있다.
 
 ```bash
-irb(main):002:0> bulletin.post
+>> bulletin.post
 bulletin.post_ids   bulletin.post_ids=  bulletin.posts      bulletin.posts=
 ```
 
-이 메소드들은 두 모델 관계선언으로 인해 자동으로 생성된다.
+이 메소드들은 두 모델 간의 관계선언을 할 때 자동으로 만들어진다.
 
 * `bulletin.post_ids` : 이 메소드는 특정 `bulletin` 객체에 속하는 모든 `post` 객체들의 `id` 값들을 배열로 반환한다. 현재는 빈배열을 반환할 것이다.
 * `bulltein.post_ids=` : 이 메소드는 `post` 객체들의 `id` 값들을 요소로하는 배열을 할당해 주어, 해당 `post` 객체들이 이 `bulletin` 객체의 자식 객체들로 등록되도록 한다.
