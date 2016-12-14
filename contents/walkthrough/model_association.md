@@ -133,7 +133,7 @@ Loading development environment (Rails 5.0.0.1)
 현재는 `post.bulletin_id` 값이 `1`이기 때문에,
 `post` 객체와 `bulletin` 객체가 물리적으로 연결되어 있지만, 이 값을 `nil`로 지정하면 두 객체의 관계는 없어지게 된다. 
 
-```bash
+```ruby
 >> post.bulletin_id = nil
 => nil
 >> post.save
@@ -141,12 +141,41 @@ Loading development environment (Rails 5.0.0.1)
   SQL (0.5ms)  UPDATE "posts" SET "updated_at" = $1, "bulletin_id" = $2 WHERE "posts"."id" = $3  [["updated_at", 2016-12-14 07:54:56 UTC], ["bulletin_id", nil], ["id", 2]]
    (1.1ms)  COMMIT
 => true
+```
+
+이제 `post.bulletin`와 같이 호출하면 여전히 `bulletin` 객체와 연결되어 있는 것을 알 수 있다. `nil`이 나와야 할 것 같은데, 이상하다. 이유는 `post` 객체의 `bulletin` 캐쉬값은 이전 값이 그대로 남아 있기 때문이다. 
+
+```ruby
 >> post.bulletin
 => #<Bulletin id: 1, title: "공지사항", description: "공지사항을 입력하는 게시판입니다.", created_at: "2016-12-13 10:43:57", updated_at: "2016-12-13 10:43:57">
+```
+
+따라서, 이와 같이 `reload` 메소드를 호출한 후 `bulletin`을 다시 불러오면 제대로 `nil` 값이 나타나는 것을 확인할 수 있다. 
+
+```ruby
 >> post.reload.bulletin
   Post Load (0.3ms)  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2  [["id", 2], ["LIMIT", 1]]
 => nil
 ```
+
+마찬가지로 `bulletin.posts`를 호출하면,
+
+```ruby
+>> bulletin.posts
+  Post Load (9.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."bulletin_id" = $1  [["bulletin_id", 1]]
+=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2016-12-14 07:48:52", updated_at: "2016-12-14 07:54:56", bulletin_id: nil>]>
+```
+
+`bulletin` 객체를 다시 로딩한 후 호출하면,
+
+```ruby
+>> bulletin.reload.posts
+  Bulletin Load (3.0ms)  SELECT  "bulletins".* FROM "bulletins" WHERE "bulletins"."id" = $1 LIMIT $2  [["id", 1], ["LIMIT", 1]]
+  Post Load (0.3ms)  SELECT "posts".* FROM "posts" WHERE "posts"."bulletin_id" = $1  [["bulletin_id", 1]]
+=> #<ActiveRecord::Associations::CollectionProxy []>
+```
+
+제대로 값이 보이게 된다. 
 
 
 이제 아래와 같이 두 모델의 관계선언이 제대로 설정되었는지를 확인해 보자.
@@ -155,25 +184,11 @@ Loading development environment (Rails 5.0.0.1)
 irb(main):010:0> bulletin.posts
   Post Load (0.2ms)  SELECT "posts".* FROM "posts" WHERE "posts"."bulletin_id" = ?  [["bulletin_id", 1]]
 => #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-02-01 06:42:13", updated_at: "2015-02-01 06:42:56", bulletin_id: 1>]>
-```
+`
 
-지금까지 `bulletin` 객체에 임의의 `post` 객체를 추가하는 과정을 보았다. 왠지 모르게 번잡스러운 느낌이 든다.
+지금까지 `bulletin` 객체에 임의의 `post` 객체를 추가하는 과정을 보았다.
 
-두 모델 클래스에서 관계선언을 한 경우에는 이러한 과정을 간단하게 해결할 수 있다.
-
-```bash
-irb(main):011:0> post = bulletin.posts.create title:"두번째 글", content: "관계선언을 이용하여 글을 등록합니다"
-   (0.1ms)  begin transaction
-  SQL (0.3ms)  INSERT INTO "posts" ("title", "content", "bulletin_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "두번째 글"], ["content", "관계선언을 이용하여 글을 등록합니다"], ["bulletin_id", 1], ["created_at", "2015-02-01 06:45:34.648475"], ["updated_at", "2015-02-01 06:45:34.648475"]]
-   (1.7ms)  commit transaction
-=> #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-02-01 06:45:34", updated_at: "2015-02-01 06:45:34", bulletin_id: 1>
-irb(main):012:0> bulletin.posts
-=> #<ActiveRecord::Associations::CollectionProxy [#<Post id: 2, title: "레일스 가이드라인 책 집필", content: "초보자를 위한 레일스", created_at: "2015-02-01 06:42:13", updated_at: "2015-02-01 06:42:56", bulletin_id: 1>, #<Post id: 3, title: "두번째 글", content: "관계선언을 이용하여 글을 등록합니다", created_at: "2015-02-01 06:45:34", updated_at: "2015-02-01 06:45:34", bulletin_id: 1>]>
-irb(main):014:0> bulletin.posts.size
-=> 2
-```
-
-즉, `bulletin.posts.create`와 같이 `post`를 생성하면 생성되는 `post` 객체의 `bulletin_id` 속성이 `bulletin.id` 값으로 자동으로 지정되기 때문에, `post.bulletin_id=`에 `bulletin.id` 값을 할당하는 과정이 필요 없게 된다.
+즉, `bulletin.posts.create`와 같이 `post`를 생성하면 생성되는 `post` 객체의 `bulletin_id` 속성이 `bulletin.id` 값으로 자동으로 지정되기 때문에, `post.bulletin_id=`에 `bulletin.id` 값을 할당하는 별도의 과정이 필요 없게 된다.
 
 
 ---
