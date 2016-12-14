@@ -192,4 +192,4 @@ irb(main):010:0> bulletin.posts
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_07
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_07
