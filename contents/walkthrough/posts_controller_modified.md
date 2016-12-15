@@ -8,6 +8,7 @@ URI로부터 `bulletin_id` 파라미터 값과 `post`의 `id` 파라미터 값�
 
 ``` ruby
 Rails.application.routes.draw do
+  resources :posts
   resources :bulletins do
     resources :posts
   end
@@ -21,6 +22,14 @@ end
 ``` bash
 $ bin/rails routes
             Prefix Verb   URI Pattern                                      Controller#Action
+             posts GET    /posts(.:format)                                 posts#index
+                   POST   /posts(.:format)                                 posts#create
+          new_post GET    /posts/new(.:format)                             posts#new
+         edit_post GET    /posts/:id/edit(.:format)                        posts#edit
+              post GET    /posts/:id(.:format)                             posts#show
+                   PATCH  /posts/:id(.:format)                             posts#update
+                   PUT    /posts/:id(.:format)                             posts#update
+                   DELETE /posts/:id(.:format)                             posts#destroy
     bulletin_posts GET    /bulletins/:bulletin_id/posts(.:format)          posts#index
                    POST   /bulletins/:bulletin_id/posts(.:format)          posts#create
  new_bulletin_post GET    /bulletins/:bulletin_id/posts/new(.:format)      posts#new
@@ -38,10 +47,9 @@ edit_bulletin_post GET    /bulletins/:bulletin_id/posts/:id/edit(.:format) posts
                    PUT    /bulletins/:id(.:format)                         bulletins#update
                    DELETE /bulletins/:id(.:format)                         bulletins#destroy
               root GET    /                                                welcome#index
-
 ```
 
-위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 컨트롤러에서는 `URI Pattern` 중 심볼에 매칭되는 부분(URI의 동적 세그먼트)은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. 위의 예에서는 `params[:bulletin_id]` 키에 해당하는 파라미터 값을 불러와 액션에서 사용할 수 있게 된다.
+위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 컨트롤러에서는 `URI Pattern` 중 심볼에 매칭되는 부분(URI의 동적 세그먼트)은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. `params[:bulletin_id]`, `params[:id]`와 같이 사용하여 컨트롤러의 액션에서 사용할 수 있게 된다.
 
 특정 게시판의 게시물 목록을 불러오는 예를 들어 보자.
 
