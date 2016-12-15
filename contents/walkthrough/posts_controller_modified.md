@@ -142,13 +142,36 @@ end
 
 `app/controllers/posts_controller.rb` 파일을 열고 위의 내용을 복사해서 붙여 넣기 한다.
 
-먼저 `private` 메소드인 `set_bulletin`을 생성하고 `before_action` 필터로 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 또 다른 `before_action`인  `set_post` 메소드는 `only` 옵션으로 `show`, `edit`, `update`, `destroy` 액션을 추가했으며 이것은 이 메소드를 실행할 액션을 지정하게 된다.
+먼저 `private` 메소드인 `set_bulletin`을 생성하고 `before_action` 필터로 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 또 다른 `before_action`인  `set_post` 메소드는 `only` 옵션으로 `show`, `edit`, `update`, `destroy` 액션을 추가했으며 이것은 이 메소드를 실행할 액션을 지정하게 된다. 복수개의 `before_action`이 지정되어 있을 경우에는 순차적으로 실행되기 때문에 먼저 실행할 필요가 있는 것을 먼저 지정해야 한다. 여기에서도 `set_bulletin`을 `set_post` 보다 먼저 `before_action`으로 지정하였다. 왜냐하면 `set_post` 메소드에서 조건절에 `@bulletin` 인스턴스 변수의 유무를 점거하기 때문이다. 
 
 ``` ruby
 class PostsController < ApplicationController
   before_action :set_bulletin
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  
+  ...
+  
+  private
+  def set_bulletin
+    @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id].present?
+  end
+
+  def set_post
+    if @bulletin.present?
+      @post = @bulletin.posts.find(params[:id])
+    else
+      @post = Post.find(params[:id])
+    end
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+end
 ```
+
+또한, 입력 폼으로 값을 넘겨 받기 위해서는 `post_params` 메소드에 스트롱 파라미터로 등록해 주어야 한다. 여기서는 `:title`과 `:content` 두 개의 파라미터를 등록했다.
+
 
 `index` 액션에서 인스턴스 변수 `@bulletin`이 `posts` 앞에 추가되었다. `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) 글을 저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
 
