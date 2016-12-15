@@ -140,7 +140,7 @@ class PostsController < ApplicationController
 end
 ```
 
-먼저 `private` 메소드인 `set_bulletin`을 실행하는 `before_action` 필터가 지정되어 있다. 이 메소드는 posts 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다.(반면 `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에만 수행된다.)
+먼저 `private` 메소드인 `set_bulletin`을 실행하는 `before_action` 필터를 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 반면 `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에 수행된다.
 
 ``` ruby
 class PostsController < ApplicationController
