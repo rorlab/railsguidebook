@@ -2,7 +2,7 @@
 
 ### 중첩 라우팅
 
-RESTful URI로부터 `bulletin_id` 또는 `post`의 `id` 값을 받아 해당 `bulletin` 객체를 생성하거나 이 `bulletin` 객체의 `posts` 개체를 불러오기 위해서는 `중첩 라우팅`(nested routing) 기법을 사용하면 편리하다.
+URI로부터 `bulletin_id` 파라미터 값과 `post`의 `id` 파라미터 값을 받아 특정 `bulletin` 객체의 `post` 개체들을 불러올 수 있다면 매우 편리할 것이다. 레일스에서는 이러한 목적으로 `중첩 라우팅`(nested routing)을 지원한다.
 
 `config/routes.rb` 파일을 열어 아래와 같이 수정한다.
 
