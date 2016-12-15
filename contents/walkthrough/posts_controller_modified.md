@@ -66,7 +66,7 @@ Controller#Action : posts#index
 
 ### posts 컨트롤러의 변경
 
-`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자. `posts` 리소스는 두가지 라우팅을 가진다. 하나는 기존과 같이 단독으로 사용할 때이고 다른 하나는 `bulletins`와 중첩해서 사용할 때이다. 이 두가지 라우팅을 모두 충족할 수 있도록 컨트롤러와 뷰 파일을 변경할 것이다.  
+`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자. `posts` 리소스는 두 가지 라우팅을 가지도록 했다. 하나는 기존과 같이 단독으로 사용할 때이고 다른 하나는 `bulletins` 리소스와 중첩해서 사용할 때이다. 이제 이 두 가지 라우팅을 모두 충족할 수 있도록 컨트롤러와 뷰 파일을 변경할 것이다. 수정된 `posts` 컨트롤러는 아래와 같다.  
 
 ```ruby
 class PostsController < ApplicationController
@@ -140,7 +140,9 @@ class PostsController < ApplicationController
 end
 ```
 
-먼저 `private` 메소드인 `set_bulletin`을 실행하는 `before_action` 필터를 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 반면 `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에 수행된다.
+`app/controllers/posts_controller.rb` 파일을 열고 위의 내용을 복사해서 붙여 넣기 한다.
+
+먼저 `private` 메소드인 `set_bulletin`을 생성하고 `before_action` 필터로 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 또 다른 `before_action`인  `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에 수행된다.
 
 ``` ruby
 class PostsController < ApplicationController
