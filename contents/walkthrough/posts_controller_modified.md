@@ -142,7 +142,7 @@ end
 
 `app/controllers/posts_controller.rb` 파일을 열고 위의 내용을 복사해서 붙여 넣기 한다.
 
-먼저 `private` 메소드인 `set_bulletin`을 생성하고 `before_action` 필터로 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 또 다른 `before_action`인  `set_post` 메소드는 `only` 옵션에 의해 `show`, `edit`, `update`, `destroy` 액션이 실행되기 전에 수행된다.
+먼저 `private` 메소드인 `set_bulletin`을 생성하고 `before_action` 필터로 지정한다. 이 메소드는 `posts` 컨트롤러의 모든 액션이 실행되기 전에 수행될 것이다. 또 다른 `before_action`인  `set_post` 메소드는 `only` 옵션으로 `show`, `edit`, `update`, `destroy` 액션을 추가했으며 이것은 이 메소드를 실행할 액션을 지정하게 된다.
 
 ``` ruby
 class PostsController < ApplicationController
