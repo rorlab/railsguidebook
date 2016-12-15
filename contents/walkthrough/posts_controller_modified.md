@@ -66,7 +66,7 @@ Controller#Action : posts#index
 
 ### posts 컨트롤러의 변경
 
-`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자.
+`:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자. `posts` 리소스는 두가지 라우팅을 가진다. 하나는 기존과 같이 단독으로 사용할 때이고 다른 하나는 `bulletins`와 중첩해서 사용할 때이다. 이 두가지 라우팅을 모두 충족할 수 있도록 컨트롤러와 뷰 파일을 변경할 것이다.  
 
 ```ruby
 class PostsController < ApplicationController
@@ -144,7 +144,6 @@ end
 
 ``` ruby
 class PostsController < ApplicationController
-
   before_action :set_bulletin
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 ```
