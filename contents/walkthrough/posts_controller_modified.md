@@ -16,10 +16,10 @@ Rails.application.routes.draw do
 end
 ```
 
-위와 같이 리소스 라우트를 중첩하면 아래와 같은 라우팅을 사용할 수 있게 된다. 이것을 콘솔에서 확인해 보자.
+위와 같이 리소스 라우트를 중첩하여 사용하면 아래와 같은 라우팅을 사용할 수 있게 된다. 이것을 콘솔에서 확인해 보자.
 
 ``` bash
-$ bin/rake routes
+$ bin/rails routes
             Prefix Verb   URI Pattern                                      Controller#Action
     bulletin_posts GET    /bulletins/:bulletin_id/posts(.:format)          posts#index
                    POST   /bulletins/:bulletin_id/posts(.:format)          posts#create
@@ -38,6 +38,7 @@ edit_bulletin_post GET    /bulletins/:bulletin_id/posts/:id/edit(.:format) posts
                    PUT    /bulletins/:id(.:format)                         bulletins#update
                    DELETE /bulletins/:id(.:format)                         bulletins#destroy
               root GET    /                                                welcome#index
+
 ```
 
 위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 `URI Pattern` 중 심볼에 매칭되는 부분은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. 위의 예에서는 `params[:bulletin_id]` 키에 해당하는 파라미터 값을 불러와 액션에서 사용할 수 있게 된다.
