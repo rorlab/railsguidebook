@@ -152,14 +152,14 @@ class PostsController < ApplicationController
 
 ``` ruby
   def index
-    @posts = @bulletin.posts.all
+    @posts = @bulletin.present? ? @bulletin.posts.all :   Post.all
   end
 
   def show
   end
 
   def new
-    @post = @bulletin.posts.new
+    @post = @bulletin.present? ? @bulletin.posts.new : Post.new
   end
 
   def edit
