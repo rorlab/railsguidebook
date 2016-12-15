@@ -49,7 +49,7 @@ edit_bulletin_post GET    /bulletins/:bulletin_id/posts/:id/edit(.:format) posts
               root GET    /                                                welcome#index
 ```
 
-위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 컨트롤러에서는 `URI Pattern` 중 심볼에 매칭되는 부분(URI의 동적 세그먼트)은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. `params[:bulletin_id]`, `params[:id]`와 같이 사용하여 컨트롤러의 액션에서 사용할 수 있게 된다.
+위와 같은 라우팅 테이블에서 `URI Pattern`을 주목하자. 외부로부터 들어오는 요청이 이 테이블의 `URI Pattern`과 일치할 경우 매핑되는 컨트롤러의 액션이 호출된다. 이 때 컨트롤러에서는 `URI Pattern` 중 심볼에 매칭되는 부분(URI의 동적 세그먼트)은 `params` 해쉬의 키로 사용되어 해당 파라미터의 값을 불러올 수 있게 된다. `params[:bulletin_id]`, `params[:id]`와 같이 사용하여 컨트롤러 액션에서 사용할 수 있게 된다.
 
 특정 게시판의 게시물 목록을 불러오는 예를 들어 보자.
 
@@ -60,7 +60,7 @@ URI Pattern : /bulletins/:bulletin_id/posts(.:format)
 Controller#Action : posts#index
 ```
 
-`Prefix` 끝에 `_path` 또는 `_url`을 붙여 헬퍼메소드로 사용할 수 있는데, 뷰 템플릿에서 동적 URL을 사용할 수 있도록 해 주어 정적 URL을 일일이 입력할 필요가 없게 된다. 즉, 뷰 템플릿 파일에서 `<%= bulletin_posts_path('공지사항') %>`와 같이 사용하면 뷰 파일이 렌더링될 때 `http://localhost:3000/bulletins/공지사항/posts`으로 변환된다.
+`Prefix` 끝에 `_path` 또는 `_url`을 붙여 헬퍼메소드로 사용할 수 있는데, 뷰 템플릿에서 정적 URL을 일일이 입력할 필요가 없게 된다. 즉, 뷰 템플릿 파일에서 `<%= bulletin_posts_path('공지사항') %>`와 같이 사용하면 뷰 파일이 렌더링될 때 `http://localhost:3000/bulletins/공지사항/posts`으로 변환된다.
 
 또한 이 `URI Pattern`에 매핑되는 해당 컨트롤러의 액션에서는 `params[:bulletin_id]` 해시키를 이용하여 `'공지사항'` 값을 얻을 수 있게 된다.
 
@@ -68,32 +68,31 @@ Controller#Action : posts#index
 
 `:bulletins` 와 `:posts` 리소스의 중첩 라우팅을 사용하기 위해서는 `posts` 컨트롤러도 수정해야 한다. 먼저 변경된 `posts` 컨트롤러 전체를 살펴보고 바뀐 부분을 분석해보자.
 
-``` ruby
+```ruby
 class PostsController < ApplicationController
-
   before_action :set_bulletin
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = @bulletin.posts.all
+    @posts = @bulletin.present? ? @bulletin.posts.all : Post.all
   end
 
   def show
   end
 
   def new
-    @post = @bulletin.posts.new
+    @post = @bulletin.present? ? @bulletin.posts.new : Post.new
   end
 
   def edit
   end
 
   def create
-    @post = @bulletin.posts.new(post_params)
+    @post = @bulletin.present? ? @bulletin.posts.new(post_params) : Post.new(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully created.' }
+        format.html { redirect_to (@bulletin.present? ? [@post.bulletin, @post] : @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -105,7 +104,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully updated.' }
+        format.html { redirect_to (@bulletin.present? ? [@post.bulletin, @post] : @post), notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -117,23 +116,27 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to bulletin_posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to (@bulletin.present? ? bulletin_posts_url : posts_url), notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    def set_bulletin
-      @bulletin = Bulletin.find(params[:bulletin_id])
-    end
+  def set_bulletin
+    @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id].present?
+  end
 
-    def set_post
+  def set_post
+    if @bulletin.present?
       @post = @bulletin.posts.find(params[:id])
+    else
+      @post = Post.find(params[:id])
     end
+  end
 
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
 end
 ```
 
