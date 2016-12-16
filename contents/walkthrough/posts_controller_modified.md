@@ -173,22 +173,22 @@ end
 또한, 입력 폼으로 값을 넘겨 받기 위해서는 `post_params` 메소드에 스트롱 파라미터로 등록해 주어야 한다. 여기서는 `:title`과 `:content` 두 개의 파라미터를 등록했다.
 
 
-`index` 액션에서 인스턴스 변수 `@bulletin`이 `posts` 앞에 추가되었다. `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) 글을 저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
+`index` 액션에서 인스턴스 변수 `@bulletin` 인스턴스 변수의 유무에 따라 특정 게시ㅏㄴㄱ `posts` 앞에 추가되었다. `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) `new` 액션에서와 같이 글을 새로 추가저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
 
 ``` ruby
-  def index
-    @posts = @bulletin.present? ? @bulletin.posts.all :   Post.all
-  end
+def index
+  @posts = @bulletin.present? ? @bulletin.posts.all :Post.all
+end
 
-  def show
-  end
+def show
+end
 
-  def new
-    @post = @bulletin.present? ? @bulletin.posts.new : Post.new
-  end
+def new
+  @post = @bulletin.present? ? @bulletin.posts.new : Post.new
+end
 
-  def edit
-  end
+def edit
+end
 ```
 
 새로운 글을 생성하는 `create` 액션에서도 게시판과 글의 종속 관계를 정의한다.(`@bulletin.posts.new`) 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 때문에 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 하므로 `redirect_to [@post.bulletin, @post]`로 변경되었다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
