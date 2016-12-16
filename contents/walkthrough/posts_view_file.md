@@ -1,21 +1,21 @@
 # posts 뷰 변경
 
-`index` 액션의 뷰 파일 중 해당 부분을 아래와 같이 변경하고, 인스턴스 변수(`@posts`)를 사용하는 부분만 집중해서 보자.
+`index` 액션의 뷰 파일(`app/views/posts/index.html.erb`) 중 해당 부분을 아래와 같이 변경하고, 인스턴스 변수(`@posts`)를 사용하는 부분만 집중해서 보자.
 
 ```html
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
     <td>
-      <%= link_to 'Show', [post.bulletin, post], class:'btn btn-default' %>
-      <%= link_to 'Edit', edit_bulletin_post_path(post.bulletin, post), class:'btn btn-default' %>
-      <%= link_to 'Destroy', [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %>
+      <%= link_to 'Show', (post.bulletin.present? ? [post.bulletin, post] : post), class: 'btn btn-default' %>
+      <%= link_to 'Edit', (post.bulletin.present? ? edit_bulletin_post_path(post.bulletin, post) : edit_post_path(post)), class: 'btn btn-default' %>
+      <%= link_to 'Destroy', (post.bulletin.present? ? [post.bulletin, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
     </td>
   </tr>
 <% end %>
 ```
 
-`@posts` 인스턴스 변수는 배열을 가진다. 루비의 배열 메소드인 `each`는 리시버(`.each` 앞에 있는 객체)의 각 요소를 하나씩 반복해서 `do` 블록 변수(여기서는 post)로 넘겨 준다. 따라서 `<%= post.title %>`는 `post` 객체의 `title` 속성값이 삽입된다.
+`@posts` 인스턴스 변수는 배열을 가진다. 루비의 배열 메소드인 `each`는 리시버(`.each` 앞에 있는 객체)의 각 요소를 하나씩 반복해서 `do` 블록 변수(여기서는 `post`)로 넘겨 준다. 따라서 `<%= post.title %>`는 `post` 객체의 `title` 속성 값이 삽입된다.
 
 
 ### 기타 posts 뷰 파일의 변경 사항
