@@ -224,13 +224,13 @@ end
 `destroy` 액션에서도 리디렉트하는 부분에서 추가 조건이 필요하다. 게시판이 삭제되면 해당 게시판 내의 글이 모두 삭제되어야 하는데 이는 `Bulletin` 모델을 선언할 때 `Post` 모델과의 관계를 `dependent: :destroy`로 정의했기 때문에 자동으로 처리된다. 객체를 삭제한 다음 액션이 종료될 때 `index` 액션으로 리디렉트 되는데 중첩 라우팅에 의해 `index` 액션의 경로 헬퍼 prefix가 `posts`에서 `bulletin_posts`로 바뀌었다. 따라서 리다이렉트 url도 `bulletin_posts_url`로 수정한다.
 
 ``` ruby
-  def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to bulletin_posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+def destroy
+  @post.destroy
+  respond_to do |format|
+    format.html { redirect_to (@bulletin.present? ? bulletin_posts_url : posts_url), notice: 'Post was successfully destroyed.' }
+    format.json { head :no_content }
   end
+end
 ```
 
 마지막으로 `private` 메소드가 남았다. `private` 메소드는 클래스 안에서만 호출할 수 있는데, `before_action` 필터에 의해 먼저 실행될 `set_bulletin` 메소드는 파라미터로 넘겨 받은 게시판 id를 통해 해당 객체를 `@bulletin` 인스턴스 변수에 할당한다. 이렇게 해서 `posts` 컨트롤러에서 각 액션을 처리할 때 해당 글이 속하는 게시판 정보를 함께 처리할 수 있게 된다.
