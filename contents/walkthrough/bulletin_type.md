@@ -91,11 +91,11 @@ Loading development environment (Rails 5.0.0.1)
 
 ### Strong Parameter 추가하기
 
-`bulletins_controller.rb` 파일을 열어 하단에 있는 `bulletin_params` 메소드에 아래와 같이 `post_type` 속성을 추가한다.
+`bulletins_controller.rb` 파일을 열어 하단에 있는 `bulletin_params` 메소드에 아래와 같이 `post_type_cd` 속성을 추가한다.
 
 ```ruby
 def bulletin_params
-  params.require(:bulletin).permit(:title, :description, :post_type)
+  params.require(:bulletin).permit(:title, :description, :post_type_cd)
 end
 ```
 
