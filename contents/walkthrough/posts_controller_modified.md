@@ -173,7 +173,7 @@ end
 또한, 입력 폼으로 값을 넘겨 받기 위해서는 `post_params` 메소드에 스트롱 파라미터로 등록해 주어야 한다. 여기서는 `:title`과 `:content` 두 개의 파라미터를 등록했다.
 
 
-`index` 액션에서 인스턴스 변수 `@bulletin` 인스턴스 변수의 유무에 따라 특정 게시ㅏㄴㄱ `posts` 앞에 추가되었다. `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) `new` 액션에서와 같이 글을 새로 추가저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
+`index` 액션에서 인스턴스 변수 `@bulletin`의 유무에 따라 특정 게시판의 글만 보여 줄 것인지 전체 게시물을 모두 보여줄 것인지 결정하게 된다.  `@bulletin`은 `set_bulletin` 메소드에서 생성되는데 선택한 게시판(bulletin)에 대한 객체가 할당된다. 이렇게 해서 특정 게시판에 속하는 글을 모두 보여주거나(`@bulletin.posts.all`) `new` 액션에서와 같이 글을 새로 추가저장할 때 해당 게시판에 포함되도록(`@bulletin.posts.new`) 할 수 있다.
 
 ``` ruby
 def index
@@ -191,34 +191,34 @@ def edit
 end
 ```
 
-새로운 글을 생성하는 `create` 액션에서도 게시판과 글의 종속 관계를 정의한다.(`@bulletin.posts.new`) 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 때문에 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 하므로 `redirect_to [@post.bulletin, @post]`로 변경되었다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
+새로운 글을 생성하는 `create` 액션에서도 `@bulletin` 인스턴스 변수의 유무에 따라 게시판과 글의 종속 관계를 선택하여 `post` 객체를 생성하여 `@post`글을 생성한다. (`@bulletin.posts.new`) 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 때문에 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 하므로 `redirect_to [@post.bulletin, @post]`로 변경했다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
 
 ``` ruby
-  def create
-    @post = @bulletin.posts.new(post_params)
+def create
+  @post = @bulletin.present? ? @bulletin.posts.new(post_params) : Post.new(post_params)
 
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @post.save
+      format.html { redirect_to (@bulletin.present? ? [@post.bulletin, @post] : @post), notice: 'Post was successfully created.' }
+      format.json { render :show, status: :created, location: @post }
+    else
+      format.html { render :new }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
     end
   end
+end
 
-  def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to [@post.bulletin, @post], notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+def update
+  respond_to do |format|
+    if @post.update(post_params)
+      format.html { redirect_to (@bulletin.present? ? [@post.bulletin, @post] : @post), notice: 'Post was successfully updated.' }
+      format.json { render :show, status: :ok, location: @post }
+    else
+      format.html { render :edit }
+      format.json { render json: @post.errors, status: :unprocessable_entity }
     end
   end
+end
 ```
 
 `destroy` 액션에서 글을 삭제하는 과정은 변함이 없다. `Bulletin` 모델과 `Post` 모델과의 관계는 일대다 관계로 글이 삭제된다고 해당 게시판에 영향을 미치지는 않기 때문이다. 반대로 게시판이 삭제되면 해당 게시판 내의 글이 모두 삭제되어야 하는데 이는 `Bulletin` 모델을 선언할 때 `Post` 모델과의 관계를 `dependent: :destroy`로 정의했기 때문에 자동으로 처리된다. 객체를 삭제한 다음 액션이 종료될 때 `index` 액션으로 리다이렉트 되는데 중첩 라우팅에 의해 `index` 액션의 경로 헬퍼 prefix가 `posts`에서 `bulletin_posts`로 바뀌었다. 따라서 리다이렉트 url도 `bulletin_posts_url`로 수정한다.
