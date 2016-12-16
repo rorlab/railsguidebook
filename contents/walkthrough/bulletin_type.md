@@ -10,33 +10,23 @@
 
 ### Bulletin 모델에 post_type 속성 추가하기
 
-게시판을 새로 추가할 때, 레이아웃를 지정하기 위해서 `post_type`이라는 속성을 추가하기로 한다. 이 속성은 `integer` 속성을 가지는 것으로 한다.
+게시판을 새로 추가할 때, 레이아웃를 지정하기 위해서 `post_type`이라는 속성을 추가하기로 한다. 이 속성은 `string` 속성을 가지는 것으로 한다.
 이를 위해서 `Bulletin` 모델에 속성을 추가하는 마이그레이션 파일을 생성한다.
 
 ```bash
-$ bin/rails g migration add_post_type_to_bulletins post_type:integer
+$ bin/rails g migration add_post_type_to_bulletins post_type
 Running via Spring preloader in process 21023
       invoke  active_record
       create    db/migrate/20161216120650_add_post_type_to_bulletins.rb
 ```
 
-그리고 방금 전에 생성된 마이그레이션 파일을 열어 아래와 같이 `post_type`의 디폴트 값을 `0`으로 추가하고,
-
-```ruby
-class AddPostTypeToBulletins < ActiveRecord::Migration
-  def change
-    add_column :bulletins, :post_type, :integer, default: 0
-  end
-end
-```
-
-저장한 후 `db:migrate` 작업을 한다.
+그리고 `db:migrate` 작업을 한다.
 
 ```bash
 $ bin/rake db:migrate
 Running via Spring preloader in process 21600
 == 20161216120650 AddPostTypeToBulletins: migrating ===========================
--- add_column(:bulletins, :post_type, :integer, {:default=>0})
+-- add_column(:bulletins, :post_type, :string)
    -> 0.0469s
 == 20161216120650 AddPostTypeToBulletins: migrated (0.0469s) ==================
 ```
@@ -52,7 +42,21 @@ end
 
 > 참고 : [ActiveRecord::Enum](http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html)
 
-
+```ruby
+>> bulletin = Bulletin.new
+=> #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil, post_type: "bulletin">
+>> bulletin.bulletin?
+=> true
+>> bulletin.post_type
+=> "bulletin"
+>> bulletin.gallery!
+   (0.3ms)  BEGIN
+  SQL (0.6ms)  INSERT INTO "bulletins" ("created_at", "updated_at", "post_type") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", 2016-12-16 12:09:15 UTC], ["updated_at", 2016-12-16 12:09:15 UTC], ["post_type", 2]]
+   (1.2ms)  COMMIT
+=> true
+>> bulletin.post_type
+=> "gallery"
+```
 
 
 ### Strong Parameter 추가하기
