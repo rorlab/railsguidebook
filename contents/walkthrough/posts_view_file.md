@@ -24,31 +24,32 @@
 
   ```
 -<%= simple_form_for(@post) do |f| %>
-+<%= simple_form_for([@bulletin, @post]) do |f| %>
++<%= simple_form_for(@bulletin.present? ? [@post.bulletin, @post] : @post) do |f| %>
 ```
 
 
 * `app/views/posts/edit.html.erb`
 
   ```
--<%= link_to 'Show', @post, class: 'btn btn-default' %>
--<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
-+<%= link_to 'Show', [@post.bulletin, @post], class: 'btn btn-default' %>
-+<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
-```
+  <h2>Editing post</h2>
+
+  <%= render 'form' %>
+  ```
+
 * `app/views/posts/index.html.erb`
 
   ```
 -<%= link_to 'New Post', post_path, class: 'btn btn-default' %>
-+<%= link_to 'New Post', new_bulletin_post_path, class: 'btn btn-default' %>
++<%= link_to 'New Post', (@bulletin.present? ?  new_bulletin_post_path(@bulletin) : new_post_path), class: 'btn btn-default' %>
   ```
 
 * `app/views/posts/new.html.erb`
 
   ```
--<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
-+<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
-```
+  <h2>New post</h2>
+
+  <%= render 'form' %>
+  ```
 
 
 * `app/views/posts/show.html.erb`
@@ -56,8 +57,8 @@
   ```
 -<%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-default' %>
 -<%= link_to 'Back', posts_path, class: 'btn btn-default' %>
-+<%= link_to 'Edit', edit_bulletin_post_path(@post.bulletin, @post), class: 'btn btn-default' %>
-+<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
++<%= link_to 'Edit', (@bulletin.present? ? edit_bulletin_post_path(@bulletin)  : edit_post_path(@post)), class: 'btn btn-default' %>
++<%= link_to 'List', (@bulletin.present? ? bulletin_posts_path(@bulletin) : posts_path), class: 'btn btn-default' %>
 ```
 
 ### welcome#index 뷰 파일 변경
