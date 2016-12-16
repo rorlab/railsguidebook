@@ -191,7 +191,7 @@ def edit
 end
 ```
 
-새로운 글을 생성하는 `create` 액션에서도 `@bulletin` 인스턴스 변수의 유무에 따라 게시판과 글의 종속 관계를 선택하여 `post` 객체를 생성하여 `@post`글을 생성한다. (`@bulletin.posts.new`) 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 때문에 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 하므로 `redirect_to [@post.bulletin, @post]`로 변경했다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
+새로운 글을 생성하는 `create` 액션에서도 `@bulletin` 인스턴스 변수의 유무에 따라 게시판과 글의 종속 관계를 선택하여 `post` 객체를 생성하여 `@post` 인스턴스 변수에 할당한다. 원래는 `redirect_to @post`로 객체를 다음 `show` 액션으로 리다이렉트했지만 게시판과의 종속 관계 유무에 따라 리다이렉트 하는 과정에서 어떤 게시판에 속하는 `post`인지 알려줘야 할 상황이 추가된다. 그러므로 `redirect_to (@bulletin.present? ? [@post.bulletin, @post] : @post)`로 변경했다. `update` 액션도 마찬가지다. `[@post.bulletin, @post]`와 같이 종속관계의 두 객체를 배열로 표시하는 것은 `bulletin_post_path(@post.bulletin, @post)` 또는 `url_for([@post.bulletin, @post])`의 축약형이다.
 
 ``` ruby
 def create
