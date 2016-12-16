@@ -31,31 +31,61 @@ Running via Spring preloader in process 21600
 == 20161216120650 AddPostTypeToBulletins: migrated (0.0469s) ==================
 ```
 
-`Bulletin` 모델에서 이 속성을 열거형(`enum`)으로 선언하고  `:bulletin`, `:blog`, `:gallery` 심볼을 할당한다. 
+`Bulletin` 모델에서 이 속성을 열거형(`enum`)으로 선언하고  `:bulletin`, `:blog`, `:gallery` 심볼을 할당한다. 이를 위해서 [`as_enum`](https://github.com/lwe/simple_enum)이라는 젬을 설치한다. `Gemfile`에 추가하고 번들 인스톨하고 로컬 서버를 재시동한다. 
+
+`Bulletin` 모델에서 아래와 같이 `post_type` 속성을 선언한다. 
 
 ```ruby
 class Bulletin < ApplicationRecord
   has_many :posts, dependent: :destroy
-  enum post_type: [ :bulletin, :blog, :gallery ]
+  as_enum :post_type, bulletin: 0, blog: 1, gallery: 2
+end
+```
+
+이제 `post_type_cd` 속성을 `integer` 데이터형으로 추가한다.
+
+```
+$ rails g migration post_type_cd_to_bulletins post_type_cd:integer
+```
+
+방금 생성된 마이그레이션 파일을 열고 디폴트 값을 `0`으로 설정한다. 
+
+```
+class AddPostTypeCdToBulletins < ActiveRecord::Migration[5.0]
+  def change
+    add_column :bulletins, :post_type_cd, :integer, default: 0
+  end
 end
 ```
 
 > 참고 : [ActiveRecord::Enum](http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html)
 
 ```ruby
+$ bin/rails c
+Running via Spring preloader in process 28065
+Loading development environment (Rails 5.0.0.1)
 >> bulletin = Bulletin.new
-=> #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil, post_type: "bulletin">
->> bulletin.bulletin?
-=> true
+=> #<Bulletin id: nil, title: nil, description: nil, created_at: nil, updated_at: nil, post_type: nil, post_type_cd: 0>
 >> bulletin.post_type
-=> "bulletin"
+=> :bulletin
+>> bulletin.post_type_cd
+=> 0
 >> bulletin.gallery!
-   (0.3ms)  BEGIN
-  SQL (0.6ms)  INSERT INTO "bulletins" ("created_at", "updated_at", "post_type") VALUES ($1, $2, $3) RETURNING "id"  [["created_at", 2016-12-16 12:09:15 UTC], ["updated_at", 2016-12-16 12:09:15 UTC], ["post_type", 2]]
-   (1.2ms)  COMMIT
-=> true
->> bulletin.post_type
 => "gallery"
+>> bulletin.post_type
+=> :gallery
+>> bulletin.post_type_cd
+=> 2
+>> bulletin.blog!
+=> "blog"
+>> bulletin.post_type
+=> :blog
+>> bulletin.post_type_cd
+=> 1
+>> bulletin.gallery?
+=> false
+>> bulletin.blog?
+=> true
 ```
 
 
@@ -80,7 +110,7 @@ end
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description, input_html: { rows: 5 } %>
-    <%= f.input :post_type, collection: [ ['게시판', 'bulletin'], ['블로그', 'blog'], ['갤러리', 'gallery'] ] %>
+    <%= f.input :post_type, collection: enum_option_pairs(Bulletin, :post_type) %>
   </div>
 
   <div class="form-actions">
