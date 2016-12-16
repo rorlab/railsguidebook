@@ -13,17 +13,18 @@
 게시판을 새로 추가할 때, 레이아웃를 지정하기 위해서 `post_type`이라는 속성을 추가하기로 한다. 이 속성은 `string` 속성을 가지는 것으로 하고, `bulletin`, `blog`, `gallery` 값을 가질 수 있다. 이를 위해서 `Bulletin` 모델에 속성을 추가하는 마이그레이션 파일을 생성한다.
 
 ```bash
-$ bin/rails g migration add_post_type_to_bulletins post_type
+$ bin/rails g migration add_post_type_to_bulletins post_type:integer
+Running via Spring preloader in process 21023
       invoke  active_record
-      create    db/migrate/20150131223640_add_post_type_to_bulletins.rb
+      create    db/migrate/20161216120650_add_post_type_to_bulletins.rb
 ```
 
-그리고 방금 전에 생성된 마이그레이션 파일을 열어 아래와 같이 `post_type`의 디폴트 값을 `bulletin`으로 추가하고,
+그리고 방금 전에 생성된 마이그레이션 파일을 열어 아래와 같이 `post_type`의 디폴트 값을 `0`으로 추가하고,
 
 ```ruby
 class AddPostTypeToBulletins < ActiveRecord::Migration
   def change
-    add_column :bulletins, :post_type, :string, default: 'bulletin'
+    add_column :bulletins, :post_type, :integer, default: 0
   end
 end
 ```
