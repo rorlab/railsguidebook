@@ -134,7 +134,7 @@ end
 
 이상으로 `Bulletin` 모델에서 추가할 작업이 완료되었다.
 
-게시판의 형태에 따라 다른 뷰를 보이도록 하기 위해서는 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
+이제는 게시판의 형태에 따라 다른 뷰를 보이도록 하기 위해서 `app/views/posts/` 디렉토리에 `post_types`라는 하위 디렉토리를 만들고 이 디렉토리에 `_bulletin.html.erb` 파일과 `_blog.html.erb`, `_gallery_html.erb` 파일을 생성한다.
 
 `posts` 컨트롤러의 `index` 액션 뷰 파일의 모든 내용을 `_bulletin.html.erb` 파일로 이동하고 상단의 부분을 아래와 같이 변경한다. 
 
@@ -200,9 +200,6 @@ end
 <h2><%= bulletin_name params[:bulletin_id] %></h2>
 
 <%= render 'form' %>
-
-<hr>
-<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
 ### posts#edit 뷰 템플릿 파일
@@ -214,9 +211,6 @@ end
 
 <%= render 'form' %>
 
-<hr>
-<%= link_to 'Show', [@post.bulletin, @post], class: 'btn btn-default' %>
-<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
 ```
 
 ### posts#show 뷰 템플릿 파일
@@ -241,9 +235,8 @@ end
 </tr>
 </table>
 
-
-<%= link_to 'Edit', edit_bulletin_post_path(@post.bulletin, @post), class: 'btn btn-default' %>
-<%= link_to 'Back', bulletin_posts_path, class: 'btn btn-default' %>
+<%= link_to 'Edit', (@bulletin.present? ? edit_bulletin_post_path(@bulletin)  : edit_post_path(@post)), class: 'btn btn-default' %>
+<%= link_to 'List', (@bulletin.present? ? bulletin_posts_path(@bulletin) : posts_path), class: 'btn btn-default' %>
 ```
 
 이제 브라우저에서 `http://localhost:3000/bulletins/3/edit`로 접속한 후 게시판의 종류를 `블로그`로 변경한 후,
