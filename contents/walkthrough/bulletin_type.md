@@ -110,7 +110,7 @@ end
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description, input_html: { rows: 5 } %>
-    <%= f.input :post_type, collection: enum_option_pairs(Bulletin, :post_type) %>
+    <%= f.input :post_type_cd, collection: enum_option_pairs(Bulletin, :post_type, true) %>
   </div>
 
   <div class="form-actions">
@@ -119,14 +119,14 @@ end
 <% end %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_07-47-19_zpsbb9e3bbf.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-16_22-03-40_zps3k2moa5u.png)
 
 `app/views/bulletins/show.html.erb` 파일을 열어 아래의 코드를 추가한다. 선택한 게시판의 형태를 표시할 것이다. 
 
 ```ruby
 <tr>
   <th>Post Type</th>
-  <td><%= @bulletin.post_type %></td>
+  <td><%= @bulletin.post_type.capitalize %></td>
 </tr>
 ```
 
