@@ -241,7 +241,7 @@ end
 
 이제 브라우저에서 `http://localhost:3000/bulletins/3/edit`로 접속한 후 게시판의 종류를 `블로그`로 변경한 후,
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_08-04-11_zpsf31f98b6.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_08-43-43_zpsg2wrnelm.png)
 
 
 `CSS` 클래스 `post`, `title`, `content`를 `app/assets/stylesheets/posts.scss` 파일에 작성해 준다.
@@ -271,8 +271,9 @@ $navbar-default-link-active-color: $light-orange;
 $navbar-default-link-hover-color: white;
 $navbar-default-link-hover-bg: black;
 
-@import 'bootstrap';
-@import 'posts';  <<< 추가함
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'posts';    <<< 추가함.
 
 body { padding-top: 60px; }
 ```
