@@ -63,7 +63,7 @@
 
 ### welcome#index 뷰 파일 변경
 
-`welcome` 컨틀로러의 `index` 액션 뷰 파일(`app/views/welcome/index.html.erb')을 열고 `posts_path`를 bulletin_posts_path(1)`로 변경한다. 이것은 `공지사항` 게시판으로 이동하기 위한 것이다.
+`welcome` 컨트롤러의 `index` 액션 뷰 파일(`app/views/welcome/index.html.erb`)을 열고 `posts_path`를 `bulletin_posts_path(1)`로 변경한다. 이것은 `공지사항` 게시판으로 이동하기 위한 것이다.
 
 ```html
 <%= link_to "글작성", bulletin_posts_path(1), class:'btn btn-default' %>
@@ -71,7 +71,7 @@
 
 ### 브랜드 로고 링크 업데이트
 
-애플리케이션 레이아웃 파일을 열고 21번째 코드라인에서,
+애플리케이션 레이아웃 파일을 열고 22번째 코드라인에서,
 
 ```erb
 <a class="navbar-brand" href="#">Rails<i>Cafe</i></a>
