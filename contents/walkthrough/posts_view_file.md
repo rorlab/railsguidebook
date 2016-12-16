@@ -105,6 +105,8 @@
 | 2 | 새소식 |
 | 3 | 가입인사 |
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-16_20-50-47_zpsws8g60a7.png)
+
 
 우리가 의도한 바는 상단 메뉴 항목를 클릭하면 해당 게시판으로 이동하고 해당 항목이 주황색의 글씨로 표시되도록 하는 것이다.
 
