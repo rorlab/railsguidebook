@@ -280,10 +280,10 @@ body { padding-top: 60px; }
 
 이제 브라우저에서 상단 메뉴 중 `가입인사`를 클릭하고 가입인사를 테스트로 몇개 새로 추가하면 아래와 같이 변경되어 보이게 된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_08-47-08_zpsbd119099.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_08-52-46_zpsatfmdq4q.png)
 
 
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_10
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_10
