@@ -7,9 +7,9 @@
   <tr>
     <td><%= post.title %></td>
     <td>
-      <%= link_to 'Show', (post.bulletin.present? ? [post.bulletin, post] : post), class: 'btn btn-default' %>
-      <%= link_to 'Edit', (post.bulletin.present? ? edit_bulletin_post_path(post.bulletin, post) : edit_post_path(post)), class: 'btn btn-default' %>
-      <%= link_to 'Destroy', (post.bulletin.present? ? [post.bulletin, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+      <%= link_to 'Show', (@bulletin.present? ? [post.bulletin, post] : post), class: 'btn btn-default' %>
+      <%= link_to 'Edit', (@bulletin.present? ? edit_bulletin_post_path(post.bulletin, post) : edit_post_path(post)), class: 'btn btn-default' %>
+      <%= link_to 'Destroy', (@bulletin.present? ? [post.bulletin, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
     </td>
   </tr>
 <% end %>
