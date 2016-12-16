@@ -221,10 +221,8 @@ def update
 end
 ```
 
-`destroy` 액션에서도 리디렉트하는 부분에서 추가 조건이 필요하다. `@bulletin` 인스턴스 변수의 유무에 따라 각각 `bulleting_posts_u
+`destroy` 액션에서도 리디렉트하는 부분에서 추가 조건이 필요하다. `@bulletin` 인스턴스 변수의 유무에 따라 각각 `bulletin_posts_path(@bulletin)`, `posts_path`로 리디렉트 되도록 한다. 
 
-
-게시판이 삭제되면 해당 게시판 내의 글이 모두 삭제되어야 하는데 이는 `Bulletin` 모델을 선언할 때 `Post` 모델과의 관계를 `dependent: :destroy`로 정의했기 때문에 자동으로 처리된다. 객체를 삭제한 다음 액션이 종료될 때 `index` 액션으로 리디렉트 되는데 중첩 라우팅에 의해 `index` 액션의 경로 헬퍼 prefix가 `posts`에서 `bulletin_posts`로 바뀌었다. 따라서 리다이렉트 url도 `bulletin_posts_url`로 수정한다.
 
 ``` ruby
 def destroy
@@ -236,23 +234,26 @@ def destroy
 end
 ```
 
-마지막으로 `private` 메소드가 남았다. `private` 메소드는 클래스 안에서만 호출할 수 있는데, `before_action` 필터에 의해 먼저 실행될 `set_bulletin` 메소드는 파라미터로 넘겨 받은 게시판 id를 통해 해당 객체를 `@bulletin` 인스턴스 변수에 할당한다. 이렇게 해서 `posts` 컨트롤러에서 각 액션을 처리할 때 해당 글이 속하는 게시판 정보를 함께 처리할 수 있게 된다.
+마지막으로 `private` 메소드가 남았다. `private` 메소드는 클래스 안에서만 호출할 수 있는데, `before_action` 필터에 의해 먼저 실행될 `set_bulletin` 메소드는 파라미터로 넘겨 받은 게시판 `id`를 이용하여 해당 객체를 `@bulletin` 인스턴스 변수에 할당한다. 이렇게 해서 `posts` 컨트롤러에서 각 액션을 처리할 때 해당 글이 속하는 게시판 정보를 함께 처리할 수 있게 된다. 그러나 `bulletin_id` 파라미터 값을 넘겨 받지 못할 경우에는 `@bulletin` 인스턴스 변수가 생성되지 않는다. 
 
 ``` ruby
-  private
-    def set_bulletin
-      @bulletin = Bulletin.friendly.find(params[:bulletin_id])
-    end
+private
+def set_bulletin
+  @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id].present?
+end
 
-    def set_post
-      @post = @bulletin.posts.find(params[:id])
-    end
+def set_post
+  if @bulletin.present?
+    @post = @bulletin.posts.find(params[:id])
+  else
+    @post = Post.find(params[:id])
+  end
+end
 
-    def post_params
-      params.require(:post).permit(:title, :content)
-    end
+def post_params
+  params.require(:post).permit(:title, :content)
 end
 ```
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_08
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_08
