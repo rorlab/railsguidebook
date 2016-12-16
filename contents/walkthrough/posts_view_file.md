@@ -74,10 +74,10 @@
 애플리케이션 레이아웃 파일을 열고 22번째 코드라인에서,
 
 ```erb
-<a class="navbar-brand" href="#">Rails<i>Cafe</i></a>
+<a class="navbar-brand" href="#">Rails<i>Cafe2</i></a>
 ```
 
-`href` 속성값을 `root` 경로로 지정한다. 이 때는 `link_to` 헬퍼 메소드를 이용하여 지정해 보도록 한다.
+`href` 속성값을 `/` 경로로 지정한다. 이 때는 `link_to` 헬퍼 메소드를 이용하여 지정해 보도록 한다.
 
 ```erb
 <%= link_to raw("Rails<i>Cafe</i>"), root_path, class:'navbar-brand' %>
