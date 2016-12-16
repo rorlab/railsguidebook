@@ -301,7 +301,7 @@ $ git commit -m "최초 커밋"
 
 ---
 > **Git소스** 
-https://github.com/rorlab/rcafe2/tree/Chaptor_05
+https://github.com/rorlab/rcafe2/tree/chaptor_05
 
 
 
