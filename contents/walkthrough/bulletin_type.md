@@ -10,7 +10,8 @@
 
 ### Bulletin 모델에 post_type 속성 추가하기
 
-게시판을 새로 추가할 때, 레이아웃를 지정하기 위해서 `post_type`이라는 속성을 추가하기로 한다. 이 속성은 `string` 속성을 가지는 것으로 하고, `bulletin`, `blog`, `gallery` 값을 가질 수 있다. 이를 위해서 `Bulletin` 모델에 속성을 추가하는 마이그레이션 파일을 생성한다.
+게시판을 새로 추가할 때, 레이아웃를 지정하기 위해서 `post_type`이라는 속성을 추가하기로 한다. 이 속성은 `integer` 속성을 가지는 것으로 한다.
+이를 위해서 `Bulletin` 모델에 속성을 추가하는 마이그레이션 파일을 생성한다.
 
 ```bash
 $ bin/rails g migration add_post_type_to_bulletins post_type:integer
@@ -33,11 +34,26 @@ end
 
 ```bash
 $ bin/rake db:migrate
-== 20150131223640 AddPostTypeToBulletins: migrating ===========================
--- add_column(:bulletins, :post_type, :string, {:default=>"bulletin"})
-   -> 0.0007s
-== 20150131223640 AddPostTypeToBulletins: migrated (0.0008s) ==================
+Running via Spring preloader in process 21600
+== 20161216120650 AddPostTypeToBulletins: migrating ===========================
+-- add_column(:bulletins, :post_type, :integer, {:default=>0})
+   -> 0.0469s
+== 20161216120650 AddPostTypeToBulletins: migrated (0.0469s) ==================
 ```
+
+`Bulletin` 모델에서 이 속성을 열거형(`enum`)으로 선언하고  `:bulletin`, `:blog`, `:gallery` 심볼을 할당한다. 
+
+```ruby
+class Bulletin < ApplicationRecord
+  has_many :posts, dependent: :destroy
+  enum post_type: [ :bulletin, :blog, :gallery ]
+end
+```
+
+> 참고 : [ActiveRecord::Enum](http://edgeapi.rubyonrails.org/classes/ActiveRecord/Enum.html)
+
+
+
 
 ### Strong Parameter 추가하기
 
