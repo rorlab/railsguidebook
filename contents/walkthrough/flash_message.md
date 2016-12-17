@@ -86,7 +86,9 @@ end
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_20-50-33_zpsfvlmdtws.png)
 
-플래시 메시지를 `Bootstrap 버전 3` 스타일에 맞게 표시해 주는 젬을 사용하면 이상의 번거로운 절차없이 사용할 수 있어서 소개한다. 
+### bootstrap_flash_messages 젬
+
+: 플래시 메시지를 `Bootstrap 버전 3` 스타일에 맞게 표시해 주는 젬을 사용하면 이상의 번거로운 절차없이 사용할 수 있어서 소개한다. 
 
 아래의 젬을 `Gemfile`에 추가하고 번들 인스톨한다.
 
@@ -94,7 +96,7 @@ end
 gem 'bootstrap_flash_messages', '~> 1.0.1'
 ```
 
-다음은 어플케이션 레이아웃 파일을 열고 아래와 같이 erb를 작성한다.
+다음은 어플케이션 레이아웃 파일을 열고 아래와 같이 `erb`를 작성한다.
 
 ```
 <div class="container">
@@ -106,13 +108,14 @@ gem 'bootstrap_flash_messages', '~> 1.0.1'
 </div>
 ```
 
+`flash_messages` 메소드에 대한 자세한 사용법은 [깃헙 문서](https://github.com/RobinBrouwer/bootstrap_flash_messages)를 참고한다.
 
 
 지금까지 레일스의 `flash` 메시지를 표시하는 방법을 소개했다.
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_12
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_12
 
 
 
