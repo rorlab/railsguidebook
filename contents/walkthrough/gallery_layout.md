@@ -301,8 +301,9 @@ gem "font-awesome-rails"
 
 ```ruby
 ...
-@import 'bootstrap';
-@import "font-awesome";  <<< 추가
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";   <<<< 추가
 @import 'posts';
 ...
 ```
