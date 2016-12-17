@@ -387,7 +387,7 @@ end
 <h2><%= bulletin_name params[:bulletin_id] %> <small><%= link_to '설정', edit_bulletin_path(params[:bulletin_id])%></small></h2>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-51-34_zpsobn2udgc.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_14-21-30_zpsbd72d3bc.png)
 
 
 > #### Note::노트
@@ -400,4 +400,4 @@ public/uploads/*
 ```
 
 ---
-> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_11
+> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_11
