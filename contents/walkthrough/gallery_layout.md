@@ -305,10 +305,39 @@ gem "font-awesome-rails"
 
 그리고 `app/assets/stylesheets/application.scss` 파일을 열고 아래와 같이 추가한다. 
 
+### 갤러리 게시판을 생성
+
+이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_09-15-25_zps70fcf00e.png)
+
+이렇게 해서 게시판은 총 4개가 되었다.
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_09-18-38_zps3ceb0979.png)
+
+이제 어플리케이션 레이아웃 파일(`app/views/layouts/application.html.erb`)을 열고, 상단 메뉴항목에 `갤러리`를 추가한다.
+
+```erb
+...
+<li class="<%= params[:bulletin_id] == '4' ? 'active' : '' %>"><%= link_to '갤러리', bulletin_posts_path(4) %></li>
+...
+```
+
+다음은, `awesome` 폰트를 사용하기 위해서 아래와 같이 `Gemfile`에 추가하고 
+
+```ruby
+gem "font-awesome-rails"
+```
+
+`bundle install` 후 웹서버를 다시 시작한다.
+
+그리고 `app/assets/stylesheets/application.scss` 파일을 열고 아래와 같이 추가한다. 
+
 ```ruby
 ...
-@import 'bootstrap';
-@import "font-awesome";  <<< 추가
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";   <<<< 추가
 @import 'posts';
 ...
 ```
@@ -361,7 +390,7 @@ gem "font-awesome-rails"
 
 갤러리 게시판에서 이미지를 추가하는 화면은 아래와 같다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_13-03-17_zps11cb5681.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-27-01_zpsesasfecy.png)
 
 
 또한, 업로더 클래스에 아래와 같이 업로드할 수 있는 파일 포맷을 지정할 수 있다.
@@ -378,21 +407,21 @@ end
 
 이러한 파일확장자 이외의 파일을 업로드하면 아래와 같은 에러 메시지가 표시된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_13-32-37_zps404bdb11.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-31-41_zpsfrrvjyfy.png)
 
 
 
 `.pdf` 파일을 업로드할 경우에는 `pdf` 파일의 첫페이지가 쎔네일 이미지로 만들어진다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_16-46-07_zps8d9481b4.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-46-58_zpsfxebnw6j.png)
 
-각 게시판형에 따른 레이아웃용 `partial` 템플릿 파일에서 헤더 부분에 아래와 같이 추가하여 게시판 제목 옆에 `설정` 링크를 두면 좋겠다. (`_bulletin.html.erb`, `_blog.html.erb`, `_gallery.html.erb`)
+각 게시판 종류에 따른 레이아웃용 `partial` 템플릿 파일에서 헤더 부분의 게시판 제목 옆에 `설정` 링크를 둔다. (`_bulletin.html.erb`, `_blog.html.erb`, `_gallery.html.erb`)
 
 ```erb
 <h2><%= bulletin_name params[:bulletin_id] %> <small><%= link_to '설정', edit_bulletin_path(params[:bulletin_id])%></small></h2>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_14-21-30_zpsbd72d3bc.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-51-34_zpsobn2udgc.png)
 
 
 > #### Note::노트
@@ -405,4 +434,5 @@ public/uploads/*
 ```
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_11
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_11
+
