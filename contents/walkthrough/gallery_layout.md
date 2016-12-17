@@ -143,7 +143,7 @@ end
 ```
 
 ### 빈 디렉토리 자동으로 삭제하기
-
+@ㅑㅡ
 업로드한 이미지를 삭제하면 해당 폴더가 남아 있게 된다. 아래와 같이 업로더 클래스(`PictureUploader`)에 추가하면 자동으로 빈 폴더가 삭제된다. 자세한 내용은 [여기](https://github.com/carrierwaveuploader/carrierwave/wiki/How-to%3A-Make-a-fast-lookup-able-storage-directory-structure)를 참고하라.
 
 ```ruby
@@ -301,9 +301,9 @@ gem "font-awesome-rails"
 
 ```ruby
 ...
-@import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";   <<<< 추가
+
 @import 'posts';
 ...
 ```
