@@ -1,8 +1,8 @@
 # flash 메시지 표시하기
 
-레일스에서는 컨트롤러의 액션 실행시 발생하는 [액티브레코드](/appendices/active_record.html) 관련 각종 메시지를 `flash`라는 세션의 특수한 형태를 통해서 표시할 수 있다. 카메라의 플래시를 연상해 보면 알 수 있듯이 메시지를 짧은 시간만 저장할 수 있으며 레일스 내부적으로는 `FlashHash` 클래스의 인스턴스이다. 즉, 액션간에 임시로 객체를 전달할 수 있는 수단으로 생각할 수 있다. 따라서 `flash` 객체에 어떤 것이라도 지정할 수 있고 바로 다음번 액션에서만 사용되고 사라지게 되는 것이다.
+레일스에서는 컨트롤러의 액션 실행시 발생하는 [액티브레코드](/appendices/active_record.html) 관련 각종 메시지를 `flash`라는 세션의 특수한 형태를 통해서 표시할 수 있다. 카메라의 플래시를 연상해 보면 알 수 있듯이 메시지를 짧은 시간만 저장할 수 있으며 레일스 내부적으로는 `FlashHash` 클래스의 인스턴스이다. 즉, 액션 간에 임시로 객체를 전달할 수 있는 수단으로 생각할 수 있다. 따라서 `flash` 객체에 어떤 것이라도 지정할 수 있고 바로 다음번 액션에서만 사용되고 사라지게 되는 것이다.
 
-레일스에서는 대게 이러한 `flash` 메시지를 어플리케이션 레이아웃의 `body` 태그내 최상단에 위치시킨다.
+레일스에서는 대게 이러한 `flash` 메시지를 어플리케이션 레이아웃의 `body` 태그 내의 최상단에 위치시킨다.
 
 ```html
 <!DOCTYPE html>
@@ -41,7 +41,7 @@ redirect_to ..., notice: 'Post was successfully created.'
 
   <%= render partial: "shared/flash_messages", flash: flash %>
 
-  <%= content_for?(:post_layout) ? content_for(:post_layout) : yield %>
+  <%= yield %>
 
 </div>
 ```
@@ -84,7 +84,7 @@ end
 
 이제 새로운 게시물을 작성하거나 수정하면 페이지 상단의 메뉴 아래에 적절한 메시지가 표시될 것이다. 당연한 것이지만, 이 메시지를 페이지를 다시 로딩하면 사라질 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_17-06-08_zpsda2bed8f.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_20-50-33_zpsfvlmdtws.png)
 
 지금까지 레일스의 `flash` 메시지를 표시하는 방법을 소개했다.
 
