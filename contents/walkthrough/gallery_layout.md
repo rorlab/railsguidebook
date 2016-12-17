@@ -262,7 +262,6 @@ end
     <%= f.button :submit %>
   </div>
 <% end %>
-
 ```
 
 위에서 `erb` 코드 부분을 보면, `gallery`형 게시판에서만 이미지를 업로드할 수 있도록 조건을 추가한 것을 주목하자.
@@ -296,7 +295,7 @@ input[type='file'] {
 ...
 ```
 
-다음은, `awesome` 폰트를 사용하기 위해서 아래와 같이 `Gemfile`에 추가하고 
+다음은, [`awesome`](http://fontawesome.io/) 폰트를 사용하기 위해서 아래와 같이 `Gemfile`에 추가하고 
 
 ```ruby
 gem "font-awesome-rails"
