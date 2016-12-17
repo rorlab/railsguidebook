@@ -171,14 +171,17 @@ end
 
 ```bash
 $ bin/rails g migration add_picture_to_posts picture
+Running via Spring preloader in process 45494
       invoke  active_record
-      create    db/migrate/20150201000532_add_picture_to_posts.rb
-
+      create    db/migrate/20161217094704_add_picture_to_posts.rb
+```
+```bash
 $ bin/rake db:migrate
-== 20150201000532 AddPictureToPosts: migrating ================================
+Running via Spring preloader in process 46190
+== 20161217094704 AddPictureToPosts: migrating ================================
 -- add_column(:posts, :picture, :string)
-   -> 0.0007s
-== 20150201000532 AddPictureToPosts: migrated (0.0007s) =======================
+   -> 0.0217s
+== 20161217094704 AddPictureToPosts: migrated (0.0218s) =======================
 ```
 
 ### 업로더 마운트하기
@@ -279,7 +282,7 @@ input[type='file'] {
 
 이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_09-15-25_zps70fcf00e.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_18-53-42_zpspjr1auon.png)
 
 이렇게 해서 게시판은 총 4개가 되었다.
 
