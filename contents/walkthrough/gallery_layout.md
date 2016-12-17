@@ -69,6 +69,7 @@ CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\s\.\-\+]/
 
 ```bash
 $ bin/rails g uploader Picture
+Running via Spring preloader in process 37674
       create  app/uploaders/picture_uploader.rb
 ```
 
