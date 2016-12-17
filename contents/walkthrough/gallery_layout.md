@@ -245,7 +245,7 @@ end
     <%= f.input :title %>
     <%= f.input :content, input_html: { rows: 10 } %>
 
-    <% if @post.bulletin.post_type == :gallery %>
+    <% if @post.bulletin.post_type == "gallery" %>
       <%= f.input :picture, as: :file %>
       <%= f.hidden_field :picture_cache %>
     <% end %>
