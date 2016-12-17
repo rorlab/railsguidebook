@@ -1,6 +1,6 @@
 # 갤러리형 레이아웃 작성하기
 
-이전에 언급한 바와 같이 게시판의 종류를 세가지로 분류한 바 있다. 일반형, 블로그형, 갤러리형 세가지 중에 일반형과 블로그형은 이미 전용 레이아웃을 구현하였고, 이제 남은 건 `갤러리형` 레이아웃을 만드는 것이다.
+이전에 언급한 바와 같이 게시판의 종류를 세가지로 분류한 바 있다. 일반형(bulletin), 블로그형(blog), 갤러리형(gallery) 세가지 중에 일반형과 블로그형은 이미 전용 레이아웃을 구현하였고, 이제 남은 건 `갤러리형` 레이아웃을 만드는 것이다.
 
 `갤러리형` 게시판은 이미지를 업로드할 수 있으면 업로드된 이미지들은 쎔네일 형태로 보이도록 하고자 한다.
 
@@ -10,12 +10,15 @@
 
 ```bash
 $ convert
+Version: ImageMagick 6.9.5-7 Q16 x86_64 2016-08-15 http://www.imagemagick.org
+Copyright: Copyright (C) 1999-2016 ImageMagick Studio LLC
+License: http://www.imagemagick.org/script/license.php
+Features: Cipher DPC Modules
+Delegates (built-in): bzlib freetype jng jpeg ltdl lzma png tiff xml zlib
+Usage: convert [options ...] file [ [options ...] file ...] [options ...] file
 
-Version: ImageMagick 6.8.7-7 Q16 x86_64 2013-11-27 http://www.imagemagick.org
-Copyright: Copyright (C) 1999-2014 ImageMagick Studio LLC
-Features: DPC Modules
-Delegates: bzlib freetype jng jpeg ltdl png xml zlib
 ~중략~
+
 ```
 
 만약 설치되어 있지 않으면 [`ImageMagick 설치하기`](../../appendices/imagemagick.html)를 참고하여 설치하면 된다.
