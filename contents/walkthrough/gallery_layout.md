@@ -21,7 +21,7 @@ Usage: convert [options ...] file [ [options ...] file ...] [options ...] file
 
 ```
 
-만약 설치되어 있지 않으면 [`ImageMagick 설치하기`](../../appendices/imagemagick.html)를 참고하여 설치하면 된다.
+만약 설치되어 있지 않으면 [`ImageMagick 설치하기`](/appendices/imagemagick.md)를 참고하여 설치하면 된다.
 
 ### Carrierwave 젬 설치하기
 
