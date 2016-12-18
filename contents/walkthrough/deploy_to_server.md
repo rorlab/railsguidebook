@@ -5,7 +5,7 @@
 
 ### 서버 셋팅
 
-배포할 서버에는 아래와 같은 프로그램을 미리 설치해 둔다. 여기서는 테스트 목적으로 배포할 것이기 때문에, 가상서버를 준비하기로 한다. 가상머신용 툴로는 [`VMware Fusion`](http://www.vmware.com/kr/products/fusion/) v6.0.4를 사용하였다. 무료로 사용할 수 있는 툴로는 오라클사의 `VM VirtualBox`가 있으며 [여기](https://www.virtualbox.org/wiki/Downloads)를 방문하면 패키지를 다운로드 받아 설치할 수 있다. [우분투 12.04 서버 셋팅하기](/appendices/ubuntu_12_4_setting.html)를 참고하면 `VirtualBox`로 가상 서버를 생성하여 서버 환경을 구축할 수 있다.
+배포할 서버에는 아래와 같은 프로그램을 미리 설치해 둔다. 여기서는 테스트 목적으로 배포할 것이기 때문에, 가상서버를 준비하기로 한다. 가상머신용 툴로는 [`VMware Fusion`](http://www.vmware.com/kr/products/fusion/) v8.5.4를 사용하였다. 무료로 사용할 수 있는 툴로는 오라클사의 `VM VirtualBox`가 있으며 [여기](https://www.virtualbox.org/wiki/Downloads)를 방문하면 패키지를 다운로드 받아 설치할 수 있다. [우분투 12.04 서버 셋팅하기](/appendices/ubuntu_12_4_setting.html)를 참고하면 `VirtualBox`로 가상 서버를 생성하여 서버 환경을 구축할 수 있다.
 
 가상머신에 [우분투 12.04 버전](http://releases.ubuntu.com/12.04/)을 설치하고 아래의 프로그램을 설치한다. (구글 검색하면 우분투 서버 설치에 대한 블로그들이 많이 있다.)
 
