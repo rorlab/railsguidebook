@@ -5,7 +5,7 @@
 `Gemfile` 연 후, 아래와 같이 젬을 추가하고,
 
 ```ruby
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 4.0'
 ```
 
 번들 인스톨하고,
