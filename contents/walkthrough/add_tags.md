@@ -2,13 +2,13 @@
 
 각 `post`에 태그를 붙여 보자. [ruby-toolbox.com](https://www.ruby-toolbox.com/categories/rails_tagging)에서 태그관련 젬을 검색해 보면 단연코 [`acts-as-taggable-on`](https://github.com/mbleigh/acts-as-taggable-on)이라는 젬의 사용빈도가 가장 높다.
 
-`Gemfile` 열고 아래와 같이 젬을 추가하고,
+`Gemfile` 연 후, 아래와 같이 젬을 추가하고,
 
 ```ruby
 gem 'acts-as-taggable-on'
 ```
 
-번들 인스톨한 후,
+번들 인스톨하고,
 
 ```bash
 $ bin/bundle install
@@ -37,7 +37,7 @@ class Post < ActiveRecord::Base
 end
 ```
 
-이로써 `Post` 모델에 대해서 `tag_list` 속성 메소드를 사용할 수 있게 된다. 이 속성을 폼 데이터로 입력받기 위해서는 `strong parameter`로 등록해 주어야 한다. 이를 위해서  `posts_controller.rb` 파일(`app/controllers/posts_controller.rb`)을 열고 아래와 같이 `post_params` 메소드에 `:tag_list` 속성을 추가한다.
+이로써 `Post` 모델에 대해서 `tag_list`라는 가상속성을 사용할 수 있게 된다. 이 속성을 폼 데이터로 입력받기 위해서는 `strong parameter`로 등록해 주어야 한다. 이를 위해서  `posts_controller.rb` 파일(`app/controllers/posts_controller.rb`)을 열고 아래와 같이 `post_params` 메소드에 `:tag_list` 속성을 추가한다.
 
 ```ruby
 def post_params
