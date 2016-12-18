@@ -324,7 +324,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 
 이제는 실제로 브라우저 상에서 `http://localhost:3000/bulletins/3/posts`로 이동한 후 새소식을 새로 작성하고 해당 새소식에 대한 `show`액션 `URI`로 이동한다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_20-33-22_zpsf0014672.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_13-49-41_zpsyiwohoko.png)
 
 그리고 코멘트를 입력하는 곳에 임의의 글을 작성하고 `Create comment` 버튼을 클릭한다.
 
@@ -332,7 +332,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 
 브라우저를 다시 로드하면 방금 전에 작성한 코멘트가 보이게 될 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-01_20-43-50_zps79ca61b0.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_13-52-18_zpsqhqmr8th.png)
 
 이와 같은 현상은, 코멘트는 생성 되었지만 실제로 화면상에 제대로 보여 주지 못하기 때문에 발생한다.
 
@@ -347,7 +347,9 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 <% end %>
 ```
 
-`Comment` 모델에서 `body` 속성에 대한 필수항목으로 유효성 검증을 지정한다.
+이제 다시 댓글을 추가하면 제대로 동작하는 것을 확인할 수 있을 것이다. 
+
+다음은 `Comment` 모델에서 `body` 속성에 대한 필수항목으로 유효성 검증을 지정한다.
 
 ```ruby
 class Comment < ActiveRecord::Base
@@ -358,6 +360,8 @@ end
 ```
 
 이제 내용을 입력하지 않은 상태에서 `Create comment` 버튼을 클릭하면 `"Please submit after commenting..."` 이라는 팝업 창이 보이게 될 것이다.
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-01-11_zpscwitoddf.png)
 
 이제는 특정 코멘트를 `ajax`로 삭제해 보자. 즉, 페이지 이동이 없이 바로 코멘트가 사라지게 해 보자.
 
