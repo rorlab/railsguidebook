@@ -152,17 +152,25 @@ end
 
 ```ruby
 # 업로드 상단에 아래의 after 매크로를 추가한다.
-after :remove, :delete_empty_upstream_dirs
+  after :remove, :delete_empty_upstream_dirs
 
-def delete_empty_upstream_dirs
-  path = ::File.expand_path(store_dir, root)
-  Dir.delete(path) # fails if path not empty dir
+  def store_dir
+    "#{base_store_dir}/#{model.id}"
+  end
 
-  path = ::File.expand_path(base_store_dir, root)
-  Dir.delete(path) # fails if path not empty dir
-rescue SystemCallError
-  true # nothing, the dir is not empty
-end
+  def base_store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
+  end
+
+  def delete_empty_upstream_dirs
+    path = ::File.expand_path(store_dir, root)
+    Dir.delete(path) # fails if path not empty dir
+
+    path = ::File.expand_path(base_store_dir, root)
+    Dir.delete(path) # fails if path not empty dir
+  rescue SystemCallError
+    true # nothing, the dir is not empty
+  end
 ```
 
 ### Picture 속성 추가하기
