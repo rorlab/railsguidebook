@@ -16,26 +16,26 @@ $ bin/rails g model Comment post:references body:text
 
 ```bash
 $ bin/rails g model Comment post:references body:text
+Running via Spring preloader in process 63274
       invoke  active_record
-      create    db/migrate/20150201110502_create_comments.rb
+      create    db/migrate/20161218040153_create_comments.rb
       create    app/models/comment.rb
       invoke    test_unit
       create      test/models/comment_test.rb
       create      test/fixtures/comments.yml
+
 ```
 
-이 명령은 내부적으로는 `active_record` 모듈을 호출해서 마이그레이션 파일(`db/migrate/20150201110502_create_comments.rb`)을 생성하고, 모델 클래스 파일(`app/models/comment.rb`)을 생성한다. 그리고 `test_unit` 모듈을 호출하여 유닛테스트를 위한 파일들도 생성한다.
+이 명령은 내부적으로는 `active_record` 모듈을 호출해서 마이그레이션 파일(`db/migrate/20161218040153_create_comments.rb`)을 생성하고, 모델 클래스 파일(`app/models/comment.rb`)을 생성한다. 그리고 `test_unit` 모듈을 호출하여 유닛테스트를 위한 파일들도 생성한다.
 
 이제 마이그레이션 작업을 실행하여 실제로 `comments`라는 테이블을 생성하도록 하자.
 
 ```bash
-$ bin/rake db:migrate
-== 20150201110502 CreateComments: migrating ===================================
+$ bin/rails db:migrate
+== 20161218040153 CreateComments: migrating ===================================
 -- create_table(:comments)
-   -> 0.0026s
--- add_foreign_key(:comments, :posts)
-   -> 0.0000s
-== 20150201110502 CreateComments: migrated (0.0027s) ==========================
+   -> 0.0344s
+== 20161218040153 CreateComments: migrated (0.0345s) ==========================
 ```
 
 주목할 것은 테이블명을 지정하지 않았는데도, 자동으로 `comments`라는 테이블명으로 테이블이 생성된다는 것이다. 바로 이런 부분이 레일스의 `Convention over configuration`의 일면을 볼 수 있는 예라고 할 수 있다. 즉, 클래스명의 복수형태를 바로 테이블의 이름으로 정하게 된다는 것이다.
