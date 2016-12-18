@@ -160,6 +160,7 @@ Rails.application.routes.draw do
 
   get 'comments/destroy'
 
+  resources :posts
   resources :bulletins do
     resources :posts
   end
@@ -172,24 +173,23 @@ end
 
 ```ruby
 Rails.application.routes.draw do
-
   root 'welcome#index'
 
   resources :posts do
     resources :comments
   end
 
+  resources :posts
   resources :bulletins do
     resources :posts
   end
-
 end
 ```
 
 이로써 우리는 `comments` 컨트롤러에 대한 7개의 라우팅을 사용할 수 있게 된다.
 
 ```bash
-$ bin/rake routes CONTROLLER=comments
+$ bin/rails routes -c comments
            Prefix Verb   URI Pattern                                 Controller#Action
     post_comments GET    /posts/:post_id/comments(.:format)          comments#index
                   POST   /posts/:post_id/comments(.:format)          comments#create
@@ -222,7 +222,7 @@ end
 다시 라우팅을 확인해 보자.
 
 ```bash
-$ bin/rake routes CONTROLLER=comments
+$ bin/rails routes -c comments
        Prefix Verb   URI Pattern                            Controller#Action
 post_comments POST   /posts/:post_id/comments(.:format)     comments#create
  post_comment DELETE /posts/:post_id/comments/:id(.:format) comments#destroy
