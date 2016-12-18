@@ -289,11 +289,11 @@ ul#posts_tagged {
 }
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-55-36_zpsaf8523e7.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-12-18_zps2evmgk9s.png)
 
 그러나 한가지 문제가 발생한다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_06-56-52_zps85465a85.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-13-49_zpsbiuqgqgh.png)
 
 태그를 생성할 때는 문제가 없지만, 태그수정을 위해 `posts#edit` 액션을 호출하면, `Tag list` 입력란의 태그들 사이에 구분문자(쉼표)가 보이지 않는다. 이런 문제는 [디자인상의 보안 문제](https://github.com/mbleigh/acts-as-taggable-on/issues/620)로 변경이 된 것이라고 한다. 해결책은 커스텀 input을 작성하는 것이라고 해서 `post.rb` 클래스 파일에 아래와 같이 두개의 메소드를 추가해 주었다. 
 
@@ -323,10 +323,10 @@ end
 
 이제 수정시에도 태그 구분문자(쉼표)가 제대로 보일 것이다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_07-02-25_zps9feeb2f7.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-17-02_zpspccyel6a.png)
 
 이상으로 태그 달기를 마치도록 하겠다.
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_15
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_15
 
