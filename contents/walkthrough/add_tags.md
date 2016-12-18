@@ -20,12 +20,83 @@ $ bin/bundle install
 
 ```bash
 $ bin/rake acts_as_taggable_on_engine:install:migrations
+Running via Spring preloader in process 73943
+Copied migration 20161218053842_acts_as_taggable_on_migration.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
+Copied migration 20161218053843_add_missing_unique_indices.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
+Copied migration 20161218053844_add_taggings_counter_cache_to_tags.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
+Copied migration 20161218053845_add_missing_taggable_index.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
+Copied migration 20161218053846_change_collation_for_tag_names.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
+Copied migration 20161218053847_add_missing_indexes.acts_as_taggable_on_engine.rb from acts_as_taggable_on_engine
 ```
 
 그리고 마이그레이션 작업을 한다.
 
 ```bash
 $ bin/rake db:migrate
+Running via Spring preloader in process 74501
+== 20161218053842 ActsAsTaggableOnMigration: migrating ========================
+-- create_table(:tags, {})
+   -> 0.0254s
+-- create_table(:taggings, {})
+   -> 0.0042s
+-- add_index(:taggings, :tag_id)
+   -> 0.0025s
+-- add_index(:taggings, [:taggable_id, :taggable_type, :context])
+   -> 0.0021s
+== 20161218053842 ActsAsTaggableOnMigration: migrated (0.0345s) ===============
+
+== 20161218053843 AddMissingUniqueIndices: migrating ==========================
+-- add_index(:tags, :name, {:unique=>true})
+   -> 0.0084s
+-- index_name(:taggings, {:column=>["tag_id"]})
+   -> 0.0000s
+-- index_exists?(:taggings, :tag_id, {:name=>"index_taggings_on_tag_id"})
+   -> 0.0042s
+-- index_name(:taggings, {:column=>:tag_id})
+   -> 0.0000s
+-- index_name_exists?(:taggings, "index_taggings_on_tag_id", true)
+   -> 0.0016s
+-- remove_index(:taggings, {:column=>:tag_id, :name=>"index_taggings_on_tag_id"})
+   -> 0.0052s
+-- index_name(:taggings, {:column=>[:taggable_id, :taggable_type, :context]})
+   -> 0.0000s
+-- index_name_exists?(:taggings, "index_taggings_on_taggable_id_and_taggable_type_and_context", true)
+   -> 0.0008s
+-- remove_index(:taggings, {:column=>[:taggable_id, :taggable_type, :context], :name=>"index_taggings_on_taggable_id_and_taggable_type_and_context"})
+   -> 0.0023s
+-- add_index(:taggings, [:tag_id, :taggable_id, :taggable_type, :context, :tagger_id, :tagger_type], {:unique=>true, :name=>"taggings_idx"})
+   -> 0.0025s
+== 20161218053843 AddMissingUniqueIndices: migrated (0.0259s) =================
+
+== 20161218053844 AddTaggingsCounterCacheToTags: migrating ====================
+-- add_column(:tags, :taggings_count, :integer, {:default=>0})
+   -> 0.0067s
+== 20161218053844 AddTaggingsCounterCacheToTags: migrated (0.0182s) ===========
+
+== 20161218053845 AddMissingTaggableIndex: migrating ==========================
+-- add_index(:taggings, [:taggable_id, :taggable_type, :context])
+   -> 0.0089s
+== 20161218053845 AddMissingTaggableIndex: migrated (0.0090s) =================
+
+== 20161218053846 ChangeCollationForTagNames: migrating =======================
+== 20161218053846 ChangeCollationForTagNames: migrated (0.0008s) ==============
+
+== 20161218053847 AddMissingIndexes: migrating ================================
+-- add_index(:taggings, :tag_id)
+   -> 0.0031s
+-- add_index(:taggings, :taggable_id)
+   -> 0.0027s
+-- add_index(:taggings, :taggable_type)
+   -> 0.0022s
+-- add_index(:taggings, :tagger_id)
+   -> 0.0028s
+-- add_index(:taggings, :context)
+   -> 0.0022s
+-- add_index(:taggings, [:tagger_id, :tagger_type])
+   -> 0.0031s
+-- add_index(:taggings, [:taggable_id, :taggable_type, :tagger_id, :context], {:name=>"taggings_idy"})
+   -> 0.0034s
+== 20161218053847 AddMissingIndexes: migrated (0.0199s) =======================
 ```
 
 이제 태그를 붙이고자 하는 `Post` 모델 클래스 파일(`app/models/post.rb`)을 열고 아래와 같이 코드를 추가한다.
@@ -69,7 +140,7 @@ end
 <% end %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-02-02_05-07-26_zpsfcd6e428.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-47-44_zpsyjlmnk9d.png)
 
 태그는 한글도 가능하고, 태그 사이에 공백도 가능하다.
 
