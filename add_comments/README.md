@@ -237,7 +237,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 <%= render "comments/comments" %>
 ```
 
-그리고 이 때 필요한 `_comments.html.erb` 파일을 `app/views/comments/` 디렉토리에 생성하고 아래와 같이 코드를 작성한다.
+그리고 이 때 필요한 `_comments.html.erb` 파일을 `app/views/comments/` 디렉토리에 생성하고 아래와 같이 코드를 작성한다.(파일명에 주의하기 바란다. `s`자를 누락하지 않도록 한다.) 
 
 ```html
 <div class="comments">
@@ -248,7 +248,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
     <%= render "comments/list" %>
   </div>
   <div class='comments_form'>
-    <%= render "comments/form" %>
+    <%= render "comments/form", comment: @post.comments.new %>
   </div>
 </div>
 ```
@@ -296,7 +296,7 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 </ul>
 ```
 
-그리고 위에서 사용하는 `_comment.html.erb` 파셜 템플릿 파일을 생성하기 위해서 `app/views/comments/` 디렉토리에 '_comment.html.erb` 파일을 생성하고 아래와 같이 작성한다.
+그리고 위에서 사용하는 `_comment.html.erb` 파셜 템플릿 파일을 생성하기 위해서 `app/views/comments/` 디렉토리에 `_comment.html.erb` 파일을 생성하고 아래와 같이 작성한다.(파일명에 주의하기 바란다. 이번에는 `comment` 단수형을 사용하였다.)
 
 ```html
 <li>
@@ -310,14 +310,14 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 ```html
 <% comment = @post.comments.new %>
 <div id="comments_form_<%=@post.id%>">
-<%= simple_form_for([@post, comment], remote: true ) do | f | %>
-  <div class='form-inputs'>
-    <%= f.input :body, label: false, placeholder: 'Add a comment.',  input_html: { rows: 5 } %>
-  </div>
-  <div class='form-actions'>
-    <%= f.button :submit %>
-  </div>
-<% end %>
+  <%= simple_form_for([@post, comment], remote: true ) do | f | %>
+    <div class='form-inputs'>
+      <%= f.input :body, label: false, placeholder: 'Add a comment.', input_html: { rows: 5 } %>
+    </div>
+    <div class='form-actions'>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
 </div>
 ```
 
