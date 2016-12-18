@@ -308,9 +308,8 @@ post_comments POST   /posts/:post_id/comments(.:format)     comments#create
 또한, `app/views/comments/` 디렉토리에 `_form.html.erb` 파일을 생성하고 아래와 같이 작성한다.
 
 ```html
-<% comment = @post.comments.new %>
-<div id="comments_form_<%=@post.id%>">
-  <%= simple_form_for([@post, comment], remote: true ) do | f | %>
+<div id="comments_form_<%=comment.post.id%>">
+  <%= simple_form_for([comment.post, comment], remote: true ) do | f | %>
     <div class='form-inputs'>
       <%= f.input :body, label: false, placeholder: 'Add a comment.', input_html: { rows: 5 } %>
     </div>
