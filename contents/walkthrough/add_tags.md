@@ -235,7 +235,7 @@ a.tag {
 ```ruby
 ...
 def index
-  if params[:bulletin_id]
+  if @bulletin.present?
     @posts = @bulletin.posts.all
   else
     if params[:tag]
@@ -245,20 +245,6 @@ def index
     end
   end
 end
-...
-private
-  def set_bulletin
-    @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id]
-  end
-
-  def set_post
-    if params[:bulletin_id]
-      @post = @bulletin.posts.find(params[:id])
-    else
-      @post = Post.find(params[:id])
-    end
-  end
-...
 ```
 
 `index` 액션에서 사용한 `Post.tagged_with()` 클래스메소드는 `acts-as-taggable-on` 젬이 지원한 메소드로 임의의 태그를 넘겨 주면 해당 태그를 포함하는 `post` 객체들을 반환해 준다.
