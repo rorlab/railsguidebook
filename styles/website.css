@@ -2,3 +2,8 @@ code {
     background-color: #eaeaea;
     border: 1px solid #ccc; 
 }
+
+h1:before, h2:before, h3:before, h4:before, h5:before {
+  color: #aaa;
+  width: 40px;
+}
