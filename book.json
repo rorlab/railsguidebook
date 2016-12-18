@@ -1,7 +1,8 @@
 {
     "plugins": [
         "disqus",
-        "callouts"
+        "callouts",
+        "numbered-headings"
     ],
     "pluginsConfig": {
         "disqus": {
