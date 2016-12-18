@@ -38,23 +38,24 @@ $ bin/rails db:migrate
 == 20161218040153 CreateComments: migrated (0.0345s) ==========================
 ```
 
-주목할 것은 테이블명을 지정하지 않았는데도, 자동으로 `comments`라는 테이블명으로 테이블이 생성된다는 것이다. 바로 이런 부분이 레일스의 `Convention over configuration`의 일면을 볼 수 있는 예라고 할 수 있다. 즉, 클래스명의 복수형태를 바로 테이블의 이름으로 정하게 된다는 것이다.
+주목할 것은 테이블명을 지정하지 않았는데도, 자동으로 `comments`라는 테이블명으로 테이블이 생성된다는 것이다. 바로 이런 부분이 레일스의 `Convention over configuration(COC)`의 일면을 볼 수 있는 예라고 할 수 있다. 즉, 클래스명의 복수형태를 바로 테이블의 이름으로 정하게 된다는 것이다.
 
 이제 지금까지 수행하였던 마이그레이션 작업의 히스토리를 보자.
 
 ```bash
-$ bin/rake db:migrate:status
+$ bin/rails db:migrate:status
 
-database: /Users/hyo/prj/rorlakr/rcafe/db/development.sqlite3
+database: rcafe2_development
 
  Status   Migration ID    Migration Name
 --------------------------------------------------
-   up     20150201062618  Create posts
-   up     20150201063531  Create bulletins
-   up     20150201064121  Add bulletin id to posts
-   up     20150201070733  Add post type to bulletins
-   up     20150201073035  Add picture to posts
-   up     20150201110502  Create comments
+   up     20161210103346  Create posts
+   up     20161213103856  Create bulletins
+   up     20161213115533  Add bulletin id to posts
+   up     20161216122642  Add post type cd to bulletins
+   up     20161216125320  Add post type to bulletin
+   up     20161217094704  Add picture to posts
+   up     20161218040153  Create comments
 ```
 
 
@@ -83,6 +84,7 @@ $ bin/rails g controller comments create destroy
 
 ```bash
 $ bin/rails g controller comments create destroy
+Running via Spring preloader in process 65108
       create  app/controllers/comments_controller.rb
        route  get 'comments/destroy'
        route  get 'comments/create'
@@ -95,12 +97,11 @@ $ bin/rails g controller comments create destroy
       invoke  helper
       create    app/helpers/comments_helper.rb
       invoke    test_unit
-      create      test/helpers/comments_helper_test.rb
       invoke  assets
       invoke    coffee
-      create      app/assets/javascripts/comments.js.coffee
+      create      app/assets/javascripts/comments.coffee
       invoke    scss
-      create      app/assets/stylesheets/comments.css.scss
+      create      app/assets/stylesheets/comments.scss
 ```
 
 이 명령이 하는 주요 작업은, 컨트롤러 파일(`app/controllers/comments_controller.rb`)을 생성하고, 두개의 라우트(`route  get 'comments/destroy'`, `route  get 'comments/create'`)를 추가하며, 각 액션에 해당하는 뷰 템플릿 파일(`app/views/comments/create.html.erb`, `app/views/comments/destroy.html.erb`)을 생성한다.
