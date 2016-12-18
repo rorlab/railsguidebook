@@ -390,6 +390,8 @@ $("#comment_<%=@comment.id %>").slideUp('fast');
 </li>
 ```
 
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-11-11_zps5c8g7vcc.png)
+
 여기서 주목할 것은 `link_to` 헬퍼 메소드에서 `remote: true` 옵션을 사용했다는 것이다. 이로써 `comments#destroy` 액션이 호출된 후 `destroy.js.erb` 파일을 렌더링한 후 `destroy.js` 파일을 응답으로 보내게 되는 것이다.
 
 이제 자유롭게 코멘트를 작성하고 삭제해 보자.
