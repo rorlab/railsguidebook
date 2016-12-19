@@ -218,7 +218,7 @@
 
 ##### 43. 로그인 후 화면
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-44-43_zps34760bf7.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-50-52_zpsdrxzbgbv.png)
 
 #### 44. 가상 머신의 ip 주소
 
