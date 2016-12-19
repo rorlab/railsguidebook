@@ -42,7 +42,7 @@
     * [액티브레코드란?](appendices/active_record.md)
     * [ImageMagick 설치하기](appendices/imagemagick.md)
     * [PostgreSQL 설치하기](appendices/postgresql_install.md)
-    * [우분투 12.04 서버 세팅하기](appendices/ubuntu_12_4_setting.md)
+    * [우분투 12.04 서버 세팅하기 \(Virtual Box\)](appendices/ubuntu_12_4_setting.md)
     * [우분투 14.04 서버 세팅하기 \(Virtual Box\)](appendices/ubuntu14server.md)
     * [우분투 16.04 서버 세팅하기 \(Virtual Box\)](appendices/ubuntu16server.md)
     * [Heroku에 배포하기](appendices/heroku.md)
