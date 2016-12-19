@@ -229,30 +229,15 @@
 #### 45. 로컬 머신에서 ssh로 접속시도
 
 지금부터는 로컬 머신에서 별도의 터미널 창을 띄워 위에서 찾은 가상머신 ip 주소로 접속한다.
-
-```bash
-$ ssh user-account@guest-pc-ip
-```
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-48-26_zps920cf4be.png)
-
-최초 접속시에는 아래와 같이 호스트 인증관련 메시지가 나타나며 `yes`를 입력한다.
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-49-18_zps06b29c64.png)
-
-이어서 나타나는 화면에서는 암호를 입력한다.
-
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-49-49_zpsd6e7993f.png)
-
-#### 호스트에서 게스트 PC로 ssh 접속 후 나타나는 화면
-
 접속한 게스트 PC(가상머신)의 첫화면은 아래와 같다. 
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-56-26_zpssm5juy3w.png)
 
 ## 서버 웹운영 환경 설정
 
-이제부터는 [`우분투 12.04 서버 세팅하기`](http://rorlab.gitbooks.io/railsguidebook/appendices/ubuntu_12_4_setting.html) 챕터의 내용 중 `서버 설치과정`을 보고 따라하면 된다. 중복되지만 아래에 삽입해 두었다.
+이제부터는 [`우분투 12.04 서버 세팅하기`](http://rorlab.gitbooks.io/railsguidebook/appendices/ubuntu_12_4_setting.html) 챕터의 내용 중 `서버 설치과정`을 보고 따라하면 된다. 
+
+중복되지만 아래에 삽입해 두었다.
 
 #### 서버 설치과정
 
