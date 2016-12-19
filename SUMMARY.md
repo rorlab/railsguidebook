@@ -44,6 +44,7 @@
     * [PostgreSQL 설치하기](appendices/postgresql_install.md)
     * [우분투 12.04 서버 세팅하기](appendices/ubuntu_12_4_setting.md)
     * [우분투 14.04 서버 세팅하기 \(Virtual Box\)](appendices/ubuntu14server.md)
+    * [우분투 16.04 서버 세팅하기 \(Virtual Box\)](appendices/ubuntu16server.md)
     * [Heroku에 배포하기](appendices/heroku.md)
     * [AWS S3 사용하기](appendices/aws_s3.md)
     * [개발 환경변수를 관리하는 dotenv 젬](appendices/dotenv.md)
