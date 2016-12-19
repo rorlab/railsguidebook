@@ -208,7 +208,7 @@
 
 #### 41. 시스템 부팅 시작 화면
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-43-33_zps69e3bded.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_09-24-15_zpsdye0pmgu.png)
 
 #### 42. 로그인 화면
 
@@ -246,9 +246,9 @@ $ ssh user-account@guest-pc-ip
 
 #### 호스트에서 게스트 PC로 ssh 접속 후 나타나는 화면
 
-접속한 게스트 PC(가상머신)의 IP를 시스템 정보에서 찾을 수 있다.
+접속한 게스트 PC(가상머신)의 첫화면은 아래와 같다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-50-04_zps39c575c2.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-56-26_zpssm5juy3w.png)
 
 ## 서버 웹운영 환경 설정
 
