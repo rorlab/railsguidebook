@@ -224,7 +224,7 @@
 
 프롬프트에서 `ifconfig` 명령을 실행하면 아래와 같이 자신(가상머신 - 게스트 머신 : Ubuntu 14.04 서버)의 ip를 알 수 있다. 잘 기억해 두었다가 로컬머신(호스트머신)의 터미널에서 ssh로 가상머신으로 접속시 사용한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-45-20_zpsa16c80be.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-54-09_zpsfg0dg4su.png)
 
 #### 45. 로컬 머신에서 ssh로 접속시도
 
