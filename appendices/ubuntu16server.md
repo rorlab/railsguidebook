@@ -214,7 +214,7 @@
 
 아래와 같은 로그인 화면이 나타나면 등록한 유저 계정명과 암호를 이용하여 로그인한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-43-42_zpsc761400f.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-47-46_zpsqiowrj09.png)
 
 ##### 43. 로그인 후 화면
 
