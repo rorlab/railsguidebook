@@ -267,6 +267,25 @@ $ cap staging config:init
       Created: config/secrets.staging.yml as empty file
 ```
 
+```
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+staging:
+  <<: *default
+  database: rcafe2_staging
+  username: <%= ENV['RCAFE2_DATABASE_USERNAME'] %>
+  password: <%= ENV['RCAFE2_DATABASE_PASSWORD'] %>
+```
+
+```
+staging:
+  secret_key_base: <%= ENV["RCAFE2_SECRET_KEY_BASE"] %>
+```  
 
 #### Staging 서버 점검하기
 
