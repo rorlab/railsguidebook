@@ -119,28 +119,15 @@ production:
 프로젝트의 `Gemfile`을 열고 파일 하단에 코멘트 처리되어 있는 두개의 젬을 활성화하고, `Capistrano` 관련 젬을 추가한 후 데이터베이스 젬을 환경에 맞게 추가한다.
 
 ```ruby
-# Use unicorn as the app server
-gem 'unicorn'
-
-# Use Capistrano for deployment
-gem 'capistrano-rails', '1.1.1', group: :development
-
 # 추가할 젬
-gem 'capistrano-rbenv', '2.0.2', group: :development
-gem 'capistrano-rbenv-install', '1.0.0', group: :development
-gem 'capistrano-unicorn-nginx', '2.0.0', group: :development
-gem 'capistrano-rails-console'
-gem 'capistrano-rails-collection'
-gem 'capistrano-rails-tail-log'
-
-group :production do
-  gem 'rb-readline'
-end
-
-# 데이터베이스 젬 그룹변경 및 추가
-gem 'sqlite3', group: :development
-gem 'mysql2', group: :production
-```
+# Use Capistrano for deployment
+gem 'capistrano-rbenv', '~> 2.0'
+gem 'capistrano-rbenv-install', '~> 1.2.0'
+gem 'capistrano-rails', group: :development
+gem 'capistrano3-puma' , group: :development
+gem 'capistrano-figaro-yml', '~> 1.0.2'
+gem 'capistrano-upload-config'
+gem 'capistrano3-nginx', '~> 2.0'
 
 프로젝트에 적용하기 위해서 번들 인스톨한다.
 
