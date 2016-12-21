@@ -259,9 +259,18 @@ $ figaro install
 ```
 
 
+
+
+```
+$ cap staging doctor
+```
+
 ```
 $ cap staging config:init
 ```
+
+
+
 
 #### secrets.yml 파일의 옵션 변경
 
