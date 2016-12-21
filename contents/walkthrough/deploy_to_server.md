@@ -284,6 +284,7 @@ $ cap staging doctor
 
 ```
 $ sudo apt-get install -y libreadline-dev
+$ sudo apt-get install libpq-dev
 ```
 
 ```
@@ -294,25 +295,6 @@ $ cap staging deploy:check
 
 `config/database.staging.yml doesn't exist` 오류가 발생할 경우에는 
 
-#### secrets.yml 파일의 옵션 변경
-
-`config/secrets.yml` 파일을 열고 아래와 같이 변경한다.
-
-```ruby
-production:
-  secret_key_base: <%= ENV["RCAFE2_SECRET_KEY_BASE"] %>
-```
-
-
-
-#### 서버 시스템에 환경변수 지정
-
-서버에 접속한 후 `/etc/environment` 파일을 열고 아래와 같이 추가한다.
-
-```bash
-RCAFE2_SECRET_KEY_BASE='xxxxxxxxxxxxxx'
-RCAFE2_DATABASE_PASSWORD='xxxxxxx'
-```
 
 > **Note** 로컬 프로젝트 디렉토리에서 아래와 같이 명령을 실행하면 `secret` 키를 생성할 수 있다
 ```bash
