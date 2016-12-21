@@ -86,33 +86,7 @@ ubuntu
 > 복수개의 서버를 설치 중이라면 모든 서버에서 위의 작업을 해 주어야 한다.
 
 
-### database.yml 설정
 
-운영 데이터베이스 서버의 셋팅을 변경하기 위해서, `config/database.yml` 파일을 열고 아래와 같이 수정한다.
-
-```ruby
-default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
-
-development:
-  <<: *default
-  database: db/development.sqlite3
-
-test:
-  <<: *default
-  database: db/test.sqlite3
-
-production:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  database: rcafe_production
-  username: deployer
-  password: <%= ENV["RCAFE_DATABASE_PASSWORD"] %>
-  host: localhost
-```
 
 ### Gemfile의 추가
 
