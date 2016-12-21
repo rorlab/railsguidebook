@@ -192,7 +192,7 @@
 
 #### 37. 설치할 소프트웨어는 `OpenSSH server`만 선택(스페이스바를 클릭)한 후 계속한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rorla/2014-10-09_20-42-10_zps84c26dae.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-40-59_zpspx48ymyk.png)
 
 #### 38. 설치 진행과정
 
