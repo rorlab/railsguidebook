@@ -276,6 +276,12 @@ $ cap staging doctor
 $ sudo apt-get install -y libreadline-dev
 ```
 
+```
+$ cap staging deploy:check
+```
+
+`git:check` 퍼미션 오류가 날 때는 `github` 저장소의 `Settings` 페이지에서 `Deploy keys`를 등록해 준다. deployer 계정으로 서버에 접속해서 `ssh-keygen` 명령을 실행한다. 그리고 `cat ~/.ssh/id_rsa.pub` 명령을 실행한 후 출력되는 내용을 복사해서 키 값으로 사용하면 된다. 
+
 #### secrets.yml 파일의 옵션 변경
 
 `config/secrets.yml` 파일을 열고 아래와 같이 변경한다.
