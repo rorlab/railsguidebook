@@ -253,7 +253,7 @@ LANGUAGE="ko_KR:ko:en_US:en"
 ubuntu@ubuntu-VirtualBox:~$ sudo dpkg-reconfigure locales
 
 # Build-essential 설치
-ubuntu@ubuntu-VirtualBox:~$ sudo apt-get -y install git curl build-essential openssl libssl-dev python-software-properties python g++ make
+ubuntu@ubuntu-VirtualBox:~$ sudo apt-get -y install git curl build-essential openssl libssl-dev libreadline-dev python-software-properties python g++ make
 
 # Nginx 서버 설치
 ubuntu@ubuntu-VirtualBox:~$ sudo apt-get install -y nginx
