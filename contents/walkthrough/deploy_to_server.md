@@ -258,18 +258,18 @@ $ figaro install
       append  .gitignore
 ```
 
-
-
-
-```
-$ cap staging doctor
-```
+#### Staging 서버 설정 파일의 생성과 업로드
 
 ```
 $ cap staging config:init
 ```
 
 
+#### Staging 서버 점검하기
+
+```
+$ cap staging doctor
+```
 
 
 #### secrets.yml 파일의 옵션 변경
@@ -281,50 +281,22 @@ production:
   secret_key_base: <%= ENV["RCAFE2_SECRET_KEY_BASE"] %>
 ```
 
-#### Capfile 설정
 
-
-위에서 `RCAFE_`를 환경변수 이름 앞에 추가한다.
-
-
-`Capfile`을 열고 아래와 같이 변경한다.
-
-```ruby
-# Load DSL and Setup Up Stages
-require 'capistrano/setup'
-
-# Includes default deployment tasks
-require 'capistrano/deploy'
-
-# Includes tasks from other gems included in your Gemfile
-require 'capistrano/rbenv'
-require 'capistrano/rbenv_install'
-require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-require 'capistrano/rails/console'
-require 'capistrano/rails/collection'
-require 'capistrano/unicorn_nginx'
-require 'capistrano/rails_tail_log'
-
-# Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
-Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
-```
 
 #### 서버 시스템에 환경변수 지정
 
 서버에 접속한 후 `/etc/environment` 파일을 열고 아래와 같이 추가한다.
 
 ```bash
-RCAFE_SECRET_KEY_BASE='xxxxxxxxxxxxxx'
-RCAFE_DATABASE_PASSWORD='xxxxxxx'
+RCAFE2_SECRET_KEY_BASE='xxxxxxxxxxxxxx'
+RCAFE2_DATABASE_PASSWORD='xxxxxxx'
 ```
 
 > **Note** 로컬 프로젝트 디렉토리에서 아래와 같이 명령을 실행하면 `secret` 키를 생성할 수 있다
 ```bash
 $ bin/rake secret
 ```
-이 때 생성된 키를 위의 `RCAFE_SECRET_KEY_BASE` 값으로 할당하면 된다.
+이 때 생성된 키를 위의 `RCAFE2_SECRET_KEY_BASE` 값으로 할당하면 된다.
 
 #### 데이터베이스의 생성
 
