@@ -239,7 +239,7 @@ $ figaro install
 
 ```ruby
 production:
-  secret_key_base: <%= ENV["RCAFE_SECRET_KEY_BASE"] %>
+  secret_key_base: <%= ENV["RCAFE2_SECRET_KEY_BASE"] %>
 ```
 
 #### Capfile 설정
