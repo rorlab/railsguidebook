@@ -216,19 +216,13 @@ namespace :deploy do
 end
 ```
 
-#### 운영서버 배포 환경
+#### Staging 서버 환경
 
-다음 `config/deploy/production.rb` 파일을 열고 아래와 같이 변경한다.
+다음 `config/deploy/staging.rb` 파일을 열고 아래와 같이 변경한다.
 
 ```ruby
-role :app, %w{deployer@ubuntu.vm}
-role :web, %w{deployer@ubuntu.vm}
-role :db,  %w{deployer@ubuntu.vm}
-
-set :nginx_server_name, 'ubuntu.vm'
-set :unicorn_workers, 4
-
-server 'ubuntu.vm', user: 'deployer', roles: %w{web app}
+server 'ubuntu16.dev', user: 'deployer', roles: %w{app db web}
+set :nginx_server_name, 'staging.ubuntu16.dev'
 ```
 
 최적의 `:unicorn_workers` 수를 정하기 위해서 참고할 만한 글을 [여기](https://www.digitalocean.com/community/tutorials/how-to-optimize-unicorn-workers-in-a-ruby-on-rails-app)를 참고하기 바란다. 여기서는 `4`로 지정했다. 각자의 서버 환경에 따라 적절하게 조절할 필요가 있다.
