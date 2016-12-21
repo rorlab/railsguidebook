@@ -272,6 +272,10 @@ $ cap staging doctor
 ```
 
 
+```
+$ sudo apt-get install -y libreadline-dev
+```
+
 #### secrets.yml 파일의 옵션 변경
 
 `config/secrets.yml` 파일을 열고 아래와 같이 변경한다.
