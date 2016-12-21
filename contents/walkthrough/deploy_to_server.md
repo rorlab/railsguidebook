@@ -19,7 +19,7 @@
 
 > #### Caution::주의
 > 
-> `MySQL DB 서버`의 경우 원격서버의 `/etc/mysql/conf.d/` 디렉토리에 `deployer.cnf` 파일을 새로 추가하고 아래와 같이 문자 인코딩을 `uft8`로 추가해 주어야 한글 인코딩 문제를 해결할 수 있다.
+> `MySQL DB 서버`를 사용할 경우 원격서버의 `/etc/mysql/conf.d/` 디렉토리에 `deployer.cnf` 파일을 새로 추가하고 아래와 같이 문자 인코딩을 `uft8`로 추가해 주어야 한글 인코딩 문제를 해결할 수 있다.
 ```
 root@ubuntu $ sudo vi /etc/mysql/conf.d/deployer.cnf
 [mysqld]

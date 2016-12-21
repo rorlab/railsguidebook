@@ -222,7 +222,7 @@
 
 #### 44. 가상 머신의 ip 주소
 
-프롬프트에서 `ifconfig` 명령을 실행하면 아래와 같이 자신(가상머신 - 게스트 머신 : Ubuntu 14.04 서버)의 ip를 알 수 있다. 잘 기억해 두었다가 로컬머신(호스트머신)의 터미널에서 ssh로 가상머신으로 접속시 사용한다.
+프롬프트에서 `ifconfig` 명령을 실행하면 아래와 같이 자신(가상머신 - 게스트 머신 : Ubuntu 16.04 서버)의 ip를 알 수 있다. 잘 기억해 두었다가 로컬머신(호스트머신)의 터미널에서 ssh로 가상머신으로 접속시 사용한다.
 
 ![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-19_08-54-09_zpsfg0dg4su.png)
 
@@ -235,7 +235,7 @@
 
 ## 서버 웹운영 환경 설정
 
-이제부터는 [`우분투 12.04 서버 세팅하기`](http://rorlab.gitbooks.io/railsguidebook/appendices/ubuntu_12_4_setting.html) 챕터의 내용 중 `서버 설치과정`을 보고 따라하면 된다. 
+이제부터는 [우분투 16.04 서버 세팅하기](/appendices/ubuntu16server.md) 챕터의 내용 중 `서버 설치과정`을 보고 따라하면 된다. 
 
 중복되지만 아래에 삽입해 두었다.
 
