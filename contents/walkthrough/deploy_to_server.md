@@ -225,8 +225,13 @@ server 'ubuntu16.dev', user: 'deployer', roles: %w{app db web}
 set :nginx_server_name, 'staging.ubuntu16.dev'
 ```
 
-최적의 `:unicorn_workers` 수를 정하기 위해서 참고할 만한 글을 [여기](https://www.digitalocean.com/community/tutorials/how-to-optimize-unicorn-workers-in-a-ruby-on-rails-app)를 참고하기 바란다. 여기서는 `4`로 지정했다. 각자의 서버 환경에 따라 적절하게 조절할 필요가 있다.
+#### Figaro 설치
 
+```
+$ figaro install
+      create  config/application.yml
+      append  .gitignore
+```
 
 #### secrets.yml 파일의 옵션 변경
 
