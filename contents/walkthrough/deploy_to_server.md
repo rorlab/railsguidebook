@@ -232,6 +232,20 @@ $ figaro install
       append  .gitignore
 ```
 
+`config/application.yml`
+
+```
+staging:
+  RCAFE2_DATABASE_USERNAME: deployer
+  RCAFE2_DATABASE_PASSWORD: deployer1234
+  RCAFE2_SECRET_KEY_BASE: 9cf54a6500186dfd9ee00f66162b7f0ce120d36df0c4927e789b5ce782a8b1fb95d0c793f9e1cb2256be36a1658caee06d78608eb9bc2ec838bbb6a2c21e2abb
+
+production:
+  RCAFE2_DATABASE_USERNAME: deployer
+  RCAFE2_DATABASE_PASSWORD: deployer1234
+  RCAFE2_SECRET_KEY_BASE: f62932f3c1
+```
+
 #### Staging 서버 설정 파일의 생성과 업로드
 
 ```
