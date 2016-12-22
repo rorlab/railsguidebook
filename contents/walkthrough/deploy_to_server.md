@@ -102,6 +102,7 @@ gem 'capistrano3-puma' , group: :development
 gem 'capistrano-figaro-yml', '~> 1.0.2'
 gem 'capistrano-upload-config'
 gem 'capistrano3-nginx', '~> 2.0'
+gem 'capistrano-rails-collection'
 
 프로젝트에 적용하기 위해서 번들 인스톨한다.
 
