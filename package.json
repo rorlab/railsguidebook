@@ -9,8 +9,8 @@
     "author": "RORLAB <rorlab@gmail.com>",
     "license": "Apache 2",
     "dependencies": {
-      "gitbook-plugin-autocover": "0.0.5",
-      "gitbook-plugin-disqus": "0.0.1",
-      "gitbook-plugin-richquotes": "0.0.3"
+      "gitbook-plugin-autocover": "2.0.1",
+      "gitbook-plugin-disqus": "1.0.0",
+      "gitbook-plugin-richquotes": "0.0.7"
     }
 }
