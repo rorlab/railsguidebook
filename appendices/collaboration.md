@@ -4,7 +4,8 @@
 
 npm v0.6.3 부터는 node.js 설치시에 함께 설치되기 때문에 별도로 npm을 설치할 필요가 없다. 따라서 시스템에 node.js가 설치되어 있지 않다면 http://www.nodejs.org 를 참고하여 설치한다.
 
-> **Note** 한글로 작성된 설치 안내문을 원하면  [Nodejs-설치-및-개발환경-세팅하기](http://inspiredjw.tistory.com/entry/Nodejs-설치-및-개발환경-세팅하기)를 참고하기 바란다.
+> #### Note::참고
+> 한글로 작성된 설치 안내문을 원하면  [Nodejs-설치-및-개발환경-세팅하기](http://inspiredjw.tistory.com/entry/Nodejs-설치-및-개발환경-세팅하기)를 참고하기 바란다.
 
 
 ### 로컬 머신에 gitbook 설치하기
