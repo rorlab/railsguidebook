@@ -7,7 +7,11 @@
 
 배포할 서버에는 아래와 같은 프로그램을 미리 설치해 둔다. 여기서는 테스트 목적으로 배포할 것이기 때문에, 가상서버를 준비하기로 한다. 가상머신용 툴로는 [`VMware Fusion`](http://www.vmware.com/kr/products/fusion/) v8.5.4를 사용하였다. 무료로 사용할 수 있는 툴로는 오라클사의 `VM VirtualBox`가 있으며 [여기](https://www.virtualbox.org/wiki/Downloads)를 방문하면 패키지를 다운로드 받아 설치할 수 있다. 
 
-또한, [우분투 16.04 서버 셋팅하기](/appendices/ubuntu16server.md)를 참고하면 `VirtualBox`로 가상 서버를 생성하여 서버 환경을 구축할 수 있다.
+또한, [우분투 16.04 서버 셋팅하기](/appendices/ubuntu16server.md)를 참고하면 `VirtualBox`로 가상 서버를 생성하여 서버 환경을 구축할 수 있다. 레일스 프로젝트를 배포하기 전에 서버로 접속해서 아래의 두 라이브러리를 인스톨한다. 서버 배포시 `bundle install` 명령 실행시 오류를 해결하기 위한 조치다. 
+
+```
+# sudo apt-get install -y libreadline-dev libpq-dev
+```
 
 가상머신의 시스템에는 아래의 프로그램이 설치된다.
 
@@ -250,7 +254,7 @@ production:
 
 #### Staging 서버 설정 파일의 생성과 업로드
 
-```
+```bash
 $ cap staging config:init
 00:00 config:init
       Created: config/database.staging.yml as empty file
@@ -277,27 +281,29 @@ staging:
   secret_key_base: <%= ENV["RCAFE2_SECRET_KEY_BASE"] %>
 ```  
 
+#### Staging 환경 파일 생성 
+
+`config/environments/staging.rb` 파일을 생성하고 `config/environments/production.rb` 파일 내용을 복사해서 붙여넣기 한 후 아래의 코드를 추가한다. 
+
+```ruby
+config.secret_key_base = '<%=ENV["RCAFE2_SECRET_KEY_BASE"] %>'
+```
+
 #### Staging 서버 점검하기
 
 ```
 $ cap staging doctor
+$ cap staging deploy:check
 ```
 
-
-```
-$ sudo apt-get install -y libreadline-dev
-$ sudo apt-get install libpq-dev
-```
+#### 배포 실행
 
 ```
 $ cap staging setup
-$ cap staging deploy:check
 $ cap staging deploy
 ```
 
 `git:check` 퍼미션 오류가 날 때는 `github` 저장소의 `Settings` 페이지에서 `Deploy keys`를 등록해 준다. deployer 계정으로 서버에 접속해서 `ssh-keygen` 명령을 실행한다. 그리고 `cat ~/.ssh/id_rsa.pub` 명령을 실행한 후 출력되는 내용을 복사해서 키 값으로 사용하면 된다. 
-
-`config/database.staging.yml doesn't exist` 오류가 발생할 경우에는 
 
 
 > **Note** 로컬 프로젝트 디렉토리에서 아래와 같이 명령을 실행하면 `secret` 키를 생성할 수 있다
@@ -308,6 +314,20 @@ $ bin/rake secret
 
 #### 데이터베이스의 생성
 
+#####(1) PostgreSQL 서버를 사용할 경우 
+
+서버에 접속하여 아래와 같이 DB 유저를 생성하고 권한을 부여한 후 데이터베이스를 생성한다.
+
+```
+deployer@ubuntu $ sudo -i -u postgres
+postgres@ubuntu $ createuser --interactive  # `deployer` 유저생성
+postgres@ubuntu $ sudo -i -u deployer
+deployer@ubuntu $ createdb rcafe2_staging
+```
+
+
+#####(2) MySQL 서버를 사용할 경우 
+
 서버에 접속하여 아래와 같이 데이터베이스를 생성하고 권한을 부여한다.
 
 ```bash
@@ -317,82 +337,25 @@ mysql> grant usage on *.* to deployer@localhost identified by 'password';
 mysql> grant all privileges on rcafe_production.* to deployer@localhost;
 ```
 
-### 운영서버의 셋업
-
-배포 전에 아래와 같은 명령으로 서버의 셋팅 작업을 한다.
-
-```bash
-$ cap production setup
-```
-
-아래와 같이 루비 2.2.0 설치 중 에러가 발생하면,
-
-```bash
-INFO [b3b4b5bb] Running /usr/bin/env ~/.rbenv/bin/rbenv install 2.2.0 as deployer@ubuntu14.vm
-DEBUG [b3b4b5bb] Command: /usr/bin/env ~/.rbenv/bin/rbenv install 2.2.0
-DEBUG [b3b4b5bb] 	Downloading ruby-2.2.0.tar.gz...
-DEBUG [b3b4b5bb] 	-> http://dqw8nmjcqpjn7.cloudfront.net/7671e394abfb5d262fbcd3b27a71bf78737c7e9347fa21c39e58b0bb9c4840fc
-DEBUG [b3b4b5bb] 	Installing ruby-2.2.0...
-DEBUG [b3b4b5bb]
-DEBUG [b3b4b5bb] 	BUILD FAILED
-DEBUG [b3b4b5bb] 	 (Ubuntu 14.10 using ruby-build 20150130)
-DEBUG [b3b4b5bb]
-DEBUG [b3b4b5bb] 	Inspect or clean up the working tree at /tmp/ruby-build.20150202122321.28969
-DEBUG [b3b4b5bb] 	Results logged to /tmp/ruby-build.20150202122321.28969.log
-DEBUG [b3b4b5bb]
-DEBUG [b3b4b5bb] 	Last 10 log lines:
-DEBUG [b3b4b5bb] 	./libffi-3.2.1/.libs/libffi.a: error adding symbols: Bad value
-DEBUG [b3b4b5bb] 	collect2: error: ld returned 1 exit status
-DEBUG [b3b4b5bb] 	Makefile:325: recipe for target '../../.ext/x86_64-linux/fiddle.so' failed
-DEBUG [b3b4b5bb] 	make[2]: *** [../../.ext/x86_64-linux/fiddle.so] Error 1
-DEBUG [b3b4b5bb] 	make[2]: Leaving directory '/tmp/ruby-build.20150202122321.28969/ruby-2.2.0/ext/fiddle'
-DEBUG [b3b4b5bb] 	exts.mk:177: recipe for target 'ext/fiddle/all' failed
-DEBUG [b3b4b5bb] 	make[1]: *** [ext/fiddle/all] Error 2
-DEBUG [b3b4b5bb] 	make[1]: Leaving directory '/tmp/ruby-build.20150202122321.28969/ruby-2.2.0'
-DEBUG [b3b4b5bb] 	uncommon.mk:187: recipe for target 'build-ext' failed
-DEBUG [b3b4b5bb] 	make: *** [build-ext] Error 2
-```
-
-서버에 접속하여 아래와 같이 `libffi-dev` 라이브러리를 설치하고 다시 시도한다.  
-
-```bash
-deployer@ubuntu $ sudo apt-get libffi-dev
-```
-
-### 배포하기
-
-이제 실제 배포 명령을 실행한다.
-
-```bash
-$ cap production deploy
-```
-
-> #### Danger::버그
-> 
-> 이 때 아래와 같은 에러가 발생하고 중단할 경우에는 배포서버로 접속한 후 `'...'` 내용을 복사해서 실행하고 한번더 **deploy**하면 해결된다. 아직 이런 현상의 이유를 알 수 없다.
-  ```
-  Couldn't reload, starting 'cd /home/deployer/apps/blog/current && ( RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 ~/.rbenv/bin/rbenv exec bundle exec unicorn -D -c /home/deployer/apps/blog/shared/config/unicorn.rb -E production )' instead
-  ```
-
 마지막으로 한가지 추가할 것은 서버에서 `rake db:seed`가 실행되도록 하여 기본 게시판을 생성하도록 한다. 
 
 ```bash
-$ cap production rails:rake:db:seed
+$ cap staging rails:rake:db:seed
 ```
 
 에러 없이 배포가 완료되면 브라우저에서 확인한다.
 
 ### 소스코드의 관리
 
-* 이후 소스변경이 필요한 경우 커밋 후 `git push`한 다음, `cap production deploy` 명령을 실행하면 된다.
-* 잘 못 배포된 경우에는 `cap production deploy:rollback` 명령으로 취소할 수 있다.
+* 이후 소스변경이 필요한 경우 커밋 후 `git push`한 다음, `cap staging deploy` 명령을 실행하면 된다.
+* 잘 못 배포된 경우에는 `cap staging deploy:rollback` 명령으로 취소할 수 있다.
 
 
 지금까지 설명한 배포과정이 다소 길고 복잡한 감이 있다. 또한 각자의 환경에 따라 예상치 못했던 여러가지 에러가 발생할 것으로 생각한다. 각자 따라해 보고 문제가 발생하면 아래에 코멘트를 달아 함께 공유하고 고민해 보자.
 
 
 ---
-> **Git소스** https://github.com/rorlakr/rcafe/tree/chapter_05_16
+> **Git소스** https://github.com/rorlab/rcafe2/tree/chapter_05_16
 
 ---
 
