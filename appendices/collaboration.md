@@ -21,9 +21,9 @@ $ npm install gitbook -g
 
 ### 가이드북 Github 저장소 Forking 하기
 
-[Github](https://github.com)에 로그인한 상태에서 [https://github.com/RORLabGitBook/railsguidebook](https://github.com/RORLabGitBook/railsguidebook)로 접속한 후 우측 상단에 있는 `Fork` 버튼을 클릭한다.
+[Github](https://github.com)에 로그인한 상태에서 [rorlab/railsguidebook](https://github.com/rorlab/railsguidebook)로 접속한 후 우측 상단에 있는 `Fork` 버튼을 클릭한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-18_20-08-57_zpsc381de0d.png)
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-22_20-12-10_zpsxnmtoly0.png)
 
 
 ### 저장소 clone 하기
@@ -31,8 +31,8 @@ $ npm install gitbook -g
 : github에서 본인 계정으로 Fork된 저장소를 clone한다.
 
 ```bash
-$ git clone https://github.com/[user-account]/rcafe.git
-$ cd rcafe
+$ git clone https://github.com/[user-account]/rcafe2.git
+$ cd rcafe2
 ```
 
 ### 문서작업
@@ -44,7 +44,7 @@ $ cd rcafe
 문서 작업을 종료한 후, 터미널 쉘에서 아래와 같이 명령을 실행하여 작업한 내용이 제대로 브라우저에서 보이는지를 확인한다. (브라우저에서 http://localhost:4000 주소로 접속한다.)
 
 ```bash
-(rcafe) $ gitbook serve
+(rcafe2) $ gitbook serve
 ```
 
 > **Info** 이때 아래와 같은 에러가 발생하면, `$ ulimit -n 1200` 명령을 실행한 후 다시 실행하면 된다. ([참고문서](https://github.com/GitbookIO/gitbook/issues/214))
@@ -67,9 +67,9 @@ Error: EMFILE: Too many opened files.
 작업한 내용을 커밋하고 푸시한다.
 
 ```bash
-(rcafe) $ git add .
-(rcafe) $ git commit -m "작업내용을 기술"
-(rcafe) $ git push
+(rcafe2) $ git add .
+(rcafe2) $ git commit -m "작업내용을 기술"
+(rcafe2) $ git push
 ```
 
 > **Info** 작업내용 중에 삭제된 파일이 있는 경우에는 `git add .` 대신에 `git add -A`와 같이 실행하여 삭제된 파일도 커밋에 반영되도록 한다.
