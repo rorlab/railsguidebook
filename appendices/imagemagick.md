@@ -14,7 +14,7 @@ $ brew install ghostscript imagemagick
 
 ### 우분투에서 설치하기
 
-아래와 같이 한 줄 명령으로 설치가 된다.
+: 아래와 같이 한 줄 명령으로 설치가 된다.
 
 ```
 $ sudo apt-get install ghostscript imagemagick
@@ -24,4 +24,5 @@ $ sudo apt-get install ghostscript imagemagick
 
 [ImageMagick 윈도우 바이너리 릴리스](http://www.imagemagick.org/script/binary-releases.php)를 [다운로드(ImageMagick-7.0.4-0-Q16-x64-dll.exe)](https://www.imagemagick.org/download/binaries/ImageMagick-7.0.4-0-Q16-x64-dll.exe) 받아 설치한다. 그리고, [Ghostscript for Windows](http://www.ghostscript.com/download/gsdnld.html)를 다운로드([32비트용](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs920/gs920w32.exe)|[64비트용](https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs920/gs920w64.exe)) 받아 설치한다.
 
-> **Note** [Ghostscript](http://www.ghostscript.com)는 PDF 파일에 대한 썸네일 이미지를 생성하기 위해 사용된다.
+> ####Note::노트 
+> [Ghostscript](http://www.ghostscript.com)는 PDF 파일에 대한 썸네일 이미지를 생성하기 위해 사용된다.
