@@ -37,7 +37,7 @@ $ source ~/.bashrc
 ### 레일스 프로젝트를 위한 준비
 
 
-* 레일스 프로젝트에서 사용한 PostgreSQL 유저를 생성한다.
+* 레일스 프로젝트에서 사용한 `PostgreSQL` 유저를 생성한다.
 
   ```bash
 $ createuser -P -d -e sampleuser
