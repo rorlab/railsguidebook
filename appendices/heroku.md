@@ -56,21 +56,24 @@
 로컬 운영체제에 맞는 [`허로쿠 툴벨트`](https://toolbelt.heroku.com)를 설치한다. 이후에는 터미널에서 헤로쿠에서 `heroku` 명령을 사용할 수 있게 된다
 
 ```bash
-$ heroku
+$ heroku help
 Usage: heroku COMMAND [--app APP] [command-specific-options]
 
-Primary help topics, type "heroku help TOPIC" for more details:
+Help topics, type "heroku help TOPIC" for more details:
 
-  addons    #  manage addon resources
-  apps      #  manage apps (create, destroy)
-  auth      #  authentication (login, logout)
-  config    #  manage app config vars
-  domains   #  manage custom domains
-  logs      #  display logs for an app
-  ps        #  manage dynos (dynos, workers)
-  releases  #  manage app releases
-  run       #  run one-off commands (console, rake)
-  sharing   #  manage collaborators on an app
+  heroku access        # CLI to manage access in Heroku Applications
+  heroku addons        # manage add-ons
+  heroku apps          # manage apps
+  heroku auth          # authentication (login/logout)
+  heroku buildpacks    # manage the buildpacks for an app
+  heroku certs         # a topic for the ssl plugin
+  heroku config        # manage app config vars
+  heroku domains       # manage the domains for an app
+  heroku drains        # list all log drains
+  heroku features      # manage optional features
+  heroku git           # manage local git repository for app
+  heroku labs          # experimental features
+  heroku local         # run heroku app locally
 
 (생락...)
 ```
