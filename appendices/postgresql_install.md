@@ -24,7 +24,7 @@ $ brew install postgresql
 
 ### 2. Postgre.app을 이용하여 설치하기
 
-맥에서는 [Postgre.app](http://postgresapp.com)을 설치하면 바로 PostgreSQL에 접속할 수도 있다.
+맥에서는 [Postgre.app](http://postgresapp.com)을 설치하면 바로 `PostgreSQL`에 접속할 수도 있다.
 
 설치 후에 응용프로그램 폴더에 있는 `Postgres`를 실행하여 `PostgreSQL` 데이터베이스를 시작할 수 있다. 그리고 아래와 같이 `PostgreSQL`의 `bin` 경로를 `~/.bashrc` 파일에 추가해 준다.
 
