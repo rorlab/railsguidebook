@@ -1,5 +1,7 @@
 # Postgres (or PostgreSQL) 설치하기
 
+: 개발장비에 PostgreSQL 서버를 설치하는 방법을 소개한다. 
+
 ### 맥 OSX에 설치하기
 
 두가지 방법으로 설치할 수 있다.
