@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [서문](README.md)
 * [인사말](인사말.md)
 * [저자소개](contents/authors.md)
 * [루비온레일스 소개](contents/rubyonrails_intro.md)
