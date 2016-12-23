@@ -102,7 +102,7 @@ else
 end
 ```
 
-> ####Note::참고
+> ####Note::노트
 > `paperclip` 젬을 사용할 때는 [paperclip-s3](https://devcenter.heroku.com/articles/paperclip-s3)를 참고하기 바란다.
 > `fog` 젬 사용법은 [`여기`](https://gist.github.com/cblunt/1303386)를 참고하면 도움이 된다.
 
