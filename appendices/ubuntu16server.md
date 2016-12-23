@@ -2,11 +2,13 @@
 
 : 레일스 애플리케이션을 배포하기 위해서는 서버의 준비가 필요가 하다. 실제 운영 서버에 배포 테스트하는 것 보다는 **Virtual Box**와 같은 가상머신에 서버를 설치해 놓고 이를 이용하는 것이 여러가지로 유용하다. 이를 위해서 **Virtual Box**를 이용하여 **Ubuntu 서버**의 최신 버전인 **16.04.1 LTS (Xenial Xerus)**을 설치하고 웹서비스를 위한 서버 환경을 셋업하는 과정을 소개한다.
 
-> **이미지 다운로드** : [http://releases.ubuntu.com/16.04/](http://releases.ubuntu.com/16.04/)를 방문하여 우분투 서버 버전(16.04.1 LTS (Xenial Xerus))을 다운로드 받는다.
+> ####Note::이미지 다운로드
+> [http://releases.ubuntu.com/16.04/](http://releases.ubuntu.com/16.04/)를 방문하여 우분투 서버 버전(16.04.1 LTS (Xenial Xerus))을 다운로드 받는다.
 
 로컬 머신에 각자의 OS에 맞는 **Virtual Box**가 설치되어 있다고 가정하고 아래와 같이 진행한다.
 
-> **Virtual Box 다운로드**: https://www.virtualbox.org/wiki/Downloads
+> ####Note::Virtual Box 다운로드
+> https://www.virtualbox.org/wiki/Downloads
 
 ---
 
