@@ -52,6 +52,10 @@ $ bundle install
 | aws-sdk | 5.4M       |  90290        | 0.098     | 3            | 8            |
 
 
+#### Bucket 생성
+
+![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_18-31-51_zpsjwa9c5zt.png)
+
 #### 사용법
 
 `config/initializers/carrierwave.rb` 파일에 아래와 같이 추가한다.
