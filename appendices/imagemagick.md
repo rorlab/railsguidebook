@@ -1,5 +1,8 @@
 # ImageMagick 설치하기
 
+* `ImageMagick`은 이미지를 생성하고 수정하고 변환하는 시스템 툴이다.
+* 대개는 서버에서 업로드된 이미지의 썸네일 버전을 생성하거나 다양한 변화를 주기 위해 사용한다.
+* 공식 사이트 : https://www.imagemagick.org/script/index.php
 
 ### 맥 OSX에서 설치하기
 
