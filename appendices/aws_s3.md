@@ -74,7 +74,7 @@ end if Rails.env == 'production'
 `config.asset_host`값을 `AWS S3`의 해당 `bucket`의 `Endpoint` 주소로 변경한다. (예, `https://s3-ap-northeast-1.amazonaws.com/<bucket-name>`)
 
 > ####Caution::주의
-> 현재 `AWS S3 bucket`의 `Endpoint` 주소의 링크의 오류가 있으므로 위의 예를 복사해서 `bucket-name` 만 변경해서 사용하도록 한다.
+> 현재 `AWS S3 bucket`의 `Endpoint` 주소의 링크의 오류가 있으므로 위의 예를 복사해서 `<bucket-name>` 만 변경해서 사용하도록 한다.
 
 위에서 사용한 'S3_BUCKET_NAME', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'을 시스템 환경변수로 등록하기 위해서 `~/.bash_profile` 또는 `~/.zshrc` 파일을 열어서 아래와 같이 추가한다.
 
@@ -102,9 +102,7 @@ else
 end
 ```
 
-> **Info** `paperclip` 젬을 사용할 때는 [paperclip-s3](https://devcenter.heroku.com/articles/paperclip-s3)를 참고하기 바란다.
-
----
-
-> **Note** `fog` 젬 사용법은 [`여기`](https://gist.github.com/cblunt/1303386)를 참고하면 도움이 된다.
+> ####Note::참고
+> `paperclip` 젬을 사용할 때는 [paperclip-s3](https://devcenter.heroku.com/articles/paperclip-s3)를 참고하기 바란다.
+> `fog` 젬 사용법은 [`여기`](https://gist.github.com/cblunt/1303386)를 참고하면 도움이 된다.
 
