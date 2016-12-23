@@ -73,7 +73,8 @@ end if Rails.env == 'production'
 
 `config.asset_host`값을 `AWS S3`의 해당 `bucket`의 `Endpoint` 주소로 변경한다. (예, `https://s3-ap-northeast-1.amazonaws.com/<bucket-name>`)
 
-> **Caution** 현재 `AWS S3 bucket`의 `Endpoint` 주소의 링크의 오류가 있으므로 위의 예를 복사해서 `bucket-name` 만 변경해서 사용하도록 한다.
+> ####Caution::주의
+> 현재 `AWS S3 bucket`의 `Endpoint` 주소의 링크의 오류가 있으므로 위의 예를 복사해서 `bucket-name` 만 변경해서 사용하도록 한다.
 
 위에서 사용한 'S3_BUCKET_NAME', 'AWS_ACCESS_KEY_ID', 'AWS_SECRET_ACCESS_KEY'을 시스템 환경변수로 등록하기 위해서 `~/.bash_profile` 또는 `~/.zshrc` 파일을 열어서 아래와 같이 추가한다.
 
