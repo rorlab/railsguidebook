@@ -1,8 +1,8 @@
 # 액티브레코드란?
 
-액티브레코드(`ActiveRecord`)란, 관계형데이터베이스(`RDBMS`)의 테이블을 객체로 연결(`ORM : Object Relational Mapping`)해서 네이티브 데이터베이스 SQL을 사용하지 않고도 데이터를 조작할 수 있도록 다양한 메소드를 제공해 준다.
+액티브레코드(`ActiveRecord`)는 관계형데이터베이스(`RDBMS`)의 테이블을 객체로 연결(`ORM : Object Relational Mapping`)해서 네이티브 데이터베이스 SQL을 사용하지 않고도 데이터를 조작할 수 있도록 다양한 메소드를 제공해 준다.
 
-`MVC` 디자인 패턴으로 개발하는 레일스에서 액티브레코드는 `M(Model)`에 해당한다. 이 책의 [프로젝트 따라하기](../walkthrough/start.html)에서 사용하는 `Post` 모델 클래스의 소스를 보면 아래와 같다.
+`MVC` 디자인 패턴으로 개발하는 레일스에서 액티브레코드는 `M(Model)`에 해당한다. 이 책의 [프로젝트 따라하기](/contents/walkthrough/start.md)에서 사용하는 `Post` 모델 클래스의 소스를 보면 아래와 같다.
 
 ```ruby
 # app/models/post.rb
