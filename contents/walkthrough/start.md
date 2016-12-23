@@ -22,7 +22,7 @@ Rails 5.0.0.1
 로컬 머신에 `git`이 설치되어 있는 경우 아래와 같이 소스를 받을 수 있다.
 
 ```bash
-$ git clone https://github.com/rorlakr/rcafe.git
+$ git clone https://github.com/rorlab/rcafe2.git
 ```
 
 ### 주요기능
