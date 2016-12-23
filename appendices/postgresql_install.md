@@ -26,7 +26,7 @@ $ brew install postgresql
 
 맥에서는 [Postgre.app](http://postgresapp.com)을 설치하면 바로 PostgreSQL에 접속할 수도 있다.
 
-Download and Install PostgreSQL database from Postgres.app which provides PostgresSQL in a single package to easily get started with Max OS X. After the installation, open Postgres located under Applications to start PostgreSQL database running. Find out the PostgreSQL bin path and append to ~/.bashrc for accessing commands through the shell.
+설치 후에 응용프로그램 폴더에 있는 `Postgres`를 실행하여 `PostgreSQL` 데이터베이스를 시작할 수 있다. 그리고 아래와 같이 `PostgreSQL`의 `bin` 경로를 `~/.bashrc` 파일에 추가해 준다.
 
 ```bash
 $ echo 'PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"' >> ~/.bashrc
