@@ -17,7 +17,7 @@ $ npm install gitbook -g
 
 ### 로컬 머신에 gitbook editor 설치하기
 
-: [리눅스/맥/윈도우용 다운로드](https://github.com/GitbookIO/editor/releases) 후 설치하면 된다.
+: [리눅스/맥/윈도우용 다운로드](https://www.gitbook.com/editor) 후 설치하면 된다.
 
 ### 가이드북 Github 저장소 Forking 하기
 
