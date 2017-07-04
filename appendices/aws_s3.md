@@ -54,7 +54,7 @@ $ bundle install
 
 #### Bucket 생성
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_18-31-51_zpsjwa9c5zt.png)
+![](/assets/2016-12-23_18-31-51_zpsjwa9c5zt.png)
 
 #### 사용법
 
