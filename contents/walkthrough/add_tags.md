@@ -140,7 +140,7 @@ end
 <% end %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-47-44_zpsyjlmnk9d.png)
+![](/assets/2016-12-18_14-47-44_zpsyjlmnk9d.png)
 
 태그는 한글도 가능하고, 태그 사이에 공백도 가능하다.
 
@@ -167,7 +167,7 @@ end
 
 여기서 사용한 `CGI::escape()` 메소드는 태그에서 사용할 수 있는 특수문자를 이스케이핑하기 위한 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-50-11_zps06ui12sm.png)
+![](/assets/2016-12-18_14-50-11_zps06ui12sm.png)
 
 `posts#show` 액션 뷰 템플릿 파일에 갤러리 게시판의 경우 업로드된 이미지를 보여 줄 필요가 있다. 이를 위해서 `@post.bulletin.post_type`이 `:gallery`일 경우 아래와 같이 추가해 준다.
 
@@ -182,7 +182,7 @@ end
 ...
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_14-56-54_zpsihl2xps1.png)
+![](/assets/2016-12-18_14-56-54_zpsihl2xps1.png)
 
 이제는 `posts#index` 액션 뷰 템플릿 파일에서 태그를 표시하도록 하자. 이 때는 여건상 블로그형과 갤러리형 게시판에서만 태그를 표시하도록 하자.
 
@@ -224,9 +224,9 @@ a.tag {
 }
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-01-34_zpsgfk9jnwv.png)
+![](/assets/2016-12-18_15-01-34_zpsgfk9jnwv.png)
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-03-48_zpsbcdrmp2n.png)
+![](/assets/2016-12-18_15-03-48_zpsbcdrmp2n.png)
 
 각 태그에는 해당 태그로 검색할 수 있도록  `<a>` 링크 태그의 `href` 속성으로 `/posts?tag=...`와 같이 지정했다. 즉, `posts#index` 액션을 호출시에 `:bulletin_id` 파라미터 없이 `:tag` 파라미터만 넘겨 주게 된다. 따라서 모든 `posts` 객체에 대해서 해당 태그를 가진 것들을 쿼리하게 된다.
 
@@ -289,11 +289,11 @@ ul#posts_tagged {
 }
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-12-18_zps2evmgk9s.png)
+![](/assets/2016-12-18_15-12-18_zps2evmgk9s.png)
 
 그러나 한가지 문제가 발생한다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-13-49_zpsbiuqgqgh.png)
+![](/assets/2016-12-18_15-13-49_zpsbiuqgqgh.png)
 
 태그를 생성할 때는 문제가 없지만, 태그수정을 위해 `posts#edit` 액션을 호출하면, `Tag list` 입력란의 태그들 사이에 구분문자(쉼표)가 보이지 않는다. 이런 문제는 [디자인상의 보안 문제](https://github.com/mbleigh/acts-as-taggable-on/issues/620)로 변경이 된 것이라고 한다. 해결책은 커스텀 input을 작성하는 것이라고 해서 `post.rb` 클래스 파일에 아래와 같이 두개의 메소드를 추가해 주었다. 
 
@@ -323,7 +323,7 @@ end
 
 이제 수정시에도 태그 구분문자(쉼표)가 제대로 보일 것이다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_15-17-02_zpspccyel6a.png)
+![](/assets/2016-12-18_15-17-02_zpspccyel6a.png)
 
 이상으로 태그 달기를 마치도록 하겠다.
 
