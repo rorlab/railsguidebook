@@ -103,7 +103,8 @@ end
 
 테스트용 데이터를 추가하면 아래와 같이 보인다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-44-23_zps8rsxvd40.png)
+![](/assets/2016-12-13_19-44-23_zps8rsxvd40.png)
+
 
 ### show 액션과 뷰 템플릿 파일
 
@@ -138,7 +139,7 @@ end
 
 모든 뷰 템플릿을 수정해서 브라우저로 확인한 결과, 게시판을 생성한 시각이 `UTC 타임존`으로 표시된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-49-52_zpsycbmhk1t.png)
+![](/assets/2016-12-13_19-49-52_zpsycbmhk1t.png)
 
 
 ### form 파셜 템플릿 파일
@@ -179,7 +180,8 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-54-40_zpsgiumjaoc.png)
+![](/assets/2016-12-13_19-54-40_zpsgiumjaoc.png)
+
 
 ### edit 액션과 뷰 템플릿 파일
 
@@ -198,7 +200,7 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-56-12_zpsmhkpau02.png)
+![](/assets/2016-12-13_19-56-12_zpsmhkpau02.png)
 
 
 ### 타임존(Timezone)
@@ -460,7 +462,8 @@ module Rcafe2
 end
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_20-29-01_zpscgu8mgq9.png)
+![](/assets/2016-12-13_20-29-01_zpscgu8mgq9.png)
+
 
 이제 `Created at` 값이 '2016-12-13 19:43:57 **+0900**' 와 같이 변경된 타임존에 맞게 나타나는 것을 볼 수 있다.
 
