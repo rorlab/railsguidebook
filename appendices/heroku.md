@@ -80,15 +80,15 @@ Help topics, type "heroku help TOPIC" for more details:
 
 #### 허로쿠에서 App 생성하기
 
-![허로쿠 웹사이트](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_17-42-46_zpsdjoors0o.png)
+![허로쿠 웹사이트](/assets/2016-12-23_17-42-46_zpsdjoors0o.png)
 
 어플리케이션 이름을 입력하고 `Create App` 버튼을 클릭한다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_17-44-37_zps1iccwovq.png)
+![](/assets/2016-12-23_17-44-37_zps1iccwovq.png)
 
 생성 후 아래와 같은 결과를 보게 된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_17-46-49_zps05sq7hcz.png)
+![](/assets/2016-12-23_17-46-49_zps05sq7hcz.png)
 
 
 #### heroku 원격 브랜치 생성하기
@@ -112,9 +112,9 @@ $ git push origin  # 선택사항 : github에 푸시하기
 $ git push heroku master  # 허로쿠에 푸시하기
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_17-53-40_zpsekl6jinp.png)
+![](/assets/2016-12-23_17-53-40_zpsekl6jinp.png)
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-23_17-55-54_zpscluhwezj.png)
+![](/assets/2016-12-23_17-55-54_zpscluhwezj.png)
 
 
 #### 브라우저에서 확인하기
