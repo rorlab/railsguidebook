@@ -84,7 +84,8 @@ end
 
 이제 새로운 게시물을 작성하거나 수정하면 페이지 상단의 메뉴 아래에 적절한 메시지가 표시될 것이다. 당연한 것이지만, 이 메시지를 페이지를 다시 로딩하면 사라질 것이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_20-50-33_zpsfvlmdtws.png)
+![](/assets/2016-12-17_20-50-33_zpsfvlmdtws.png)
+
 
 ### bootstrap_flash_messages 젬
 
