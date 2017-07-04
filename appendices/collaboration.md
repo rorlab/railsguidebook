@@ -23,7 +23,7 @@ $ npm install gitbook -g
 
 [Github](https://github.com)에 로그인한 상태에서 [rorlab/railsguidebook](https://github.com/rorlab/railsguidebook)로 접속한 후 우측 상단에 있는 `Fork` 버튼을 클릭한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-22_20-12-10_zpsxnmtoly0.png)
+![](/assets/2016-12-22_20-12-10_zpsxnmtoly0.png)
 
 ### 저장소 clone 하기
 
@@ -77,7 +77,7 @@ $ git push
 
 에러가 없이 작성된 것이 확인되면 아래와 같이 본인의 `github` 계정 저장소에서 아래와 같이 `New pull request` 버튼을 클릭하면 본인의 커밋내용을 원조 저장소로 머지 요청을 하게 된다.\("나의 커밋을 pull해 주세요."\)
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-22_21-03-58_zps6pg01sgt.png)
+![](/assets/2016-12-22_21-03-58_zps6pg01sgt.png)
 
 이상으로 간단하게 `Gitbook`으로 공동집필하는 방법을 소개했다.
 
