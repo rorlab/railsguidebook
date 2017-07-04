@@ -8,11 +8,11 @@
 
 그리고 설정에서 네트워크의 어댑터를 하나 더 추가하여 `호스트 전용 어댑터`로지정한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-10_08-54-46_zps7f056bb5.png)
+![](/assets/2014-07-10_08-54-46_zps7f056bb5.png)
 
 디폴트로 등록되어 있는 관리자 계정은 `ubuntu`이고 비밀번호는 `reverse`이다.
 
-![우분투 윈도우 캡쳐화면](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-10_11-16-59_zpsccf5916d.png)
+![](/assets/2014-07-10_11-16-59_zpsccf5916d.png)
 
 ### 서버셋팅
 
@@ -27,7 +27,7 @@ ubuntu@ubuntu-VirtualBox:~$ sudo apt-get install openssh-server -y
 ubuntu@ubuntu-VirtualBox:~$ ip addr
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rails_guideline/2014-07-10_10-19-20_zps33fba946.png)
+![](/assets/2014-07-10_10-19-20_zps33fba946.png)
 
 
 이제 로컬 터미널을 열고 아래와 같이 우분투 가상 서버에 `ssh`로 접속한다.
