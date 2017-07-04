@@ -10,7 +10,7 @@
 
 레일스 개발을 위한 최소한의, 그러나 하나의 완전한 패키지로서 2014년 5월 20일 현재 `RailsInstaller`보다 더 높은 레일스 버전을 지원하는 것이 장점이다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2014-05-20_12-39-34_zps11cc924b.png)
+![](/assets/2014-05-20_12-39-34_zps11cc924b.png)
 
 `RailsFTW`는 `윈도우즈 8`과는 충돌이 발생할 수도 있으며 `RubyInstaller DevKit`이 포함되어 있지 않기 때문에 `DevKit`을 필요로 하는 젬을 설치하기 위해서는 [`RubyInstaller` 웹사이트](http://rubyinstaller.org/add-ons/devkit/)에서 직접 다운로드 해야 한다는 단점을 가지고 있다.
 
