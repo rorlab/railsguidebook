@@ -195,7 +195,7 @@ rcafe2_development=# select version from schema_migrations;
 
 이제 브라우저에서 http://localhost:3000/posts 로 접근하면 아래와 같은 화면을 볼 수 있다. 
 
-![posts_index](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-47-26_zpsd0567b97.png)
+![](/assets/2015-01-30_15-47-26_zpsd0567b97.png)
 
 
 위에서 `Post` 모델을 **scaffold 제너레이터**를 이용하여 생성할 때 콘솔 출력내용 중 아래와 같은 부분을 발견할 수 있다.
