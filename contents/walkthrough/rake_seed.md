@@ -37,11 +37,11 @@ $ bin/rake db:reset
 
 `as_enum`이라는 젬을 사용하기 때문에 실제 값은 아래와 같이 보이게 될 것이다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_12-31-17_zpshhykpu4g.png)
+![](/assets/2016-12-18_12-31-17_zpshhykpu4g.png)
 
 아래의 그림과 같이 `db:reset`은 DB를 삭제한 후 다시 `db:setup`하는 작업을 하는데, 이 때 `db:seed` 작업도 함께 수행된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-18_12-47-35_zpszfnsbrsz.png)
+![](/assets/2016-12-18_12-47-35_zpszfnsbrsz.png)
 
 이제 브라우저에서 확인하여 메뉴항목을 클릭하면 해당 게시판이 에러 없이 보이게 된다.
 
