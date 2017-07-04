@@ -289,11 +289,12 @@ input[type='file'] {
 
 이미지를 업로드하는 게시판을 생성하기 위해서 `http://localhost:3000/bulletins`로 접속한 후 아래와 같이 "갤러리"라는 게시판을 추가한다. 이 때 `Post_type`에서 `갤러리`로 선택하고 저장한다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-00-28_zps8pn0ckc0.png)
+![](/assets/2016-12-17_19-00-28_zps8pn0ckc0.png)
 
 이렇게 해서 게시판은 총 4개가 되었다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_18-53-42_zpspjr1auon.png)
+![](/assets/2016-12-17_18-53-42_zpspjr1auon.png)
+
 
 이제 어플리케이션 레이아웃 파일(`app/views/layouts/application.html.erb`)을 열고, 상단 메뉴항목에 `갤러리`를 추가한다.
 
@@ -370,7 +371,7 @@ gem "font-awesome-rails"
 
 갤러리 게시판에서 이미지를 추가하는 화면은 아래와 같다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-27-01_zpsesasfecy.png)
+![](/assets/2016-12-17_19-27-01_zpsesasfecy.png)
 
 
 또한, 업로더 클래스에 아래와 같이 업로드할 수 있는 파일 포맷을 지정할 수 있다.
@@ -387,13 +388,12 @@ end
 
 이러한 파일확장자 이외의 파일을 업로드하면 아래와 같은 에러 메시지가 표시된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-31-41_zpsfrrvjyfy.png)
-
+![](/assets/2016-12-17_19-31-41_zpsfrrvjyfy.png)
 
 
 `.pdf` 파일을 업로드할 경우에는 `pdf` 파일의 첫페이지가 쎔네일 이미지로 만들어진다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-46-58_zpsfxebnw6j.png)
+![](/assets/2016-12-17_19-46-58_zpsfxebnw6j.png)
 
 각 게시판 종류에 따른 레이아웃용 `partial` 템플릿 파일에서 헤더 부분의 게시판 제목 옆에 `설정` 링크를 둔다. (`_bulletin.html.erb`, `_blog.html.erb`, `_gallery.html.erb`)
 
@@ -401,7 +401,7 @@ end
 <h2><%= bulletin_name params[:bulletin_id] %> <small><%= link_to '설정', edit_bulletin_path(params[:bulletin_id])%></small></h2>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-17_19-51-34_zpsobn2udgc.png)
+![](/assets/2016-12-17_19-51-34_zpsobn2udgc.png)
 
 
 > #### Note::노트
