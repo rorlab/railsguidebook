@@ -84,7 +84,7 @@ end
 두번째 줄에서 추가된 라우트 선언을 확인할 수 있다. 
 이제 브라우저에서 http://localhost:3000/welcome/index 로 접근하면 아래 같이 보일 것이다.
 
-![welcome_controller](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_11-13-10_zpsf5a549c1.png)
+![](/assets/2015-01-30_11-13-10_zpsf5a549c1.png)
 
 짐작하겠지만, URL의 각 세그먼트, 즉, `welcome`, `index` 가 의미있게 사용된다는 것에 주목하자. 여기서 `welcome` 세그먼트는 컨트롤러 이름을, `index`는 액션 이름을 나타내어 http://localhost:3000/welcome/index 요청이 로컬 웹서버(3000포트)로 전달되면 레일스 엔진의 라우터가 어떤 컨트롤러의 어떤 액션을 호출할지를 결정하게 된다. 여기서는 `welcome` 컨트롤러의 `index` 액션을 호출하게 된다. 그렇다면 실제 `welcome` 컨트롤러의 소스코드를 살펴 보자. 보는 바와 같이 애플리케이션 내의 모든 컨트롤러는 일차적으로  `ApplicationController` 클래스로부터 상속받는다.
 
@@ -113,7 +113,7 @@ end
 <p>이 페이지는 "RCafe 프로젝트"의 Welcome 페이지입니다.</p>
 ```
 
-![welcome_to_rcafe](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-16-56_zps0144adca.png)
+![](/assets/2015-01-30_15-16-56_zps0144adca.png)
 
 여기서 `welcome` 컨트롤러의 `index` 액션을 루트 라우트로 지정하면 홈페이지(http://localhost:3000) 접속시에 자동으로 `welcome` 컨트롤러의 `index` 액션이 호출된다. 이를 위해서 `config/routes.rb`를 약간 수정해 보자.
 
@@ -134,8 +134,7 @@ end
 
 이제 브라우저를 다시 로드([http://localhost:3000](http://localhost:3000))하면 `welcome` 컨트롤러의 `index` 액션이 호출되어 해당 뷰 템플릿 파일이 렌더링되어 보이게 된다.
 
-
-![root_page](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_15-28-50_zpsbb1dcb18.png)
+![](/assets/2015-01-30_15-28-50_zpsbb1dcb18.png)
 
 
 ---
