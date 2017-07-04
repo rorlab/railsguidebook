@@ -81,11 +81,11 @@ $ rails new rcafe2
 </body>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_16-53-09_zps8a496008.png)
+![](/assets/2015-01-30_16-53-09_zps8a496008.png)
 
 브라우저의 폭을 줄이면 브라우저 상단의 navbar 메뉴가 모바일 화면에 적합하게 자동으로 축소된다.
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2015-01-30_16-55-43_zps8cdb3caa.png)
+![](/assets/2015-01-30_16-55-43_zps8cdb3caa.png)
 
 이 메뉴 아이콘을 클릭하면 감춰진 메뉴항목들이 보인다.
 
@@ -105,7 +105,7 @@ $ rails new rcafe2
 <%= link_to "글작성", posts_path, class:'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-12_20-45-16_zpsj9rmy8js.png)
+![](/assets/2016-12-12_20-45-16_zpsj9rmy8js.png)
 
 
 > **용어설명**: 
