@@ -84,7 +84,8 @@ end
 
 브라우저에서 `http://localhost:3000/posts`로 접속한 후 `New Post` 버튼을 클릭해서 글을 작성한 후 `index` 액션의 뷰 화면은 아래와 같다. 
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_18-44-58_zpsg7kf6opm.png)
+![](/assets/2016-12-13_18-44-58_zpsg7kf6opm.png)
+
 
 #### 3. show 액션
 
@@ -123,7 +124,7 @@ class PostsController < ApplicationController
 <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_18-50-57_zps9x3hslem.png)
+![](/assets/2016-12-13_18-50-57_zps9x3hslem.png)
 
 #### 4. update 액션
 
@@ -196,7 +197,7 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-21-50_zpsjo8op26l.png)
+![](/assets/2016-12-13_19-21-50_zpsjo8op26l.png)
 
 #### 7. edit 액션
 
@@ -215,7 +216,7 @@ end
 <%= render 'form' %>
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-13_19-25-26_zpsylds0hvp.png)
+![](/assets/2016-12-13_19-25-26_zpsylds0hvp.png)
 
 
 ### posts 컨트롤러
