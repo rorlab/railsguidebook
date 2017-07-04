@@ -55,7 +55,7 @@ lrwxr-xr-x  1 hyo  staff   23  5 21 07:18 rcafe@ -> /Users/user-account/rcafe
 $ open http://rcafe.dev
 ```
 
-![](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/2014-05-21_08-17-53_zpsb286a308.png)
+![](/assets/2014-05-21_08-17-53_zpsb286a308.PNG)
 
 
 ### 다른 컴퓨터에서 연결하기
