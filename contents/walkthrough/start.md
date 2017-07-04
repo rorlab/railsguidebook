@@ -280,7 +280,7 @@ Usage: rails server [mongrel, thin, etc] [options]
 
 이제 브라우저에서 `http://localhost:3000` 주소로 확인할 수 있다.
 
-![localhost:3000](http://i1373.photobucket.com/albums/ag392/rorlab/Photobucket%20Desktop%20-%20RORLAB/rcafe/2016-12-09_17-13-41_zpse9msque0.png)
+![](/assets/2016-12-09_17-13-41_zpse9msque0.png)
 
 이제 터미널에서 소스관리를 위해 `git`을 초기화한 후 커밋한다.
 
