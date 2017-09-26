@@ -332,9 +332,9 @@ CentOS Linux release 7.2.1511 (Core)
   ```bash
   # yum install -y tcl-devel libpng-devel libjpeg-devel ghostscript-devel bzip2-devel freetype-devel libtiff-devel
   # cd /usr/src
-  # wget ftp://ftp.imagemagick.org/pub/ImageMagick/ImageMagick.tar.gz
-  # tar -xzvf ImageMagick.tar.gz
-  # cd ImageMagick-7.0.3-9
+  # wget https://www.imagemagick.org/download/releases/ImageMagick-6.9.9-15.tar.gz
+  # tar -xzvf ImageMagick-6.9.9-15.tar.gz
+  # cd ImageMagick-6.9.9-15
   # ./configure --prefix=/usr/local --with-bzlib=yes --with-fontconfig=yes --with-freetype=yes --with-gslib=yes --with-gvc=yes --with-jpeg=yes --with-jp2=yes --with-png=yes --with-tiff=yes
   # make
   # make install
