@@ -169,9 +169,18 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### Nginx 서버
 
-* 참고 : [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
+* 참고 : 
+  - [https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7) 
+  - [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
 
-* `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 복사한 후 붙여 넣는다.
+
+* `nginx` 저장소를 추가한 후,
+
+  ```bash
+  # yum install -y epel-release
+  ```
+
+  또는 `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 복사한 후 붙여 넣는다.
 
   ```
   [nginx]
@@ -183,11 +192,15 @@ CentOS Linux release 7.2.1511 (Core)
 
   > _**주의:**_ CentOS, RHEL, Scientific Linux 릴리스 버전\($releasever\) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 6.x는 "6", 7.x 는 "7"을 사용하면 된다. $basesearch 에는 "x86\_64" 값을 지정한다.
 
+* 아래와 같이 설치한다.
+
   ```bash
   # yum install -y nginx
   # systemctl enable nginx
   # systemctl start nginx
   ```
+
+
 
 * 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 와 `sites-available` 폴더를 생성해 준다.
 
