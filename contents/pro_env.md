@@ -7,8 +7,8 @@
 1. Git 설치
 2. NodeJS 설치
 3. ImageMagick 설치
-4. Nginx(또는 Apache) 웹서버 설치
-5. MySQL(또는 PostgreSQL) DB서버 설치
+4. Nginx\(또는 Apache\) 웹서버 설치
+5. MySQL\(또는 PostgreSQL\) DB서버 설치
 
 이외에도 웹어플리케이션의 기능을 지원하기 위한 다양한 툴을 웹서버에 설치할 수 있다.
 
@@ -24,7 +24,6 @@
   * [Minimal ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso) 
   * [Everything ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1511.iso)
   * [DVD ISO](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-DVD-1511.iso)
-
 
 여기서는 _**Minimal ISO 버전을 설치**_하여 작업할 것이다.
 
@@ -53,32 +52,30 @@ CentOS Linux release 7.2.1511 (Core)
   Error: Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
   ```
 
-  다음과 같은 조치로 해결할 수 있다.   
+  다음과 같은 조치로 해결할 수 있다.  
   \([https://www.conory.com/note\_linux/44007](https://www.conory.com/note_linux/44007)\)
 
-  (1) 아래 명령어를 실행하여 해당 파일이 속한 패키지명을 알려 준다.
+  \(1\) 아래 명령어를 실행하여 해당 파일이 속한 패키지명을 알려 준다.
 
   ```bash
   # yum provides '*/applydeltarpm'
   ```
 
-  (2) 이제 `deltarpm` 패키지를 설치한다.
+  \(2\) 이제 `deltarpm` 패키지를 설치한다.
 
   ```bash
   # yum install deltarpm
   ```
 
-
 ### 개발툴 설치
 
-* `Development Tools` 를 설치할 때 `git`도 함께 설치된다. (2016년 12월 3일 현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0)
+* `Development Tools` 를 설치할 때 `git`도 함께 설치된다. \(2016년 12월 3일 현재 - 1.8.3.1 버전, 그러나 최신버전은 2.11.0\)
 
   > 참고 : `git` 최신버전으로 업그레이드할 경우에는 아래의 `git 업그레이드하기`가 도움이 될 것이다.
 
   ```bash
   # yum groupinstall -y "Development Tools"
   ```
-
 
 ### Deployer 유저 등록
 
@@ -91,19 +88,18 @@ CentOS Linux release 7.2.1511 (Core)
   # passwd deployer
   ```
 
-
 * 관리자 권한을 주기 위해 `wheel` 그룹에 `deployer`를 추가한다.
 
   ```bash
   # usermod -aG wheel deployer
   ```
 
-
-* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 _**코멘트 표시(#)를 삭제**_한다(108번째 코드라인).
+* `/etc/sudoers` 파일을 열어 `wheel` 그룹에 대해서 아래와 같이 _**코멘트 표시\(\#\)를 삭제**_한다\(108번째 코드라인\).
 
   ```bash
   # vi /etc/sudoers
   ```
+
   ```
   ## Allows people in group wheel to run all commands
   %wheel  ALL=(ALL)       ALL
@@ -111,19 +107,17 @@ CentOS Linux release 7.2.1511 (Core)
   %wheel  ALL=(ALL)       NOPASSWD: ALL     <=== 108번째 코드라인
   ```
 
-
 * `sshd`를 재시작한다.
 
   ```bash
   # systemctl restart sshd
   ```
 
-
 ### Firewall 설정
 
-* 참고 : 
-  * [RHEL/CentOS 7 에서 방화벽\(firewalld\) 설정하기](https://www.lesstif.com/pages/viewpage.action?pageId=22053128)
+* 참고 :
 
+  * [RHEL/CentOS 7 에서 방화벽\(firewalld\) 설정하기](https://www.lesstif.com/pages/viewpage.action?pageId=22053128)
 
 * 방화벽의 설치
 
@@ -174,12 +168,20 @@ CentOS Linux release 7.2.1511 (Core)
     ===> dhcpv6-client http https ssh
   ```
 
-
 ### Nginx 서버
 
-* 참고 : [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
+* 참고 : 
+  - [https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-centos-7) 
+  - [http://wiki.nginx.org/Install](http://wiki.nginx.org/Install)
 
-* `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 복사한 후 붙여 넣는다.
+
+* `nginx` 저장소를 추가한 후,
+
+  ```bash
+  # yum install -y epel-release
+  ```
+
+  또는 `nginx` 의 `yum` 저장소를 추가하기 위해서, `/etc/yum.repos.d/nginx.repo` 파일을 생성하고 아래의 옵션을 복사한 후 붙여 넣는다.
 
   ```
   [nginx]
@@ -191,12 +193,13 @@ CentOS Linux release 7.2.1511 (Core)
 
   > _**주의:**_ CentOS, RHEL, Scientific Linux 릴리스 버전\($releasever\) 변수에 따라 원하는 값으로 대체한다. OS 버전에 따라 6.x는 "6", 7.x 는 "7"을 사용하면 된다. $basesearch 에는 "x86\_64" 값을 지정한다.
 
+* 아래와 같이 설치한다.
+
   ```bash
   # yum install -y nginx
   # systemctl enable nginx
   # systemctl start nginx
   ```
-
 
 * 설치하고 `/etc/nginx` 디렉토리에 `sites-enabled` 와 `sites-available` 폴더를 생성해 준다.
 
@@ -213,20 +216,18 @@ CentOS Linux release 7.2.1511 (Core)
 
 * 최상단에 있는 `user` 값을 `deployer`로 변경한다.
 
-
 * 이제 파일을 닫고, `nginx`를 재시작한다.
 
   ```bash
   # systemctl restart nginx
   ```
 
+### MySQL \(5.6.34\) 서버
 
-### MySQL (5.6.34) 서버
+* 참고 :
 
-* 참고 : 
   * [How to Install MySQL on CentOS 7](https://www.linode.com/docs/databases/mysql/how-to-install-mysql-on-centos-7)
   * [Centos 7 - 데이타베이스\(MySql\) 설치](https://opentutorials.org/module/1701/10229)
-
 
 * 설치하기
 
@@ -250,16 +251,16 @@ CentOS Linux release 7.2.1511 (Core)
   ```bash
   # mysql -u root -p
   ```
+
   ```sql
   mysql> grant usage on *.* to deployer@localhost identified by 'password';
   ```
 
-
-### PostgreSQL (9.2.15) 설치
+### PostgreSQL \(9.2.15\) 설치
 
 * 참고:
-  * [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
 
+  * [How To Install and Use PostgreSQL on CentOS 7](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-centos-7)
 
 * 설치
 
@@ -296,19 +297,18 @@ CentOS Linux release 7.2.1511 (Core)
   # systemctl start postgresql
   ```
 
-* `postgres` 계정(PostgreSQL 관리자 계정)으로 변경한 후,
+* `postgres` 계정\(PostgreSQL 관리자 계정\)으로 변경한 후,
 
   ```
   # sudo -i -u postgres
   ```
 
-* `deployer` 계정(PostgreSQL용)을 생성한 후 데이터베이스까지 생성한다. (이 때 `deployer` 계정에는 데이터베이스 생성 권한을 부여한다.)
+* `deployer` 계정\(PostgreSQL용\)을 생성한 후 데이터베이스까지 생성한다. \(이 때 `deployer` 계정에는 데이터베이스 생성 권한을 부여한다.\)
 
   ```
   # createuser --interactive
   # createdb [데이터베이스명]
   ```
-
 
 ### NodeJs 설치
 
@@ -325,7 +325,6 @@ CentOS Linux release 7.2.1511 (Core)
   # make
   # make install
   ```
-
 
 ### ImageMagick 설치 \(시간 많이 걸리네~\)
 
@@ -353,7 +352,6 @@ CentOS Linux release 7.2.1511 (Core)
   export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
   ```
 
-
 * 이제 다시, `root` 계정으로 빠져나와
 
   ```bash
@@ -368,7 +366,6 @@ CentOS Linux release 7.2.1511 (Core)
   ```bash
   # yum install -y readline-devel openssl-devel
   ```
-
 
 ---
 
@@ -387,7 +384,6 @@ CentOS Linux release 7.2.1511 (Core)
   gem 'capistrano-upload-config'
   gem 'capistrano3-nginx', '~> 2.0'
   ```
-
 
 * `bundle install` 명령을 실행한 후 프로젝트 배포 준비를 위해 `capify` 명령을 실행한다.
 
@@ -445,10 +441,11 @@ CentOS Linux release 7.2.1511 (Core)
     SECRET_KEY_BASE: 9cf54********ee00f66162b7f0ce12********789b5ce782a8b1fb95d********06d78608eb9bc*********2abb
   ```
 
-  > 주의 : 이 파일(`config/appliation.yml`)은 소스관리에 포함해서는 안된다. 따라서 `.gitignore` 파일에 추가한다. 또한 `Capfile` 에 이미 아래와 같이 추가한 바 있다.
-    ```
-    require 'capistrano/figaro_yml'
-    ```
+  > 주의 : 이 파일\(`config/appliation.yml`\)은 소스관리에 포함해서는 안된다. 따라서 `.gitignore` 파일에 추가한다. 또한 `Capfile` 에 이미 아래와 같이 추가한 바 있다.
+  >
+  > ```
+  >   require 'capistrano/figaro_yml'
+  > ```
 
 * `staging` 서버로 `config/application.yml` 파일을 업로드하기 위해서 다음과 같이 명령을 실행한다.
 
@@ -460,7 +457,7 @@ CentOS Linux release 7.2.1511 (Core)
 
   ```
   $ cap staging config:init
-  ``` 
+  ```
 
 * `config/database.staging.yml` 파일은 다음과 같이 작성한다.
 
@@ -484,13 +481,13 @@ CentOS Linux release 7.2.1511 (Core)
     secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
   ```
 
-* 이제 이 두 파일은 아래의 명령을 통해서 직접 서버로 업로드되면 `linked_files`로 등록된다. 
+* 이제 이 두 파일은 아래의 명령을 통해서 직접 서버로 업로드되면 `linked_files`로 등록된다.
 
   ```
   $ cap staging config:push
   ```
 
-* `config/deploy.rb` 파일은 다음과 같이 작성한다. (디폴트 설정은 생략하였다)
+* `config/deploy.rb` 파일은 다음과 같이 작성한다. \(디폴트 설정은 생략하였다\)
 
   ```
   lock '3.6.1'
@@ -532,7 +529,7 @@ CentOS Linux release 7.2.1511 (Core)
   end
   ```
 
-  위의 코드 중의 `[...]` 부분은 각자의 상황에 맞는 값으로 변경한다.(5군데)
+  위의 코드 중의 `[...]` 부분은 각자의 상황에 맞는 값으로 변경한다.\(5군데\)
 
 * 실제 `staging` 서버로 배포 명령은 실행하는 순서는 다음과 같다.
 
@@ -545,7 +542,8 @@ CentOS Linux release 7.2.1511 (Core)
 * 이후 코드 수정후 반복해서 배포할 때는 마지막에 실행한 명령을 반복해서 실행하면 된다.
 
 * 가끔 nginx 설정 파일에 대한 퍼미션 오류가 나는 경우가 있는데, 이 때는 서버로 접근하여 아래의 명령을 실행하면 해결된다.
-    * 참고 : http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied
+
+  * 참고 : [http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied](http://unix.stackexchange.com/questions/218747/nginx-says-open-etc-nginx-conf-d-foo-conf-failed-13-permission-denied)
 
   ```
   # setenforce permissive
@@ -559,9 +557,9 @@ CentOS Linux release 7.2.1511 (Core)
 
 ### Sendmail 설치
 
-* 참고 
-  * [How to Install Sendmail Server on CentOS/RHEL 7/6/5](http://tecadmin.net/install-sendmail-server-on-centos-rhel-server/)
+* 참고
 
+  * [How to Install Sendmail Server on CentOS/RHEL 7/6/5](http://tecadmin.net/install-sendmail-server-on-centos-rhel-server/)
 
 * 설치
 
@@ -569,14 +567,13 @@ CentOS Linux release 7.2.1511 (Core)
   # yum install sendmail sendmail-cf m4
   ```
 
-
 ### Git 업그레이드하기
 
 * 참고
+
   * [How to install the latest GIT version on CentOS](https://www.howtoforge.com/how-to-install-the-latest-git-version-on-centos)
   * [“Can’t locate ExtUtils/MakeMaker.pm” while compile git](https://madcoda.com/2013/09/cant-locate-extutilsmakemaker-pm-while-compile-git/)
   * [Uninstall git on linux, fedora](http://superuser.com/questions/973961/uninstall-git-on-linux-fedora)
-
 
 * 설치 및 업그레이드하기
 
@@ -612,7 +609,6 @@ CentOS Linux release 7.2.1511 (Core)
   # git config -l
   ```
 
-
 ### CentOS 7 시스템 시간의 동기화
 
 * 서버시간과 실제시간을 동기화 해 주어야 시간이 제대로 표시된다.
@@ -620,7 +616,6 @@ CentOS Linux release 7.2.1511 (Core)
 * 참고
 
   * [CentOS 7 \| ntp로 시간 동기화 하는 방법](https://www.cmsfactory.net/node/11424)
-
 
 * 우선 ntp를 설치한다..
 
@@ -657,7 +652,6 @@ CentOS Linux release 7.2.1511 (Core)
   ```
   # date
   ```
-
 
 
 
